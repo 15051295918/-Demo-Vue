@@ -22,4 +22,4 @@ npm run build
 npm run build --report
 ```
 
-本项目由Vue Cli构建，更多详情请参考 [guide](http://vuejs-templates.github.io/webpack/) 和 [docs for vue-loader](http://vuejs.github.io/vue-loader).
+本项目由Vue Cli构建，   更多详情请参考 [guide](http://vuejs-templates.github.io/webpack/) 和 [docs for vue-loader](http://vuejs.github.io/vue-loader).
