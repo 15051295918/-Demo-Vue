@@ -7,9 +7,16 @@ import router from './router'
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
+//app.vue是程序入口大组件
+
 new Vue({
   el: '#app',
   router,
   template: '<App/>',
   components: { App }
 }) 
+
+/*
+引入app，new 将template, components 
+
+*/
