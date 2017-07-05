@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Index from '@/pages/index'
+import Index from '@/pages/index/index'
 
 Vue.use(Router)
 //vue-router显示当前路由下的所有内容
