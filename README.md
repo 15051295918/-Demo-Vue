@@ -9,7 +9,7 @@
 ## 部署步骤
 
 ``` bash
-# 安装依赖
+#  安装依赖
 npm install
 
 # 开发环境启动服务器 localhost:8080
