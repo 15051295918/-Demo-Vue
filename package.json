@@ -1,8 +1,8 @@
 {
-  "name": "laizhe",
+  "name": "20170705yzc",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "shenglong.li <913937000@qq.com>",
+  "author": "jack <yuzhicheng@163.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "vue": "^2.3.3",
+    "vue-awesome-swiper": "^2.5.0",
     "vue-router": "^2.3.1"
   },
   "devDependencies": {
