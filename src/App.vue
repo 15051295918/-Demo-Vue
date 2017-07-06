@@ -13,4 +13,5 @@ export default {
 <style>
 	/* 公共样式放到根组件里 */
 	@import "./assets/css/reset.css";
+	@import "./assets/css/border.less";
 </style>

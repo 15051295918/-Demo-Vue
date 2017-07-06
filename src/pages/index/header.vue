@@ -1,6 +1,8 @@
 <template>
 	<header class="header">
-  		<a class="header-left"><</a>
+  		<a class="header-left">
+  			<span class="return"></span>
+  		</a>
   		<div class="header-title">
   			<span class="single-line">输入城市/景点/游玩主题</span>
   		</div>
@@ -38,6 +40,7 @@ export default {
 	    text-align: center;
 	    color: #fff;
 	}
+
 	.header-left {
 	    display: inline-block;
 	    width: .4rem;
@@ -47,6 +50,7 @@ export default {
 	    font-size: .36rem;
 	    text-align: left;
 	}
+
 	.header-title {
 		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
@@ -61,6 +65,7 @@ export default {
 		line-height: .6rem;
 		border-radius: .06rem;
 	}
+
 	.single-line {
 	    display: inline-block;
 	    overflow: hidden;
@@ -72,9 +77,20 @@ export default {
 	    text-overflow: ellipsis;
 	    color: #ccc;
 	}
+
 	.header-city {
 		line-height: .88rem;
     	padding: 0 .22rem;
     	color: #fff;
+	}
+
+	.return {
+		display: block;
+		transform: rotateZ(45deg);
+		width: .24rem;
+		height: .24rem;
+		border-left: .04rem solid #fff;
+		border-bottom: .04rem solid #fff;
+		margin: .3rem .1rem;
 	}
 </style>
