@@ -1,18 +1,26 @@
 <template>
-	<div>加油吧，少年</div>
+	<div class="main">
+		<list-lists></list-lists>
+	</div>
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-     
-    }
-  }
-}
+
+	import lists from './lists.vue'
+
+	export default {
+		data () {
+			return {
+
+			}
+		},
+		components: {
+			"list-lists": lists
+		}
+	}
 </script>
 
 
 <style scoped>
-	
+
 </style>
