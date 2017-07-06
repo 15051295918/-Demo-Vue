@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/pages/index/index'
 import List from '@/pages/list/index'
-import sigthotelIndex from "@/sighthotel/index/index" 
+import sigthotelIndex from "@/pages/sighthotel/index/index" 
 
 Vue.use(Router)
 
