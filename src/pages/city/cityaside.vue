@@ -1,6 +1,6 @@
 <template>
 	<div class="letter">
-		<ul>
+		<ul @touchmove="touchmove">
 			<li @click="touchstart">A</li>
 			<li>B</li>
 			<li>C</li>
@@ -38,7 +38,10 @@ export default {
 		methods:{
 			"touchstart":function(){
 				alert()
-			}
+			},
+			"touchmove" :function(e){
+				console.log(e.clientY);
+			},
 		}
 	}
 </script>
@@ -46,7 +49,7 @@ export default {
 <style scoped>
 	ul{
 		position:fixed;
-		top:1rem;
+		top:1.8rem;
 		right:0;
 	}
 	li{
