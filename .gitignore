@@ -15,4 +15,5 @@ yarn-error.log*
 
 # Ignore everything in this directory   
 *   
-# Except this file !.gitkeep   
+# Except this file 
+!.gitkeep   
