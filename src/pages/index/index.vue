@@ -1,6 +1,5 @@
 <template>
     <div class="main">
-        131
         <index-header></index-header>
         <imgs-swiper :data="swiperInfo"></imgs-swiper>
         <icons-swiper :icons="iconInfo" :recommends="recommendInfo"></icons-swiper>
