@@ -7,6 +7,7 @@
 </template>
 
 <script>
+
 export default {
   data () {
     return {
@@ -15,7 +16,7 @@ export default {
      			imgUrl: "http://img1.qunarzz.com/piao/fusion/1601/29/30427c0e0658b5f7.png",
      			link: ""
      		},{
-     			imgUrl: "http://img1.qunarzz.com/piao/fusion/1601/29/30427c0e0658b5f7.png",
+     			imgUrl: "http://img1.qunarzz.com/piao/fusion/1608/b6/5f3ce97effee602.png",
      			link: ""
      		}
      	]

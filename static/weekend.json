@@ -1,0 +1,68 @@
+{
+	"ret": true,
+	"data":{
+		"detailInfo": [{
+    		"imgUrl": "http://img1.qunarzz.com/sight/p0/1501/28/2874bfd7fa4c5291.water.jpg_600x330_f8d39e2b.jpg",
+    		"title":"中国航空博物馆",
+    		"content":"亚洲最大以飞机文物为主的航空珍品荟萃基地",
+    		"s-imgUrl":"http://img1.qunarzz.com/sight/p0/1501/28/2874bfd7fa4c5291.water.jpg_710x420_e2b2433b.jpg",
+    		"detail":"有露天展厅和洞库展厅,教-8是由我国中航工业洪都航空工业集团有限责任公司研制的单发双座教练机，属于基础教练机，出口型命名为K-8。C-46飞机是美国寇蒂斯-莱特飞机公司生产的活塞式运输机，1940年3月原型机首次试飞。"
+    	},{
+    		"imgUrl": "http://img1.qunarzz.com/sight/p0/1501/8d/8d99565a2dea08e7.water.jpg_600x330_e1976db0.jpg",
+    		"title":"中国蜂蜜博物馆",
+    		"content":"小昆虫大世界",
+    		"s-imgUrl":"http://img1.qunarzz.com/sight/p0/1501/ff/ff825bc9d9209e5a.water.jpg_710x420_89038bbc.jpg",
+    		"detail":"在蜜蜂王国，可以看到形态大小不同的蜂种和硕大罕见的野生大蜜蜂蜂巢，了解“蜜蜂王国”种种引人入胜的生物学特性和社会性行为的奥秘。"
+    	},{
+    		"imgUrl": "http://img1.qunarzz.com/sight/p0/1602/e6/e655d7ee86c7fd1390.water.jpg_600x330_e53c0c38.jpg",
+    		"title":"中国科学技术馆",
+    		"content":"科学性、知识性、趣味性相结合的展厅",
+    		"s-imgUrl":"http://img1.qunarzz.com/sight/p0/1501/e6/e60e65803b0a81b9.water.jpg_710x420_33d78410.jpg",
+    		"detail":"走进科幻世界，了解人类对宇宙的认识与大胆想象，知道反物质火箭吗？去过白矮星吗？快来“挑战与未来”展厅探索吧！"
+    	},{
+    		"imgUrl": "http://img1.qunarzz.com/sight/p25/201211/00/8a09e85dceb22cea93835fbb.jpg_600x330_5572b414.jpg",
+    		"title":"北京自然博物馆",
+    		"content":"打开通往自然的大门，去探索大自然的奥妙",
+    		"s-imgUrl":"http://img1.qunarzz.com/sight/p64/201211/06/5e4d06b4a362fa2a93835fbb.jpg_710x420_137c825a.jpg",
+    		"detail":"恐龙世界向我们展示了恐龙里面的庞然大物，栩栩如生，赏心悦目。"
+    	},{
+    		"imgUrl": "http://img1.qunarzz.com/sight/p81/201211/07/453d7d250c21a48693835fbb.jpg_600x330_2a97f6d5.jpg",
+    		"title":"中国古动物馆",
+    		"content":"亚洲最大的古生物博物馆",
+    		"s-imgUrl":"http://img1.qunarzz.com/sight/p0/1501/2d/2d5ebfc62326dd48.water.jpg_710x420_48310ac0.jpg",
+    		"detail":"这条拉蒂迈鱼标本是1976年在科摩罗海域捕获的，1982年科摩罗政府为了表达对中国人民的友好情意将这一珍贵标本赠送给中国。古鸟类展区中展出了各地质时期的各种鸟类化石、——孔子鸟等著名的古鸟类化石。"
+    	},{
+    		"imgUrl": "http://img1.qunarzz.com/sight/p0/1501/91/913a6c6e45ea135b.water.jpg_600x330_6164616e.jpg",
+    		"title":"警察博物馆",
+    		"content":"首都公安的巨大贡献和取得的辉煌成就",
+    		"s-imgUrl":"http://img1.qunarzz.com/sight/p0/1501/93/93dee746cc4e328.water.jpg_710x420_cf46f7b4.jpg",
+    		"detail":"各个时代的警用手枪，让你了解到这个职业数年来的变化，感受作为一个警察的危险和伟大。这里还展出了历年国庆纪念章，它们记载着新中国的历史，很有收藏价值。"
+    	},{
+    		"imgUrl": "http://img1.qunarzz.com/sight/p0/1705/3d/3d7d3740d157a9e9a3.img.jpg_600x330_cf7c0eef.jpg",
+    		"title":"首都博物馆",
+    		"content":"古代与现代并存，文明与科技兼顾",
+    		"s-imgUrl":"http://img1.qunarzz.com/sight/p0/1501/46/466611f5eddce906.water.jpg_710x420_9adda6c8.jpg",
+    		"detail":"北京，一座古老与现代相交融的城市。在一座座高楼大厦的遮挡下，充满京味的胡同，蕴含历史的四合院等还保存着它原有的模样。"
+    	},{
+    		"imgUrl": "http://img1.qunarzz.com/wugc/p153/201204/20/18790ec397b2afe193835fbb.jpg_600x330_006e96c5.jpg",
+    		"title":"中国国家博物馆",
+    		"content":"历史与艺术并重，凝聚中国历史文化之精华",
+    		"s-imgUrl":"http://img1.qunarzz.com/wugc/p153/201204/20/18790ec397b2afe193835fbb.jpg_710x420_68ceb8ad.jpg",
+    		"detail":"展出的后母戊鼎是商周时期青铜文化的代表作，反映了当时中国青铜铸造的工艺和艺术水平。"
+    	},
+    {
+    		"imgUrl": "http://img1.qunarzz.com/sight/p0/1501/d0/d00d72664c3e73d8.water.jpg_600x330_20d81a68.jpg",
+    		"title":"北京天文馆",
+    		"content":"陪你去看流星雨落在这地球上",
+    		"s-imgUrl": "http://img1.qunarzz.com/sight/p0/1501/6d/6da2214f48a9e93a.water.jpg_710x420_c7c68b1c.jpg",
+    		"detail":"我国古代的历法较为特殊，大多为阴阳合历，从古六历到清时宪历，共102种。其中仅有2部纯阳历，前后经历了五次较为重大的历法改革。"
+    	},{
+    		"imgUrl": "http://img1.qunarzz.com/sight/p0/1507/59/76e0dc86d4416f913d9d919ec79ffe0e.water.jpg_600x330_9d5744c9.jpg",
+    		"title":"北京汽车博物馆",
+    		"content":"感受汽车的无穷魅力，享受汽车的无限乐趣",
+    		"s-imgUrl":"http://img1.qunarzz.com/sight/p0/1507/6f/5857a249e5731a39cb79e543759c5b05.water.jpg_710x420_1e5f098c.jpg",
+    		"detail":"科技、文化、创造之旅,炎炎夏日，宝贝觉得太热？那选择室内参观吧，汽车博物馆是个不错的地方喔！富于动感的“眼睛”外型和柔和曲线的设计灵感源于汽车造型的设计手法，俯视其宛如一只明亮的眼睛，寓意“放眼世界、面向未来”。"
+    	}]
+    	
+	}
+}
