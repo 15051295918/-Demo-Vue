@@ -1,23 +1,22 @@
 <template>
-	<swiper :options="swiperOption" ref="mySwiper">
-        <swiper-slide>
-        	<div class="icon-container">
-        		<div class="icon-wrapper" v-for="item in swiperInfo">
-        			<img :src="item.imgUrl" class="icon-img">
-        			<p class="icon-title">{{item.title}}</p>
-        		</div>
-        	</div>
-        </swiper-slide>
-        <swiper-slide>
-            <div class="icon-container">
-                <div class="icon-wrapper" v-for="item in swiperInfo">
-                    <img :src="item.imgUrl" class="icon-img">
-                    <p class="icon-title">{{item.title}}</p>
-                </div>
+    <div>
+    	<swiper :options="swiperOption" ref="mySwiper">
+            <swiper-slide v-for="page in pages">
+            	<div class="icon-container">
+            		<div class="icon-wrapper" v-for="item in page">
+            			<img :src="item.imgUrl" class="icon-img">
+            			<p class="icon-title">{{item.title}}</p>
+            		</div>
+            	</div>
+            </swiper-slide>
+            <div class="swiper-pagination icon-pagination"  slot="pagination"></div>
+        </swiper>
+        <div class="recommend border-topbottom">
+            <div class="recomment-item" v-for="(item, index) in recommendInfo" :class="{'border-right': index == 0}">
+                {{item.title}}
             </div>
-        </swiper-slide>
-        <div class="swiper-pagination icon-pagination"  slot="pagination"></div>
-    </swiper>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -25,82 +24,72 @@
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 
 export default {
-  data () {
-    return {
-    	swiperInfo: [{
-    		imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-    		title: "景点门票",
-    		link:""
-    	},{
-    		imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/1a/261d4530330c202.png",
-    		title: "水上乐园",
-    		link:""
-    	},{
-    		imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/a9/ffc620dbda9b9c02.png",
-    		title: "一日游",
-    		link:""
-    	},{
-    		imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/1c/a8a8d9023a814c02.png",
-    		title: "文化古迹",
-    		link:""
-    	},{
-    		imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/ea/8cb1dce519375d02.png",
-    		title: "古北水镇",
-    		link:""
-    	},{
-    		imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/35/2640cab202c41b02.png",
-    		title: "动植物园",
-    		link:""
-    	},{
-    		imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/45/676b67d7078abc02.png",
-    		title: "故宫",
-    		link:""
-    	},{
-    		imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/59/569d3c096e542502.png",
-    		title: "必游榜单",
-    		link:""
-    	},{
-    		imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/59/569d3c096e542502.png",
-    		title: "公园",
-    		link:""
-    	},{
-    		imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/4c/cb6f790552dc3002.png",
-    		title: "农家度假",
-    		link:""
-    	},{
-    		imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/aa/a4cc16ba5e66a702.png",
-    		title: "亲子游",
-    		link:""
-    	},{
-    		imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/d0/e09575e66f4aa402.png",
-    		title: "游乐场",
-    		link:""
-    	},{
-    		imgUrl: "https://img1.qunarzz.com/piao/fusion/1611/d1/1e49d9e4d7fca102.png",
-    		title: "暑期大促",
-    		link:""
-    	},{
-    		imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/c3/133460666f6f9202.png",
-    		title: "室内娱乐",
-    		link:""
-    	},{
-    		imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/1a/261d4530330c202.png",
-    		title: "水上乐园",
-    		link:""
-    	},{
-    		imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/be/a70e61e1f57ee302.png",
-    		title: "全部",
-    		link:""
-    	}],
-     	swiperOption: {
-            autoplay: false,
-            direction : 'horizontal',
-            autoHeight: true,
-            pagination : '.swiper-pagination',
-            paginationClickable :true
+    data () {
+        return {
+        	swiperInfo: [{
+        		imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+        		title: "故宫",
+        		link:""
+        	},{
+                imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+                title: "故宫",
+                link:""
+            },{
+                imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+                title: "故宫",
+                link:""
+            },{
+                imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+                title: "故宫",
+                link:""
+            },{
+                imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+                title: "故宫",
+                link:""
+            },{
+                imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+                title: "故宫",
+                link:""
+            },{
+                imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+                title: "故宫",
+                link:""
+            },{
+                imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+                title: "故宫",
+                link:""
+            }],
+            recommendInfo: [{
+                icon: "",
+                title: "机票推荐",
+                link:""
+            }, {
+                icon: "",
+                title: "9元门票",
+                link:""
+            }],
+         	swiperOption: {
+                autoplay: false,
+                direction : 'horizontal',
+                autoHeight: true,
+                pagination : '.swiper-pagination',
+                paginationClickable :true
+            }
+        }
+    },
+    computed: {
+        pages: function() {
+            var pages = [];
+            for (var i = 0; i < this.swiperInfo.length; i++) {
+                var page = Math.floor(i / 8); 
+                if (!pages[page]) { 
+                    pages[page] = [] 
+                }
+                pages[page].push(this.swiperInfo[i]);
+            }
+            return pages;
         }
     }
-  }
 }
 </script>
 
@@ -109,6 +98,7 @@ export default {
 	.icon-container {
 		overflow: hidden;
 		padding-bottom: .4rem;
+        height: 2.88rem;
 	}
 	.icon-wrapper {
 		padding-top: .3rem;
@@ -130,4 +120,12 @@ export default {
 	.icon-pagination {
 		bottom: .1rem;
 	}
+    .recommend {
+        display: flex;
+    }
+    .recomment-item {
+        flex: 1;
+        line-height: 1rem;
+        text-align: center;
+    }
 </style>

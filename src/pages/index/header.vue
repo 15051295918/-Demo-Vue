@@ -1,6 +1,8 @@
 <template>
 	<header class="header">
-  		<a class="header-left"><</a>
+  		<a class="header-left">
+  			<div class="return"></div>
+  		</a>
   		<div class="header-title">
   			<span class="single-line">输入城市/景点/游玩主题</span>
   		</div>
@@ -12,7 +14,6 @@
 </template>
 
 <script>
-
 export default {
   data () {
     return {
@@ -75,8 +76,8 @@ export default {
     	padding: 0 .25rem;
     	color: #fff;
     	text-align: center;
-	}
-	.header-city-option{
+    }
+    .header-city-option{
 		height: 0rem;
 		width: 0rem;
 		border:0.13rem solid transparent;
@@ -84,5 +85,12 @@ export default {
     	position: relative;
     	top:0.22rem;  	
 	}
-	
+    .return{
+		transform: rotateZ(45deg);
+		width: .24rem;
+		height: .24rem;
+		border-left: .04rem solid #fff;
+		border-bottom: .04rem solid #fff;
+		margin: .3rem .1rem;
+	}
 </style>
