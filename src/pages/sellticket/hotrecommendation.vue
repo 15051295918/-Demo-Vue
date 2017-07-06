@@ -1,7 +1,7 @@
 <template>
 	<div class="HotRecommendation">
 		<div class="navbar-hot">
-			<div class="hot-toplist" v-for="(hottitle,index) in data" :key="index + '_hot_title_name'">
+			<div class="hot-toplist" v-for="(hottitle,index) in dataInfo" :key="index + '_hot_title_name'">
 				<div class="hot-navbar">
 					<span class="hot-navbar-title">{{hottitle.navbarTitle}}</span>
 				</div>
@@ -50,7 +50,7 @@ export default {
   
 		}
     },
-    props:["data","hotproductInfo"]
+    props:["dataInfo","hotproductInfo"]
 }
 </script>
 
