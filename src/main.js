@@ -8,12 +8,6 @@ Vue.config.productionTip = false
 
 Vue.use(VueAwesomeSwiper)
 
-<<<<<<< HEAD
-/* eslint-disable no-new */
-//app.vue是程序入口大组件
-
-=======
->>>>>>> origin/master
 new Vue({
   el: '#app',
   router: router,
