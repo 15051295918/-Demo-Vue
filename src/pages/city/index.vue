@@ -14,9 +14,18 @@
 	import cityaside from "./cityaside" 
 
 	export default {
+		created: function() {
+			this.$http.get("/static/city.json").then(response => {
+				this.cityInfo = response.body;
+				console.log(response.body);
+			}, response => {
+				console.log("get city data err!")
+			}); 
+		},
+
 		data() {
 			return {
-
+				cityInfo: []
 			}
 		},
 		components: {
