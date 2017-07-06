@@ -1,0 +1,35 @@
+{
+    "ret": true,
+    "data":{
+        "swiperInfo": [{
+            "quantity": 1,
+            "imageUrl": "http://img1.qunarzz.com/piao/fusion/1706/9f/140d1c0afa04f402.jpg",
+            "link": ""
+        },{
+            "quantity": 1,
+            "imageUrl": "http://img1.qunarzz.com/piao/fusion/1611/ea/04c73b87b4255102.jpg",
+            "link": ""
+        },{
+            "quantity": 1,
+            "imageUrl": "http://img1.qunarzz.com/piao/fusion/1610/12/4281546f8d980f02.jpg",
+            "link": ""
+        }],
+        "categoryInfo": [{
+            "imageUrl": "http://img1.qunarzz.com/piao/fusion/1609/31/5fc721e016301702.png",
+            "title": "现金劵",
+            "link":""
+        },{
+            "imageUrl": "http://img1.qunarzz.com/piao/fusion/1609/9f/fa5a66c9b7834302.png",
+            "title": "景点门票",
+            "link":""
+        },{
+            "imageUrl": "http://img1.qunarzz.com/piao/fusion/1609/a2/a0aa99e0c1efa202.png",
+            "title": "吃货天地",
+            "link":""
+        },{
+            "imageUrl": "http://img1.qunarzz.com/piao/fusion/1609/32/c905ca18c963cf02.png",
+            "title": "全部",
+            "link":""
+        }]
+    }      
+}
