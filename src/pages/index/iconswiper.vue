@@ -122,5 +122,4 @@ export default {
 	.icon-pagination {
 		bottom: .1rem;
 	}
-    
 </style>
