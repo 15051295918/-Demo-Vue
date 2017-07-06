@@ -11,9 +11,6 @@ export default {
 </script>
 
 <style>
-<<<<<<< HEAD
     @import  "./assets/css/reset.css";
-=======
-	@import "./assets/css/reset.css";
->>>>>>> origin/master
+	@import "./assets/css/border.css";
 </style>
