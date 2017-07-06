@@ -1,7 +1,7 @@
 <template>
 	<header class="header">
   		<a class="header-left">
-  			<div class="mp-return"></div>
+  			<div class="return"></div>
   		</a>
   		<div class="header-title">
   			<span class="single-line">输入城市/景点/游玩主题</span>
@@ -75,12 +75,12 @@ export default {
     	padding: 0 .22rem;
     	color: #fff;
 	}
-	.mp-return{
+	.return{
 		transform: rotateZ(45deg);
-		width:.24rem;
-		height:.24rem;
-		border-left:0.05rem solid #fff;
-		border-bottom: 0.05rem solid #fff;
-		margin:.22rem .1rem;
+		width: .24rem;
+		height: .24rem;
+		border-left: .04rem solid #fff;
+		border-bottom: .04rem solid #fff;
+		margin: .3rem .1rem;
 	}
 </style>
