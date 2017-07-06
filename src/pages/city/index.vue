@@ -2,7 +2,7 @@
 	<div>
 		<city-header></city-header>
 		<city-hot></city-hot>
-		<city-list></city-list>
+		<city-list :cityInfo="cityInfo"></city-list>
 		<city-aside></city-aside>
 	</div>
 </template>
@@ -17,7 +17,6 @@
 		created: function() {
 			this.$http.get("/static/city.json").then(response => {
 				this.cityInfo = response.body;
-				console.log(response.body);
 			}, response => {
 				console.log("get city data err!")
 			}); 
@@ -25,7 +24,14 @@
 
 		data() {
 			return {
-				cityInfo: []
+				cityInfo: [
+					{
+						"label": "北京Beijing010",
+						"name": "北京",
+						"pinyin": "Beijing",
+						"zip": "010"
+					}
+				]
 			}
 		},
 		components: {

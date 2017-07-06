@@ -3,10 +3,7 @@
 		<li class="city-list" v-for="item in cityIndex">
 			<dl>
 				<dt class="city-index border-bottom">{{item}}</dt>
-				<dd class="city-item border-bottom">啦啦啦</dd>
-				<dd class="city-item border-bottom">啦啦啦</dd>
-				<dd class="city-item border-bottom">啦啦啦</dd>
-				<dd class="city-item border-bottom">啦啦啦</dd>
+				<dd class="city-item border-bottom" v-for="value in cityDatas">{{value.name}}</dd>
 			</dl>
 		</li>
 	</ul>
@@ -14,14 +11,41 @@
 
 <script>
 	
+
 	export default {
+		beforeMount: function() {
+			// this.cityMessage = [];
+			// this.cityIndex.map(value => {
+			// 	this.cityMessage.push(cityDataFilter(this.cityInfo, value));
+			// })
+			// console.log(this.cityMessage);
+		},
 
 		data () {
 			return {
-				cityIndex: ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+				cityIndex: ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"],
+				cityMessage: []
+			}
+		},
+		props: ["cityInfo"],
+		computed: {
+			//函数实现功能：输入json数据、字母字符串，返回城市名称
+			cityDatas: function() {
+				var msg = this.cityInfo;
+				var words = "a";
+
+				words = words.toString().toLowerCase();
+				words.toString().split("").map((word, num) => {
+					msg = msg.filter((value, index) => {
+						var str = value.pinyin.charAt(num).toLowerCase();
+						return word == str;
+					})
+				})
+				return msg;
 			}
 		}
 	}
+
 </script>
 
 <style scoped>
