@@ -1,0 +1,35 @@
+<template>
+	<div>
+		<city-header></city-header>
+		<city-hot></city-hot>
+		<city-list></city-list>
+		<city-aside></city-aside>
+	</div>
+</template>
+
+<script>
+	import cityheader from "./cityheader" 
+	import cityhot from "./cityhot" 
+	import citylist from "./citylist" 
+	import cityaside from "./cityaside" 
+
+	export default {
+		data() {
+			return {
+
+			}
+		},
+		components: {
+			"city-header": cityheader,
+			"city-hot": cityhot,
+			"city-list": citylist,
+			"city-aside": cityaside
+		}
+		
+	}
+	
+</script>
+
+<style scoped>
+	
+</style>

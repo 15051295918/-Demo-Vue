@@ -1,9 +1,9 @@
 <template>
-	<div>our citylist</div>
+	<div>hot</div>
 </template>
 
 <script>
-
+	
 </script>
 
 <style scoped>
