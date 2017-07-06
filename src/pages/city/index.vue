@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<city-header></city-header>
-		<city-hot></city-hot>
+		<city-hot :citys="cityInfo"></city-hot>
 		<city-list></city-list>
 		<city-aside></city-aside>
 	</div>
@@ -17,7 +17,7 @@
 		created: function() {
 			this.$http.get("/static/city.json").then(response => {
 				this.cityInfo = response.body;
-				//console.log(response.body);
+				// console.log(response.body);
 			}, response => {
 				console.log("get city data err!")
 			}); 
