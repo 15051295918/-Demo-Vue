@@ -11,3 +11,7 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
+*
+
+# Except this file
+!.gitignore
