@@ -93,6 +93,6 @@ export default {
 		height: .24rem;
 		border-left: .04rem solid #fff;
 		border-bottom: .04rem solid #fff;
-		margin: .3rem .1rem;
+		margin: .3rem .3rem;
 	}
 </style>
