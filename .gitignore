@@ -12,8 +12,4 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
-
-# Ignore everything in this directory   
-*   
-# Except this file 
-!.gitkeep   
+  
