@@ -1,5 +1,6 @@
 <template>
     <div class="main">
+        131
         <index-header></index-header>
         <imgs-swiper></imgs-swiper>
         <icons-swiper></icons-swiper>
