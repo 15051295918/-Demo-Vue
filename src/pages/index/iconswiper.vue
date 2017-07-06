@@ -1,4 +1,6 @@
 <template>
+  <div>
+
 	<swiper :options="swiperOption" ref="mySwiper">
         <swiper-slide>
         	<div class="icon-container">
@@ -10,6 +12,11 @@
         </swiper-slide>
         <div class="swiper-pagination icon-pagination"  slot="pagination"></div>
     </swiper>
+    <div class="recommend">
+        <div class="recomment_item recomment_left">美食推荐</div>
+        <div class="recomment_item">9元门票</div>
+    </div>
+ </div>   
 </template>
 
 <script>
@@ -86,6 +93,20 @@ export default {
     		title: "香山",
     		link:""
     	}],
+        computed: {
+            pages:function() {
+            var page = [];
+                for (var i = 0; i < this.swiperInfo.length; i++) {
+                    var page = Math.floor(1/8);
+                    if(!pages[page]) {
+                    pages[page]=[]
+                    }
+                    pages[psge].push(this.swiperInfo[i])
+                }
+                console.log(pages);
+                return pages;
+            }
+        },
      	swiperOption: {
             autoplay: false,
             direction : 'horizontal',
@@ -124,4 +145,17 @@ export default {
 	.icon-pagination {
 		bottom: .1rem;
 	}
+    .recommend{
+        display:flex;
+    }
+    .recomment_item{
+        flex:1;
+        line-height:1rem;
+        text-align:center;
+        border-top:1px solid #ccc;
+        border-bottom:1px solid #ccc;
+    }
+    .recomment_left{
+        border-right:1px solid #ccc;
+    }
 </style>
