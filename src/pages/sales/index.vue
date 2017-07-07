@@ -1,7 +1,7 @@
 <template>
 <div>
 	<promotional-tickets :ticketproductInfo = "ticketInfo"></promotional-tickets>
-	 <hot-recommendation :dataInfo="hotTitleName" :hotproductInfo="hotProductName"></hot-recommendation>
+	<hot-recommendation :dataInfo="hotTitleName" :hotproductInfo="hotProductName"></hot-recommendation>
 </div>
 </template>
 
@@ -19,15 +19,15 @@ export default {
 		});
 	},
   data () {
-    return {
-     ticketInfo: [],
-	 hotTitleName: [],
-     hotProductName: []
-    }
+     return {
+        ticketInfo: [],
+	    hotTitleName: [],
+        hotProductName: []
+     }
   },
   components:{
-  	"promotional-tickets":promotionaltickets,
-	"hot-recommendation": hotrecommendation
+   	  "promotional-tickets":promotionaltickets,
+	  "hot-recommendation": hotrecommendation
   }
 }
 </script>
