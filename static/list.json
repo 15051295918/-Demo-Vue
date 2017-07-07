@@ -1,1 +1,54 @@
-list.json
+{
+	"ret": true,
+	"data":{
+		"primaryinfo":["全部分类","推荐排序"],
+		"subnavinfo":[
+			{
+				"title":"全部分类",
+				"linnk":
+			},
+			{
+				"title":"运动健身",
+				"content":[
+					{
+						"itemtitle":"全部运动健身",
+						"link":
+
+					},{
+						"itemtitle":"游泳",
+						"link":
+					},
+					{
+						"itemtitle":"健身",
+						"link":
+					},
+					{
+						"itemtitle":"滑雪",
+						"link":
+					},
+					{
+						"itemtitle":"体育馆",
+						"link":
+					},
+					{
+						"itemtitle":"瑜伽",
+						"link":
+					},
+					{
+						"itemtitle":"保龄球",
+						"link":
+					},{
+						"itemtitle":"舞蹈",
+						"link":
+					},
+					{
+						"itemtitle":"各种求",
+						"link":
+					}
+				
+				],
+				"link":
+			}
+		]
+	}
+}
