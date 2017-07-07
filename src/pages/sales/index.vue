@@ -10,8 +10,7 @@ import promotionaltickets from "./promotional_tickets";
 import hotrecommendation from './hotrecommendation';
 export default {
 	created:function(){
-		this.$http.get("/static/sellticket.json").then(response=>{
-		    console.log(response.bodyText.data)
+		this.$http.get("/static/sales.json").then(response=>{
 			this.ticketInfo = response.body.data.ticketproductInfo;
 			this.hotTitleName = response.body.data.hotTitleName;
             this.hotProductName = response.body.data.hotTicketInfo;

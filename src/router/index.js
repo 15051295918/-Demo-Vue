@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/pages/index/index'
 import List from '@/pages/list/index'
-import Sellticket from '@/pages/sellticket/index'
+import Sales from '@/pages/sales/index'
 
 Vue.use(Router)
 
@@ -17,9 +17,9 @@ export default new Router({
     	name: "List",
     	component: List
     }, {
-        path: "/sellticket",
-        name: "Sellticket",
-        component: Sellticket
+        path: "/sales",
+        name: "sales",
+        component: Sales
     }
   ]
 })

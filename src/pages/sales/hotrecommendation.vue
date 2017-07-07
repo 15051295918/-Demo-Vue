@@ -1,5 +1,5 @@
 <template>
-	<div class="HotRecommendation">
+	<div class="hotrecommendation">
 		<div class="navbar-hot">
 			<div class="hot-toplist" v-for="(hottitle,index) in dataInfo" :key="index + '_hot_title_name'">
 				<div class="hot-navbar">
@@ -34,8 +34,8 @@
 		<a href="http://touch.piao.qunar.com/touch/list.htm?keyword=&cat=dist_city%3D%25E5%258C%2597%25E4%25BA%25AC%26from_area%3Dts_yunying%26from_value%3D_tehui_product" class="hot-moreproduct">更多当季热门推荐 >></a>
 		
 		<div class="ticket-price">
-			<span class="Prompt-icon iconfont icon-jinggao"></span>
-			<strong class="Prompt-info">
+			<span class="prompt-icon iconfont icon-jinggao"></span>
+			<strong class="prompt-info">
 				票面价
 			</strong>
 			是指通过景区指定窗口售卖的纸质门票上标注的价格
@@ -56,7 +56,7 @@ export default {
 
 
 <style scoped>
-	.HotRecommendation {
+	.hotrecommendation {
 		color:#333;
 		font-size: .28rem;
 		background:#f2f8fb;
@@ -79,7 +79,6 @@ export default {
 		font-size:.3rem;
 		line-height:.48rem;
 	}
-
 	.hot-toplist {
 		min-height:.74rem;
 		padding:.2rem 0 .1rem .1rem;
@@ -104,7 +103,6 @@ export default {
 		text-align:center;
 		border-radius:.04rem;
 	}
-
 	.hotlist-item-flexbox {
 		position: relative;
 		width: 100%;
@@ -164,7 +162,6 @@ export default {
 		text-decoration:line-through;
 		margin-top:.16rem
 	}
-
 	.hot-moreproduct {
 		display:block;
 		background:#fff;
@@ -178,7 +175,6 @@ export default {
 		margin-bottom:.2rem;
 		border-bottom:.02rem solid #cbdade
 	}
-
 	.ticket-price {
 		position: relative;
 		margin-top: .2rem;
@@ -189,9 +185,7 @@ export default {
 		line-height: .3rem;
 		text-align: center;
 	}
-	.Prompt-info {
-		font-weight: 900;
+	.prompt-info {
+		font-weight: bold;
 	}
-
-
 </style>
