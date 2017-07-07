@@ -161,7 +161,6 @@ export default {
 }
 .ticket-now-price{
 	font-size: .48rem;
-	margin-left: .02rem;
 	font-style: normal;
 	text-align: right;
 	display: inline-block;
