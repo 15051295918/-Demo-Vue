@@ -44,10 +44,14 @@
 			handleInternal : function(){
 				this.internal = true;
 				this.external =  false;
+				this.$emit("domesticCity");
+
 			},
 			handleExternal: function() {
 				this.internal = false;
 				this.external = true;
+				this.$emit("overseasCity");
+
 			}		
 		},
 		watch: {
