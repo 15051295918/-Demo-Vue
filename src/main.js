@@ -11,7 +11,7 @@ FastClick.attach(document.body);
 Vue.config.productionTip = false
 Vue.use(VueAwesomeSwiper)
 Vue.use(VueResource);
-
+var bus = new Vue();
 new Vue({
   el: '#app',
   router: router,

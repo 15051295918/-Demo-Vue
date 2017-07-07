@@ -4,7 +4,7 @@
 			<div class="cityarea-title">您的位置</div>
 			<div class="cityarea-content city-now border-topbottom">
 				<div class="cityitem-light">
-					<span class="cityitem-name">北京</span>
+					<span class="cityitem-name cityitem-current">{{currentPosition}}</span>
 				</div>
 			</div>
 		</div>
@@ -23,10 +23,23 @@
 
 <script>
 	export default {
+		beforeCreate(){	
+		 	var head=document.getElementsByTagName('head')[0]; 
+			var script=document.createElement('script'); 			
+			script.src="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"; 			
+			script.onload=script.onreadystatechange=function(){ 
+				if(!script.readyState || script.readyState==='loaded' || script.readyState==='complete'){ 
+					if (remote_ip_info.ret == '1') {
+					 	this.currentPosition=remote_ip_info.city;
+			        }
+				} 
+			}.bind(this) 
+			head.appendChild(script);
+		},
 		props:["citys"],
 		data() {
 			return {
-
+				currentPosition:""
 			}
 		},
 		components: {
@@ -74,5 +87,8 @@
 	    color: #212121;
 	    border: .02rem solid #c9cccd;
 	    border-radius: .06rem;
+	}
+	.cityitem-current{
+		border-color: #00afc7;
 	}
 </style>

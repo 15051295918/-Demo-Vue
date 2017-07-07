@@ -31,7 +31,8 @@ export default {
 			bgChina : true,
 			bgsea : false,
 			placeholder : "输入城市名或拼音",
-			textalign : true
+			textalign : true,
+			searchFlag : false
 		}
 	},
 	methods : {
@@ -60,7 +61,7 @@ export default {
 	    	}else{
 	    		this.list = false;
 	    	}
-	   		
+	
 	    }
 	  }
 }

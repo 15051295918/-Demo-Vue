@@ -1,6 +1,6 @@
 <template>
 	<div class="letter">
-		<ul @touchmove="touchmove($event)">
+		<ul @touchmove="touchmove">
 			<li @click="touchstart">A</li>
 			<li>B</li>
 			<li>C</li>
@@ -40,8 +40,7 @@ export default {
 				alert()
 			},
 			"touchmove" :function(e){
-				console.log(window)
-				console.log(e.touches[0].pageY)
+				console.log(e.clientY);
 			},
 		}
 	}

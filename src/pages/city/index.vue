@@ -1,8 +1,8 @@
 <template>
 	<div>
 		<city-header></city-header>
-		<city-hot :citys="cityInfo"></city-hot>
-		<city-list :cityInfo="cityInfo"></city-list>
+		<city-hot :citys="domesticCity"></city-hot>
+		<city-list :cityInfo="domesticCity"></city-list>
 		<city-aside></city-aside>
 	</div>
 </template>
@@ -16,20 +16,29 @@
 	export default {
 		created: function() {
 			this.$http.get("/static/city.json").then(response => {
-				this.cityInfo = response.body;
+				if(response.body.ret) {
+					this.domesticCity = response.body.data.domestic;
+					this.overseasCity = response.body.data.overseas;
+				}else {
+					console.log("Invalid data!");
+				}
 			}, response => {
-				console.log("get city data err!")
+				console.log("get city data err!");
 			}); 
 		},
 
 		data() {
 			return {
-				cityInfo: [
+				domesticCity: [
 					{
-						"label": "北京Beijing010",
 						"name": "北京",
-						"pinyin": "Beijing",
-						"zip": "010"
+						"pinyin": "Beijing"
+					}
+				],
+				overseasCity: [
+					{
+						"pinyin": "HN",
+						"name": "洪都拉斯"
 					}
 				]
 			}
@@ -39,6 +48,9 @@
 			"city-hot": cityhot,
 			"city-list": citylist,
 			"city-aside": cityaside
+		},
+		methods: {
+			
 		}
 		
 	}
