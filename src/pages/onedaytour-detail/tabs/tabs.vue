@@ -1,6 +1,6 @@
 <template>
     <div>
-        <ul class="tab">
+        <ul class="tab border-bottom">
             <li v-for="(item, index) in tabs" :class="{tabs, active: index==activeIndex}">{{item.title}}</li>
         </ul>
         <tour-itinerary></tour-itinerary>
@@ -53,6 +53,7 @@ export default {
     color: #616161;
 }
 .active{
+    box-sizing: border-box;
     color: #00afc7;
     border-bottom: .04rem solid #00afc7;
 }

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="main">
         expense-explanation
     </div>
 </template>

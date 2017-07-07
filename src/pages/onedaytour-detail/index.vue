@@ -19,7 +19,7 @@
 
 <script>
 import Header from './header/header';
-import UserReviews from './user-reviews/user-reviews';
+import UserReviews from './header/user-reviews';
 import Tabs from './tabs/tabs';
 import Footer from './footer/footer';
 import BookingTicket from './booking-ticket/booking-ticket';
@@ -43,6 +43,8 @@ export default {
 
 
 <style scoped>
-
+    .main{
+        overflow: scroll;
+    }
 
 </style>
