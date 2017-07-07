@@ -1,8 +1,8 @@
 <template>
 	<div>
-		<city-header></city-header>
-		<city-hot :cityHot="domesticCity"></city-hot>
-		<city-list :cityInfo="domesticCity"></city-list>
+		<city-header @handleInternal="domesticCity" @handleExternal="overseasCity"></city-header>
+		<city-hot :cityHot="cityInfo"></city-hot>
+		<city-list :cityInfo="cityInfo"></city-list>
 		<city-aside></city-aside>
 	</div>
 </template>
@@ -17,6 +17,7 @@
 		created: function() {
 			this.$http.get("/static/city.json").then(response => {
 				if(response.body.ret) {
+					this.cityInfo = response.body.data.domestic;
 					this.domesticCity = response.body.data.domestic;
 					this.overseasCity = response.body.data.overseas;
 				}else {
@@ -29,16 +30,12 @@
 
 		data() {
 			return {
-				domesticCity: [
+				domesticCity: [],
+				overseasCity: [],
+				cityInfo: [
 					{
 						"name": "北京",
 						"pinyin": "Beijing"
-					}
-				],
-				overseasCity: [
-					{
-						"pinyin": "HN",
-						"name": "洪都拉斯"
 					}
 				]
 			}
@@ -50,7 +47,13 @@
 			"city-aside": cityaside
 		},
 		methods: {
-			
+			domesticCity: function() {
+				alert(123);
+				// this.cityInfo = this.domesticCity;
+			},
+			overseasCity: function() {
+				// this.cityInfo = this.overseasCity;
+			}
 		}
 		
 	}
