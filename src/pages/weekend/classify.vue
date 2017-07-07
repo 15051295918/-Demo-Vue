@@ -12,7 +12,7 @@
 	  	<div class="weekendChosen border-topbottom">
 	  		<p class="weekendChosenTitle"><span class="pinterest-titleicon"></span>周末精选</p>
 	  		<div class="weekendChosenItem" v-for="(item, index) in weekendChosenInfo" :key="item+'weekendChosen'">
-	  			<img class="weekendChosenPic" :src="item.imgUrl"/>
+	  			<img class="weekend-chosenPic" :src="item.imgUrl"/>
 	  		</div>
 	  	</div>
   	</div>
@@ -21,9 +21,7 @@
 <script>
 export default {
   data () {
-    return {
-     
-    }
+    return {}
   },
   props: ["classifyInfo", "nearScapeInfo", "weekendChosenInfo"]
 }
@@ -85,7 +83,7 @@ export default {
 	height: .88rem;
 	line-height: .88rem;
 }
-.weekendChosenPic{
+.weekend-chosenPic{
 	width: 100%;
 	min-height: 2rem;
 	margin-bottom: .2rem;
