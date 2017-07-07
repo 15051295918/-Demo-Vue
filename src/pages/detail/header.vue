@@ -99,7 +99,7 @@
 		bottom:0;
 		background:#000;
 		color:#fff;
-		z-index:10;
+		z-index:99;
 	}
 	.swiper-wrap{
 		width:100%;

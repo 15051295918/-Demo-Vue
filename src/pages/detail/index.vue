@@ -1,14 +1,14 @@
 <template>
-<<<<<<< HEAD
     <div class="main">
         <detail-header :data="swiperInfo"></detail-header>
-       
+       	<download></download>
     </div>
 </template>
 
 <script>
 
 import header from './header'
+import download from './download'
 
 export default {
 	created: function(){
@@ -25,30 +25,13 @@ export default {
     },
     components: {
         "detail-header": header,
-=======
-	<download></download>
-</template>
-
-<script>
-import download from './download'
-
-export default {
-  data () {
-    return {
-     
-    }
-  },
-  components: {
-        "download": download,
->>>>>>> 8604427a0929e2144ef5b6268ea43cd051bc41c7
-        
-    }
+        "download": download
+	}
 }
 </script>
 
 
 <style scoped>
-<<<<<<< HEAD
 	.main{
 		position: absolute;
 		left:0;
@@ -59,7 +42,3 @@ export default {
 		background:#f5f5f5;
 	}
 </style>
-=======
-	
-</style>
->>>>>>> 8604427a0929e2144ef5b6268ea43cd051bc41c7
