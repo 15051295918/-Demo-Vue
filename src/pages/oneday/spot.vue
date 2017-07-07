@@ -9,7 +9,7 @@
 		</div>
 		<div class="spot-concent">
 			<ul class="spot-concent-ul">
-				<li v-for="item in spotInfo" class="spot-concent-li">
+				<li v-for="(item,index) in spot" class="spot-concent-li" :key="index + 'spot'">
 					<div class="spot-concent-box"> 
 						<div class="spot-concent-img">
 							<img :src="item.imgsrc" class="spot-concent-img-child"/>
@@ -23,6 +23,9 @@
 					
 				</li>
 			</ul>
+			<div class="spot-concent-more">
+				<a class="spot-concent-more-btn">北京全部一日游</a>
+			</div>
 		</div>
 		
 	</div>
@@ -33,46 +36,10 @@
 export default {
   data () {
     return {
-    	spotInfo: [
-    		{
-    			title : "水立方",
-    			imgsrc : "http://img1.qunarzz.com/sight/p0/1501/40/40b2b6c951b28fdd.water.jpg_195x140_6f1cbf29.jpg",
-    			line : "5",
-    			link : ""
-    		},
-    		{
-    			title : "水立方",
-    			imgsrc : "http://img1.qunarzz.com/sight/p0/1501/40/40b2b6c951b28fdd.water.jpg_195x140_6f1cbf29.jpg",
-    			line : "5",
-    			link : ""
-    		},
-    		{
-    			title : "水立方",
-    			imgsrc : "http://img1.qunarzz.com/sight/p0/1501/40/40b2b6c951b28fdd.water.jpg_195x140_6f1cbf29.jpg",
-    			line : "5",
-    			link : ""
-    		},
-    		{
-    			title : "水立方",
-    			imgsrc : "http://img1.qunarzz.com/sight/p0/1501/40/40b2b6c951b28fdd.water.jpg_195x140_6f1cbf29.jpg",
-    			line : "5",
-    			link : ""
-    		},
-    		{
-    			title : "水立方",
-    			imgsrc : "http://img1.qunarzz.com/sight/p0/1501/40/40b2b6c951b28fdd.water.jpg_195x140_6f1cbf29.jpg",
-    			line : "5",
-    			link : ""
-    		},
-    		{
-    			title : "水立方",
-    			imgsrc : "http://img1.qunarzz.com/sight/p0/1501/40/40b2b6c951b28fdd.water.jpg_195x140_6f1cbf29.jpg",
-    			line : "5",
-    			link : ""
-    		}
-    	]
+    	
     }
-  }
+  },
+  props:["spot"]
 }
 </script>
 
@@ -84,7 +51,7 @@ export default {
 		overflow: hidden;
 	}
 	.spot-title{
-		padding: 0.2rem;
+		padding: 0 .2rem;
 		height: .78rem;
 		color: #000;
 	    font-weight: normal;
@@ -112,7 +79,7 @@ export default {
 		border-bottom: .04rem solid #616161;
 	}
 	.spot-concent{
-		padding: .2rem;
+		padding: 0 .2rem;
     	background: #fff;
 	}
 	.spot-concent-ul{
@@ -155,5 +122,21 @@ export default {
 	}
 	.spot-concent-item-line{
 		color: #00afc7;
+	}
+	
+	.spot-concent-more{
+		margin-bottom: .24rem;
+    	text-align: center;
+	}
+	.spot-concent-more-btn{
+		display: inline-block;
+	    height: .6rem;
+	    padding: 0 .3rem;
+	    border: .01rem solid #bdbdbd;
+	    border-radius: .12rem;
+	    color: #212121;
+	    font-size: .28rem;
+	    line-height: .6rem;
+	    text-align: center;
 	}
 </style>
