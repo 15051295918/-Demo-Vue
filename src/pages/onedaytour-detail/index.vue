@@ -18,31 +18,30 @@
 </template>
 
 <script>
-import Header from './header/header';
-import UserReviews from './user-reviews/user-reviews';
-import Tabs from './tabs/tabs';
-import Footer from './footer/footer';
-import BookingTicket from './booking-ticket/booking-ticket';
+    import Header from './header/header';
+    import UserReviews from './header/user-reviews';
+    import Tabs from './tabs/tabs';
+    import Footer from './footer/footer';
+    import BookingTicket from './booking-ticket/booking-ticket';
 
-export default {
-   
-    data () {
-        return {
-              
+    export default {
+
+        data() {
+            return {
+
+            }
+        },
+        components: {
+            "index-header": Header,
+            "user-reviews": UserReviews,
+            "index-tabs": Tabs,
+            "index-footer": Footer,
+            "booking-ticket": BookingTicket
         }
-    },
-    components: {
-        "index-header": Header,
-        "user-reviews": UserReviews,
-        "index-tabs": Tabs,
-        "index-footer": Footer,
-        "booking-ticket": BookingTicket
     }
-}
 </script>
 
 
 <style scoped>
-
 
 </style>
