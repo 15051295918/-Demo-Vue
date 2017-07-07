@@ -39,6 +39,9 @@
 			"city-hot": cityhot,
 			"city-list": citylist,
 			"city-aside": cityaside
+		},
+		methods: {
+			
 		}
 		
 	}
