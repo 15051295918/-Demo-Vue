@@ -1,13 +1,19 @@
 <template>
     <div class="main">
+
+        <!--老纪-->
         <index-header></index-header>
         <user-reviews></user-reviews>
 
+        <!--武鹤-->
         <index-tabs></index-tabs>
 
+        <!--国辉-->
         <index-footer></index-footer>
 
+        <!--坤勇-->
         <booking-ticket></booking-ticket>
+        
     </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
     <div>
-        footer
+        expense-explanation
     </div>
 </template>
 
@@ -11,19 +11,14 @@ export default {
    
     data () {
         return {
-             
+            
         }
-    },
-    components: {
-        
     }
 }
 </script>
 
 
 <style scoped>
- div{
-     background: red;
- }
+
 
 </style>

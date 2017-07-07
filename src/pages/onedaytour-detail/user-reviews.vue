@@ -22,6 +22,8 @@ export default {
 
 
 <style scoped>
-
+    div{
+        background: red;
+    }
 
 </style>
