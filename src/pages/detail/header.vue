@@ -1,6 +1,6 @@
 <template>
 	<div class=detail-wrap>
-		<div class="detail-header" @click="seen=true">
+		<div class="detail-header" @click="handleClick">
 			<img class="detailheader-img" src="http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_600x330_f922b488.jpg" />
 			<div class="detailheader-title">
 				<span class="title">故宫(AAAAA景区)</span>
@@ -18,11 +18,12 @@
 			        		<img class="swiper-img" :src="item.imgUrl"/>
 			        	</div>
 			        </swiper-slide>
-			        <div class="swiper-button-prev left-button" slot="button-prev"></div>
-    				<div class="swiper-button-next" slot="button-next"></div>
 	    		</swiper>
+			        <div class="swiper-button-prev left-button" slot="button-prev" >＜</div>
+    				<div class="swiper-button-next" slot="button-next" >＞</div>
 	       	</div>
 	       	<div class="mask-close" @click="seen=false">×</div>
+	       	<div class="swiper-pagination" slot="pagination"></div>
 		</div>
 		<!--mask结束-->
 	</div>
@@ -30,24 +31,27 @@
 
 <script>
 	export default {
-	 data(){
-	 	return{
-	 		seen:false,
-	 		swiperOption: {
-	            autoplay: false,
-	            direction : 'horizontal',
-	            autoHeight: true,
-		        pagination : '.swiper-pagination',
-		        paginationClickable :true,
-		        pagination : '.swiper-pagination',
-		        paginationClickable :true,
-		        prevButton:'.swiper-button-prev',
-		        nextButton:'.swiper-button-next'
-        	}
-	 	}
-	 },
-	 
-	 props:["data"]
+		data(){
+		 	return{
+		 		seen:false,
+		 		swiperOption: {
+		            autoplay: false,
+		            direction : 'horizontal',
+		            autoHeight: true,
+			        paginationClickable :true,
+			        prevButton:'.swiper-button-prev',
+			        nextButton:'.swiper-button-next',
+			        pagination : ".swiper-pagination",
+			        paginationType: 'fraction'
+	        	}
+		 	}
+		 },
+		 props:["data"],
+		 methods:{
+		 	handleClick: function() {
+		 		return this.seen = true;
+		 	}
+		 }
 	}
 </script>
 <style scoped>
@@ -123,13 +127,27 @@
 		height:.5rem;
 		border-radius: 50%;
 		text-align: center;
-		background: #CCCCCC;
+		background: rgba(51,51,51,.8);
 		color:#fff;
 		line-height: .5rem;
 		font-size: .4rem;
 	}
-	/*.swiper-button-prev, .swiper-button-next{
-		top:107%;
-		z-index:20
-	}*/
+	.swiper-wrap .swiper-button-prev,.swiper-wrap .swiper-button-next{
+		background:none;
+		top:90%;
+		z-index:100;
+		width:.8rem;
+		height:.8rem;
+		border-radius: 50%;
+		background:rgba(51,51,51,.8);
+		color:#fff;
+		text-align: center;
+		font-size: .6rem;
+		line-height: .8rem;
+		font-weight: bold;
+	}
+	.detailheader-mask .swiper-pagination{
+		bottom:1.25rem;
+		left:0;
+	}
 </style>
