@@ -1,26 +1,32 @@
 <template>
-    <header class="header">
-    	<a class="header-left"><</a>
-    	<div class="header-title">
-    		<span class="single-line">输入城市/景点/游玩主题</span>
-    	</div>
-	    <div class="header-right">
-	    	<span class="nav-city">北京</span>
-	    </div>
-    </header>
-
+	<header class="header">
+  		<a class="header-left">
+  			<div class="return"></div>
+  		</a>
+  		<div class="header-title">
+  			<router-link to="/list">
+  				<span class="single-line">输入城市/景点/游玩主题</span>
+  			</router-link>
+  		</div>
+  		<div class="header-right">
+  			<span class="header-city">北京<i class="header-city-option"></i>
+  			</span>  			
+  		</div>
+  	</header>
 </template>
 
 <script>
 export default {
-
-    data () {
-        return {
-        }
+  data () {
+    return {
+     
     }
+  }
 }
 </script>
-<style>
+
+
+<style scoped>
 	.header {
 	    position: relative;
 	    display: -webkit-box;
@@ -67,9 +73,26 @@ export default {
 	    text-overflow: ellipsis;
 	    color: #ccc;
 	}
-	.nav-city {
+	.header-city {
 		line-height: .88rem;
-    	padding: 0 .22rem;
+    	padding: 0 .25rem;
     	color: #fff;
+    	text-align: center;
+    }
+    .header-city-option{
+		height: 0rem;
+		width: 0rem;
+		border:0.12rem solid transparent;
+    	border-top: 0.12rem solid #fff;
+    	position: relative;
+    	top:0.22rem;  	
+	}
+    .return{
+		transform: rotateZ(45deg);
+		width: .24rem;
+		height: .24rem;
+		border-left: .04rem solid #fff;
+		border-bottom: .04rem solid #fff;
+		margin: .3rem .1rem;
 	}
 </style>
