@@ -1,0 +1,53 @@
+{
+	"ret": true,
+	"data":{
+		"classifyInfo": [{
+    		"imgUrl": "http://img1.qunarzz.com/piao/fusion/1511/ac/cea9a29c2524c4f7.png",
+    		"link":"",
+            "title": "周边度假"
+    	   },{
+            "imgUrl": "http://img1.qunarzz.com/piao/fusion/1511/bd/49ec5e1d94c677f7.png",
+            "link":"",
+            "title": "城市好玩"
+           },{
+            "imgUrl": "http://img1.qunarzz.com/piao/fusion/1603/69/aafef9983dcd6ef7.png",
+            "link":"",
+            "title": "踏青赏花"
+           },{
+            "imgUrl": "http://img1.qunarzz.com/piao/fusion/1511/df/a6dc6f8b9277a0f7.png",
+            "link":"",
+            "title": "一日游"
+           }
+        ],
+        "nearScapeInfo": [{
+            "link":"",
+            "title": "来天目湖，才好玩"
+           },{
+            "link":"",
+            "title": "去灵堂，拜大佛"
+           },{
+            "link":"",
+            "title": "中华恐龙园"
+           },{
+            "link":"",
+            "title": "天平山"
+           },{
+            "link":"",
+            "title": "苏州乐园"
+           },{
+            "link":"",
+            "title": "常州"
+           }
+        ],
+        "weekendChosenInfo": [{
+            "imgUrl": "http://img1.qunarzz.com/piao/fusion/1706/b7/2fcf77183b457302.jpg_640x200_0f7a1098.jpg",
+            "link":""
+           },{
+            "imgUrl": "http://img1.qunarzz.com/piao/fusion/1704/fe/8e9fb9b5f4ec402.jpg_640x200_72215135.jpg",
+            "link":""
+           }
+        
+        ]
+    	
+	}
+}
