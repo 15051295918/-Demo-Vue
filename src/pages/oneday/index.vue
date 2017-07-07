@@ -20,7 +20,7 @@ import viewspot from './viewspot'
 
 export default {
 	created: function(){
-        this.$http.get('/static/index.json').then(response => {
+        this.$http.get('/static/oneday.json').then(response => {
             this.swiperInfo = response.body.data.swiperInfo;
             this.spotInfo = response.body.data.spotInfo;
             this.recommendInfo = response.body.data.recommendInfo;

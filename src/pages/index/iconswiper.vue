@@ -1,7 +1,7 @@
 <template>
     <div>
     	<swiper :options="swiperOption" ref="mySwiper">
-            <swiper-slide v-for="page in pages">
+            <swiper-slide v-for="(page, index) in pages" :key="index + '_icon_swiper_item'">
             	<div class="icon-container">
             		<div class="icon-wrapper" v-for="item in page">
             			<img :src="item.imgUrl" class="icon-img">
@@ -12,7 +12,7 @@
             <div class="swiper-pagination icon-pagination"  slot="pagination"></div>
         </swiper>
         <div class="recommend border-topbottom">
-            <div class="recomment-item" v-for="(item, index) in recommendInfo" :class="{'border-right': index == 0}">
+            <div class="recomment-item" v-for="(item, index) in recommends" :class="{'border-right': index == 0}">
                 {{item.title}}
             </div>
         </div>
@@ -26,48 +26,6 @@ import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
     data () {
         return {
-        	swiperInfo: [{
-        		imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-        		title: "故宫",
-        		link:""
-        	},{
-                imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-                title: "故宫",
-                link:""
-            },{
-                imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-                title: "故宫",
-                link:""
-            },{
-                imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-                title: "故宫",
-                link:""
-            },{
-                imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-                title: "故宫",
-                link:""
-            },{
-                imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-                title: "故宫",
-                link:""
-            },{
-                imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-                title: "故宫",
-                link:""
-            },{
-                imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-                title: "故宫",
-                link:""
-            }],
-            recommendInfo: [{
-                icon: "",
-                title: "机票推荐",
-                link:""
-            }, {
-                icon: "",
-                title: "9元门票",
-                link:""
-            }],
          	swiperOption: {
                 autoplay: false,
                 direction : 'horizontal',
@@ -80,16 +38,17 @@ export default {
     computed: {
         pages: function() {
             var pages = [];
-            for (var i = 0; i < this.swiperInfo.length; i++) {
+            for (var i = 0; i < this.icons.length; i++) {
                 var page = Math.floor(i / 8); 
                 if (!pages[page]) { 
                     pages[page] = [] 
                 }
-                pages[page].push(this.swiperInfo[i]);
+                pages[page].push(this.icons[i]);
             }
             return pages;
         }
-    }
+    },
+    props: ["icons","recommends"]
 }
 </script>
 
@@ -99,6 +58,7 @@ export default {
 		overflow: hidden;
 		padding-bottom: .4rem;
         height: 2.88rem;
+        background: #fff;
 	}
 	.icon-wrapper {
 		padding-top: .3rem;
@@ -122,6 +82,7 @@ export default {
 	}
     .recommend {
         display: flex;
+        background: #fff;
     }
     .recomment-item {
         flex: 1;

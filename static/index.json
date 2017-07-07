@@ -252,6 +252,65 @@
            "comment": "7812评论",
            "address": "北京·海淀区",
            "price": "7.01"
-       }]
+       }],
+       "iconInfo": [{
+        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+        "title": "故宫",
+        "link":""
+      },{
+        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+        "title": "故宫",
+        "link":""
+      },{
+        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+        "title": "故宫",
+        "link":""
+      },{
+        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+        "title": "故宫",
+        "link":""
+      },{
+        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+        "title": "故宫",
+        "link":""
+      },{
+            "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+            "title": "故宫",
+            "link":""
+        },{
+            "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+            "title": "故宫",
+            "link":""
+        },{
+            "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+            "title": "故宫",
+            "link":""
+        },{
+            "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+            "title": "故宫",
+            "link":""
+        },{
+            "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+            "title": "故宫",
+            "link":""
+        },{
+            "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+            "title": "故宫",
+            "link":""
+        },{
+            "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+            "title": "故宫",
+            "link":""
+        }],
+        "recommendInfo": [{
+            "icon": "",
+            "title": "机票推荐",
+            "link":""
+        }, {
+            "icon": "",
+            "title": "9元门票",
+            "link":""
+        }]
 	}
 }
+
