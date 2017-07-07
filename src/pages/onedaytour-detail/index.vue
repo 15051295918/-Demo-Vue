@@ -13,16 +13,16 @@
 
         <!--坤勇-->
         <booking-ticket></booking-ticket>
-        
+
     </div>
 </template>
 
 <script>
-import Header from './header';
-import UserReviews from './user-reviews';
-import Tabs from './tabs';
-import Footer from './footer';
-import BookingTicket from './booking-ticket';
+import Header from './header/header';
+import UserReviews from './user-reviews/user-reviews';
+import Tabs from './tabs/tabs';
+import Footer from './footer/footer';
+import BookingTicket from './booking-ticket/booking-ticket';
 
 export default {
    
