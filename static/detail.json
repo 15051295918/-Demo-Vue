@@ -1,0 +1,34 @@
+{
+	"ret":true,
+	"data":{
+		"swiperInfo":[
+			{
+				"imgUrl":"http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_800x800_04f227ef.jpg"
+			},
+			{
+				"imgUrl":"http://img1.qunarzz.com/sight/p55/201211/04/fbcab3e5d6479ce893835fbb.jpg_800x800_3f52b8da.jpg"
+			},
+			{
+				"imgUrl":"http://img1.qunarzz.com/wugc/p180/201306/16/7f08e81624346b1693835fbb.jpg_800x800_eb941a31.jpg"
+			},
+			{
+				"imgUrl":"http://img1.qunarzz.com/wugc/p123/201211/19/a2045d091f02b25493835fbb.png_800x800_5e80fcc3.png"
+			},
+			{
+				"imgUrl":"http://img1.qunarzz.com/sight/p0/1410/e3/73da8d3e19cdc41c1932d4fcd22ec792.water.jpg_800x800_ef9611de.jpg"
+			},
+			{
+				"imgUrl":"http://img1.qunarzz.com/sight/p0/1410/34/f540a04367d06820af4dfeaf0ad40257.water.jpg_800x800_d7cec880.jpg"
+			},
+			{
+				"imgUrl":"http://img1.qunarzz.com/sight/p0/1410/9d/fe8109ab5df1c9c324e74284fa802e72.water.jpg_800x800_9c516ad2.jpg"
+			},{
+				"imgUrl":"http://img1.qunarzz.com/wugc/p238/201306/16/d9090c728fed64eb93835fbb.jpg_800x800_ff912e01.jpg"
+			},{
+				"imgUrl":"http://img1.qunarzz.com/sight/p0/1501/af/af47583adca3f972.water.jpg_800x800_66dff63e.jpg"
+			},{
+				"imgUrl":"http://img1.qunarzz.com/sight/p0/1410/be/d44bb81ae3218a627a65ded451326b2c.water.jpg_800x800_e66340c8.jpg"
+			}
+		]
+	}
+}
