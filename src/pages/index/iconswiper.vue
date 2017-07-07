@@ -12,7 +12,7 @@
             <div class="swiper-pagination icon-pagination"  slot="pagination"></div>
         </swiper>
         <div class="recommend border-topbottom">
-            <div class="recomend-item" v-for="(item,index) in recommendIfo" :class="{'border-right':index == 0}" >{{item.title}}</div>
+            <div class="recomend-item" v-for="(item,index) in recommends" :class="{'border-right':index == 0}" >{{item.title}}</div>
         </div>
     </div>
 
@@ -25,80 +25,6 @@ import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
     data () {
         return {
-        	swiperInfo: [{
-        		imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/be/a70e61e1f57ee302.png",
-        		title: "全部",
-        		link:""
-        	},{
-        		imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-        		title: "景点门票",
-        		link:""
-        	},{
-        		imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/a9/ffc620dbda9b9c02.png",
-        		title: "一日游",
-        		link:""
-        	},{
-        		imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/1c/a8a8d9023a814c02.png",
-        		title: "文化古迹",
-        		link:""
-        	},{
-        		imgUrl: "https://img1.qunarzz.com/piao/fusion/1611/d1/1e49d9e4d7fca102.png",
-        		title: "厦门观音山",
-        		link:""
-        	},{
-        		imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/12/a16a3980aec17602.png",
-        		title: "展馆",
-        		link:""
-        	},{
-        		imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/cd/07f33cc087f18d02.png",
-        		title: "自然风光",
-        		link:""
-        	},{
-        		imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/ea/10024e1e382b7e02.png",
-        		title: "泡温泉",
-        		link:""
-        	},{
-                imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/be/a70e61e1f57ee302.png",
-                title: "全部",
-                link:""
-            },{
-                imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-                title: "景点门票",
-                link:""
-            },{
-                imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/a9/ffc620dbda9b9c02.png",
-                title: "一日游",
-                link:""
-            },{
-                imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/1c/a8a8d9023a814c02.png",
-                title: "文化古迹",
-                link:""
-            },{
-                imgUrl: "https://img1.qunarzz.com/piao/fusion/1611/d1/1e49d9e4d7fca102.png",
-                title: "厦门观音山",
-                link:""
-            },{
-                imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/12/a16a3980aec17602.png",
-                title: "展馆",
-                link:""
-            },{
-                imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/cd/07f33cc087f18d02.png",
-                title: "自然风光",
-                link:""
-            },{
-                imgUrl: "http://img1.qunarzz.com/piao/fusion/1611/ea/10024e1e382b7e02.png",
-                title: "泡温泉",
-                link:""
-            }],
-            recommendIfo: [{
-                title: "机票推荐",
-                icon: "",
-                link: ""
-            },{
-                title: "9元门票",
-                icon: "",
-                link: ""
-            }],
          	swiperOption: {
                 autoplay: false,
                 direction : 'horizontal',
@@ -111,16 +37,17 @@ export default {
     computed: {
         pages: function() {
             var pages = [];
-            for (var i = 0; i < this.swiperInfo.length; i++) {
+            for (var i = 0; i < this.icons.length; i++) {
                 var page = Math.floor(i / 8);
                 if(!pages[page]) {
                     pages[page] = []
                 }
-                pages[page].push(this.swiperInfo[i])
+                pages[page].push(this.icons[i])
             }
             return pages;
         }
-    }
+    },
+    props:["icons","recommends"],
 }
 </script>
 

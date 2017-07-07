@@ -6,10 +6,16 @@ import App from './App'
 import router from './router'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import FastClick from 'fastclick'
+import VueResource from 'vue-resource'
+
 
 FastClick.attach(document.body);
+
 Vue.config.productionTip = false
-Vue.use(VueAwesomeSwiper)
+Vue.use(VueAwesomeSwiper);
+Vue.use(VueResource);
+
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
