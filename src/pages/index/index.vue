@@ -19,13 +19,13 @@ console.log(detect);
 
 export default {
     created: function(){
-        this.$http.get('/static/index.json').then(response => {
-            this.swiperInfo = response.body.data.swiperInfo;
-            this.iconInfo = response.body.data.iconInfo;
-            this.recommendInfo = response.body.data.recommendInfo;
-        }, response => {
-            console.log("get index data error")
-        });
+            this.$http.get('/static/index.json').then(response => {
+                this.swiperInfo = response.body.data.swiperInfo;
+                this.iconInfo = response.body.data.iconInfo;
+                this.recommendInfo = response.body.data.recommendInfo;
+            }, response => {
+                console.log("get index data error")
+            });
     },
     data () {
         return {
