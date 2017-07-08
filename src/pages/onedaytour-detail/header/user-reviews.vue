@@ -1,26 +1,26 @@
 <template>
     <div>
         <div class="mp-commentsinfo-con" style="margin-bottom:0;">
-            <a href="http://touch.piao.qunar.com/touch/weekend/comment.htm?spuId=355112&amp;cat=from_area%3Dts_type_nav%26from_index%3D2%26from_value%3D%25E4%25B8%2580%25E6%2597%25A5%25E6%25B8%25B8%26dist_city%3D%25E5%258C%2597%25E4%25BA%25AC" class="mpg-linkarea" mp-role="mp-select-comment" data-click="t_comment_top"></a>
-            <span class="mp-commentswell-score">4.9</span>
-            <span class="mp-commentswell-text">分</span>
-            <span class="mp-comments-tagscore">非常满意</span>
-            <span class="mp-comments-totalnum">用户评论(219)&nbsp;
-                <span class="mp-iconfont mp-comments-rightarrow">F</span>
+            <a :href="userReviews.borderTop.linkArea" class="mpg-linkarea" mp-role="mp-select-comment" data-click="t_comment_top"></a>
+            <span class="mp-commentswell-score">{{userReviews.commentsInfoCon.commentScore}}</span>
+            <span class="mp-commentswell-text">{{userReviews.commentsInfoCon.commentText}}</span>
+            <span class="mp-comments-tagscore">{{userReviews.commentsInfoCon.commentTag}}</span>
+            <span class="mp-comments-totalnum">{{userReviews.commentsInfoCon.commentTotalnum}}
+                <span class="iconfont mp-comments-rightarrow" v-html="userReviews.commentsInfoCon.commentRightArrow"></span>
             </span>
         </div>
         
         <div class="mp-border-top" style="padding: .1rem .2rem;background-color: #fff;">
-            <a href="http://touch.piao.qunar.com/touch/weekend/comment.htm?spuId=355112&amp;cat=from_area%3Dts_type_nav%26from_index%3D2%26from_value%3D%25E4%25B8%2580%25E6%2597%25A5%25E6%25B8%25B8%26dist_city%3D%25E5%258C%2597%25E4%25BA%25AC" class="mpg-linkarea" mp-role="mp-select-comment" data-click="t_comment_top"></a>
+            <a :href="userReviews.borderTop.linkArea" class="mpg-linkarea iconfont" mp-role="mp-select-comment" data-click="t_comment_top"></a>
             <div class="mp-comments-item">
                 <div class="mp-content-level">
                     <span class="mpf-starlevel" style="width:1.5rem;font-size:.2rem;">
-                        <strong class="mpg-iconfont mpf-starlevel-gain" style="width:100%">BBBBB</strong>
-                        <span class="mpg-iconfont mpf-starlevel-total">BBBBB</span>
+                        <strong class="iconfont mpf-starlevel-gain" v-html="userReviews.borderTop.starlevelGain" style="width:100%"></strong>
+                        <span class="iconfont mpf-starlevel-total" v-html="userReviews.borderTop.starlevelTotal"></span>
                     </span>
-                    <span class="mp-comments-date">o*2&nbsp;&nbsp;2017-07-02</span>
+                    <span class="mp-comments-date" v-html="userReviews.borderTop.commentsDate"></span>
                 </div>
-                <p class="mp-wellcomments-text mp-ellipsis2">一天的行程很满意，小张导游讲解很仔细，没有额外消费，每个景点都很用心，最后快结束还介绍北京的特色给我们，非常好的导游，必须好评～</p>
+                <p class="mp-wellcomments-text mp-ellipsis2">{{userReviews.borderTop.wellcommentsText}}</p>
             </div>
         </div>
     </div>
@@ -31,7 +31,23 @@
 
         data() {
             return {
-
+                "userReviews": {
+                    "commentsInfoCon": {
+                        "linkArea": "http://touch.piao.qunar.com/touch/weekend/comment.htm?spuId=355112&amp;cat=from_area%3Dts_type_nav%26from_index%3D2%26from_value%3D%25E4%25B8%2580%25E6%2597%25A5%25E6%25B8%25B8%26dist_city%3D%25E5%258C%2597%25E4%25BA%25AC",
+                        "commentScore": "4.9",
+                        "commentText": "分",
+                        "commentTag": "非常满意",
+                        "commentTotalnum": "用户评论(219)",
+                        "commentRightArrow": "&#xe615;"
+                    },
+                    "borderTop": {
+                        "linkArea": "http://touch.piao.qunar.com/touch/weekend/comment.htm?spuId=355112&amp;cat=from_area%3Dts_type_nav%26from_index%3D2%26from_value%3D%25E4%25B8%2580%25E6%2597%25A5%25E6%25B8%25B8%26dist_city%3D%25E5%258C%2597%25E4%25BA%25AC",
+                        "starlevelGain": "&#xe603;&#xe603;&#xe603;&#xe603;&#xe603;",
+                        "starlevelTotal": "&#xe6d3;&#xe6d3;&#xe6d3;&#xe6d3;&#xe6d3;",
+                        "commentsDate": "o*2&nbsp;&nbsp;2017-07-02",
+                        "wellcommentsText": "一天的行程很满意，小张导游讲解很仔细，没有额外消费，每个景点都很用心，最后快结束还介绍北京的特色给我们，非常好的导游，必须好评～"
+                    }
+                }
             }
         },
         components: {
@@ -153,6 +169,10 @@
         position: absolute;
         top: 0;
         left: 0;
+    }
+    
+    .iconfont {
+        font-size: .2rem;
     }
     
     .mpf-starlevel-total {
