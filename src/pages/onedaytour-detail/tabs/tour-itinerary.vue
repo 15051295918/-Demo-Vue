@@ -32,7 +32,7 @@
         </div>
         <div class="card-moreoutter">
             <div class="card-more border-bottom">查看详细产品介绍
-                <span class="iconfont">&#xe601;</span>
+                <span class="iconfont">&#xe768;</span>
             </div>
         </div>
         <div class="prddetail-mapcon">
