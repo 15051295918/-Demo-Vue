@@ -36,6 +36,50 @@
 			},{
 				"address":"查看景点简介及开放时间"
 			}
+		],
+		"recommendedInfo":[
+			{
+				"recommendImg":"http://img1.qunarzz.com/sight/p0/1501/f4/f467729126949c3a.water.jpg_228x168_3df8efda.jpg",
+				"recommendSight":"天安门广场",
+				"recommendCommentnum":"10304条评论",
+				"recommendSubposition":"北京·东城区",
+				"priceNum":"20"
+			},
+			{
+				"recommendImg":"http://img1.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_228x168_ec8547e9.jpg",
+				"recommendSight":"恭王府(5A)",
+				"recommendCommentnum":"3569条评论",
+				"recommendSubposition":"北京·西城区",
+				"priceNum":"20"
+			},
+			{
+				"recommendImg":"http://img1.qunarzz.com/sight/p0/1602/92/920e47352552c1c990.water.jpg_228x168_bf40890b.jpg",
+				"recommendSight":"天坛公园(5A)",
+				"recommendCommentnum":"703条评论",
+				"recommendSubposition":"北京·东城区",
+				"priceNum":"2.8"
+			},
+			{
+				"recommendImg":"http://img1.qunarzz.com/sight/p0/1603/85/85c883189bf7293390.water.jpg_228x168_9d25e6f0.jpg",
+				"recommendSight":"什刹海",
+				"recommendCommentnum":"1301条评论",
+				"recommendSubposition":"北京·西城区",
+				"priceNum":"1"
+			},
+			{
+				"recommendImg":"http://img1.qunarzz.com/sight/p0/1508/fe/434ee530e21f1c11bad088e8cc8d5e93.water.jpg_228x168_6572dd12.jpg",
+				"recommendSight":"鸟巢(5A)",
+				"recommendCommentnum":"1300条评论",
+				"recommendSubposition":"北京·奥林匹克公园",
+				"priceNum":"69"
+			},
+			{
+				"recommendImg":"http://img1.qunarzz.com/sight/p0/1505/f5/f5f45e1a83537bcb.water.jpg_228x168_8bb97036.jpg",
+				"recommendSight":"圆明园(4A)",
+				"recommendCommentnum":"7826条评论",
+				"recommendSubposition":"北京·海淀区",
+				"priceNum":"7.01"
+			}
 		]
 	}
 }

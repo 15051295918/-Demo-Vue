@@ -1,50 +1,21 @@
 <template>
-<<<<<<< HEAD
-	<div>
-        <index-footer></index-footer>
-	</div>
 
-=======
     <div class="main">
         <detail-header :data="swiperInfo"></detail-header>
         <introduction :data="addressInfo"></introduction>
        	<download></download>
+        <detail-recommended :data="recommendedInfo"></detail-recommended>
+        <detail-footer></detail-footer>
     </div>
->>>>>>> e3747f60db793bc72d06920b3a288bd9babf6afe
+
 </template>
 
 <script>
-
-<<<<<<< HEAD
-    import footer from './footer'
-
-
-    export default {
-        created: function(){
-
-        },
-        data () {
-            return {
-
-            }
-        },
-        components: {
-            "index-footer": footer
-
-        }
-    }
-</script>
-
-<style scoped>
-
-
-
-
-</style>
-=======
 import header from './header'
 import download from './download'
 import address from './address'
+import recommended from './recommended'
+import footer from './footer'
 
 export default {
 	created: function(){
@@ -52,6 +23,7 @@ export default {
 			if(response.body.ret){
 				this.swiperInfo = response.body.data.swiperInfo;
 				this.addressInfo = response.body.data.addressInfo;
+                this.recommendedInfo= response.body.data.recommendedInfo;
 			}
 		},response=>{
 			console.log("get detail data error")
@@ -61,13 +33,16 @@ export default {
     data () {
         return {
             swiperInfo:[],
-            addressInfo:[]
+            addressInfo:[],
+            recommendedInfo:[]
         }
     },
     components: {
         "detail-header": header,
         "download": download,
-        "introduction": address
+        "introduction": address,
+        "detail-recommended":recommended,
+        "detail-footer": footer
 	}
 }
 </script>
@@ -84,4 +59,4 @@ export default {
 		background:#f5f5f5;
 	}
 </style>
->>>>>>> e3747f60db793bc72d06920b3a288bd9babf6afe
+
