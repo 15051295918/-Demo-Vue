@@ -1,14 +1,48 @@
 <template>
+<<<<<<< HEAD
+	<div>
+        <index-footer></index-footer>
+	</div>
+
+=======
     <div class="main">
         <detail-header :data="swiperInfo"></detail-header>
         <introduction :data="addressInfo"></introduction>
         <recommend></recommend>
        	<download></download>
     </div>
+>>>>>>> e3747f60db793bc72d06920b3a288bd9babf6afe
 </template>
 
 <script>
 
+<<<<<<< HEAD
+    import footer from './footer'
+
+
+    export default {
+        created: function(){
+
+        },
+        data () {
+            return {
+
+            }
+        },
+        components: {
+            "index-footer": footer
+
+        }
+    }
+</script>
+
+<style scoped>
+
+
+
+
+</style>
+=======
 import header from './header'
 import download from './download'
 import address from './address'
@@ -53,3 +87,4 @@ export default {
 		background:#f5f5f5;
 	}
 </style>
+>>>>>>> e3747f60db793bc72d06920b3a288bd9babf6afe
