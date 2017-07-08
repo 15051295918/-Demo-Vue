@@ -1,9 +1,9 @@
 <template>
 	<div>
-		<city-header @handleInternal="domesticCity" @handleExternal="overseasCity"></city-header>
+		<city-header :cityHot="cityInfo"></city-header>
 		<city-hot :cityHot="cityInfo"></city-hot>
-		<city-list :cityInfo="cityInfo"></city-list>
-		<city-aside></city-aside>
+		<city-list :cityInfo="cityInfo" :cityLetters="cityLetters"></city-list>
+		<city-aside :cityLetters="cityLetters"></city-aside>
 	</div>
 </template>
 
@@ -60,11 +60,11 @@
 				this.cityLetters = [];
 				for (var i = 0; i < this.cityInfo.length; i++) {
 					var letter = this.cityInfo[i].pinyin.charAt(0);
-					if (this.cityLetters.indexOf() == -1) {
+					if (this.cityLetters.indexOf(letter) == -1) {
 						this.cityLetters.push(letter);
 					}
 				}
-				console.log(this.cityLetters);
+				this.cityLetters = this.cityLetters.sort()
 			}
 		}
 		
