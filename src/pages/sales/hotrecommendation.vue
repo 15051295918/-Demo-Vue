@@ -65,7 +65,6 @@ export default {
     	},
     	menu() {
 	        this.scroll = document.body.scrollTop;
-	        console.log(this.scroll);
 			var navbarHot = document.querySelector(".navbar-hot");
 	        if( this.scroll >= 1888 ) {
 	        	navbarHot.style.position = "fixed";
