@@ -11,7 +11,7 @@
         
         <div class="mp-prdcard-tagcon">
             <div class="mp-prdcard-tag-item" v-for="item in JiPrdcardTagItem">
-                <span class="mp-prdcard-tag-icon mpg-iconfont">{{item.icon}}</span>
+                <span class="mp-prdcard-tag-icon iconfont"  v-html="item.icon"></span>
                 <span class="mp-prdcard-tag-desc">{{item.tagDesc}}</span>
             </div>
         </div>
@@ -32,16 +32,16 @@
                     "prdcardSupplier": "已售:488"
                 },
                 JiPrdcardTagItem: [{
-                    "icon": "",
+                    "icon": "&#xe60b;",
                     "tagDesc": "条件退"
                 }, {
-                    "icon": "",
+                    "icon": "&#xe60b;",
                     "tagDesc": "铁定成团"
                 }, {
-                    "icon": "",
+                    "icon": "&#xe60b;",
                     "tagDesc": "无自费"
                 }, {
-                    "icon": "",
+                    "icon": "&#xe60b;",
                     "tagDesc": "无购物"
                 }]
             }
@@ -101,6 +101,7 @@
         float: right;
         height: .24rem;
         margin-top: .2rem;
+        font-size: .24rem;
     }
     
     .mp-prdcard-tagcon {
@@ -123,8 +124,8 @@
     .mp-prdcard-tag-icon {
         margin-right: .04rem;
         color: #00afc7;
-        font-size: .28rem;
-        vertical-align: -.02rem;
+        font-size: .10rem;
+        vertical-align: center;
     }
     
     .mp-prdcard-tag-desc {
