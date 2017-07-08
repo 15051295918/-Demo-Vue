@@ -1,7 +1,7 @@
 <template>
 	<div class="main-list">
-		<list-header></list-header>
-		<navigation></navigation>
+		<!-- <list-header></list-header> -->
+		<!-- <navigation></navigation> -->
 		<list-lists></list-lists>
 	</div>
 </template>

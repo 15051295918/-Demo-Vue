@@ -1,40 +1,81 @@
 <template>
-    <ul class="mp-view-list mp-page">
-    	<li class="mp-sight-group border-topbottom" v-for="(item, index) in listCon" :key="'li_item_' + index">
-	    	<div class="mp-item-content">
-		    	<div class="mp-sight-info">
-			    	<a :href="item.url">
-				    	<div class="mp-sight-imgcon">
-				    		<img class="mp-sight-img" v-lazy="item.img">
+    <div>
+	    <ul class="mp-view-list mp-page">
+			<paginate ref="paginator" name="languages" :list="listCon" :per="4">
+		    	<li class="mp-sight-group border-topbottom" v-for="(item, index) in paginated('languages')" :key="'li_item_' + index">
+			    	<div class="mp-item-content">
+				    	<div class="mp-sight-info">
+					    	<a :href="item.url">
+						    	<div class="mp-sight-imgcon">
+						    		<img class="mp-sight-img" v-lazy="item.img">
+						    	</div>
+						    	<div class="mp-sight-detail">
+							    	<h3 class="mp-sight-name">{{item.name}}</h3>
+							    	<span class="mp-tag-word" v-show="item.hot">热</span>
+							    	<div class="mp-sight-comments">
+							    		<span class="mpf-starlevel">
+							    			<span class="mpg-iconfont mpf-starlevel-gain" :style="item.star">★★★★★</span>
+							    			<span class="mpg-iconfont mpf-starlevel-total">★★★★★</span>
+							    		</span>
+							    		<span class="mp-comments-totalnum">{{item.comment}}评论</span>
+							    	</div>
+							    	<div class="mp-sight-location">
+							    		<span class="mp-sight-address">{{item.address}}</span>
+							    	</div>
+						    	</div>
+					    	</a>
 				    	</div>
-				    	<div class="mp-sight-detail">
-					    	<h3 class="mp-sight-name">{{item.name}}</h3>
-					    	<span class="mp-tag-word" v-show="item.hot">热</span>
-					    	<div class="mp-sight-comments">
-					    		<span class="mpf-starlevel">
-					    			<span class="mpg-iconfont mpf-starlevel-gain" :style="item.star">★★★★★</span>
-					    			<span class="mpg-iconfont mpf-starlevel-total">★★★★★</span>
-					    		</span>
-					    		<span class="mp-comments-totalnum">{{item.comment}}评论</span>
-					    	</div>
-					    	<div class="mp-sight-location">
-					    		<span class="mp-sight-address">{{item.address}}</span>
-					    	</div>
-				    	</div>
-			    	</a>
-		    	</div>
+			    	</div>
+		    	</li>
+			</paginate>
+	    </ul>
+	    <div class="mp-moreinfo">
+	    	<div class="mp-pagination">
+				<a @click="prevPage" class="linkPage">上一页</a>
+				<span v-if="$refs.paginator" ref="pageNumber" class="mp-page-num">
+					{{pageNum}}
+				</span>
+				<a @click="textPage" class="linkPage">下一页</a>
 	    	</div>
-    	</li>
-    </ul>
+	    	<div class="mp-page-text">来这儿景点</div>
+	    </div>
+    </div>
 </template>
 
 <script>
 
 	import lists from './lists.vue'
+	import {Paginate, PaginateLinks} from 'vue-paginate'
 
 	export default {
+		methods: {
+			prevPage () {
+				if (this.$refs.paginator) {
+					var current = this.pageNum;
+					if(current > 1) {
+						this.$refs.paginator.goToPage(this.pageNum-1);
+					}
+				}
+			},
+			textPage () {
+				if (this.$refs.paginator) {
+					var num = parseInt(this.listCon.length/4)+1;
+					var current = this.pageNum;
+					if(current < num) {
+						this.$refs.paginator.goToPage(this.pageNum+1);
+					}
+				}
+			}
+		},
+		computed: {
+			pageNum: function() {
+				return parseInt(parseInt(this.$refs.paginator.pageItemsCount)/4)+1
+			}
+		},
 		data () {
 			return {
+    			paginate: ['languages'],
+    			shown: false,
 				listCon:[{
 					name: "故宫(5A)",
 					img: "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_110x110_fac6a6cd.jpg",
@@ -192,6 +233,37 @@
 	}
 	.mp-sight-address {
 		font-size: .24rem;
+	}
+	.mp-moreinfo {
+		margin-bottom: .2rem;
+	    color: #00afc7;
+	    text-align: center;
+	    height: .7rem;
+	    line-height: .7rem;
+	}
+	.linkPage {
+		display: inline-block;
+	    width: 1.4rem;
+	    border: .02rem solid #00afc7;
+	    background: #fff;
+	    color: #00afc7;
+	    line-height: .6rem;
+	    border-radius: .06rem;
+	}
+	.disablePage {
+		background: #bdbdbd;
+	    color: #fff;
+	    border: 0;
+	}
+	.mp-page-num {
+		color: #212121;
+	    line-height: .6rem;
+	    padding: 0 15px;
+	}
+	.mp-page-text {
+		padding-top: .2rem;
+	    line-height: .3rem;
+	    font-size: .3rem;
 	}
 
 </style>
