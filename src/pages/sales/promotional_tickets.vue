@@ -14,7 +14,7 @@
 		<div class="ticket-salelist">
 			<div class="ticket-saleitem" v-for="(item,index) in ticketproductInfo" :key="index+'ticket-saleitem'">
 				<div class="ticket-imgcontainer">
-				<img class="ticket-saleitem-img" :src="item.imgurl"/>
+				<img class="ticket-saleitem-img" v-lazy="item.imgurl" />
 				<div class="ticket-hotsale">
 					<span class="ticket-hotsale-text">热卖中</span>
 				</div>
@@ -42,8 +42,10 @@
 	</div>
 </div>	
 </template>
-
+<script src='https://unpkg.com/vue-lazyload/vue-lazyload.js'>
+</script>
 <script>
+
 export default {
   data () {
     return {
@@ -149,6 +151,7 @@ export default {
 .ticket-imgcontainer{
 	overflow: hidden;
 	height: 0;
+	width: 100%;
 	padding-bottom: 41.5625%;
 	background: #f0f0f0;
 	position: relative;
