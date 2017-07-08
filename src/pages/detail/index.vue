@@ -2,6 +2,7 @@
     <div class="main">
         <detail-header :data="swiperInfo"></detail-header>
         <introduction :data="addressInfo"></introduction>
+        <recommend></recommend>
        	<download></download>
     </div>
 </template>
@@ -11,6 +12,7 @@
 import header from './header'
 import download from './download'
 import address from './address'
+import recommend from './recommend'
 
 export default {
 	created: function(){
@@ -33,7 +35,8 @@ export default {
     components: {
         "detail-header": header,
         "download": download,
-        "introduction": address
+        "introduction": address,
+        "recommend": recommend
 	}
 }
 </script>
