@@ -4,6 +4,7 @@
 			<div class="cityarea-title">您的位置</div>
 			<div class="cityarea-content city-now border-topbottom">
 				<div class="cityitem-light">
+					<!-- <router-link :to="/">{{currentPosition}}</router-link> -->
 					<span class="cityitem-name cityitem-current">{{currentPosition}}</span>
 				</div>
 			</div>
@@ -13,7 +14,7 @@
 			<div class="cityarea-title">热门城市</div>
 		
 			<div class="cityarea-content city-now border-topbottom">
-				<div class="cityitem-light" v-for="(item,index) in citys" v-if="index<16" :key="index">
+				<div class="cityitem-light" v-for="(item,index) in cityHot" v-if="index<16" :key="index">
 					<span class="cityitem-name">{{item.name}}</span>
 				</div>
 			</div>
@@ -36,10 +37,10 @@
 			}.bind(this) 
 			head.appendChild(script);
 		},
-		props:["citys"],
+		props:["cityHot"],
 		data() {
 			return {
-				currentPosition:""
+				currentPosition:"loading"
 			}
 		},
 		components: {

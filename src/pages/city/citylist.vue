@@ -1,6 +1,6 @@
 <template>
 	<ul class="city-menu border-leftright">
-		<li class="city-list" v-for="item in cityWords">
+		<li class="city-list" v-for="item in cityLetters">
 			<dl>
 				<dt class="city-index border-bottom">{{item}}</dt>
 				<dd class="city-item border-bottom" v-for="value in cityDatas(item)">{{value.name}}</dd>
@@ -16,10 +16,10 @@
 
 		data () {
 			return {
-				cityWords: ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+				
 			}
 		},
-		props: ["cityInfo"],
+		props: ["cityInfo", "cityLetters"],
 		methods: {
 			//函数实现功能：输入json数据、字母字符串，返回城市名称数组
 			cityDatas: function(words) {
@@ -33,6 +33,7 @@
 				})
 				return msg;
 			}
+
 		}
 	}
 

@@ -14,7 +14,7 @@
 		
 		</div>
 		<ul class="key-city-ul" v-if="list">
-			<li class="key-city-list border-bottom">test</li>
+			<li class="key-city-list border-bottom" v-for="item in cityList">{{item.name}}</li>
 		</ul>
 	</div>
 </template>
@@ -29,33 +29,48 @@
 				external : false,
 				placeholder : "输入城市名或拼音",
 				textalign : true,
-				searchFlag : false
+				searchFlag : false,
+				cityList: []
 			}
 		},
+		props: ["cityInfo"],
 		methods : {
-			handleInputFocus : function(){
+			handleInputFocus: function() {
 				this.placeholder = "";
 				this.textalign = false;
 			},
-			handleInputBlur : function(){
+			handleInputBlur: function() {
 				this.placeholder = "输入城市名或拼音";
 				this.textalign = true;
 			},
-			handleInternal : function(){
+			handleInternal: function() {
 				this.internal = true;
 				this.external =  false;
+				this.$emit("handleInternal");
 			},
 			handleExternal: function() {
 				this.internal = false;
 				this.external = true;
+				this.$emit("handleExternal");
 			}		
 		},
 		watch: {
 		    value: function () {
 		    	if (this.value) {
 		    		this.list = true;
+		    		var msg = this.cityInfo;
+					var words = this.value.toString().toLowerCase();
+					words.toString().split("").map((word, num) => {
+						msg = msg.filter((value, index) => {
+							var str = value.pinyin.charAt(num).toLowerCase();
+							return word == str;
+						})
+					})
+					this.cityList = msg;
+					this.$emit("onSarching");
 		    	}else{
 		    		this.list = false;
+					this.$emit("noSarching");
 		    	}
 		    }
 		}
@@ -63,7 +78,7 @@
 </script>
 
 <style scoped>
-	.city-header{
+	.city-header {
 	    display: flex;
 	    position: fixed;
 	    top: 0;
@@ -74,7 +89,7 @@
 	    color: #fff;
 	    z-index: 100;
 	}
-	.city-key{
+	.city-key {
 		width: .24rem;
 		height: .24rem;
 		border-left: .04rem solid #fff;
@@ -82,13 +97,13 @@
 		margin: .3rem;
 		transform: rotateZ(45deg);
 	}
-	.cityheader-title{
+	.cityheader-title {
 	    box-sizing: border-box;
 	    flex: 1;
 	    position: relative;
 	    text-align: center;
 	}
-	.header-city{
+	.header-city {
 	    display: inline-block;
 	    width: 2rem;
 	    height: .56rem;
@@ -104,7 +119,7 @@
 	.header-city:last-of-type {
 	    border-radius: 0 .06rem .06rem 0;
 	}
-	.city-tab{
+	.city-tab {
 	    display: inline-block;
 	    margin-left: -.42rem;
 	    font-size: 0;
@@ -128,21 +143,21 @@
 	    -moz-border-radius: .06rem;
 	    border-radius: .06rem;
 	}
-	.text{
+	.text {
 		text-align: center;
 	}
-	.header-internal{
+	.header-internal {
 		background: #fff;
 		color: #00afc7;
 	}
-	.header-external{
+	.header-external {
 		background: #fff;
 		color: #00afc7;
 	}
-	.key-city-ul{
+	.key-city-ul {
 		background: #fff
 	}
-	.key-city-list{
+	.key-city-list {
 	    line-height: .76rem;
 	    padding-left: .2rem;
 	    font-size: .28rem;
