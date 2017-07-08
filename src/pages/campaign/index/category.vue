@@ -1,8 +1,8 @@
 <template>
-  	<div class="category border-bottom">
-		<div class="category-item" v-for="(item, index) in category" :key="index + '_category_item'">
-			<img class="category-icon" :src="item.imageUrl" />
-			<p class="category-font">{{item.title}}</p>
+  	<div class="cam-category border-bottom">
+		<div class="cam-category-item" v-for="(item, index) in category" :key="index + '_cam-category_item'">
+			<img class="cam-category-icon" :src="item.imageUrl" />
+			<p class="cam-category-font">{{item.title}}</p>
 		</div>
 	</div>
 </template>
@@ -17,35 +17,39 @@ export default {
 			
 		}	
 	},
+	
 	props: ["category"]
 }
 </script>
 
 
 <style scoped>
-	.category {
+	.cam-category {
 		display: flex;
 		background: #fff;
 		overflow: hidden;
-		border-bottom: 0.01rem solid #eaeaea;
 		justify-content: space-around;
 		align-items: center;
 		height:1.92rem;
 	}
+	
+	.cam-category::before {
+		border-color: #eaeaea;
+	}
 
-	.category-item {
+	.cam-category-item {
 		flex: 1;
 		text-align: center;
 	    padding: .3rem 0;
 	}
 	
-	.category-icon {
+	.cam-category-icon {
 		width: .9rem;
 		height: .9rem;
 		display: inline-block;
 	}
 
-	.category-font {
+	.cam-category-font {
 		margin-top: .2rem;
 		text-align: center;
 		color: #212121;

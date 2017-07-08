@@ -3,7 +3,7 @@
 		<index-header></index-header>
 		<imgs-swiper :data="swiperInfo"></imgs-swiper>
 		<category :category="categoryInfo"></category>
-		<broadcast></broadcast>	
+		<broadcast :broadcast="broadcastInfo"></broadcast>	
 	</div>
 </template>
 
@@ -22,12 +22,19 @@ export default {
         }, response => {
             console.log("get index data error")
         });
+
+        this.$http.get('/static/campaign/announces.json').then(response => {
+            this.broadcastInfo = response.body.data.announceInfo;
+        }, response => {
+            console.log("get index data error")
+        });
     },
 
 	data () {
 		return {
 			swiperInfo: [],
-			categoryInfo: []
+			categoryInfo: [],
+			broadcastInfo: []
 		}
 	},
 
@@ -45,6 +52,7 @@ export default {
 	.campaign-main {
 		background: #F3F3F3;
 		overflow: hidden;
-		
+		height: flex;
 	}
+
 </style>
