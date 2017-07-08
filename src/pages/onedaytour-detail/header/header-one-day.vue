@@ -1,23 +1,23 @@
 <template>
     <div>
-        <div class="mp-header" style="position: fixed; width: 100%; top: 0px; left: 0px; display: block; opacity: 1;">
-            <a class="mp-header-left iconfont" mp-role="left" v-html="JiHeader.headerLeft"></a>
-            <h1 class="mp-header-title" mp-role="title">{{JiHeader.headerTitle}}</h1>
-            <span class="mp-header-right" mp-role="right"></span>
+        <div class="header" style="position: fixed; width: 100%; top: 0px; left: 0px; display: block; opacity: 1;">
+            <a class="header-left iconfont" role="left" v-html="JiHeader.headerLeft"></a>
+            <h1 class="header-title" role="title">{{JiHeader.headerTitle}}</h1>
+            <span class="header-right" role="right"></span>
         </div>
-        <div class="mp-main" id="mp-main">
-            <div class="mp-imgavatar">
-                <img class="mp-imgavatar-img" :src="JiHeader.imgavatarImg" :alt="JiHeader.headerTitle">
-                <div class="mp-imgavatar-mask"></div>
-                <div class="mp-imgavatar-infocon">
-                    <span class="mp-imgavatar-left">{{JiHeader.imgavatarLeft}}</span>
-                    <span class="mp-imgavatar-right">{{JiHeader.imgavatarRight}}</span>
+        <div class="main" id="main">
+            <div class="imgavatar">
+                <img class="imgavatar-img" :src="JiHeader.imgavatarImg" :alt="JiHeader.headerTitle">
+                <div class="imgavatar-mask"></div>
+                <div class="imgavatar-infocon">
+                    <span class="imgavatar-left">{{JiHeader.imgavatarLeft}}</span>
+                    <span class="imgavatar-right">{{JiHeader.imgavatarRight}}</span>
                 </div>
             </div>
         </div>
-        <a class="mp-header-back">
-            <span class="mp-headerback-bg"></span>
-            <span class="iconfont mp-headerback-icon" v-html="JiHeader.headerLeft"></span>
+        <a class="header-back">
+            <span class="headerback-bg"></span>
+            <span class="iconfont headerback-icon" v-html="JiHeader.headerLeft"></span>
         </a>
     </div>
 </template>
@@ -45,7 +45,7 @@
 
 
 <style scoped>
-    .mp-header {
+    .header {
         height: .88rem;
         background: #00bcd4;
         z-index: 91;
@@ -54,7 +54,7 @@
         line-height: 1;
     }
     
-    .mp-header-left {
+    .header-left {
         left: 0;
         top: 0;
         width: .8rem;
@@ -62,7 +62,7 @@
         line-height: .88rem;
     }
     
-    .mp-header-title {
+    .header-title {
         overflow: hidden;
         margin: 0 1rem;
         line-height: .88rem;
@@ -73,7 +73,7 @@
         color: #fff;
     }
     
-    .mp-hmp-header-right {
+    .hheader-right {
         position: absolute;
         top: 0;
         right: 0;
@@ -85,19 +85,19 @@
         color: #fff;
     }
     
-    .mp-imgavatar {
+    .imgavatar {
         overflow: hidden;
         position: relative;
         height: 4rem;
     }
     
-    .mp-imgavatar-img {
+    .imgavatar-img {
         width: 100%;
         min-height: 4rem;
         vertical-align: middle;
     }
     
-    .mp-imgavatar-mask {
+    .imgavatar-mask {
         position: absolute;
         left: 0;
         bottom: 0;
@@ -106,7 +106,7 @@
         color: #fff;
     }
     
-    .mp-imgavatar-infocon {
+    .imgavatar-infocon {
         overflow: hidden;
         position: absolute;
         left: 0;
@@ -115,17 +115,17 @@
         font-size: 0;
     }
     
-    .mp-imgavatar-left {
+    .imgavatar-left {
         margin-left: .2rem;
     }
     
-    .mp-imgavatar-right {
+    .imgavatar-right {
         margin-right: .2rem;
         float: right;
     }
     
-    .mp-imgavatar-left,
-    .mp-imgavatar-right {
+    .imgavatar-left,
+    .imgavatar-right {
         overflow: hidden;
         display: inline-block;
         height: .34rem;
@@ -137,7 +137,7 @@
         text-overflow: ellipsis;
     }
     
-    .mp-header-back {
+    .header-back {
         left: .1rem;
         top: .1rem;
         width: .72rem;
@@ -145,15 +145,15 @@
         line-height: .72rem;
     }
     
-    .mp-header-left,
-    .mp-header-back {
+    .header-left,
+    .header-back {
         position: absolute;
         font-size: .36rem;
         color: #fff;
         text-align: center;
     }
     
-    .mp-headerback-icon {
+    .headerback-icon {
         position: absolute;
         left: 0;
         top: 0;
@@ -164,7 +164,7 @@
         text-indent: .24rem;
     }
     
-    .mp-headerback-bg {
+    .headerback-bg {
         display: block;
         width: .72rem;
         height: .72rem;
@@ -173,7 +173,7 @@
         border-radius: .36rem;
     }
     
-    .mp-headerback-icon {
+    .headerback-icon {
         position: absolute;
         left: 0;
         top: 0;

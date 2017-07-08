@@ -6,22 +6,21 @@
 </template>
 
 <script>
+    import headerOneDay from "./header-one-day";
+    import prdcardCom from "./prdcard-com";
 
-import headerOneDay from "./headerOneDay";
-import prdcardCom from "./prdcardCom";
+    export default {
 
-export default {
+        data() {
+            return {
 
-    data() {
-        return {
-
+            }
+        },
+        components: {
+            "header-oneDay": headerOneDay,
+            "prdcard-com": prdcardCom
         }
-    },
-    components: {
-        "header-oneDay": headerOneDay,
-        "prdcard-com": prdcardCom
     }
-}
 </script>
 
 
