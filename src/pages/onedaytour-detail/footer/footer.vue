@@ -1,13 +1,13 @@
 <template>
     <div>
-        <user-comment></uer-comment>
+        <user-comment></user-comment>
         <more-quotation></more-quotation>
     </div>
 </template>
         
 <script>
-    import user-comment from './user-comment';
-    import more-quotation from './more-quotation';
+    import userComment from './user-comment';
+    import moreQuotation from './more-quotation';
 
 export default {
    
@@ -17,8 +17,8 @@ export default {
         }
     },
     components: {
-        "user-comment": uer-comment,
-        "more-quotation": more-quotation
+        "user-comment": userComment,
+        "more-quotation": moreQuotation
     }
 }
 </script>
