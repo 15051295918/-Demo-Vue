@@ -19,7 +19,7 @@
 </script>
 <style>
 	.addressInfo{
-		margin-top:4.2rem;
+		margin-top:.2rem;
 	}
 	.address{
 		width:100%;
@@ -35,6 +35,7 @@
 		width:100%;
 		height: .88rem;
 		margin-top:.2rem;
+		margin-bottom:.2rem;
 		background:#fff;
 	}
 </style>

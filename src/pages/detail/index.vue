@@ -1,52 +1,21 @@
 <template>
-<<<<<<< HEAD
-	<div>
-        <index-footer></index-footer>
-	</div>
 
-=======
     <div class="main">
         <detail-header :data="swiperInfo"></detail-header>
         <introduction :data="addressInfo"></introduction>
-        <recommend></recommend>
+        <recommend :data="recommendInfo"></recommend>
+        <index-footer></index-footer>
        	<download></download>
     </div>
->>>>>>> e3747f60db793bc72d06920b3a288bd9babf6afe
 </template>
 
-<script>
-
-<<<<<<< HEAD
-    import footer from './footer'
-
-
-    export default {
-        created: function(){
-
-        },
-        data () {
-            return {
-
-            }
-        },
-        components: {
-            "index-footer": footer
-
-        }
-    }
-</script>
-
-<style scoped>
-
-
-
-
-</style>
-=======
-import header from './header'
+<script >
+	
+import header from './detail_header'
 import download from './download'
 import address from './address'
 import recommend from './recommend'
+import footer from './footer'
 
 export default {
 	created: function(){
@@ -54,6 +23,7 @@ export default {
 			if(response.body.ret){
 				this.swiperInfo = response.body.data.swiperInfo;
 				this.addressInfo = response.body.data.addressInfo;
+				this.recommendInfo = response.body.data.recommendInfo;
 			}
 		},response=>{
 			console.log("get detail data error")
@@ -63,14 +33,16 @@ export default {
     data () {
         return {
             swiperInfo:[],
-            addressInfo:[]
+            addressInfo:[],
+            recommendInfo:[]
         }
     },
     components: {
         "detail-header": header,
         "download": download,
         "introduction": address,
-        "recommend": recommend
+        "recommend": recommend,
+        "index-footer": footer
 	}
 }
 </script>
@@ -87,4 +59,3 @@ export default {
 		background:#f5f5f5;
 	}
 </style>
->>>>>>> e3747f60db793bc72d06920b3a288bd9babf6afe
