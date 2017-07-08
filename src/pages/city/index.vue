@@ -1,9 +1,9 @@
 <template>
 	<div>
-		<city-header :cityHot="cityInfo"></city-header>
-		<city-hot :cityHot="cityInfo"></city-hot>
-		<city-list :cityInfo="cityInfo" :cityLetters="cityLetters"></city-list>
-		<city-aside :cityLetters="cityLetters"></city-aside>
+		<city-header :cityInfo="cityInfo" @onSarching="onSarching" @handleInternal="handleInternal" @handleExternal="handleExternal" @noSarching="noSarching"></city-header>
+		<city-hot v-if="isShow" :cityHot="cityInfo"></city-hot>
+		<city-list v-if="isShow" :cityInfo="cityInfo" :cityLetters="cityLetters"></city-list>
+		<city-aside v-if="isShow" :cityLetters="cityLetters"></city-aside>
 	</div>
 </template>
 
@@ -33,13 +33,9 @@
 			return {
 				domesticCity: [],
 				overseasCity: [],
-				cityInfo: [
-					{
-						"name": "北京",
-						"pinyin": "Beijing"
-					}
-				],
-				cityLetters: []
+				cityInfo: [],
+				cityLetters: [],
+				isShow: true
 			}
 		},
 		components: {
@@ -49,12 +45,11 @@
 			"city-aside": cityaside
 		},
 		methods: {
-			domesticCity: function() {
-				alert(123);
-				// this.cityInfo = this.domesticCity;
+			handleInternal: function() {
+				this.cityInfo = this.domesticCity;
 			},
-			overseasCity: function() {
-				// this.cityInfo = this.overseasCity;
+			handleExternal: function() {
+				this.cityInfo = this.overseasCity;
 			},
 			getCityFirstLetters: function() {
 				this.cityLetters = [];
@@ -65,6 +60,12 @@
 					}
 				}
 				this.cityLetters = this.cityLetters.sort()
+			},
+			onSarching: function() {
+				this.isShow = false;
+			},
+			noSarching: function() {
+				this.isShow = true;
 			}
 		}
 		

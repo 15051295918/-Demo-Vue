@@ -14,7 +14,7 @@
 		
 		</div>
 		<ul class="key-city-ul" v-if="list">
-			<li class="key-city-list border-bottom">test</li>
+			<li class="key-city-list border-bottom" v-for="item in cityList">{{item.name}}</li>
 		</ul>
 	</div>
 </template>
@@ -29,9 +29,11 @@
 				external : false,
 				placeholder : "输入城市名或拼音",
 				textalign : true,
-				searchFlag : false
+				searchFlag : false,
+				cityList: []
 			}
 		},
+		props: ["cityInfo"],
 		methods : {
 			handleInputFocus: function() {
 				this.placeholder = "";
@@ -45,21 +47,30 @@
 				this.internal = true;
 				this.external =  false;
 				this.$emit("handleInternal");
-
 			},
 			handleExternal: function() {
 				this.internal = false;
 				this.external = true;
 				this.$emit("handleExternal");
-
 			}		
 		},
 		watch: {
 		    value: function () {
 		    	if (this.value) {
 		    		this.list = true;
+		    		var msg = this.cityInfo;
+					var words = this.value.toString().toLowerCase();
+					words.toString().split("").map((word, num) => {
+						msg = msg.filter((value, index) => {
+							var str = value.pinyin.charAt(num).toLowerCase();
+							return word == str;
+						})
+					})
+					this.cityList = msg;
+					this.$emit("onSarching");
 		    	}else{
 		    		this.list = false;
+					this.$emit("noSarching");
 		    	}
 		    }
 		}
