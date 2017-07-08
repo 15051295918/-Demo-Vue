@@ -2,11 +2,11 @@
     <div class="main">
 
         <!--老纪-->
-        <index-header></index-header>
+        <index-header :scrollTop="scrollTop"></index-header>
         <user-reviews></user-reviews>
 
         <!--武鹤-->
-        <index-tabs></index-tabs>
+        <index-tabs :scrollTop="scrollTop"></index-tabs>
 
         <!--国辉-->
         <index-footer></index-footer>
@@ -28,7 +28,7 @@
 
         data() {
             return {
-
+                scrollTop: 0
             }
         },
         components: {
@@ -37,14 +37,21 @@
             "index-tabs": Tabs,
             "index-footer": Footer,
             "booking-ticket": BookingTicket
+        },
+        mounted() {
+            var this_ = this;
+            window.addEventListener('scroll', function () {
+                this_.scrollTop = document.body.scrollTop;
+                console.log(document.body.scrollTop)
+            }, false);
         }
     }
+
 </script>
 
 
 <style scoped>
-    .main{
+    .main {
         background: #f5f5f5;
     }
-
 </style>

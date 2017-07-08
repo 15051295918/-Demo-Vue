@@ -1,7 +1,7 @@
 <template>
     <div>
-        <ul class="tab border-bottom">
-            <li v-for="(item, index) in tabs" :class="{tabs, active: index==activeIndex}">{{item.title}}</li>
+        <ul :class='{tab:true, "tab-fixed":tabFixed, "border-bottom":true}'>
+            <li v-for="(item, index) in tabs" :class="{tabs, active: index==activeIndex}" @click="hadleTabItemClick(index)">{{item.title}}</li>
         </ul>
         <tour-itinerary></tour-itinerary>
         <expense-explanation></expense-explanation>
@@ -29,10 +29,23 @@
                 activeIndex: 0
             }
         },
+        props:[
+            "scrollTop"
+        ],
         components: {
             "tour-itinerary": TourItinerary,
             "expense-explanation": ExpenseExplanation,
             "instructions": Instructions
+        },
+        methods:{
+            hadleTabItemClick: function(index) {
+                this.activeIndex = index;
+            }
+        },
+        computed:{
+            tabFixed: function(){
+                return this.scrollTop>400;
+            }
         }
     }
 
@@ -41,11 +54,20 @@
 
 <style scoped>
     .tab {
+        position: relative;
         display: flex;
         margin-top: .2rem;
         height: .84rem;
         font-size: .28rem;
         background: #fff;
+        z-index: 100;
+    }
+
+    .tab-fixed{
+        position: fixed;
+        left:0;
+        right:0;
+        top:.66rem;
     }
 
     .tabs {
