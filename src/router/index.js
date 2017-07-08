@@ -24,7 +24,7 @@ export default new Router({
     },{
     	path: '/onedaytour',
     	name: 'Oneday',
-      component: Oneday
+        component: Oneday
     } 
   ]
 })

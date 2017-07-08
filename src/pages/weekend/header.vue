@@ -35,7 +35,7 @@ export default {
 	    display: inline-block;
 	    width: .4rem;
 	    line-height: .88rem;
-	    padding: 0 .2rem;
+	    padding: 0 .26rem;
 	    color: #fff;
 	    font-size: .36rem;
 	    text-align: left;
