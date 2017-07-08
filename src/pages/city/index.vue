@@ -20,6 +20,7 @@
 					this.cityInfo = response.body.data.domestic;
 					this.domesticCity = response.body.data.domestic;
 					this.overseasCity = response.body.data.overseas;
+					this.getCityFirstLetters();
 				}else {
 					console.log("Invalid data!");
 				}
@@ -37,7 +38,8 @@
 						"name": "北京",
 						"pinyin": "Beijing"
 					}
-				]
+				],
+				cityLetters: []
 			}
 		},
 		components: {
@@ -53,6 +55,16 @@
 			},
 			overseasCity: function() {
 				// this.cityInfo = this.overseasCity;
+			},
+			getCityFirstLetters: function() {
+				this.cityLetters = [];
+				for (var i = 0; i < this.cityInfo.length; i++) {
+					var letter = this.cityInfo[i].pinyin.charAt(0);
+					if (this.cityLetters.indexOf() == -1) {
+						this.cityLetters.push(letter);
+					}
+				}
+				console.log(this.cityLetters);
 			}
 		}
 		
