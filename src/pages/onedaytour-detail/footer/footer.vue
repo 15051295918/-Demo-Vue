@@ -17,8 +17,8 @@ export default {
         }
     },
     components: {
-        user-comment: uer-comment,
-        more-quotation: more-quotation
+        "user-comment": uer-comment,
+        "more-quotation": more-quotation
     }
 }
 </script>
