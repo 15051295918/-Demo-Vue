@@ -4,8 +4,6 @@ import Index from '@/pages/index/index'
 import List from '@/pages/list/index'
 import Detail from '@/pages/detail/index'
 
-
-
 Vue.use(Router)
 
 export default new Router({
@@ -18,7 +16,6 @@ export default new Router({
     	path: "/list",
     	name: "List",
     	component: List
-
     },
     {
         path: "/detail",
