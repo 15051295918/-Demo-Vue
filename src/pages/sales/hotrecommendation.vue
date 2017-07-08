@@ -1,4 +1,5 @@
 <template>
+<div class="hotsales">
 	<div class="hotrecommendation">
 		<div class="navbar-hot">
 			<div class="hot-toplist" v-for="(hottitle,index) in dataInfo" :key="index + '_hot_title_name'">
@@ -8,7 +9,7 @@
 				<div class="hot-toplist">
 					<ul class="hot-now">
 						<li class="hot-now-li">
-							<span class="hot-now-title">{{hottitle.nowTitle}}</span>
+							<span @click="handleEventNowTitle" id="js-now-title" class="hot-now-title">{{hottitle.nowTitle}}</span>
 						</li>
 					</ul>
 				</div>
@@ -41,19 +42,50 @@
 			是指通过景区指定窗口售卖的纸质门票上标注的价格
 		</div>
 	</div>
+</div>
 </template>
 
 <script>
 export default {
   	data () {
 	    return {
-  
+   			scroll: ''
 		}
     },
+
+	updated: function () {
+        console.group('updated 更新完成状态===============》');
+        var nowTitle = document.querySelector("#js-now-title");
+    },
+
+    methods: {
+    	handleEventNowTitle: function(e) {
+			window.addEventListener('touchmove', e => e.preventDefault())
+			alert("好烦啊")
+    	},
+    	menu() {
+	        this.scroll = document.body.scrollTop;
+	        console.log(this.scroll);
+			var navbarHot = document.querySelector(".navbar-hot");
+	        if( this.scroll >= 1888 ) {
+	        	navbarHot.style.position = "fixed";
+	        	navbarHot.style.top = "0";
+	        	navbarHot.style.zIndex = 10;
+	        	navbarHot.style.width = 100+"%";
+	        }else{
+	        	navbarHot.style.position = "";
+	        	navbarHot.style.top = "";
+	        }
+        }
+    },
+
+    mounted() {
+      window.addEventListener('scroll', this.menu)
+    },
+
     props:["dataInfo","hotproductInfo"]
 }
 </script>
-
 
 <style scoped>
 	.hotrecommendation {
@@ -62,6 +94,7 @@ export default {
 		background:#f2f8fb;
 		padding-top: .2rem;
 		border-top: .02rem solid #cbdade;
+		position:relative;
 	}
 	.navbar-hot {
 		min-height: 1.2rem;
@@ -102,6 +135,9 @@ export default {
 		line-height:.5rem;
 		text-align:center;
 		border-radius:.04rem;
+	}
+	.navbarHot {
+		position: relative;
 	}
 	.hotlist-item-flexbox {
 		position: relative;

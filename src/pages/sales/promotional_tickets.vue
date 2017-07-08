@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="sales">
 	<div class="ticket-header">
 		<h1 class="ticket-header-title">门票特卖</h1>
 	</div>
@@ -57,6 +57,10 @@ export default {
 
 
 <style scoped>
+.sales {
+	position: relative;
+	top:0;
+}
 .ticket-header{
 	position: relative;
 	height: .88rem;
