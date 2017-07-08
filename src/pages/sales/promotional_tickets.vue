@@ -14,10 +14,10 @@
 		<div class="ticket-salelist">
 			<div class="ticket-saleitem" v-for="(item,index) in ticketproductInfo" :key="index+'ticket-saleitem'">
 				<div class="ticket-imgcontainer">
-				<img class="ticket-saleitem-img" :src="item.imgurl"/>
-				<div class="ticket-hotsale">
-					<span class="ticket-hotsale-text">热卖中</span>
-				</div>
+					<img class="ticket-saleitem-img" :src="item.imgurl" />
+					<div class="ticket-hotsale">
+						<span class="ticket-hotsale-text">热卖中</span>
+					</div>
 				</div>
 				<div class="ticket-saleInfo">
 					<p class="ticket-saleInfo-title">{{item.title}}</p>
@@ -150,7 +150,7 @@ export default {
 	overflow: hidden;
 	height: 0;
 	padding-bottom: 41.5625%;
-	background: #f0f0f0;
+	background: red;
 	position: relative;
 }
 .ticket-saleitem-img{

@@ -18,7 +18,7 @@
 		<div class="hostlist-items">
 			<div class="hotlist-item-flexbox" v-for="(hotItem,index) in hotproductInfo" :key="index + '_hot_list_item'">
 				<div class="hostlist-img">
-					<img :src="hotItem.imgUrl" data-original-src="//img1.qunarzz.com/sight/p0/1602/eb/eb052a96a287139890.img.jpg"/>
+					<img  class="logo" v-lazy="hotItem.imgUrl" v-lazy:background-image="hotItem.imageSrc"/>
 				</div>
 				<div class="hostlist-info">
 					<p class="hot-ticketnameinfo">{{hotItem.title}}</p>
@@ -44,9 +44,11 @@
 	</div>
 </div>
 </template>
-
+<script src="https://unpkg.com/vue-lazyload/vue-lazyload.js"></script>
 <script>
 export default {
+
+
   	data () {
 	    return {
    			scroll: ''
@@ -153,7 +155,7 @@ export default {
 		width: 1.6rem;
 		height: 1.6rem;
 		display: block;
-		background: #f0f0f0;
+		background-size: cover;
 	}
 	.hostlist-info {
 		padding: .2rem .2rem .2rem 0;
