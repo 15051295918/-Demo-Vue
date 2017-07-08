@@ -1,7 +1,7 @@
 <template>
 	<div class="letter">
 		<ul>
-			<li v-for="(item,index) in city" :key="index" @click="jump(city,index,$event)" @touchmove="touchmove($event)">{{item.name}}</li>
+			<li v-for="(item,index) in cityLetters" :key="index" @click="jump(city,index,$event)" @touchmove="touchmove($event)">{{item.name}}</li>
 		
 		</ul>
 	</div>
@@ -15,7 +15,7 @@ export default {
 			
 		}
 	},
-	props:["cityInfo"],
+	props:["cityLetters"],
 	methods:{
 		jump:function(a,index,$event){
 			//console.log((a[index].num)*0.76)
@@ -52,8 +52,8 @@ export default {
 	},
 	
 	computed:{
-			city:function(){
-			var arr =  this.cityInfo;
+			cityLetters:function(){
+			var arr =  this.cityLetters;
 			var l   =  arr.length;
 			var obj = {};
 			var str ="";
