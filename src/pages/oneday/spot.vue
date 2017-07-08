@@ -107,10 +107,14 @@ export default {
 	}
 	.spot-concent-title{
 		text-align: center;
-		line-height: .36rem;
 		margin-top: .14rem;
 		font-size: .28rem;
     	color: #212121;
+    	overflow: hidden;
+	    height: .32rem;
+	    line-height: .32rem;
+	    white-space: nowrap;
+	    text-overflow: ellipsis;
     	
 	}
 	.spot-concent-line{

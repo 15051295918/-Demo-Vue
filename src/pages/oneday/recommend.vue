@@ -160,6 +160,11 @@ export default {
 		color: #212121;
 	    font-size: .3rem;
 	    line-height: .38rem;
+	    display: -webkit-box;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    -webkit-line-clamp: 2;
+	    -webkit-box-orient: vertical;
 	}
 	.recommend-details-taglist{
 		position: relative;
