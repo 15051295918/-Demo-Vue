@@ -47,10 +47,30 @@
 export default {
   data () {
     return {
-    	
+    	scroll:""
     }
    
   }, 
+  mounted: function() {
+  		window.addEventListener('scroll', this.scrollChange);
+  	
+  	
+  },
+  methods:{
+  	scrollChange:function(){
+  		var ticketNavbar = document.querySelector(".ticket-navbar");
+  		this.scroll = document.body.scrollTop;
+  		if(this.scroll >= 44){
+  		
+  		ticketNavbar.style.position = "fixed";
+  		ticketNavbar.style.top = 0;
+  		ticketNavbar.style.zIndex = 10;
+  		}else{
+  		ticketNavbar.style.position = "relative";
+  		
+  		}
+  	}
+  },
   props: ["ticketproductInfo"]
 }
 </script>
@@ -80,14 +100,15 @@ export default {
 }
 .ticket-navbar{
 	width: 100%;
-	padding: .2rem 0;
+	padding: .2rem;
 	background-color: #fff;
 	position: relative;
 	font-family: Arial,"Microsoft Yahei","Helvetica Neue",Helvetica,sans-serif;
 	color:#333;
 	font-size: .28rem;
-	margin-left: .2rem;
+	/*margin-left: .2rem;*/
 	font-size: .3rem;
+	background-color: #fff;
 }
 .ticket-title{
 	line-height: .48rem;
@@ -98,7 +119,7 @@ export default {
 	z-index: 3;
 	right: .2rem;
 	top: 0;
-	padding: .2rem;
+	padding: .2rem .4rem .2rem .2rem;
 	line-height: .48rem;
 	text-decoration: none;
 }
