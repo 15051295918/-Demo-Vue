@@ -1,6 +1,7 @@
 <template>
     <div class="main">
         <detail-header :data="swiperInfo"></detail-header>
+        <introduction :data="addressInfo"></introduction>
        	<download></download>
     </div>
 </template>
@@ -9,23 +10,30 @@
 
 import header from './header'
 import download from './download'
+import address from './address'
 
 export default {
 	created: function(){
 		this.$http.get('static/detail.json').then( response=>{
-			this.swiperInfo = response.body.data.swiperInfo;
+			if(response.body.ret){
+				this.swiperInfo = response.body.data.swiperInfo;
+				this.addressInfo = response.body.data.addressInfo;
+			}
 		},response=>{
-			console.log("get index data error")
+			console.log("get detail data error")
 		});
+		
 	},
     data () {
         return {
-            swiperInfo:[]
+            swiperInfo:[],
+            addressInfo:[]
         }
     },
     components: {
         "detail-header": header,
-        "download": download
+        "download": download,
+        "introduction": address
 	}
 }
 </script>

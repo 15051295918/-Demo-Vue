@@ -5,7 +5,7 @@
 			<div class="detailheader-title">
 				<span class="title">故宫(AAAAA景区)</span>
 			</div>
-			<div class="totalimg">
+			<div class="total-img">
 				{{data.length}}
 			</div>
 		</div>
@@ -56,7 +56,7 @@
 </script>
 <style scoped>
 	.detail-wrap{
-		position: absolute;
+		position:absolute;
 		left:0;
 		top:0;
 		right:0;
@@ -82,7 +82,7 @@
 		font-size: .32rem;
 		color:#fff;
 	}
-	.totalimg{
+	.total-img{
 		position: absolute;
 		bottom:.26rem;
 		right:.2rem;
@@ -135,13 +135,13 @@
 	.swiper-wrap .swiper-button-prev,.swiper-wrap .swiper-button-next{
 		background:none;
 		top:90%;
-		z-index:100;
 		width:.8rem;
 		height:.8rem;
 		border-radius: 50%;
 		background:rgba(51,51,51,.8);
 		color:#fff;
 		text-align: center;
+		z-index:100;
 		font-size: .6rem;
 		line-height: .8rem;
 		font-weight: bold;
