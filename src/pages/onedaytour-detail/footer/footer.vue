@@ -1,11 +1,13 @@
 <template>
     <div>
-        footer
+        <user-comment></uer-comment>
+        <more-quotation></more-quotation>
     </div>
 </template>
-
+        
 <script>
-
+    import user-comment from './user-comment';
+    import more-quotation from './more-quotation';
 
 export default {
    
@@ -15,7 +17,8 @@ export default {
         }
     },
     components: {
-        
+        user-comment: uer-comment,
+        more-quotation: more-quotation
     }
 }
 </script>
