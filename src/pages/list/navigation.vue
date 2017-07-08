@@ -13,49 +13,51 @@
 		</div>
 		
 	</div>
-	<div class="sub-nav"  v-show="show">
-		<div class="subnav-all">
-			<div class="subnav-items subnav-title" >
-				<div class="three-nav  border-bottom" @click="handleTitle">
-					<img class="three-nav-icon" src="http://img1.qunarzz.com/piao/fusion/1608/3e/72d2396d47131702.png">
-				全部分类<span class="count">1213</span></div>
-				<div class="three-nav  border-bottom" @click="handleTitle">
-					<img class="three-nav-icon" src="http://img1.qunarzz.com/piao/fusion/1608/3e/72d2396d47131702.png">
-				无极剑圣<span class="count">999</span></div>
-				<div class="three-nav  border-bottom" @click="handleTitle">
-					<img class="three-nav-icon" src="http://img1.qunarzz.com/piao/fusion/1608/3e/72d2396d47131702.png">
-				无极剑圣<span class="count">999</span></div>
-				<div class="three-nav  border-bottom" @click="handleTitle">
-					<img class="three-nav-icon" src="http://img1.qunarzz.com/piao/fusion/1608/3e/72d2396d47131702.png">
-				无极剑圣<span class="count">555</span></div>
-				<div class="three-nav  border-bottom" @click="handleTitle">
-					<img class="three-nav-icon" src="http://img1.qunarzz.com/piao/fusion/1608/3e/72d2396d47131702.png">
-				无极剑圣<span class="count">555</span></div>
-				<div class="three-nav  border-bottom" @click="handleTitle">
-					<img class="three-nav-icon" src="http://img1.qunarzz.com/piao/fusion/1608/3e/72d2396d47131702.png">
-				无极剑圣<span class="count">555</span></div>
-				<div class="three-nav  border-bottom" @click="handleTitle">
-					<img class="three-nav-icon" src="http://img1.qunarzz.com/piao/fusion/1608/3e/72d2396d47131702.png">
-				无极剑圣<span class="count">555</span></div>
-				<div class="three-nav  border-bottom" @click="handleTitle">
-					<img class="three-nav-icon" src="http://img1.qunarzz.com/piao/fusion/1608/3e/72d2396d47131702.png">
-				无极剑圣<span class="count">555</span></div>
-			</div>
-			<div class="subnav-items subnav-content">
-				<div class="three-nav ">无极剑圣<span class="count">555</span></div>
-				<div class="three-nav ">无极剑圣<span class="count">555</span></div>
-				<div class="three-nav ">无极剑圣<span class="count">555</span></div>
-				<div class="three-nav ">无极剑圣<span class="count">555</span></div>
-				<div class="three-nav ">无极剑圣<span class="count">555</span></div>
-				<div class="three-nav ">无极剑圣<span class="count">555</span></div>
-				<div class="three-nav ">无极剑圣<span class="count">555</span></div>
-				<div class="three-nav ">无极剑圣<span class="count">555</span></div>
-			</div>
-		</div>
-		<div class="mask-div"  @click="maskClick" v-model="show">
 
+		<div class="sub-nav"  v-show="show">	
+			<div class="subnav-all">
+				<div class="subnav-items subnav-title" >
+					<div class="three-nav  border-bottom" @click="handleTitle">
+						<img class="three-nav-icon" src="http://img1.qunarzz.com/piao/fusion/1608/3e/72d2396d47131702.png">
+					全部分类<span class="count">1213</span></div>
+					<div class="three-nav  border-bottom" @click="handleTitle">
+						<img class="three-nav-icon" src="http://img1.qunarzz.com/piao/fusion/1608/3e/72d2396d47131702.png">
+					无极剑圣<span class="count">999</span></div>
+					<div class="three-nav  border-bottom" @click="handleTitle">
+						<img class="three-nav-icon" src="http://img1.qunarzz.com/piao/fusion/1608/3e/72d2396d47131702.png">
+					无极剑圣<span class="count">999</span></div>
+					<div class="three-nav  border-bottom" @click="handleTitle">
+						<img class="three-nav-icon" src="http://img1.qunarzz.com/piao/fusion/1608/3e/72d2396d47131702.png">
+					无极剑圣<span class="count">555</span></div>
+					<div class="three-nav  border-bottom" @click="handleTitle">
+						<img class="three-nav-icon" src="http://img1.qunarzz.com/piao/fusion/1608/3e/72d2396d47131702.png">
+					无极剑圣<span class="count">555</span></div>
+					<div class="three-nav  border-bottom" @click="handleTitle">
+						<img class="three-nav-icon" src="http://img1.qunarzz.com/piao/fusion/1608/3e/72d2396d47131702.png">
+					无极剑圣<span class="count">555</span></div>
+					<div class="three-nav  border-bottom" @click="handleTitle">
+						<img class="three-nav-icon" src="http://img1.qunarzz.com/piao/fusion/1608/3e/72d2396d47131702.png">
+					无极剑圣<span class="count">555</span></div>
+					<div class="three-nav  border-bottom" @click="handleTitle">
+						<img class="three-nav-icon" src="http://img1.qunarzz.com/piao/fusion/1608/3e/72d2396d47131702.png">
+					无极剑圣<span class="count">555</span></div>
+				</div>
+				<div class="subnav-items subnav-content">
+					<div class="three-nav ">无极剑圣<span class="count">555</span></div>
+					<div class="three-nav ">无极剑圣<span class="count">555</span></div>
+					<div class="three-nav ">无极剑圣<span class="count">555</span></div>
+					<div class="three-nav ">无极剑圣<span class="count">555</span></div>
+					<div class="three-nav ">无极剑圣<span class="count">555</span></div>
+					<div class="three-nav ">无极剑圣<span class="count">555</span></div>
+					<div class="three-nav ">无极剑圣<span class="count">555</span></div>
+					<div class="three-nav ">无极剑圣<span class="count">555</span></div>
+				</div>
+			</div>
+			<div class="mask-div"  @touchstart="maskClick" v-model="show">
+
+			</div>
 		</div>
-	</div>
+	
 </div>	
 </template>
 
@@ -66,7 +68,7 @@ export default {
 			show:false
 		}
 	},
-	methods:{
+	methods: {
 	  	allClassClick(){
 	  		return this.show = !this.show
 	  	},
@@ -133,26 +135,33 @@ export default {
 	}
 
 
-
+	
 
 	.sub-nav{
 		/*display: none;*/
 		position: absolute;
+		z-index:100;
 		height: 100%;
 		width: 100%;
+
 		
 		
 	}
 	.subnav-all{
+		position:absolute;
+		width:100%;
 		display: flex;
 		height:4.8rem;
 		overflow: hidden;
 		background: #fff;
+		z-index:99;
 	}
 	.mask-div{
+		position: absolute;
 		width:100%;
 		height:100%;
 		background: rgba(0,0,0, .35);
+		z-index:90;
 	}
 	.subnav-items {
 		flex: 1;
