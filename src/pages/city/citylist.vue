@@ -2,7 +2,7 @@
 	<ul class="city-menu border-leftright">
 		<li class="city-list" v-for="item in cityLetters">
 			<dl>
-				<dt class="city-index border-bottom">{{item}}{{getTops()}}</dt>
+				<dt class="city-index border-bottom">{{item}}</dt>
 				<dd class="city-item border-bottom" v-for="value in cityDatas(item)">{{value.name}}</dd>
 			</dl>
 		</li>
@@ -32,9 +32,6 @@
 					})
 				})
 				return msg;
-			},
-			getTops: function(event) {
-				console.log(event)
 			}
 
 		}
