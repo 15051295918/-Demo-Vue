@@ -1,49 +1,83 @@
 <template>
 	<div class="letter">
-		<ul @touchmove="touchmove">
-			<li @click="touchstart">A</li>
-			<li>B</li>
-			<li>C</li>
-			<li>D</li>
-			<li>E</li>
-			<li>F</li>
-			<li>G</li>
-			<li>H</li>
-			<li>I</li>
-			<li>J</li>
-			<li>K</li>
-			<li>L</li>
-			<li>M</li>
-			<li>N</li>
-			<li>P</li>
-			<li>Q</li>
-			<li>R</li>
-			<li>S</li>
-			<li>T</li>
-			<li>W</li>
-			<li>X</li>
-			<li>Y</li>
-			<li>Z</li>
+		<ul>
+			<li v-for="(item,index) in city" :key="index" @click="jump(city,index,$event)" @touchmove="touchmove($event)">{{item.name}}</li>
+		
 		</ul>
 	</div>
 </template>
 
 <script>
+
 export default {
-		data(){
-			return{
-				
-			}
+	data(){
+		return{
+			
+		}
+	},
+	props:["cityInfo"],
+	methods:{
+		jump:function(a,index,$event){
+			//console.log((a[index].num)*0.76)
+			//window.scrollTop=(a[index].num)*0.76+"rem";
+			//console.log($event)
+			alert()
+			window.scrollTop=100+"px";
 		},
-		methods:{
-			"touchstart":function(){
-				alert()
-			},
-			"touchmove" :function(e){
-				console.log(e.clientY);
-			},
+		touchmove:function($event){
+			console.log($event.touches[0].clientY)
+			if(100<$event.touches[0].clientY<150){
+				console.log(1)
+			}
+			if(150<$event.touches[0].clientY<200){
+				console.log(2)
+			}
+			if(250<$event.touches[0].clientY<300){
+				console.log(3)
+			}
+			if(350<$event.touches[0].clientY<400){
+				console.log(4)
+			}
+			if(450<$event.touches[0].clientY<500){
+				console.log(5)
+			}
+			if(550<$event.touches[0].clientY<600){
+				console.log(6)
+			}
+			if(650<$event.touches[0].clientY<700){
+				console.log(7)
+			}
+			
+		}
+	},
+	
+	computed:{
+			city:function(){
+			var arr =  this.cityInfo;
+			var l   =  arr.length;
+			var obj = {};
+			var str ="";
+			for(var i=0;i<l;i++){
+				str = str.concat(arr[i].pinyin[0]);
+			}
+			var strl = str.length;
+			for(var j=0;j<l;j++){
+				var chr = str[j];
+				if(obj[chr] == undefined){
+					obj[chr]=1
+				}else{
+					obj[chr]=obj[chr]+1;
+				}
+			}
+			var letter=[];
+			for( i in obj ){
+				var o={"name":i,"num":obj[i]};
+				letter.push(o);
+			}
+			 return (letter)
 		}
 	}
+}
 </script>
 
 <style scoped>
