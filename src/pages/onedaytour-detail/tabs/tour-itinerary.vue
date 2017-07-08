@@ -108,7 +108,8 @@
 
 <style scoped>
     .main {
-        padding: 0 .2rem;
+        padding: .1rem .2rem;
+        background: #fff;
     }
 
     .routesum-outter {
@@ -255,7 +256,7 @@
 
     .prddetail-mapcon {
         height: 3.5rem;
-        padding: .2rem .2rem .1rem .2rem;
+        padding-top: .2rem;
         overflow: hidden;
         margin-bottom: .2rem;
         position: relative;

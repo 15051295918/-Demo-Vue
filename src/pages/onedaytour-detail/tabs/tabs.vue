@@ -43,6 +43,7 @@ export default {
     display: flex;
     height: .84rem;
     font-size: .28rem;
+    background: #fff;
 }
 .tabs{
     flex: 1;
