@@ -4,11 +4,11 @@
         <div class="content">
         	<div class="content-level">
         		<p class="content-starlevel">
-        			<span class="icon-wujiaoxing-shi">&#xe604;</span>
-        			<span class="icon-wujiaoxing-shi">&#xe604;</span>
-        			<span class="icon-wujiaoxing-shi">&#xe604;</span>
-        			<span class="icon-wujiaoxing-shi">&#xe604;</span>
-        			<span class="icon-wujiaoxing">&#xe607;</span>
+        			<span class="iconfont">&#xe608;</span>
+        			<span class="iconfont">&#xe608;</span>
+        			<span class="iconfont">&#xe608;</span>
+        			<span class="iconfont">&#xe608;</span>
+        			<span class="iconfont">&#xe615;</span>
         		</p>
         		<p class="content-date">
         			<span>
@@ -54,7 +54,8 @@
         	 </ul>
         </div>
         <div class="more-comment">查看更多评论 
-        	<span class="icon-jiantou11">&#xe768;</span>
+        	<span class="iconfont">&#xe601;&#xe768;&#xe608;</span>
+        	<span class="iconfont">&#xe768;&#xe601;</span>
         </div>
     </div>
 </template>
