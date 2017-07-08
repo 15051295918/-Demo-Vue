@@ -20,9 +20,9 @@ export default {
 			console.log("get weekend data error")
 		}
 		this.$http.get('/static/weekend1.json').then(response=>{
-  		
+
   			this.Pinterest=response.body.data.pinterest;
-  		
+
 	  	},response=>{
 	  		console.log("get data Error")
 	  	})
