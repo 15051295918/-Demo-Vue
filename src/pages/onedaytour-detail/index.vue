@@ -44,7 +44,6 @@
 
 <style scoped>
     .main{
-        overflow: scroll;
         background: #f5f5f5;
     }
 
