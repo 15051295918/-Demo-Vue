@@ -1,6 +1,7 @@
 <template>
 	<div>
 		<div class="city-header">
+			<slot></slot>	
 			<div class="city-key"></div>
 				<h1 class="cityheader-title">
 					<div class="city-tab" >
@@ -14,23 +15,26 @@
 		
 		</div>
 		<ul class="key-city-ul" v-if="list">
-			<li class="key-city-list border-bottom" v-for="item in cityList">{{item.name}}</li>
+			<router-link v-for="item in cityList" to="/">
+				<li class="key-city-list border-bottom" >{{item.name}}</li>
+			</router-link>
+			
 		</ul>
 	</div>
 </template>
 
 <script>
 	export default {
+
 		data() {
 			return {
 				value : "",
 				list : false,
 				internal : true,
 				external : false,
-				placeholder : "输入城市名或拼音",
+				placeholder : "输入城市名或拼音", 
 				textalign : true,
-				searchFlag : false,
-				cityList: []
+				searchFlag : false
 			}
 		},
 		props: ["cityInfo"],
@@ -47,32 +51,35 @@
 				this.internal = true;
 				this.external =  false;
 				this.$emit("handleInternal");
+
 			},
 			handleExternal: function() {
 				this.internal = false;
 				this.external = true;
 				this.$emit("handleExternal");
+
 			}		
 		},
 		watch: {
-		    value: function () {
-		    	if (this.value) {
-		    		this.list = true;
-		    		var msg = this.cityInfo;
-					var words = this.value.toString().toLowerCase();
-					words.toString().split("").map((word, num) => {
-						msg = msg.filter((value, index) => {
-							var str = value.pinyin.charAt(num).toLowerCase();
-							return word == str;
+		value: function () {
+			    	if (this.value) {
+			    		this.list = true;
+			    		var msg = this.cityInfo;
+						var words = this.value.toString().toLowerCase();
+						words.toString().split("").map((word, num) => {
+							msg = msg.filter((value, index) => {
+								var str = value.pinyin.charAt(num).toLowerCase();
+								return word == str;
+							})
 						})
-					})
-					this.cityList = msg;
-					this.$emit("onSarching");
-		    	}else{
-		    		this.list = false;
-					this.$emit("noSarching");
-		    	}
-		    }
+						this.cityList = msg;
+						this.$emit("isSarching");
+			    	}else{
+			    		this.list = false;
+						this.$emit("noSarching");
+
+			    	}
+			}
 		}
 	}
 </script>
@@ -92,10 +99,10 @@
 	.city-key {
 		width: .24rem;
 		height: .24rem;
-		border-left: .04rem solid #fff;
-		border-bottom: .04rem solid #fff;
 		margin: .3rem;
 		transform: rotateZ(45deg);
+		border-left: .04rem solid #fff;
+		border-bottom: .04rem solid #fff;
 	}
 	.cityheader-title {
 	    box-sizing: border-box;
