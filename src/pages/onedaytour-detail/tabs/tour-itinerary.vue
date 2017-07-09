@@ -1,5 +1,5 @@
 <template>
-    <div class="main">
+    <div class="tour-intimerary-main">
         <div class="routesum-outter">
             <div class="routesum-inner">
                 <h5 v-for="(item, index) in routesum" :class="{'routesum-item':index==0}">
@@ -59,8 +59,15 @@
             }
         },
 
+        mounted() {
+            var tourIntimeraryElement = document.querySelectorAll('.tour-intimerary-main');
+            this.tourIntimeraryOffsetTop = tourIntimeraryElement[0].offsetTop;
+            console.log("tourIntimeraryOffsetTop"+this.tourIntimeraryOffsetTop)
+        },
+
         data() {
             return {
+                tourIntimeraryOffsetTop:0,
                 "show":true,
                 "map": {
                     isBigMapOpen: false,
@@ -140,8 +147,8 @@
 
 
 <style scoped>
-    .main {
-        padding: .1rem .2rem;
+    .tour-intimerary-main {
+        padding: .98rem .2rem .1rem;
         background: #fff;
     }
 
