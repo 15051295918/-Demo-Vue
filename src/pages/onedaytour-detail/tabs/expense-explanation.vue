@@ -1,11 +1,11 @@
 <template>
-    <div class="main">
+    <div class="expense-main">
         <h3 class="prddetail-title border-bottom">{{title}}</h3>
         <div class="prddetail-content">
-            <div v-for="item in content.expense">
+            <div v-for="(item, index) in content.expense" :key="index + 'expense'">
                 <h4 class="prddetail-subtitle">{{item.title}}</h4>
                 <ul class="border structure-list">
-                    <li class="structure-item border-top" v-for="itemInner in item.list">
+                    <li class="structure-item border-top" v-for="(itemInner, index) in item.list" :key="index + 'list'">
                         <h4 class="structure-title border-right">{{itemInner.title}}</h4>
                         <p class="structure-desc">{{itemInner.content}}</p>
                     </li>
@@ -20,8 +20,16 @@
 <script>
     export default {
 
+        mounted() {
+            var expenseElement = document.querySelectorAll('.expense-main');
+            this.expenseElementOffsetTop = expenseElement[0].offsetTop;
+            // console.log("expenseElementOffsetTop="+expenseElementOffsetTop)
+            // console.log(expenseElement[0].offsetHeight)
+        },
+
         data() {
             return {
+                expenseElementOffsetTop:0,
                 "title": "费用及退款说明",
                 "content": {
                     "expense": [{
@@ -65,7 +73,7 @@
 
 
 <style scoped>
-    .main {
+    .expense-main {
         margin-top: .2rem;
         padding: .01rem 0;
         background-color: #fff;

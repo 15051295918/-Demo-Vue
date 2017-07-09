@@ -42,7 +42,7 @@
             var this_ = this;
             window.addEventListener('scroll', function () {
                 this_.scrollTop = document.body.scrollTop;
-                console.log(document.body.scrollTop)
+                // console.log(document.body.scrollTop)
             }, false);
         }
     }

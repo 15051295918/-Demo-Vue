@@ -1,6 +1,6 @@
 <template>
     <div>
-        <header-oneDay></header-oneDay>
+        <header-oneDay :scrollTop="scrollTop"></header-oneDay>
         <prdcard-com></prdcard-com>
     </div>
 </template>
@@ -19,7 +19,8 @@
         components: {
             "header-oneDay": headerOneDay,
             "prdcard-com": prdcardCom
-        }
+        },
+        props: ["scrollTop"]
     }
 </script>
 

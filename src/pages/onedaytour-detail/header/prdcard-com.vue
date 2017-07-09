@@ -10,7 +10,7 @@
         </div>
         
         <div class="prdcard-tagcon">
-            <div class="prdcard-tag-item" v-for="item in JiPrdcardTagItem">
+            <div class="prdcard-tag-item" v-for="(item,index) in JiPrdcardTagItem" :key="index+'tagDesc'">
                 <span class="prdcard-tag-icon iconfont"  v-html="item.icon"></span>
                 <span class="prdcard-tag-desc">{{item.tagDesc}}</span>
             </div>

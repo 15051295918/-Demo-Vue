@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="header" style="position: fixed; width: 100%; top: 0px; left: 0px; display: block; opacity: 1;">
+        <div class="header" :style="style" >
             <a class="header-left iconfont" role="left" v-html="JiHeader.headerLeft"></a>
             <h1 class="header-title" role="title">{{JiHeader.headerTitle}}</h1>
             <span class="header-right" role="right"></span>
@@ -20,6 +20,7 @@
             <span class="iconfont headerback-icon" v-html="JiHeader.headerLeft"></span>
         </a>
     </div>
+    
 </template>
 
 <script>
@@ -39,6 +40,12 @@
                     "imgavatarRight": "北京旭冉之旅"
                 }
             }
+        },
+        props: ["scrollTop"],
+        computed: {
+            style: function() {
+                return "opacity:" + this.scrollTop / 150
+            }
         }
     }
 </script>
@@ -48,10 +55,15 @@
     .header {
         height: .88rem;
         background: #00bcd4;
-        z-index: 91;
+        z-index: 1000;
         color: #212121;
         font-size: .28em;
         line-height: 1;
+        position: fixed;
+        width: 100%;
+        top: 0px;
+        left: 0px;
+        display: block;
     }
     
     .header-left {
