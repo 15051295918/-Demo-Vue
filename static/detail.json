@@ -51,7 +51,49 @@
 			{
 				"title":"八达岭长城+恭王府游玩推荐",
 				"item_one":"无购物",
-				"item_two":"无购物"
+				"item_two":"无自费"
+			}
+		],
+		"productInfo":[
+			{
+				"title":"学生票上午场+自助导游器",
+				"title_item":"凭身份证入场",
+				"price":"40",
+				"content_title":"【上午场】故宫学生票凭身份证入园(含自助导览器)",
+				"item_one":"无购物",
+				"item_two":"无自费"
+			},
+			{
+				"title":"学生票上午场+自助导游器",
+				"title_item":"凭身份证入场",
+				"price":"80",
+				"content_title":"【下午场】故宫学生票凭身份证入园(含自助导览器)",
+				"item_one":"无购物",
+				"item_two":"无自费"
+			},
+			{
+				"title":"学生票上午场+自助导游器",
+				"title_item":"凭身份证入场",
+				"price":"100",
+				"content_title":"【上午场】故宫成人票凭身份证入园(含自助导览器)",
+				"item_one":"无购物",
+				"item_two":"无自费"
+			},
+			{
+				"title":"学生票上午场+自助导游器",
+				"title_item":"凭身份证入场",
+				"price":"120",
+				"content_title":"【上午场】故宫成人票凭身份证入园(含自助导览器)",
+				"item_one":"无购物",
+				"item_two":"无自费"
+			},
+			{
+				"title":"学生票上午场+自助导游器",
+				"title_item":"凭身份证入场",
+				"price":"50",
+				"content_title":"【上午场】故宫学生票凭身份证入园(含自助导览器)",
+				"item_one":"无购物",
+				"item_two":"无自费"
 			}
 		]
 	}

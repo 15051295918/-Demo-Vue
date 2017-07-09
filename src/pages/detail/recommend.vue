@@ -1,11 +1,14 @@
 <template>
 	<div class="recommend">
-		<div class="recommend-title">来这儿推荐</div>
+		<div class="recommend-title">
+				<span class="iconfont icon-great">&#xe616;</span>
+			来这儿推荐
+		</div>
 		<div class="recommend-content border-top" v-for="(item,index) in data" :key="index + 'recomment'">
 			<div class="recommentContent-title border-right" >
 				<div class="title">{{item.title}}</div>
-				<span class="noshpping">{{item.item_one}}</span>
-				<span>{{item.item_two}}</span>
+				<span class="title-item">{{item.item_one}}</span>
+				<span class="title-item">{{item.item_two}}</span>
 			</div>
 			<div class="check">
 				<button class="check-btn">查看</button>
@@ -28,8 +31,8 @@
 	.recommend-title{
 		height: .88rem;
 		line-height: .88rem;
-		text-indent: .7rem;
 		font-size: .32rem;
+		padding-left: .26rem;
 	}
 	.recommend-content{
 		display: flex;
@@ -42,8 +45,10 @@
 		margin-bottom:.2rem;
 		font-size: .32rem;
 	}
-	.noshpping{
+	.title-item{
 		margin-right:.2rem;
+		font-size:.24rem;
+		color:#616161;
 	}
 	.check{
 		width:30%;
@@ -59,4 +64,16 @@
 		border-radius: .1rem;
 		color:#fff;
 	}
+	.icon-great{
+		display: inline-block;
+		width:0.54rem;
+		height:0.54rem;
+		border-radius: 50%;
+		background:lightpink;
+		text-align: center;
+		line-height: .54rem;
+		font-size:.34rem;
+		color:#fff;
+	}
+	
 </style>

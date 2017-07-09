@@ -6,7 +6,7 @@
 				<span class="title">故宫(AAAAA景区)</span>
 			</div>
 			<div class="total-img">
-				{{data.length}}
+				<span class="iconfont" >&#xe634;</span>{{data.length}}
 			</div>
 		</div>
 		<!--mask-->
@@ -19,8 +19,8 @@
 			        	</div>
 			        </swiper-slide>
 	    		</swiper>
-			        <div class="swiper-button-prev left-button" slot="button-prev" >＜</div>
-    				<div class="swiper-button-next" slot="button-next" >＞</div>
+		        <div class="swiper-button-prev left-button" slot="button-prev" >＜</div>
+				<div class="swiper-button-next" slot="button-next" >＞</div>
 	       	</div>
 	       	<div class="mask-close" @click="seen=false">×</div>
 	       	<div class="swiper-pagination" slot="pagination"></div>
@@ -57,7 +57,6 @@
 <style scoped>
 	.detail-wrap{
 		width: 100%;
-		overflow: hidden;
 	}
 	.detail-header{
 		position: relative;
@@ -93,11 +92,11 @@
 		line-height: .4rem;
 	}
 	.detailheader-mask{
-		position: absolute;
+		position: fixed;
 		top:0;
 		left: 0;
-		right:0;
 		bottom:0;
+		right:0;
 		background:#000;
 		color:#fff;
 		z-index:99;
@@ -146,5 +145,8 @@
 	.detailheader-mask .swiper-pagination{
 		bottom:1.25rem;
 		left:0;
+	}
+	.iconfont{
+		margin-right: .05rem;
 	}
 </style>
