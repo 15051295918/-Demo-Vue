@@ -90,7 +90,6 @@ export default {
             this.expenseElementOffsetHeight = expenseElement[0].offsetHeight;
             this.instructionsElementOffsetTop = instructionsElement[0].offsetTop;
         }
-    }
 }
 
 </script>
