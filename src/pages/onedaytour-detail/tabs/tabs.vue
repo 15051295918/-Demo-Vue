@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <ul :class='{tab:true, "tab-fixed":tabFixed, "border-bottom":true}'>
+    <div class="tab-main">
+        <ul :class='{tab:true, "tab-fixed":tabFixed, "border-bottom":true}' ref="tab">
             <li v-for="(item, index) in tabs" :class="{tabs, active: index==activeIndex}" @click="hadleTabItemClick(index)">{{item.title}}</li>
         </ul>
         <tour-itinerary></tour-itinerary>
@@ -26,10 +26,15 @@
                 }, {
                     "title": "使用说明"
                 }],
-                activeIndex: 0
+                mainOffsetTop: 0,
+                tabOffsetHeight:0,
+                headerOffsetHeight: 0,
+                expenseElementOffsetTop: 0,
+                expenseElementOffsetHeight: 0,
+                instructionsElementOffsetTop:0
             }
         },
-        props:[
+        props: [
             "scrollTop"
         ],
         components: {
@@ -37,15 +42,48 @@
             "expense-explanation": ExpenseExplanation,
             "instructions": Instructions
         },
-        methods:{
-            hadleTabItemClick: function(index) {
-                this.activeIndex = index;
+        methods: {
+            hadleTabItemClick: function (index) {
+                if( index == 0 ){
+                    document.body.scrollTop = this.mainOffsetTop -this.headerOffsetHeight;
+                }else if( index ==1 ){
+                    document.body.scrollTop = this.mainOffsetTop + this.expenseElementOffsetTop - this.tabOffsetHeight - this.headerOffsetHeight;
+                }else if( index == 2 ){
+                    document.body.scrollTop = this.mainOffsetTop + this.instructionsElementOffsetTop - this.tabOffsetHeight - this.headerOffsetHeight;                    
+                }
+            }
+            
+        },
+        computed: {
+            tabFixed: function () {
+                return this.scrollTop > this.mainOffsetTop - this.headerOffsetHeight;
+            },
+            activeIndex: function() {
+                var index = 0;
+                var criticalValue_1 = this.mainOffsetTop + this.expenseElementOffsetTop - window.innerHeight/2;
+                var criticalValue_2 = this.mainOffsetTop + this.expenseElementOffsetTop + this.expenseElementOffsetHeight - window.innerHeight/2;
+                if( this.scrollTop <= criticalValue_1 ){
+                    index = 0
+                }else if( this.scrollTop > criticalValue_1 && this.scrollTop <= criticalValue_2 ){
+                    index = 1;
+                }else{
+                    index = 2;
+                }
+                return index;
             }
         },
-        computed:{
-            tabFixed: function(){
-                return this.scrollTop>400;
-            }
+        mounted() {
+            var tabMainElement = document.querySelectorAll('.tab-main');
+            var tabElement = document.querySelectorAll('.tab');
+            var headerElement = document.querySelectorAll('.header');
+            var expenseElement = document.querySelectorAll('.expense-main');
+            var instructionsElement = document.querySelectorAll('.instructions-main');
+            this.mainOffsetTop = tabMainElement[0].offsetTop;
+            this.tabOffsetHeight = tabElement[0].offsetHeight;
+            this.headerOffsetHeight = headerElement[0].offsetHeight;
+            this.expenseElementOffsetTop = expenseElement[0].offsetTop;
+            this.expenseElementOffsetHeight = expenseElement[0].offsetHeight;
+            this.instructionsElementOffsetTop = instructionsElement[0].offsetTop;
         }
     }
 
@@ -53,21 +91,26 @@
 
 
 <style scoped>
-    .tab {
+    .tab-main {
         position: relative;
-        display: flex;
         margin-top: .2rem;
+    }
+
+    .tab {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        display: flex;
         height: .84rem;
         font-size: .28rem;
         background: #fff;
-        z-index: 100;
+        z-index: 1000;
     }
 
-    .tab-fixed{
+    .tab-fixed {
         position: fixed;
-        left:0;
-        right:0;
-        top:.66rem;
+        top: .88rem;
     }
 
     .tabs {

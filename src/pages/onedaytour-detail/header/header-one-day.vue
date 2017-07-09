@@ -52,6 +52,7 @@
         color: #212121;
         font-size: .28em;
         line-height: 1;
+        z-index: 1000;
     }
     
     .header-left {

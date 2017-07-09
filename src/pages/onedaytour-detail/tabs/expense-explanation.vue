@@ -1,5 +1,5 @@
 <template>
-    <div class="main">
+    <div class="expense-main">
         <h3 class="prddetail-title border-bottom">{{title}}</h3>
         <div class="prddetail-content">
             <div v-for="item in content.expense">
@@ -20,8 +20,16 @@
 <script>
     export default {
 
+        mounted() {
+            var expenseElement = document.querySelectorAll('.expense-main');
+            this.expenseElementOffsetTop = expenseElement[0].offsetTop;
+            // console.log("expenseElementOffsetTop="+expenseElementOffsetTop)
+            // console.log(expenseElement[0].offsetHeight)
+        },
+
         data() {
             return {
+                expenseElementOffsetTop:0,
                 "title": "费用及退款说明",
                 "content": {
                     "expense": [{
@@ -65,7 +73,7 @@
 
 
 <style scoped>
-    .main {
+    .expense-main {
         margin-top: .2rem;
         padding: .01rem 0;
         background-color: #fff;

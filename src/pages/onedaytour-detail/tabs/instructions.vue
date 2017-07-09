@@ -1,5 +1,5 @@
 <template>
-    <div class="main">
+    <div class="instructions-main">
         <h3 class="prddetail-title border-bottom">{{title}}</h3>
         <ul :class='{"prddetail-content": true, "prddetail-content-more":hasMore}'>
             <li class="prddetail-content-item" v-for="item in list">
@@ -64,7 +64,7 @@
 
 
 <style scoped>
-    .main {
+    .instructions-main {
         margin-top: .2rem;
         padding: .01rem 0;
         background-color: #fff;
