@@ -5,7 +5,7 @@ import router from './router'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import VueResource from 'vue-resource'
 import FastClick from 'fastclick'
-
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
 FastClick.attach(document.body);
 
 Vue.config.productionTip = false
