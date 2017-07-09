@@ -1,27 +1,27 @@
 <template>
     <div>
-        <header-oneDay></header-oneDay>
+        <header-oneDay :scrollTop="scrollTop"></header-oneDay>
         <prdcard-com></prdcard-com>
     </div>
 </template>
 
 <script>
+    import headerOneDay from "./header-one-day";
+    import prdcardCom from "./prdcard-com";
 
-import headerOneDay from "./headerOneDay";
-import prdcardCom from "./prdcardCom";
+    export default {
 
-export default {
+        data() {
+            return {
 
-    data() {
-        return {
-
-        }
-    },
-    components: {
-        "header-oneDay": headerOneDay,
-        "prdcard-com": prdcardCom
+            }
+        },
+        components: {
+            "header-oneDay": headerOneDay,
+            "prdcard-com": prdcardCom
+        },
+        props: ["scrollTop"]
     }
-}
 </script>
 
 

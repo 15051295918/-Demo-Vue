@@ -1,5 +1,5 @@
 <template>
-    <div class="main">
+    <div class="expense-main">
         <h3 class="prddetail-title border-bottom">{{title}}</h3>
         <div class="prddetail-content">
             <div v-for="item in content.expense">
@@ -20,8 +20,16 @@
 <script>
     export default {
 
+        mounted() {
+            var expenseElement = document.querySelectorAll('.expense-main');
+            this.expenseElementOffsetTop = expenseElement[0].offsetTop;
+            // console.log("expenseElementOffsetTop="+expenseElementOffsetTop)
+            // console.log(expenseElement[0].offsetHeight)
+        },
+
         data() {
             return {
+                expenseElementOffsetTop:0,
                 "title": "费用及退款说明",
                 "content": {
                     "expense": [{
@@ -30,17 +38,26 @@
                             "title": "门票",
                             "content": "行程中所含的景点首道大门票:故宫（赠送珍宝馆）+八达岭长城"
                         }, {
-                            "title": "门票",
-                            "content": "行程中所含的景点首道大门票:故宫（赠送珍宝馆）+八达岭长城"
+                            "title": "交通",
+                            "content": "全程空调旅游车"
+                        }, {
+                            "title": "用餐",
+                            "content": "行程内午餐费用"
+                        }, {
+                            "title": "导游服务",
+                            "content": "中文导游费用（自由活动期间除外）"
+                        }, {
+                            "title": "儿童价格说明",
+                            "content": "身高1.0m-1.4m需提交儿童价格：含半价门票+餐费+导服+车费（1.2以下免门票，导游现退半价门票）<br />身高1.4m以上（含1.4m)需提交成人价格，如有学生证件请出示给导游，现场退学生半价门票<br />身高1.0m以下儿童且不需要占座则无须按儿童价格提交"
                         }]
                     }, {
                         "title": "费用不含",
                         "list": [{
-                            "title": "门票",
-                            "content": "行程中所含的景点首道大门票:故宫（赠送珍宝馆）+八达岭长城"
+                            "title": "八达岭往返滑车或缆车",
+                            "content": "八达岭往返滑车100元；缆车140元/人"
                         }, {
-                            "title": "门票",
-                            "content": "行程中所含的景点首道大门票:故宫（赠送珍宝馆）+八达岭长城"
+                            "title": "其他",
+                            "content": "其他个人消费"
                         }]
                     }],
                     "last": {
@@ -56,7 +73,7 @@
 
 
 <style scoped>
-    .main {
+    .expense-main {
         margin-top: .2rem;
         padding: .01rem 0;
         background-color: #fff;

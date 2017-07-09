@@ -1,5 +1,5 @@
 <template>
-    <div class="main">
+    <div class="tour-intimerary-main">
         <div class="routesum-outter">
             <div class="routesum-inner">
                 <h5 v-for="(item, index) in routesum" :class="{'routesum-item':index==0}">
@@ -35,17 +35,57 @@
                 <span class="iconfont">&#xe768;</span>
             </div>
         </div>
-        <div class="prddetail-mapcon">
-            <el-amap :vid="'amap-vue'"></el-amap>
-        </div>
+        <transition name="custom-classes-transition" enter-active-class="animated slideInRight" leave-active-class="animated bounceOutRight">
+            <div :class='{"prddetail-mapcon":true, "page-map":map.isBigMapOpen}' @click="handleMapClick" v-if="show">
+                <el-amap vid="amap" :zoom="map.zoom" :center="map.center" class="amap-demo">
+                    <el-amap-info-window v-for="window in map.windows" :position="window.position" :content="window.content" :visible="window.visible"
+                        :events="window.events"></el-amap-info-window>
+                </el-amap>
+            </div>
+        </transition>
     </div>
 </template>
 
 <script>
     export default {
 
+        methods: {
+            handleMapClick: function () {
+                if (this.map.isBigMapOpen) {
+                    this.map.isBigMapOpen = false;
+                } else {
+                    this.map.isBigMapOpen = true;
+                }
+            }
+        },
+
+        mounted() {
+            var tourIntimeraryElement = document.querySelectorAll('.tour-intimerary-main');
+            this.tourIntimeraryOffsetTop = tourIntimeraryElement[0].offsetTop;
+            console.log("tourIntimeraryOffsetTop"+this.tourIntimeraryOffsetTop)
+        },
+
         data() {
             return {
+                tourIntimeraryOffsetTop:0,
+                "show":true,
+                "map": {
+                    isBigMapOpen: false,
+                    zoom: 11,
+                    center: [116.3958138, 39.9109056],
+                    windows: [
+                        {
+                            position: [116.3958138, 39.9109056],
+                            content: '天安门',
+                            visible: true,
+                            events: {
+                                close() {
+                                    console.log('close infowindow');
+                                }
+                            }
+                        }
+                    ]
+                },
                 "routesum": [{
                     "icon": "&#xe601;",
                     "item": "交通",
@@ -58,9 +98,9 @@
                 "cardContent": [{
                     "content": "登八达岭长城，逛故宫，一天饱览两大“双遗”景点"
                 }, {
-                    "content": "登八达岭长城，逛故宫，一天饱览两大“双遗”景点"
+                    "content": "品尝京城老字号庆丰包子；坐拥北京绚烂的穹顶"
                 }, {
-                    "content": "登八达岭长城，逛故宫，一天饱览两大“双遗”景点"
+                    "content": "专业导游陪同讲解，无任何强制购物和隐性消费"
                 }],
                 "timeLine": [{
                     "time": "7:30",
@@ -107,8 +147,8 @@
 
 
 <style scoped>
-    .main {
-        padding: .1rem .2rem;
+    .tour-intimerary-main {
+        padding: .98rem .2rem .1rem;
         background: #fff;
     }
 
@@ -260,5 +300,17 @@
         overflow: hidden;
         margin-bottom: .2rem;
         position: relative;
+    }
+
+    .page-map {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: .88rem;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        padding-top: 0;
+        z-index: 100;
     }
 </style>

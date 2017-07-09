@@ -1,26 +1,26 @@
 <template>
     <div>
-        <div class="mp-commentsinfo-con" style="margin-bottom:0;">
-            <a :href="userReviews.borderTop.linkArea" class="mpg-linkarea" mp-role="mp-select-comment" data-click="t_comment_top"></a>
-            <span class="mp-commentswell-score">{{userReviews.commentsInfoCon.commentScore}}</span>
-            <span class="mp-commentswell-text">{{userReviews.commentsInfoCon.commentText}}</span>
-            <span class="mp-comments-tagscore">{{userReviews.commentsInfoCon.commentTag}}</span>
-            <span class="mp-comments-totalnum">{{userReviews.commentsInfoCon.commentTotalnum}}
-                <span class="iconfont mp-comments-rightarrow" v-html="userReviews.commentsInfoCon.commentRightArrow"></span>
+        <div class="commentsinfo-con" style="margin-bottom:0;">
+            <a :href="userReviews.borderTop.linkArea" class="mpg-linkarea" role="select-comment" data-click="t_comment_top"></a>
+            <span class="commentswell-score">{{userReviews.commentsInfoCon.commentScore}}</span>
+            <span class="commentswell-text">{{userReviews.commentsInfoCon.commentText}}</span>
+            <span class="comments-tagscore">{{userReviews.commentsInfoCon.commentTag}}</span>
+            <span class="comments-totalnum">{{userReviews.commentsInfoCon.commentTotalnum}}
+                <span class="iconfont comments-rightarrow" v-html="userReviews.commentsInfoCon.commentRightArrow"></span>
             </span>
         </div>
         
-        <div class="mp-border-top" style="padding: .1rem .2rem;background-color: #fff;">
-            <a :href="userReviews.borderTop.linkArea" class="mpg-linkarea iconfont" mp-role="mp-select-comment" data-click="t_comment_top"></a>
-            <div class="mp-comments-item">
-                <div class="mp-content-level">
+        <div class="border-top" style="padding: .1rem .2rem;background-color: #fff;">
+            <a :href="userReviews.borderTop.linkArea" class="mpg-linkarea iconfont" role="select-comment" data-click="t_comment_top"></a>
+            <div class="comments-item">
+                <div class="content-level">
                     <span class="mpf-starlevel" style="width:1.5rem;font-size:.2rem;">
-                        <strong class="iconfont mpf-starlevel-gain" v-html="userReviews.borderTop.starlevelGain" style="width:100%"></strong>
+                        <strong class="iconfont mpf-starlevel-gain" v-html="userReviews.borderTop.starlevelGain" :style="style"></strong>
                         <span class="iconfont mpf-starlevel-total" v-html="userReviews.borderTop.starlevelTotal"></span>
                     </span>
-                    <span class="mp-comments-date" v-html="userReviews.borderTop.commentsDate"></span>
+                    <span class="comments-date" v-html="userReviews.borderTop.commentsDate"></span>
                 </div>
-                <p class="mp-wellcomments-text mp-ellipsis2">{{userReviews.borderTop.wellcommentsText}}</p>
+                <p class="wellcomments-text ellipsis2">{{userReviews.borderTop.wellcommentsText}}</p>
             </div>
         </div>
     </div>
@@ -32,9 +32,10 @@
         data() {
             return {
                 "userReviews": {
+
                     "commentsInfoCon": {
                         "linkArea": "http://touch.piao.qunar.com/touch/weekend/comment.htm?spuId=355112&amp;cat=from_area%3Dts_type_nav%26from_index%3D2%26from_value%3D%25E4%25B8%2580%25E6%2597%25A5%25E6%25B8%25B8%26dist_city%3D%25E5%258C%2597%25E4%25BA%25AC",
-                        "commentScore": "4.9",
+                        "commentScore": "4.3",
                         "commentText": "分",
                         "commentTag": "非常满意",
                         "commentTotalnum": "用户评论(219)",
@@ -50,15 +51,19 @@
                 }
             }
         },
-        components: {
-
+        computed: {
+            style: function() {
+                return {
+                    width: this.userReviews.commentsInfoCon.commentScore * 20 + "%"
+                }
+            }
         }
     }
 </script>
 
 
 <style scoped>
-    .mp-commentsinfo-con {
+    .commentsinfo-con {
         position: relative;
         margin-top: .2rem;
         background-color: #fff;
@@ -78,23 +83,23 @@
         height: 100%;
     }
     
-    .mp-commentswell-score {
+    .commentswell-score {
         font-size: .4rem;
         color: #00afc7;
         margin-left: .2rem;
     }
     
-    .mp-commentswell-text {
+    .commentswell-text {
         color: #00afc7;
     }
     
-    .mp-comments-tagscore {
+    .comments-tagscore {
         display: inline-block;
         margin-left: .1rem;
         color: #616161;
     }
     
-    .mp-comments-totalnum {
+    .comments-totalnum {
         float: right;
         position: relative;
         top: .25rem;
@@ -106,7 +111,7 @@
         color: #9e9e9e;
     }
     
-    .mp-comments-rightarrow {
+    .comments-rightarrow {
         font-family: 'mpiconfont';
         speak: none;
         font-style: normal;
@@ -116,7 +121,7 @@
         line-height: 1;
     }
     
-    .mp-border-top {
+    .border-top {
         position: relative;
     }
     
@@ -132,11 +137,11 @@
         height: 100%;
     }
     
-    .mp-comments-item:last-child {
+    .comments-item:last-child {
         border-bottom: 0;
     }
     
-    .mp-comments-item {
+    .comments-item {
         padding: .2rem 0!important;
         padding-top: 0.2rem;
         padding-right: 0px;
@@ -144,7 +149,7 @@
         padding-left: 0px;
     }
     
-    .mp-comments-item {
+    .comments-item {
         color: #616161;
         padding: .2rem 0;
         border-bottom: 1px dashed #ccc;
@@ -181,13 +186,13 @@
         letter-spacing: .06rem;
     }
     
-    .mp-comments-date {
+    .comments-date {
         float: right;
         margin-left: .2rem;
         color: #616161;
     }
     
-    .mp-wellcomments-text {
+    .wellcomments-text {
         display: -webkit-box;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -195,7 +200,7 @@
         -webkit-box-orient: vertical;
     }
     
-    .mp-wellcomments-text.mp-ellipsis2 {
+    .wellcomments-text.ellipsis2 {
         line-height: .4rem;
     }
 </style>
