@@ -2,7 +2,7 @@
     <div class="tour-intimerary-main">
         <div class="routesum-outter">
             <div class="routesum-inner">
-                <h5 v-for="(item, index) in routesum" :class="{'routesum-item':index==0}">
+                <h5 v-for="(item, index) in routesum" :class="{'routesum-item':index==0}" :key="index + 'routesum'">
                     <span class="iconfont" v-html="item.icon"></span>
                     <span>{{item.item}}</span> {{item.info}}
                 </h5>
@@ -12,7 +12,7 @@
             <h1 class="summary-title">行程亮点</h1>
             <div class="card-conten">
                 <ul class="card-content">
-                    <li v-for="item in cardContent" class="card-content-item"><span>★</span>{{item.content}}</li>
+                    <li v-for="(item, index) in cardContent" class="card-content-item" :key="index + 'cardContent'"><span>★</span>{{item.content}}</li>
                 </ul>
             </div>
         </div>
@@ -38,8 +38,8 @@
         <transition name="custom-classes-transition" enter-active-class="animated slideInRight" leave-active-class="animated bounceOutRight">
             <div :class='{"prddetail-mapcon":true, "page-map":map.isBigMapOpen}' @click="handleMapClick" v-if="show">
                 <el-amap vid="amap" :zoom="map.zoom" :center="map.center" class="amap-demo">
-                    <el-amap-info-window v-for="window in map.windows" :position="window.position" :content="window.content" :visible="window.visible"
-                        :events="window.events"></el-amap-info-window>
+                    <el-amap-info-window v-for="(window, index) in map.windows" :position="window.position" :content="window.content" :visible="window.visible"
+                        :events="window.events" :key="index + 'map'"></el-amap-info-window>
                 </el-amap>
             </div>
         </transition>
@@ -56,13 +56,13 @@
                 } else {
                     this.map.isBigMapOpen = true;
                 }
+                this.$emit("open");
             }
         },
 
         mounted() {
             var tourIntimeraryElement = document.querySelectorAll('.tour-intimerary-main');
             this.tourIntimeraryOffsetTop = tourIntimeraryElement[0].offsetTop;
-            console.log("tourIntimeraryOffsetTop"+this.tourIntimeraryOffsetTop)
         },
 
         data() {

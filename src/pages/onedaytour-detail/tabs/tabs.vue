@@ -1,9 +1,9 @@
 <template>
     <div class="tab-main">
-        <ul :class='{tab:true, "tab-fixed":tabFixed, "border-bottom":true}' ref="tab">
-            <li v-for="(item, index) in tabs" :class="{tabs, active: index==activeIndex}" @click="hadleTabItemClick(index)">{{item.title}}</li>
+        <ul :class='{tab:true, "tab-fixed":tabFixed, "border-bottom":true}' ref="tab" v-if="tabShow">
+            <li v-for="(item, index) in tabs" :class="{tabs, active: index==activeIndex}" @click="hadleTabItemClick(index)" :key="index + 'tab'">{{item.title}}</li>
         </ul>
-        <tour-itinerary></tour-itinerary>
+        <tour-itinerary @open="mapOpen"></tour-itinerary>
         <expense-explanation></expense-explanation>
         <instructions></instructions>
     </div>
@@ -19,6 +19,7 @@
 
         data() {
             return {
+                tabShow:true,
                 tabs: [{
                     "title": "行程介绍"
                 }, {
@@ -51,6 +52,10 @@
                 }else if( index == 2 ){
                     document.body.scrollTop = this.mainOffsetTop + this.instructionsElementOffsetTop - this.tabOffsetHeight - this.headerOffsetHeight;                    
                 }
+            },
+
+            mapOpen: function() {
+                this.tabShow = !this.tabShow;
             }
             
         },
