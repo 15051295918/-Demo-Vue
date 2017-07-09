@@ -141,7 +141,8 @@
 
 <style scoped>
     .main {
-        padding: .1rem .2rem;
+        margin-top: .2rem; 
+        padding: .94rem .2rem .1rem;
         background: #fff;
     }
 

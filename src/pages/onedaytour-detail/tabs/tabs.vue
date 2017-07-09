@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="main">
         <ul :class='{tab:true, "tab-fixed":tabFixed, "border-bottom":true}'>
             <li v-for="(item, index) in tabs" :class="{tabs, active: index==activeIndex}" @click="hadleTabItemClick(index)">{{item.title}}</li>
         </ul>
@@ -10,78 +10,85 @@
 </template>
 
 <script>
-    import TourItinerary from './tour-itinerary';
-    import ExpenseExplanation from './expense-explanation';
-    import Instructions from './instructions';
+import TourItinerary from './tour-itinerary';
+import ExpenseExplanation from './expense-explanation';
+import Instructions from './instructions';
 
 
-    export default {
+export default {
 
-        data() {
-            return {
-                tabs: [{
-                    "title": "行程介绍"
-                }, {
-                    "title": "费用说明"
-                }, {
-                    "title": "使用说明"
-                }],
-                activeIndex: 0
-            }
-        },
-        props:[
-            "scrollTop"
-        ],
-        components: {
-            "tour-itinerary": TourItinerary,
-            "expense-explanation": ExpenseExplanation,
-            "instructions": Instructions
-        },
-        methods:{
-            hadleTabItemClick: function(index) {
-                this.activeIndex = index;
-            }
-        },
-        computed:{
-            tabFixed: function(){
-                return this.scrollTop>400;
-            }
+    data() {
+        return {
+            tabs: [{
+                "title": "行程介绍"
+            }, {
+                "title": "费用说明"
+            }, {
+                "title": "使用说明"
+            }],
+            activeIndex: 0
+        }
+    },
+    props: [
+        "scrollTop"
+    ],
+    components: {
+        "tour-itinerary": TourItinerary,
+        "expense-explanation": ExpenseExplanation,
+        "instructions": Instructions
+    },
+    methods: {
+        hadleTabItemClick: function (index) {
+            this.activeIndex = index;
+        }
+    },
+    computed: {
+        tabFixed: function () {
+            return this.scrollTop > 415;
         }
     }
+}
 
 </script>
 
 
 <style scoped>
-    .tab {
-        position: relative;
-        display: flex;
-        margin-top: .2rem;
-        height: .84rem;
-        font-size: .28rem;
-        background: #fff;
-        z-index: 100;
-    }
+.main {
+    position: relative;
+}
 
-    .tab-fixed{
-        position: fixed;
-        left:0;
-        right:0;
-        top:.66rem;
-    }
+.tab {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    /*margin-top: .2rem;*/
+    height: .84rem;
+    width: 100%;
+    font-size: .28rem;
+    background: #fff;
+    z-index: 1000;
+}
 
-    .tabs {
-        flex: 1;
-        text-align: center;
-        width: 30%;
-        height: .84rem;
-        line-height: .84rem;
-        color: #616161;
-    }
+.tab-fixed {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: .88rem;
+}
 
-    .active {
-        box-sizing: border-box;
-        color: #00afc7;
-        border-bottom: .04rem solid #00afc7;
-    }
+.tabs {
+    flex: 1;
+    text-align: center;
+    width: 30%;
+    height: .84rem;
+    line-height: .84rem;
+    color: #616161;
+}
+
+.active {
+    box-sizing: border-box;
+    color: #00afc7;
+    border-bottom: .04rem solid #00afc7;
+}
 </style>
