@@ -1,12 +1,12 @@
 <template>
-	<div>加油吧，少年</div>
+  <div>list</div>
 </template>
 
 <script>
 export default {
   data () {
     return {
-     
+
     }
   }
 }
@@ -14,5 +14,5 @@ export default {
 
 
 <style scoped>
-	
+
 </style>

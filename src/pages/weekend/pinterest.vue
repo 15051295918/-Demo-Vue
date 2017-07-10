@@ -1,13 +1,17 @@
 <template>
    <div class="pinterest-wrap border-top">
    	 <h2 class="pinterest-title"><span class="pinterest-titleicon"></span>精选玩法</h2>
+
    	 <ul class="pinterest-conter" >
+
    	 	<li class="pinterest-item" v-for="(item,index) in list">
+        <router-link :to=" '/weekend/list/' +index " >
+
    	 		<div class="pinterest-list-wrap">
    	 			<div class="img-wrapper">
-   	 				
+
    	 				<img  class="item-img" v-lazy="item.src"/>
-   	 			
+
    	 			</div>
    	 		    <div class="price price-suggest">
    	 		    	<span class="current-price">￥{{item.price}}/份<span class="yprice" v-if=done(item)>￥{{item.yprice}}</span></span>
@@ -17,32 +21,49 @@
    	 			<h5 class="weekendsuggest-name">{{item.title}}</h5>
    	 			<p class="weekendsuggest-name-position">{{item.position}}</p>
    	 		</div>
+        </router-link>
+        <button v-on:click="handle()">点击</button>
    	 	</li>
+
    	 </ul>
    </div>
+
 </template>
 
 <script>
- 
-export default {
-   props:["list"],
-    methods:{
-     done:function(item){
-     	if(item.yprice){     		
-     		return true;
-     	}else{
-     		return false;
-     	}
-  	 }
- 
+var i=0;
+var title=[];
+  export default {
+    props:["list"],
+    data(){
+       return{
+         test:["liuhaoqiang"]
+       }
+    },
+      methods:{
+       done:function(item){
+        if(item.yprice){
+          return true;
+        }else{
+          return false;
+        }
+       },
+        handle:function () {
+            i++;
+            title.push(i);
+          window.localStorage.title=title;
+          console.log(typeof window.localStorage.title)
+        }
+
+    }
+
   }
-}
- 
+
 </script>
 
 <style scoped>
 	.pinterest-wrap{
-		margin-top: .2rem; 
+		margin-top: .2rem;
 		background: #fff;
 	}
 	.pinterest-title{
@@ -55,7 +76,7 @@ export default {
 		width: .06rem;
 		height: .25rem;
 		background: #1ba9ba;
-		margin-right: .15rem;		
+		margin-right: .15rem;
 	}
 	.img-wrapper{
 		overflow: hidden;
@@ -101,9 +122,9 @@ export default {
     	padding: 0.2rem;
     }
     .weekendsuggest-name{
-    	font-size: .32rem; 
-    	line-height: .46rem;   	
-    	color:##212121;
+    	font-size: .32rem;
+    	line-height: .46rem;
+    	color:#212121;
     	margin-bottom: .2rem;
     }
     .weekendsuggest-name-position{

@@ -31,7 +31,7 @@ export default {
         return {
             swiperInfo: [],
             iconInfo: [],
-            recommendInfo: []   
+            recommendInfo: []
         }
     },
     components: {
@@ -53,6 +53,4 @@ export default {
         min-height: 100%;
         background: #f5f5f5;
   }
-
-
 </style>
