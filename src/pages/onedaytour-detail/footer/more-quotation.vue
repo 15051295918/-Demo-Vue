@@ -1,6 +1,6 @@
 <template>
     <div>
-         更多报价
+          
     </div>
 </template>
         
