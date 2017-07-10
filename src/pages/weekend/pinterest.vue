@@ -55,7 +55,7 @@ export default {
 		width: .06rem;
 		height: .25rem;
 		background: #1ba9ba;
-		margin-right: .15rem;		
+		margin-right: .1rem;		
 	}
 	.img-wrapper{
 		overflow: hidden;
