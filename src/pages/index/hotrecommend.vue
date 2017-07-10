@@ -51,9 +51,6 @@ export default {
 	.hot-commend-con {
 		background: #fff;
 	}
-	.hot-commend-list {
-
-	}
 	.hot-commend-list-item {
 		position: relative;
 		overflow: hidden;

@@ -58,17 +58,19 @@ export default {
 			alert();
     	},
     	menu() {
-	        this.scroll = document.body.scrollTop;
-			var navbarHot = document.querySelector(".navbar-hot");
-	        if( this.scroll >= 1888 ) {
-	        	navbarHot.style.position = "fixed";
-	        	navbarHot.style.top = "0";
-	        	navbarHot.style.zIndex = 10;
-	        	navbarHot.style.width = 100+"%";
-	        }else{
-	        	navbarHot.style.position = "";
-	        	navbarHot.style.top = "";
-	        }
+			window.onload = function() {
+				this.scroll = document.body.scrollTop;
+				var navbarHot = document.querySelector(".navbar-hot");
+				if( this.scroll >= 1888 ) {
+					navbarHot.style.position = "fixed";
+					navbarHot.style.top = "0px";
+					navbarHot.style.zIndex = 10;
+					navbarHot.style.width = 100+"%";
+				}else{
+					navbarHot.style.position = "static";
+					navbarHot.style.top = "";
+				}
+			}
         }
     },
 
