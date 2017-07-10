@@ -15,7 +15,7 @@
 </template>
 
 <script >
-	
+import topBar from './topBar'	
 import header from './detail_header'
 import download from './download'
 import address from './address'
@@ -23,7 +23,6 @@ import recommend from './recommend'
 import comment from './comment'
 import recommended from './recommended'
 import footer from './footer'
-import topBar from './topBar'
 import product from './product'
 
 export default {
