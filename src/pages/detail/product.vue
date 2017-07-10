@@ -4,13 +4,12 @@
 			<span class="iconfont icon-ticket">&#xe645;</span>
 			热销组合产品
 		</div>
-		<div class="product-content border-bottom" v-for="(item,index) in data" :key="index + 'product'"  :id="index" @click="handleClick($event)"  :style="object_height" >
+		<div class="product-content border-bottom" v-for="(item,index) in data" :key="index + 'product'"  :id="index" @click="handleClick"  :style="object_height" >
 			<div class="content-first" >
 				<span class="productcontent-title">{{item.title}}<span class="title-item">{{item.title_item}}</span></span>
-				<span class="productcontent-money">&yen{{item.price}}<span class="money-item">起》</span></span>
+				<span class="productcontent-money">&yen{{item.price}}<span class="money-item">起<span class="iconfont icon-down" :id="'icon'+index">&#xe64b;</span></span></span>
 			</div>
 			<div class="product-sell">
-				
 				<div class="sell-title border-right">
 					<div class="title">{{item.content_title}}</div>
 					<span class="title-item">{{item.item_one}}</span>
@@ -42,8 +41,11 @@
 				var height = document.getElementById(id).style.height;
 				if(height == "0.8rem"){
 					document.getElementById(id).style.height = "100%";
+				    document.getElementById("icon"+id).innerHTML = "&#xe667;"
+					
 				}else{
 					document.getElementById(id).style.height = ".8rem";
+					document.getElementById("icon"+id).innerHTML = "&#xe64b;"
 				}
 			}
 		},

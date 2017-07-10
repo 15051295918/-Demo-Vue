@@ -6,7 +6,7 @@
 				<span class="title">故宫(AAAAA景区)</span>
 			</div>
 			<div class="total-img">
-				<span class="iconfont" >&#xe634;</span>{{data.length}}
+				<span class="iconfont icon-img" >&#xe634;</span>{{data.length}}
 			</div>
 		</div>
 		<!--mask-->
@@ -19,10 +19,16 @@
 			        	</div>
 			        </swiper-slide>
 	    		</swiper>
-		        <div class="swiper-button-prev left-button" slot="button-prev" >＜</div>
-				<div class="swiper-button-next" slot="button-next" >＞</div>
+		        <div class="swiper-button-prev" slot="button-prev" >
+		        	<span class="iconfont">&#xe685;</span>
+		        </div>
+				<div class="swiper-button-next" slot="button-next" >
+					<span class="iconfont">&#xe768;</span>
+				</div>
 	       	</div>
-	       	<div class="mask-close" @click="seen=false">×</div>
+	       	<div class="mask-close" @click="seen=false">
+	       		<span class="iconfont icon-close">&#xe621;</span>
+	       	</div>
 	       	<div class="swiper-pagination" slot="pagination"></div>
 		</div>
 		<!--mask结束-->
@@ -129,25 +135,24 @@
 		font-size: .4rem;
 	}
 	.swiper-wrap .swiper-button-prev,.swiper-wrap .swiper-button-next{
-		background:none;
-		top:90%;
+		top:88%;
 		width:.8rem;
 		height:.8rem;
 		border-radius: 50%;
 		background:rgba(51,51,51,.8);
-		color:#fff;
-		text-align: center;
-		z-index:100;
-		font-size: .6rem;
-		line-height: .8rem;
+		line-height:.8rem;
+		text-align:center;
 		font-weight: bold;
 	}
 	.detailheader-mask .swiper-pagination{
 		bottom:1.25rem;
 		left:0;
 	}
-	.iconfont{
-		margin-right: .05rem;
+	.icon-img{
+		margin-right:.05rem;
+	}
+	.icon-close{
+		font-size: .52rem;
 	}
 </style>
 

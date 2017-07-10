@@ -30,14 +30,7 @@
 				"imgUrl":"http://img1.qunarzz.com/sight/p0/1410/be/d44bb81ae3218a627a65ded451326b2c.water.jpg_800x800_e66340c8.jpg"
 			}
 		],
-		"addressInfo":[
-			{
-				"address":"北京市东城区景山前街4号"
-			},{
-				"address":"查看景点简介及开放时间"
-			}
-		],
-<<<<<<< HEAD
+		
 		"recommendInfo":[
 			{
 				"title":"八达岭长城+恭王府游玩推荐",
@@ -95,8 +88,7 @@
 				"content_title":"【上午场】故宫学生票凭身份证入园(含自助导览器)",
 				"item_one":"无购物",
 				"item_two":"无自费"
-			}
-=======
+			}],
 		"recommendedInfo":[
 			{
 				"recommendImg":"http://img1.qunarzz.com/sight/p0/1501/f4/f467729126949c3a.water.jpg_228x168_3df8efda.jpg",
@@ -181,8 +173,7 @@
 			},
 			{
 				"commentImglist":"http://img1.qunarzz.com/piao/fusion/1706/e4/f93db5e711aa0002.jpg_228x168_5eaad530.jpg"
-			}	
->>>>>>> 17f4939368a84a6e325377bff0c639753f61af74
+			}
 		]
 
 	}
