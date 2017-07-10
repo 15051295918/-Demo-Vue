@@ -5,16 +5,8 @@ import getters from './getters'
 import mutations from './mutations'
 
 export default new Vuex.Store({
-<<<<<<< HEAD
-	state: {
-   		city: city
-	}
-})
-
-=======
 	state: state,
 	getters,
   	actions,
   	mutations
 })
->>>>>>> origin/master
