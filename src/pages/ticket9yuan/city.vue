@@ -1,11 +1,14 @@
 <template>
-  	<div class="titket-city">
+    <div class="titket-city">
          <ul class="city">
-            <li class="city-items" v-for="(items, index) in cityItmes" :key="index + '_city_itmes'" :class="{active: index==activeIndex}" @click="handleClick(index)">
+            <li :class="{'city-items' : true , activeIndexImg:index==activeIndex}" 
+                v-for="(items, index) in cityItmes" 
+                :key="index + '_city_itmes'"                 
+                @click="handleClick(index)">
                 <a href="javascript:void(0)" class="city-items-a">{{items.city}}</a>
             </li>
         </ul> 
-  	</div>	
+    </div>  
 </template>
 
 <script>
@@ -21,7 +24,7 @@ export default {
   data () {
     return {
         commentcityItmes:[],
-        activeIndex:1
+        activeIndex:0
     }
   },
   computed: {
@@ -35,8 +38,10 @@ export default {
   },
   methods: {
         handleClick: function(index) {
-            this.activeIndex = index;
-            
+            this.activeIndex = index;   
+            if(index==7){
+              alert(123)
+            }         
         }
     }
 
@@ -45,7 +50,7 @@ export default {
 
 
 <style scoped>
-	  .titket-city {
+    .titket-city {
       width: 100%;
       height: 1.8rem;   
     }
@@ -56,16 +61,58 @@ export default {
     }
     .city-items {
       float: left;
-      width: 1.83rem;
-      height: .78rem;
+      width: 25%;
+      height: .9rem;
       text-align: center;
-      line-height: .78rem;
-      background: url(//s.qunarzz.com/piao_topic/image/touch/custom/2017/2125perfect03/170704summer/menu_sprite.png) .1rem .1rem/7.35rem 3.44rem no-repeat;
+      line-height: .8rem;
+      background: url(//s.qunarzz.com/piao_topic/image/touch/custom/2017/2125perfect03/170704summer/menu_sprite.png) .1rem .1rem/400% 4.1rem no-repeat;
+    }
+    .city-items:nth-child(2){
+      background-position: 32.3% -3%;
+    }
+    .city-items:nth-child(3){
+      background-position: 66.7% -3%;
+    }
+    .city-items:nth-child(4){
+      background-position: 99.9% -3%;
+    }
+    .city-items:nth-child(5){
+      background-position: -1% 25%;
+    }
+    .city-items:nth-child(6){
+      background-position: 32.3% 25%;
+    }
+    .city-items:nth-child(7){
+      background-position: 66.7% 25.5%;
+    }
+    .city-items:nth-child(8){
+      background-position: 99.9% 25%;
     }
     .city-items-a {
       color: #fff;
-    }
-    .active{
-        background-position: 32.3% 74%;
-    }
+    } 
+   .activeIndexImg:nth-child(1){
+     background-position: -1.7% 73.6%;
+   }
+   .activeIndexImg:nth-child(2){
+     background-position: 32.3% 74%;
+   }
+   .activeIndexImg:nth-child(3){
+     background-position: 66.7% 74%;
+   }
+   .activeIndexImg:nth-child(4){
+     background-position: 99.9% 74%;
+   }
+   .activeIndexImg:nth-child(5){
+     background-position: -1.4% 101.6%;
+   }
+   .activeIndexImg:nth-child(6){
+     background-position: 32.3% 102%;
+   }
+   .activeIndexImg:nth-child(7){
+     background-position: 66.7% 102.5%;
+   }
+   .activeIndexImg:nth-child(8){
+     background-position: -3.5% 75%;
+   } 
 </style>
