@@ -3,8 +3,8 @@
 		<h2 class="hot-commend-title">热销推荐</h2>
 		<div class="hot-commend-con">
 			<ul class="hot-commend-list">
-				<li class="hot-commend-list-item border-bottom" v-for="(hotrecommendes,index) in hotsight" :key="index+'_hot_commend_info'">
-					<a href="#">
+				<li class="hot-commend-list-item border-bottom" v-for="(hotrecommendes,index) in hotsight" :key="index+'_hot_commend_info'" >
+					<router-link :to="{path:'laoji', query: {id:index}}">
 						<div class="hotlist-img">
 							<img :src="hotrecommendes.listImg" />
 						</div>
@@ -16,11 +16,11 @@
 							&yen;<em class="hotlist-num">{{hotrecommendes.price}}</em>
 							<span class="hotlist-text">{{hotrecommendes.text}}</span>
 						</div>
-					</a>
+					</router-link>
 				</li>
 			</ul>
 			<div class="hot-modmore">
-				<a href="http://piao.qunar.com/touch/list_%E5%8C%97%E4%BA%AC_%E5%8C%97%E4%BA%AC.html?region=%E5%8C%97%E4%BA%AC&sort=pp&cat=from_area%253Dts_hot_recommend_more%2526dist_city%253D%2525E5%25258C%252597%2525E4%2525BA%2525AC&isForeign=false&pageSize=20" class="hot-modmore-title">查看所有产品</a>
+				<a href="#">查看所有产品</a>
 			</div>
 		</div>
 	</div>
@@ -32,6 +32,9 @@ export default {
 		return {
 
 		}
+	},
+	methods: {
+		
 	},
 	props:["hotsight"]
 }
