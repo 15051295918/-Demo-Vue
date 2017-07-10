@@ -35,7 +35,7 @@ export default {
   .header-left {
     float: left;
     display: inline-block;
-    width: .4rem;
+    width: 5.3%;
     line-height: .88rem;
     padding: 0 .2rem;
     color: #fff;

@@ -30,25 +30,27 @@ export default {
 	.titket-9-main {
 		width: 100%;
 		height: 1.2rem;
+		background: #000;
 	}
 	.app {
 		width: 100%;
 		height: 1.2rem;
-		background: rgba(0, 0, 0, 1);
+		background: rgba(0, 0, 0, 0.5);
 		position: fixed;
 		left: 0;
 		top: 0;
+		z-index: 20;
 	}
 	.app-left {
 		float: left;
 		height: 1.2rem;
-		width: 1.2rem;
+		width: 16%;
 	}
 	.app-logo {
 		display: block;
 		width: 75%;
 		height: 75%;
-		margin: 15% 15%;
+		margin: 10% 10%;
 	}
 	.app-name {
 		float: left;
@@ -70,7 +72,7 @@ export default {
 	}
 	.app-app {
 		float: left;
-		width: 1.6rem;
+		width: 21%;
 		height: .72rem;
 		background: #F4B000;
 		border-radius: .2rem;
@@ -79,7 +81,7 @@ export default {
 		color: #fff;
 		font-size: .24rem;
 		font-weight: 700;
-		margin: 3% 0 0 12%;
+		margin: 3% 0 0 10%;
 		box-shadow:  0 0.05rem 0 0.01rem  #e58700 ;
 	}
 	.app-off {

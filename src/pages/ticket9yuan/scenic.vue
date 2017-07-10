@@ -53,7 +53,7 @@ export default {
       height:100%;
     }
     .scenic {
-      width:7rem;
+      width:94%;
       height: auto;
       margin:0 0.15rem;
       border: .1rem solid #000;
@@ -66,7 +66,7 @@ export default {
      
     }
     .scenic-left {
-      width: 2.5rem;
+      width: 18%;
       height: 2.08rem;
       float: left;
       position: relative;
