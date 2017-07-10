@@ -1,11 +1,13 @@
 <template>
 
     <div class="main">
+		<topBar></topBar>
         <detail-header :data="swiperInfo"></detail-header>
         <introduction :data="addressInfo"></introduction>
        	<download></download>
         <detail-recommended :data="recommendedInfo"></detail-recommended>
         <detail-footer></detail-footer>
+		
     </div>
 
 </template>
@@ -16,6 +18,7 @@ import download from './download'
 import address from './address'
 import recommended from './recommended'
 import footer from './footer'
+import topBar from './topBar'
 
 export default {
 	created: function(){
@@ -42,7 +45,8 @@ export default {
         "download": download,
         "introduction": address,
         "detail-recommended":recommended,
-        "detail-footer": footer
+        "detail-footer": footer,
+		"topBar": topBar
 	}
 }
 </script>

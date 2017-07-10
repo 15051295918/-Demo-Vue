@@ -1,5 +1,5 @@
 <template>
-	<a class="app-download" ref="app" @click="downloadapp"></a>
+	<a class="app-download iconfont" ref="app" @click="downloadapp">&#xe6c4;</a>
 </template>
 
 <script>
@@ -47,8 +47,8 @@ export default {
         width: 1.36rem;
         height: 1.15rem;
         z-index: 98;
-        background: #00afc7;
+        
         background-size: 1.36rem 1.36rem;
-        border-radius: 100%;
+        font-size: 1rem;
     }
 </style>
