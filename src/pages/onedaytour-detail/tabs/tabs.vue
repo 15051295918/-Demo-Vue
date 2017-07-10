@@ -10,12 +10,12 @@
 </template>
 
 <script>
-    import TourItinerary from './tour-itinerary';
-    import ExpenseExplanation from './expense-explanation';
-    import Instructions from './instructions';
+import TourItinerary from './tour-itinerary';
+import ExpenseExplanation from './expense-explanation';
+import Instructions from './instructions';
 
 
-    export default {
+export default {
 
         data() {
             return {
@@ -90,7 +90,7 @@
             this.expenseElementOffsetHeight = expenseElement[0].offsetHeight;
             this.instructionsElementOffsetTop = instructionsElement[0].offsetTop;
         }
-    }
+}
 
 </script>
 
@@ -118,18 +118,25 @@
         top: .88rem;
     }
 
-    .tabs {
-        flex: 1;
-        text-align: center;
-        width: 30%;
-        height: .84rem;
-        line-height: .84rem;
-        color: #616161;
-    }
+.tab-fixed {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: .88rem;
+}
 
-    .active {
-        box-sizing: border-box;
-        color: #00afc7;
-        border-bottom: .04rem solid #00afc7;
-    }
+.tabs {
+    flex: 1;
+    text-align: center;
+    width: 30%;
+    height: .84rem;
+    line-height: .84rem;
+    color: #616161;
+}
+
+.active {
+    box-sizing: border-box;
+    color: #00afc7;
+    border-bottom: .04rem solid #00afc7;
+}
 </style>
