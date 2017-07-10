@@ -9,11 +9,7 @@
   			</router-link>
   		</div>
   		<div class="header-right">
-<<<<<<< HEAD
-  			<span class="header-city">北京<i class="header-city-option"></i>
-=======
   			<span class="header-city">{{$store.state.city}}<i class="header-city-option"></i>
->>>>>>> origin/master
   			</span>  			
   		</div>
   	</header>
@@ -86,13 +82,8 @@ export default {
     .header-city-option{
 		height: 0rem;
 		width: 0rem;
-<<<<<<< HEAD
-		border:0.12rem solid transparent;
-    	border-top: 0.12rem solid #fff;
-=======
 		border:0.13rem solid transparent;
     	border-top: 0.13rem solid #fff;
->>>>>>> origin/master
     	position: relative;
     	top:0.22rem;  	
 	}
