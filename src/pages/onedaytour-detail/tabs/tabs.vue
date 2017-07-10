@@ -3,7 +3,7 @@
         <ul :class='{tab:true, "tab-fixed":tabFixed, "border-bottom":true}' ref="tab" v-if="tabShow">
             <li v-for="(item, index) in tabs" :class="{tabs, active: index==activeIndex}" @click="hadleTabItemClick(index)" :key="index + 'tab'">{{item.title}}</li>
         </ul>
-        <tour-itinerary @open="mapOpen"></tour-itinerary>
+        <tour-itinerary @openMap="openMap"></tour-itinerary>
         <expense-explanation></expense-explanation>
         <instructions></instructions>
     </div>
@@ -54,8 +54,9 @@ export default {
                 }
             },
 
-            mapOpen: function() {
+            openMap: function() {
                 this.tabShow = !this.tabShow;
+                this.$emit("openMap");
             }
             
         },

@@ -56,7 +56,7 @@
                 } else {
                     this.map.isBigMapOpen = true;
                 }
-                this.$emit("open");
+                this.$emit("openMap");
             }
         },
 
@@ -295,11 +295,11 @@
     }
 
     .prddetail-mapcon {
+        position: relative;
         height: 3.5rem;
         padding-top: .2rem;
         overflow: hidden;
-        margin-bottom: .2rem;
-        position: relative;
+        margin-bottom: .2rem; 
     }
 
     .page-map {

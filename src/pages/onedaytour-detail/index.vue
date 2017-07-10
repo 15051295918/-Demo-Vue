@@ -6,7 +6,7 @@
         <user-reviews></user-reviews>
 
         <!--武鹤-->
-        <index-tabs :scrollTop="scrollTop"></index-tabs>
+        <index-tabs :scrollTop="scrollTop" @openMap="openMap"></index-tabs>
 
         <!--国辉-->
         <index-footer></index-footer>
@@ -44,6 +44,11 @@
                 this_.scrollTop = document.body.scrollTop;
                 // console.log(document.body.scrollTop)
             }, false);
+        },
+        methods:{
+            openMap:function() {
+                
+            }
         }
     }
 
