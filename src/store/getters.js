@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-
-
-
-=======
 export default {
 	
 	getCity: function(state) {
@@ -10,4 +5,3 @@ export default {
     }
 
 }
->>>>>>> origin/master
