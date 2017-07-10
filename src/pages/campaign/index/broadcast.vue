@@ -15,21 +15,22 @@
 export default {
 	created:function(){
 		var _this = this;
-		var tiemr =setInterval(function(){
-			_this.marginLeft <= -10000 ? _this.marginLeft=0 : _this.marginLeft--
+		var tiemr = setInterval(function(){
+			_this.marginLeft <= -10000 ? _this.marginLeft = 0 : _this.marginLeft--
 		},30)
 	},
+
 	data () {
 		return {
 			swiperOption: {
 	     		loop: true,
 	            autoplay: 1000,
-	            direction : 'horizontal',
+	            direction: 'horizontal',
 	            autoHeight: true,
-	            pagination : '.swiper-pagination',
-	            paginationClickable :true
+	            pagination: '.swiper-pagination',
+	            paginationClickable: true
 	        },
-	        marginLeft:0
+	        marginLeft: 0
 		}	
 	},
 
