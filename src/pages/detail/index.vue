@@ -1,11 +1,6 @@
 <template>
-<<<<<<< HEAD
-
-    <div class="main">
-		<topBar></topBar>
-=======
     <div class="main" >
->>>>>>> b16a2c93a0c1fa9808442181c26806963b7665d4
+        <topBar></topBar>
         <detail-header :data="swiperInfo"></detail-header>
         <introduction></introduction>
         <recommend :data="recommendInfo"></recommend>
@@ -19,7 +14,7 @@
 
 </template>
 <script >
-	
+import topBar from './topBar'	
 import header from './detail_header'
 import download from './download'
 import address from './address'
@@ -27,11 +22,7 @@ import recommend from './recommend'
 import comment from './comment'
 import recommended from './recommended'
 import footer from './footer'
-<<<<<<< HEAD
-import topBar from './topBar'
-=======
 import product from './product'
->>>>>>> b16a2c93a0c1fa9808442181c26806963b7665d4
 
 export default {
 	created: function(){

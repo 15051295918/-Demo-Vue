@@ -6,7 +6,24 @@
 
 
 
-import scroll from '@/utils/scroll.js'
+var scroll = function(dom) {
+   var beforeScrollTop = document.body.scrollTop;
+    window.addEventListener("scroll", function(){
+
+        var afterScrollTop = document.body.scrollTop,
+            delta = afterScrollTop - beforeScrollTop;
+        if (delta > 0){
+            dom.style.cssText = "display:none";
+        }else{
+            dom.style.cssText = "display:inline";
+           
+        }
+        beforeScrollTop = afterScrollTop;
+    }, false)
+}
+
+
+
 import detect from '@/utils/detect.js'
 
 
@@ -15,7 +32,7 @@ import detect from '@/utils/detect.js'
 
 export default {
   mounted () {
-    scroll.scroll(this.$refs.app)　
+    scroll(this.$refs.app)　
   },
   methods:{
     downloadapp : function (event) {
