@@ -6,7 +6,7 @@
 				<span class="title">故宫(AAAAA景区)</span>
 			</div>
 			<div class="total-img">
-				{{data.length}}
+				<span class="iconfont icon-img" >&#xe634;</span>{{data.length}}
 			</div>
 		</div>
 		<!--mask-->
@@ -19,10 +19,16 @@
 			        	</div>
 			        </swiper-slide>
 	    		</swiper>
-			        <div class="swiper-button-prev left-button" slot="button-prev" >＜</div>
-    				<div class="swiper-button-next" slot="button-next" >＞</div>
+		        <div class="swiper-button-prev" slot="button-prev" >
+		        	<span class="iconfont">&#xe685;</span>
+		        </div>
+				<div class="swiper-button-next" slot="button-next" >
+					<span class="iconfont">&#xe768;</span>
+				</div>
 	       	</div>
-	       	<div class="mask-close" @click="seen=false">×</div>
+	       	<div class="mask-close" @click="seen=false">
+	       		<span class="iconfont icon-close">&#xe621;</span>
+	       	</div>
 	       	<div class="swiper-pagination" slot="pagination"></div>
 		</div>
 		<!--mask结束-->
@@ -56,11 +62,7 @@
 </script>
 <style scoped>
 	.detail-wrap{
-		position:absolute;
-		left:0;
-		top:0;
-		right:0;
-		bottom:0;
+		width: 100%;
 	}
 	.detail-header{
 		position: relative;
@@ -96,11 +98,11 @@
 		line-height: .4rem;
 	}
 	.detailheader-mask{
-		position: absolute;
+		position: fixed;
 		top:0;
 		left: 0;
-		right:0;
 		bottom:0;
+		right:0;
 		background:#000;
 		color:#fff;
 		z-index:99;
@@ -133,25 +135,24 @@
 		font-size: .4rem;
 	}
 	.swiper-wrap .swiper-button-prev,.swiper-wrap .swiper-button-next{
-		background:none;
-		top:90%;
+		top:88%;
 		width:.8rem;
 		height:.8rem;
 		border-radius: 50%;
 		background:rgba(51,51,51,.8);
-		color:#fff;
-		text-align: center;
-		z-index:100;
-		font-size: .6rem;
-		line-height: .8rem;
+		line-height:.8rem;
+		text-align:center;
 		font-weight: bold;
 	}
 	.detailheader-mask .swiper-pagination{
 		bottom:1.25rem;
 		left:0;
 	}
+	.icon-img{
+		margin-right:.05rem;
+	}
+	.icon-close{
+		font-size: .52rem;
+	}
 </style>
-<<<<<<< HEAD
 
-=======
->>>>>>> 751d4b2fd8894321dacf62bf111f0b60e749c5c4

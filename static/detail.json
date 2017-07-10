@@ -30,13 +30,65 @@
 				"imgUrl":"http://img1.qunarzz.com/sight/p0/1410/be/d44bb81ae3218a627a65ded451326b2c.water.jpg_800x800_e66340c8.jpg"
 			}
 		],
-		"addressInfo":[
+		
+		"recommendInfo":[
 			{
-				"address":"北京市东城区景山前街4号"
-			},{
-				"address":"查看景点简介及开放时间"
+				"title":"八达岭长城+恭王府游玩推荐",
+				"item_one":"无购物",
+				"item_two":"无自费"
+			},
+			{
+				"title":"八达岭长城+恭王府游玩推荐",
+				"item_one":"无购物",
+				"item_two":"无自费"
+			},
+			{
+				"title":"八达岭长城+恭王府游玩推荐",
+				"item_one":"无购物",
+				"item_two":"无自费"
 			}
 		],
+		"productInfo":[
+			{
+				"title":"学生票上午场+自助导游器",
+				"title_item":"凭身份证入场",
+				"price":"40",
+				"content_title":"【上午场】故宫学生票凭身份证入园(含自助导览器)",
+				"item_one":"无购物",
+				"item_two":"无自费"
+			},
+			{
+				"title":"学生票上午场+自助导游器",
+				"title_item":"凭身份证入场",
+				"price":"80",
+				"content_title":"【下午场】故宫学生票凭身份证入园(含自助导览器)",
+				"item_one":"无购物",
+				"item_two":"无自费"
+			},
+			{
+				"title":"学生票上午场+自助导游器",
+				"title_item":"凭身份证入场",
+				"price":"100",
+				"content_title":"【上午场】故宫成人票凭身份证入园(含自助导览器)",
+				"item_one":"无购物",
+				"item_two":"无自费"
+			},
+			{
+				"title":"学生票上午场+自助导游器",
+				"title_item":"凭身份证入场",
+				"price":"120",
+				"content_title":"【上午场】故宫成人票凭身份证入园(含自助导览器)",
+				"item_one":"无购物",
+				"item_two":"无自费"
+			},
+			{
+				"title":"学生票上午场+自助导游器",
+				"title_item":"凭身份证入场",
+				"price":"50",
+				"content_title":"【上午场】故宫学生票凭身份证入园(含自助导览器)",
+				"item_one":"无购物",
+				"item_two":"无自费"
+			}],
 		"recommendedInfo":[
 			{
 				"recommendImg":"http://img1.qunarzz.com/sight/p0/1501/f4/f467729126949c3a.water.jpg_228x168_3df8efda.jpg",
@@ -80,6 +132,49 @@
 				"recommendSubposition":"北京·海淀区",
 				"priceNum":"7.01"
 			}
+		],
+		"commentInfo":[
+			{
+				"commentUser":"z*9",
+				"commentDate":"2017-06-23",
+				"commentContent":"我是第一次报一天游的，在沒有报前总覺得不好，但旭冉旅遊团的小凡称小格格，真的值得一赞，剛好是北京下暴雨的一天，我們往八达岭长城开去，已經差不多到，才收到全封閉通知，小格格还幫我們全去了幾個售票处问问可以上去长城吗，這点小格格很细心，在讲解途中，很全面很细致，真的值得赞！下次來北京，一定找你小格格做導遊！"
+
+			},		
+			{
+				"commentUser":"z*9",
+				"commentDate":"2017-06-23",
+				"commentContent":"我是第一次报一天游的，在沒有报前总覺得不好，但旭冉旅遊团的小凡称小格格，真的值得一赞，剛好是北京下暴雨的一天，我們往八达岭长城开去，已經差不多到，才收到全封閉通知，小格格还幫我們全去了幾個售票处问问可以上去长城吗，這点小格格很细心，在讲解途中，很全面很细致，真的值得赞！下次來北京，一定找你小格格做導遊！"
+			}
+		],
+		"commentImg":[	
+			{
+				"commentImglist":"http://img1.qunarzz.com/piao/fusion/1706/98/19c9b9f677ebf902.jpg_228x168_e6d641a5.jpg"
+			},
+			{
+				"commentImglist":"http://img1.qunarzz.com/piao/fusion/1706/e4/f93db5e711aa0002.jpg_228x168_5eaad530.jpg"
+			},
+			{
+				"commentImglist":"http://img1.qunarzz.com/piao/fusion/1706/fb/265568d0f571d02.jpg_228x168_dd89d0ef.jpg"
+			},
+			{
+				"commentImglist":"http://img1.qunarzz.com/piao/fusion/1706/3e/b9ff164f5879be02.jpg_228x168_bd47dbee.jpg"
+			},
+			{
+				"commentImglist":"http://img1.qunarzz.com/piao/fusion/1706/58/c29546f2e32f6102.jpg_228x168_b0478bc5.jpg"
+			},
+			{
+				"commentImglist":"http://img1.qunarzz.com/piao/fusion/1706/61/c1f5af8d357cca02.jpg_228x168_8602167d.jpg"
+			},
+			{
+				"commentImglist":"http://img1.qunarzz.com/piao/fusion/1706/e4/f93db5e711aa0002.jpg_228x168_5eaad530.jpg"
+			},
+			{
+				"commentImglist":"http://img1.qunarzz.com/piao/fusion/1706/e4/f93db5e711aa0002.jpg_228x168_5eaad530.jpg"
+			},
+			{
+				"commentImglist":"http://img1.qunarzz.com/piao/fusion/1706/e4/f93db5e711aa0002.jpg_228x168_5eaad530.jpg"
+			}
 		]
+
 	}
 }
