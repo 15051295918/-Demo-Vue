@@ -14,7 +14,7 @@
 			<ul>
 				<li v-for="(item,index) in recommend" class="recommend-concent" :key="index + 'recommend'">
 					<div class="recommend-concent-imgbox">
-						<img :src="item.imgsrc" class="recommend-concent-img"/>
+						<img v-lazy="item.imgsrc" class="recommend-concent-img"/>
 						<span class="recommend-concent-imgbox-title">{{item.alt}}</span>
 					</div>
 					<div class="recommend-details">

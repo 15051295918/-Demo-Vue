@@ -1,7 +1,7 @@
 <template>
 	<div class="spot-box">
 		<div class="spot-title">
-			<span class="iconfont spot-icon">&#xe655;<i class="spot-recommend">必游景点推荐</i></span>
+			<span>必选景点推荐</span>
 			<a class="spot-right">
 				<span class="spot-right-title">全部景点</span>
 				<span class="spot-right-arrow"></span>
@@ -12,7 +12,7 @@
 				<li v-for="(item,index) in spot" class="spot-concent-li" :key="index + 'spot'">
 					<div class="spot-concent-box"> 
 						<div class="spot-concent-img">
-							<img :src="item.imgsrc" class="spot-concent-img-child"/>
+							<img v-lazy="item.imgsrc" class="spot-concent-img-child"/>
 						</div>
 						<div class="spot-concent-line-box">
 							<div class="spot-concent-title">{{item.title}}</div>
@@ -57,16 +57,6 @@ export default {
 	    font-weight: normal;
 	    font-size: .28rem;
 	    line-height: .78rem;
-	}
-	.spot-icon {
-		width: .40rem;
-		height: .40rem;
-		color: #08bed5;
-	}
-	.spot-icon .spot-recommend {
-		color: #000;
-		font-size: .32rem;
-		margin-left: .08rem;
 	}
 	.spot-right{
 		float: right;
