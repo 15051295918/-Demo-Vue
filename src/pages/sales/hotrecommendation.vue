@@ -1,7 +1,7 @@
 <template>
 <div class="hotsales">
-	<div class="hotrecommendation">
-		<div class="navbar-hot">
+	<div class="hotrecommendation border-top">
+		<div class="navbar-hot border-bottom">
 			<div class="hot-toplist" v-for="(hottitle,index) in dataInfo" :key="index + '_hot_title_name'">
 				<div class="hot-navbar">
 					<span class="hot-navbar-title">{{hottitle.navbarTitle}}</span>
@@ -15,17 +15,17 @@
 				</div>
 			</div>
 		</div>
-		<div class="hostlist-items">
+		<div class="hostlist-items ">
 			<div class="hotlist-item-flexbox" v-for="(hotItem,index) in hotproductInfo" :key="index + '_hot_list_item'">
 				<div class="hostlist-img">
 					<img  class="logo" v-lazy="hotItem.imgUrl" v-lazy:background-image="hotItem.imageSrc"/>
 				</div>
-				<div class="hostlist-info">
+				<div class="hostlist-info border-bottom">
 					<p class="hot-ticketnameinfo">{{hotItem.title}}</p>
 					<div class="hot-priceinfo">
 						<div class="hot-priceinfo-item">
-							<span class="hot-nowprice">￥<em>{{hotItem.currentprice}}</em></span>
-							<span class="hot-originprice">￥{{hotItem.originprice}}</span>
+							<span class="hot-nowprice">&yen;<em>{{hotItem.currentprice}}</em></span>
+							<span class="hot-originprice">&yen;{{hotItem.originprice}}</span>
 						</div>
 					</div>
 				</div>
@@ -44,26 +44,18 @@
 	</div>
 </div>
 </template>
-<script src="https://unpkg.com/vue-lazyload/vue-lazyload.js"></script>
 <script>
 export default {
-
-
   	data () {
 	    return {
    			scroll: ''
 		}
     },
 
-	updated: function () {
-        console.group('updated 更新完成状态===============》');
-        var nowTitle = document.querySelector("#js-now-title");
-    },
-
     methods: {
     	handleEventNowTitle: function(e) {
 			window.addEventListener('touchmove', e => e.preventDefault())
-			alert("好烦啊")
+			alert();
     	},
     	menu() {
 	        this.scroll = document.body.scrollTop;
@@ -94,13 +86,11 @@ export default {
 		font-size: .28rem;
 		background:#f2f8fb;
 		padding-top: .2rem;
-		border-top: .02rem solid #cbdade;
 		position:relative;
 	}
 	.navbar-hot {
 		min-height: 1.2rem;
 		background:#fff;
-		border-bottom:.02rem solid #cbdade;
 	}
 	.hot-navbar {
 		background: #fff;
@@ -160,7 +150,6 @@ export default {
 	.hostlist-info {
 		padding: .2rem .2rem .2rem 0;
 		flex: 1; 
-		border-bottom: 1px solid #cbdade;
 	}
 	.hot-ticketnameinfo {
 		height:.88rem;

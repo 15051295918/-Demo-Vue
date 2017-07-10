@@ -4,6 +4,7 @@
         <imgs-swiper :data="swiperInfo"></imgs-swiper>
         <icons-swiper :icons="iconInfo" :recommends="recommendInfo"></icons-swiper>
         <ads></ads>
+        <hotrecommend :hotsight="hotRecommendInfo"></hotrecommend>
     </div>
 </template>
 
@@ -14,6 +15,7 @@ import imgswiper from './imgswiper'
 import iconswiper from './iconswiper'
 import ads from './ads'
 import detect from '@/utils/detect.js'
+import hotrecommend from './hotrecommend'
 
 console.log(detect);
 
@@ -23,6 +25,7 @@ export default {
             this.swiperInfo = response.body.data.swiperInfo;
             this.iconInfo = response.body.data.iconInfo;
             this.recommendInfo = response.body.data.recommendInfo;
+            this.hotRecommendInfo = response.body.data.hotRecommendInfo;
         }, response => {
             console.log("get index data error")
         });
@@ -31,14 +34,16 @@ export default {
         return {
             swiperInfo: [],
             iconInfo: [],
-            recommendInfo: []   
+            recommendInfo: [],
+            hotRecommendInfo: []   
         }
     },
     components: {
         "index-header": header,
         "imgs-swiper": imgswiper,
         "icons-swiper": iconswiper,
-        "ads": ads
+        "ads": ads,
+        "hotrecommend": hotrecommend
     }
 }
 </script>
