@@ -13,6 +13,7 @@ Vue.use(Router)
 */
 
 export default new Router({
+<<<<<<< HEAD
 	routes: [
 		{
 			path: '/',
@@ -24,5 +25,18 @@ export default new Router({
 			component: List
 		}
 	]
+=======
+  routes: [
+    {
+    	path: '/',
+    	name: 'Index',
+    	component: Index
+    }, {
+    	path: "/list",
+    	name: "List",
+    	component: List
+    }
+  ]
+>>>>>>> origin/master
 })
  

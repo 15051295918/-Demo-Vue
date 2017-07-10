@@ -1,8 +1,14 @@
 <template>
+<<<<<<< HEAD
 	<div id="app">
     	<!-- 显示当前路由下的所有内容 -->
 		<router-view></router-view>
 	</div>
+=======
+  <div id="app">
+    <router-view></router-view>
+  </div>
+>>>>>>> origin/master
 </template>
 
 <script>
