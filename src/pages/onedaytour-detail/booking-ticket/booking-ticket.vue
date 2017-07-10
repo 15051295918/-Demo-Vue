@@ -28,7 +28,7 @@ export default {
     components: {
     "booking-header": header,
     "booking-content": content,
-    "booking-footer": footer,
+    "booking-footer": footer
        }
 }
 </script>
@@ -43,7 +43,6 @@ export default {
     min-height: 100%;
     background: #f5f5f5;
     background:rgba(127,127,127,0.5);
-    z-index:-1;    
 	}
 .booking-predetermine{
     display: none;
