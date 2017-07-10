@@ -54,11 +54,6 @@ export default {
    			scroll: ''
 		}
     },
-
-	updated: function () {
-        var nowTitle = document.querySelector("#js-now-title");
-    },
-
     methods: {
     	handleEventNowTitle: function(e) {
 			window.addEventListener('touchmove', e => e.preventDefault())
