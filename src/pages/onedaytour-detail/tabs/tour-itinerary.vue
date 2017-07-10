@@ -35,14 +35,12 @@
                 <span class="iconfont">&#xe768;</span>
             </div>
         </div>
-        <transition name="custom-classes-transition" enter-active-class="animated slideInRight" leave-active-class="animated bounceOutRight">
-            <div :class='{"prddetail-mapcon":true, "page-map":map.isBigMapOpen}' @click="handleMapClick" v-if="show">
-                <el-amap vid="amap" :zoom="map.zoom" :center="map.center" class="amap-demo">
-                    <el-amap-info-window v-for="(window, index) in map.windows" :position="window.position" :content="window.content" :visible="window.visible"
-                        :events="window.events" :key="index + 'map'"></el-amap-info-window>
-                </el-amap>
-            </div>
-        </transition>
+        <div :class='{"prddetail-mapcon":true, "page-map":map.isBigMapOpen}' @click="handleMapClick" v-if="show">
+            <el-amap vid="amap" :zoom="map.zoom" :center="map.center" class="amap-demo">
+                <el-amap-info-window v-for="(window, index) in map.windows" :position="window.position" :content="window.content" :visible="window.visible"
+                    :events="window.events" :key="index + 'map'"></el-amap-info-window>
+            </el-amap>
+        </div>
     </div>
 </template>
 
@@ -57,6 +55,8 @@
                     this.map.isBigMapOpen = true;
                 }
                 this.$emit("openMap");
+
+
             }
         },
 
@@ -67,8 +67,8 @@
 
         data() {
             return {
-                tourIntimeraryOffsetTop:0,
-                "show":true,
+                tourIntimeraryOffsetTop: 0,
+                "show": true,
                 "map": {
                     isBigMapOpen: false,
                     zoom: 11,
@@ -299,7 +299,7 @@
         height: 3.5rem;
         padding-top: .2rem;
         overflow: hidden;
-        margin-bottom: .2rem; 
+        margin-bottom: .2rem;
     }
 
     .page-map {

@@ -10,16 +10,16 @@
 </template>
 
 <script>
-import TourItinerary from './tour-itinerary';
-import ExpenseExplanation from './expense-explanation';
-import Instructions from './instructions';
+    import TourItinerary from './tour-itinerary';
+    import ExpenseExplanation from './expense-explanation';
+    import Instructions from './instructions';
 
 
-export default {
+    export default {
 
         data() {
             return {
-                tabShow:true,
+                tabShow: true,
                 tabs: [{
                     "title": "行程介绍"
                 }, {
@@ -28,11 +28,11 @@ export default {
                     "title": "使用说明"
                 }],
                 mainOffsetTop: 0,
-                tabOffsetHeight:0,
+                tabOffsetHeight: 0,
                 headerOffsetHeight: 0,
                 expenseElementOffsetTop: 0,
                 expenseElementOffsetHeight: 0,
-                instructionsElementOffsetTop:0
+                instructionsElementOffsetTop: 0
             }
         },
         props: [
@@ -45,34 +45,34 @@ export default {
         },
         methods: {
             hadleTabItemClick: function (index) {
-                if( index == 0 ){
-                    document.body.scrollTop = this.mainOffsetTop -this.headerOffsetHeight;
-                }else if( index ==1 ){
+                if (index == 0) {
+                    document.body.scrollTop = this.mainOffsetTop - this.headerOffsetHeight;
+                } else if (index == 1) {
                     document.body.scrollTop = this.mainOffsetTop + this.expenseElementOffsetTop - this.tabOffsetHeight - this.headerOffsetHeight;
-                }else if( index == 2 ){
-                    document.body.scrollTop = this.mainOffsetTop + this.instructionsElementOffsetTop - this.tabOffsetHeight - this.headerOffsetHeight;                    
+                } else if (index == 2) {
+                    document.body.scrollTop = this.mainOffsetTop + this.instructionsElementOffsetTop - this.tabOffsetHeight - this.headerOffsetHeight;
                 }
             },
 
-            openMap: function() {
+            openMap: function (isBigMapOpen) {
                 this.tabShow = !this.tabShow;
                 this.$emit("openMap");
             }
-            
+
         },
         computed: {
             tabFixed: function () {
                 return this.scrollTop > this.mainOffsetTop - this.headerOffsetHeight;
             },
-            activeIndex: function() {
+            activeIndex: function () {
                 var index = 0;
-                var criticalValue_1 = this.mainOffsetTop + this.expenseElementOffsetTop - window.innerHeight/2;
-                var criticalValue_2 = this.mainOffsetTop + this.expenseElementOffsetTop + this.expenseElementOffsetHeight - window.innerHeight/2;
-                if( this.scrollTop <= criticalValue_1 ){
+                var criticalValue_1 = this.mainOffsetTop + this.expenseElementOffsetTop - window.innerHeight / 2;
+                var criticalValue_2 = this.mainOffsetTop + this.expenseElementOffsetTop + this.expenseElementOffsetHeight - window.innerHeight / 2;
+                if (this.scrollTop <= criticalValue_1) {
                     index = 0
-                }else if( this.scrollTop > criticalValue_1 && this.scrollTop <= criticalValue_2 ){
+                } else if (this.scrollTop > criticalValue_1 && this.scrollTop <= criticalValue_2) {
                     index = 1;
-                }else{
+                } else {
                     index = 2;
                 }
                 return index;
@@ -91,7 +91,7 @@ export default {
             this.expenseElementOffsetHeight = expenseElement[0].offsetHeight;
             this.instructionsElementOffsetTop = instructionsElement[0].offsetTop;
         }
-}
+    }
 
 </script>
 
@@ -119,25 +119,25 @@ export default {
         top: .88rem;
     }
 
-.tab-fixed {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: .88rem;
-}
+    .tab-fixed {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: .88rem;
+    }
 
-.tabs {
-    flex: 1;
-    text-align: center;
-    width: 30%;
-    height: .84rem;
-    line-height: .84rem;
-    color: #616161;
-}
+    .tabs {
+        flex: 1;
+        text-align: center;
+        width: 30%;
+        height: .84rem;
+        line-height: .84rem;
+        color: #616161;
+    }
 
-.active {
-    box-sizing: border-box;
-    color: #00afc7;
-    border-bottom: .04rem solid #00afc7;
-}
+    .active {
+        box-sizing: border-box;
+        color: #00afc7;
+        border-bottom: .04rem solid #00afc7;
+    }
 </style>

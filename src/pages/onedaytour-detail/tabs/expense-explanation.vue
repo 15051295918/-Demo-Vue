@@ -29,7 +29,7 @@
 
         data() {
             return {
-                expenseElementOffsetTop:0,
+                expenseElementOffsetTop: 0,
                 "title": "费用及退款说明",
                 "content": {
                     "expense": [{

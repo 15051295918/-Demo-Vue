@@ -20,9 +20,9 @@
         data() {
             return {
                 "hasMore": true,
-                "button":{
-                    "content":"更多使用说明",
-                    "icon":"&#xe64b;"
+                "button": {
+                    "content": "更多使用说明",
+                    "icon": "&#xe64b;"
                 },
                 "title": "使用说明",
                 "list": [{
@@ -42,18 +42,18 @@
         },
 
         methods: {
-            handlePrddetailMore: function() {
-                if( this.hasMore ){
+            handlePrddetailMore: function () {
+                if (this.hasMore) {
                     this.hasMore = false;
                     this.button = {
-                        content:"收起使用说明",
-                        icon:"&#xe667;"
+                        content: "收起使用说明",
+                        icon: "&#xe667;"
                     };
-                }else{
+                } else {
                     this.hasMore = true;
                     this.button = {
-                        content:"更多使用说明",
-                        icon:"&#xe64b;"
+                        content: "更多使用说明",
+                        icon: "&#xe64b;"
                     };
                 }
             }
@@ -102,9 +102,10 @@
         line-height: .4rem;
     }
 
-    .prddetail-content-more{
-        height:4.84rem;
+    .prddetail-content-more {
+        height: 4.84rem;
     }
+
     .prddetail-subtitle {
         padding: .24rem 0 .1rem;
         color: #ff8300;
