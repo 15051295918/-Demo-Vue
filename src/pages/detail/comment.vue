@@ -8,9 +8,9 @@
 				</div>
 				<p class="comment-content" v-bind:style="styleHeigth" >{{item.commentContent}}
 				</p>
-				<div :id="index" class="comment-foldbtn mp-iconfont" data-status="fold" v-on:click="commentFoldBtn($event,index)">
-					<span v-show="isShow">∨</span>
-					<span v-show="isHide">∧</span>
+				<div :id="index" class="comment-foldbtn mp-iconfont" data-status="fold" v-on:click="commentFoldBtn">
+					<span>∨</span>
+
 				</div>
 				<div class="comment-imgs" mp-role="scrollImages">
 					<div class="comment-imgouter" v-for="item in dataImg">
@@ -40,8 +40,6 @@ export default {
 
     data () {
         return {
-        	isShow:true,
-			isHide:false,
 			styleHeigth:{
 				height:"105px",
 				overflow:"hidden"
@@ -49,19 +47,19 @@ export default {
         }
     },
     methods:{
-		commentFoldBtn:function (e,index){
-			console.log(index)
-			if(e.target.id==index){
-				this.styleHeigth.height="auto";
-				this.styleHeigth.overflow="auto";
-				this.isShow=!this.isShow
-				this.isHide=!this.isHide
-
+		commentFoldBtn:function (e){
+			//操作dom
+			var id=e.currentTarget.id
+			var height=document.getElementById(id).previousSibling
+			var loadMore=document.getElementById(id).firstChild
+			if(height.previousSibling.style.height=="105px"){
+				height.previousSibling.style.height="auto";
+				height.previousSibling.style.overflow="auto";
+				loadMore.innerHTML="∧"
 			}else{
-				this.styleHeigth.height="105px";
-				this.styleHeigth.overflow="hidden";
-				this.isShow=!this.isShow
-				this.isHide=!this.isHide
+				height.previousSibling.style.height="105px";
+				height.previousSibling.style.overflow="hidden";
+				loadMore.innerHTML="∨"
 			}
 		}
     },

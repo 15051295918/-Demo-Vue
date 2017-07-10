@@ -1,6 +1,7 @@
 <template>
-    <div class="main" >
-        <topBar></topBar>
+
+    <div class="main">
+		<topBar></topBar>
         <detail-header :data="swiperInfo"></detail-header>
         <introduction></introduction>
         <recommend :data="recommendInfo"></recommend>
@@ -9,10 +10,10 @@
         <detail-comment :data="commentInfo" :dataImg="commentImg"></detail-comment>
         <detail-recommended :data="recommendedInfo"></detail-recommended>
         <detail-footer></detail-footer>
-		
     </div>
 
 </template>
+
 <script >
 import topBar from './topBar'	
 import header from './detail_header'
