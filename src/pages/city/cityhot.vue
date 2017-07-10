@@ -4,55 +4,53 @@
 			<div class="cityarea-title">您的位置</div>
 			<div class="cityarea-content city-now border-topbottom">
 				<div class="cityitem-light">
-					<span class="cityitem-name cityitem-current">{{currentPosition}}</span>
+					<router-link to="/">
+						<span class="cityitem-name cityitem-current">{{currentPosition}}</span>
+					</router-link>
 				</div>
 			</div>
 		</div>
 
 		<div>
 			<div class="cityarea-title">热门城市</div>
-		
 			<div class="cityarea-content city-now border-topbottom">
-				<div class="cityitem-light" v-for="(item,index) in cityHot" v-if="index<16" :key="index">
-					<router-link to="/">
+				<router-link to="/">
+					<div class="cityitem-light" v-for="(item,index) in cityInfo" v-show="item.name.length<=5" v-if="index<18" :key="index">
 						<span class="cityitem-name">{{item.name}}</span>
-					</router-link>
-				</div>
+					</div>
+				</router-link>
 			</div>
 		</div>
+
 	</div>
 </template>
 
 <script>
 	export default {
-		beforeCreate(){	
-		 	var head=document.getElementsByTagName('head')[0]; 
-			var script=document.createElement('script'); 			
-			script.src="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"; 			
-			script.onload=script.onreadystatechange=function(){ 
-				if(!script.readyState || script.readyState==='loaded' || script.readyState==='complete'){ 
-					if (remote_ip_info.ret == '1') {
-					 	this.currentPosition=remote_ip_info.city;
+		beforeCreate() {	
+		 	var head = document.getElementsByTagName('head')[0]; 
+			var script = document.createElement('script'); 			
+			script.src = "http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"; 			
+			script.onload = script.onreadystatechange=function(){ 
+				if(!script.readyState || script.readyState === 'loaded' || script.readyState === 'complete') { 
+					if(remote_ip_info.ret == '1') {
+					 	this.currentPosition = remote_ip_info.city;
 			        }
 				} 
 			}.bind(this) 
 			head.appendChild(script);
 		},
-		props:["cityHot"],
+		props: ["cityInfo"],
 		data() {
 			return {
-				currentPosition:"loading"
+				currentPosition: "loading..."
 			}
-		},
-		components: {
-			
 		}
-		
 	}
 </script>
 
 <style scoped>
-	.cityhot{
+	.cityhot {
         width: 100%;
         background: #f5f5f5;
 	}
@@ -71,9 +69,8 @@
 	    padding-right: .5rem;
 	    padding-left: .2rem;
 	    background: #fff;
-	    
 	}
-	.cityarea-content::before,.cityarea-content::after {
+	.cityarea-content::before, .cityarea-content::after {
 		border-color: #c9cccd;
 	}
 	.cityitem-light {    
@@ -90,7 +87,7 @@
 	    border: .02rem solid #c9cccd;
 	    border-radius: .06rem;
 	}
-	.cityitem-current{
+	.cityitem-current {
 		border-color: #00afc7;
 	}
 </style>

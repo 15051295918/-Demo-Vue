@@ -1,98 +1,120 @@
 <template>
-	<div class="letter">
-		<ul>
-			<li v-for="(item,index) in cityLetters" :key="index" @click="jump(city,index,$event)" @touchmove="touchmove($event)">{{item.name}}</li>
-		
-		</ul>
-	</div>
+	<ul class="letter" id="letter" >
+		<li @click="cityInitialHandleClick(item)" @touchmove.prevent="cityInitialHandleMousedown($event)" :class="{initial:index==cityInitialReturnIndex()}" v-for="(item, index) in cityInitialSortMethod">{{item.initialSort}}</li>	
+	</ul>
 </template>
 
 <script>
-
-export default {
-	data(){
-		return{
-			
-		}
-	},
-	props:["cityLetters"],
-	methods:{
-		jump:function(a,index,$event){
-			//console.log((a[index].num)*0.76)
-			//window.scrollTop=(a[index].num)*0.76+"rem";
-			//console.log($event)
-			alert()
-			window.scrollTop=100+"px";
+	export default {
+		props:["cityInfo", "windowScrollTop"],
+		
+		data(){
+			return{
+				cityInitialSort: [],
+				cityInitialArray: []
+			}
 		},
-		touchmove:function($event){
-			console.log($event.touches[0].clientY)
-			if(100<$event.touches[0].clientY<150){
-				console.log(1)
-			}
-			if(150<$event.touches[0].clientY<200){
-				console.log(2)
-			}
-			if(250<$event.touches[0].clientY<300){
-				console.log(3)
-			}
-			if(350<$event.touches[0].clientY<400){
-				console.log(4)
-			}
-			if(450<$event.touches[0].clientY<500){
-				console.log(5)
-			}
-			if(550<$event.touches[0].clientY<600){
-				console.log(6)
-			}
-			if(650<$event.touches[0].clientY<700){
-				console.log(7)
-			}
-			
-		}
-	},
-	
-	computed:{
-			cityLetters:function(){
-			var arr =  this.cityLetters;
-			var l   =  arr.length;
-			var obj = {};
-			var str ="";
-			for(var i=0;i<l;i++){
-				str = str.concat(arr[i].pinyin[0]);
-			}
-			var strl = str.length;
-			for(var j=0;j<l;j++){
-				var chr = str[j];
-				if(obj[chr] == undefined){
-					obj[chr]=1
-				}else{
-					obj[chr]=obj[chr]+1;
+		methods:{
+			cityInitialHandleMousedown: function(e) {
+				var cityInitialTotality = document.getElementById("letter");
+				var cityInitialGather = cityInitialTotality.children;	
+				var cityInitialHeight = parseInt(window.getComputedStyle(cityInitialGather[0], false)["height"], 10)/2;	
+				var fristInitialTop = cityInitialTotality.offsetTop + cityInitialHeight;
+				var lastInitialTop = parseInt(window.getComputedStyle(cityInitialTotality, false)["height"], 10) + fristInitialTop;
+				var index=0;
+
+				if(e.touches[0].clientY <= fristInitialTop) {
+					this.$emit("scrollTop",0);	
+					return;
+				}
+				if(e.currentTarget.tagName == "LI" && e.touches[0].clientY >= fristInitialTop && e.touches[0].clientY <= lastInitialTop) {
+									
+					for(var i = 0; i < cityInitialGather.length; i++) {
+						this.cityInitialArray.push(cityInitialGather[i].offsetTop);
+					}
+					for(var i = 0; i < this.cityInitialArray.length; i++) {
+						if(e.touches[0].clientY - (fristInitialTop + cityInitialHeight) <= this.cityInitialArray[i]) {
+							index = i;
+							break;
+						}
+						if(e.touches[0].clientY >= lastInitialTop - cityInitialHeight) {
+							index = this.cityInitialSort.length - 1;
+							break;
+						}
+					}
+					this.$emit("scrollTop", this.cityInitialSort[index].cityDistrictHeight);	
+				}
+			},
+
+			cityInitialHandleClick: function(value) {
+				this.$emit("scrollTop", value.cityDistrictHeight);				
+			},
+
+			cityInitialReturnIndex: function(e) {
+				var maxCityDistrictHeight = this.cityInitialSort[this.cityInitialSort.length - 1].cityDistrictHeight - parseInt(window.innerHeight / 2, 10);
+				if(this.windowScrollTop >= maxCityDistrictHeight) {//容错
+					return this.cityInitialSort.length - 1;
+				}
+				for(var i = 0; i < this.cityInitialSort.length - 1; i++){
+					var prevCityDistrictHeight = this.cityInitialSort[i].cityDistrictHeight - parseInt(window.innerHeight / 2, 10);
+					var nextCityDistrictHeight = this.cityInitialSort[i + 1].cityDistrictHeight - parseInt(window.innerHeight / 2, 10);
+					if(this.windowScrollTop >= prevCityDistrictHeight && this.windowScrollTop <= nextCityDistrictHeight) {
+						return i;
+					}
 				}
 			}
-			var letter=[];
-			for( i in obj ){
-				var o={"name":i,"num":obj[i]};
-				letter.push(o);
+		},
+
+		computed: {
+		    cityInitialSortMethod: function() {
+		    	var cityInitialSort = [],
+		    		cityDdistrictHeightArray = [],
+		    		count = 1,
+		    		initialHeightCount = 0;
+		    	for (var i = 0; i < this.cityInfo.length; i++) {
+		    		cityInitialSort.push(this.cityInfo[i].pinyin[0]);
+		    		cityInitialSort = cityInitialSort.sort();
+		    	}
+		    	for (var i = cityInitialSort.length; i >= 0; i--) {
+		    		if (cityInitialSort[i] == cityInitialSort[i - 1]) {
+		    			cityInitialSort.splice(i, 1);
+		    			count++;
+		    		}else {
+		    			cityDdistrictHeightArray.unshift(count * 38 + 27);
+		    			count = 1;
+		    		}
+		    	}
+		    	for (var i = 0; i < cityDdistrictHeightArray.length; i++) {		
+		    		initialHeightCount += cityDdistrictHeightArray[i];		    				   	
+		    		cityDdistrictHeightArray[i] = initialHeightCount + 400;		    		
+		    	}
+		    	cityDdistrictHeightArray.unshift(400);
+		    	for(var i = 0; i < cityInitialSort.length; i++) {
+					this.cityInitialSort[i] = {};
+					this.cityInitialSort[i].initialSort = cityInitialSort[i];
+					this.cityInitialSort[i].cityDistrictHeight = cityDdistrictHeightArray[i];
+				}
+		    	return this.cityInitialSort;
 			}
-			 return (letter)
 		}
 	}
-}
 </script>
 
 <style scoped>
-	ul{
+	.letter{
 		position:fixed;
-		top:1.8rem;
+		top:3rem;
 		right:0;
+		z-index: 9999;
 	}
 	li{
 		font-size: 0.24rem;
 		width: .32rem;
 		line-height: .32rem;
-		padding-left: .2rem;
 		color:#00afc7;
 		text-align: center;
-		margin-top: .04rem
+	}
+	li.initial{
+		color:#f00;
 	}
 </style>

@@ -1,44 +1,39 @@
 <template>
 	<div>
-		<div class="city-header">
-			<slot></slot>	
+		<div class="city-header">	
 			<div class="city-key"></div>
-				<h1 class="cityheader-title">
-					<div class="city-tab" >
-						<span class="header-city" @click="handleInternal" :class="{'header-internal':internal}">国内</span>
-						<span class="header-city" @click="handleExternal" :class="{'header-external':external}">海外</span>
-					</div>			
-				</h1>
+			<h1 class="cityheader-title">
+				<div class="city-tab" >
+					<span class="header-city" @click="handleInternal" :class="{'header-internal':internal==true}">国内</span>
+					<span class="header-city" @click="handleExternal" :class="{'header-internal':internal==false}">海外</span>
+				</div>			
+			</h1>
 		</div>
 		<div class="header-keyword">
-			<input v-model="value" type="text" @focus="handleInputFocus" @blur="handleInputBlur" :placeholder="placeholder" class="city-keyword" :class="{text:textalign}">
-		
+			<input v-model="value" type="text" @focus="handleInputFocus" @blur="handleInputBlur" :placeholder="placeholder" class="city-keyword" :class="{text:textalign}">		
 		</div>
 		<ul class="key-city-ul" v-if="list">
-			<router-link v-for="item in cityList" to="/">
-				<li class="key-city-list border-bottom" >{{item.name}}</li>
-			</router-link>
-			
+			<router-link to="/">
+				<li class="key-city-list border-bottom"  v-for="(item,index) in cityList" :key="index">{{item.name}}</li>
+			</router-link>	
 		</ul>
 	</div>
 </template>
 
 <script>
 	export default {
-
 		data() {
 			return {
 				value : "",
 				list : false,
 				internal : true,
-				external : false,
 				placeholder : "输入城市名或拼音", 
 				textalign : true,
 				searchFlag : false
 			}
 		},
 		props: ["cityInfo"],
-		methods : {
+		methods: {
 			handleInputFocus: function() {
 				this.placeholder = "";
 				this.textalign = false;
@@ -49,43 +44,38 @@
 			},
 			handleInternal: function() {
 				this.internal = true;
-				this.external =  false;
-				this.$emit("handleInternal");
-
+				this.$emit("isAbroad",true);
 			},
 			handleExternal: function() {
 				this.internal = false;
-				this.external = true;
-				this.$emit("handleExternal");
-
+				this.$emit("isAbroad",false);
 			}		
 		},
 		watch: {
-		value: function () {
-			    	if (this.value) {
-			    		this.list = true;
-			    		var msg = this.cityInfo;
-						var words = this.value.toString().toLowerCase();
-						words.toString().split("").map((word, num) => {
-							msg = msg.filter((value, index) => {
-								var str = value.pinyin.charAt(num).toLowerCase();
-								return word == str;
-							})
+			value: function() {
+		    	if(this.value) {
+		    		this.list = true;
+		    		var msg = this.cityInfo;
+					var words = this.value.toString().toLowerCase();
+					words.toString().split("").map((word, num) => {
+						msg = msg.filter((value, index) => {
+							var str = value.pinyin.charAt(num).toLowerCase();
+							return word == str;
 						})
-						this.cityList = msg;
-						this.$emit("isSarching");
-			    	}else{
-			    		this.list = false;
-						this.$emit("noSarching");
-
-			    	}
+					})
+					this.cityList = msg;
+					this.$emit("isSarching", false);
+		    	}else {
+		    		this.list = false;
+					this.$emit("isSarching", true);
+		    	}
 			}
 		}
 	}
 </script>
 
 <style scoped>
-	.city-header {
+	.city-header{
 	    display: flex;
 	    position: fixed;
 	    top: 0;
@@ -96,21 +86,21 @@
 	    color: #fff;
 	    z-index: 100;
 	}
-	.city-key {
+	.city-key{
 		width: .24rem;
 		height: .24rem;
-		margin: .3rem;
-		transform: rotateZ(45deg);
 		border-left: .04rem solid #fff;
 		border-bottom: .04rem solid #fff;
+		margin: .3rem;
+		transform: rotateZ(45deg);
 	}
-	.cityheader-title {
+	.cityheader-title{
 	    box-sizing: border-box;
 	    flex: 1;
 	    position: relative;
 	    text-align: center;
 	}
-	.header-city {
+	.header-city{
 	    display: inline-block;
 	    width: 2rem;
 	    height: .56rem;
@@ -126,7 +116,7 @@
 	.header-city:last-of-type {
 	    border-radius: 0 .06rem .06rem 0;
 	}
-	.city-tab {
+	.city-tab{
 	    display: inline-block;
 	    margin-left: -.42rem;
 	    font-size: 0;
@@ -150,21 +140,19 @@
 	    -moz-border-radius: .06rem;
 	    border-radius: .06rem;
 	}
-	.text {
+	.text{
 		text-align: center;
 	}
-	.header-internal {
+	.header-internal{
 		background: #fff;
 		color: #00afc7;
 	}
-	.header-external {
-		background: #fff;
-		color: #00afc7;
+	.key-city-ul{
+		width:100%;
+		min-height:100%;
+		background: #212121;
 	}
-	.key-city-ul {
-		background: #fff
-	}
-	.key-city-list {
+	.key-city-list{
 	    line-height: .76rem;
 	    padding-left: .2rem;
 	    font-size: .28rem;

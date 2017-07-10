@@ -1,10 +1,9 @@
 <template>
 	<div>
-	
-		<city-header :cityInfo="cityInfo" @onSarching="onSarching" @handleInternal="handleInternal" @handleExternal="handleExternal" @noSarching="noSarching"></city-header>
-		<city-hot v-if="isShow" :cityHot="cityInfo"></city-hot>
-		<city-list v-if="isShow" :cityInfo="cityInfo" :cityLetters="cityLetters"></city-list>
-		<city-aside v-if="isShow" :cityLetters="cityLetters"></city-aside>
+		<city-header :cityInfo="cityInfo" @isSarching="isSarching" @isAbroad="isAbroad"></city-header>
+		<city-hot v-if="isShow" :cityInfo="cityInfo"></city-hot>
+		<city-list v-if="isShow" :cityInfo="cityInfo"></city-list>
+		<city-aside v-if="isShow" :cityInfo="cityInfo" @scrollTop="cityScrollTop" :windowScrollTop="windowScrollTop"></city-aside>
 	</div>
 </template>
 
@@ -21,7 +20,6 @@
 					this.cityInfo = response.body.data.domestic;
 					this.domesticCity = response.body.data.domestic;
 					this.overseasCity = response.body.data.overseas;
-					this.getCityFirstLetters();
 				}else {
 					console.log("Invalid data!");
 				}
@@ -31,12 +29,12 @@
 		},
 
 		data() {
-			return {
+			return {	
 				domesticCity: [],
 				overseasCity: [],
-				cityInfo: [],
-				cityLetters: [],
-				isShow: true
+				cityInfo:[],
+				windowScrollTop:"",
+				isShow:true  //搜索时header下面组件隐藏
 			}
 		},
 		components: {
@@ -46,30 +44,30 @@
 			"city-aside": cityaside
 		},
 		methods: {
-			handleInternal: function() {
-				this.cityInfo = this.domesticCity;
-			},
-			handleExternal: function() {
-				this.cityInfo = this.overseasCity;
-			},
-			getCityFirstLetters: function() {
-				this.cityLetters = [];
-				for (var i = 0; i < this.cityInfo.length; i++) {
-					var letter = this.cityInfo[i].pinyin.charAt(0);
-					if (this.cityLetters.indexOf(letter) == -1) {
-						this.cityLetters.push(letter);
-					}
+			isAbroad: function(value) {
+				if (value) {
+					this.cityInfo = this.domesticCity;
+				}else{
+					this.cityInfo = this.overseasCity;
 				}
-				this.cityLetters = this.cityLetters.sort()
+				
 			},
-			onSarching: function() {
-				this.isShow = false;
+			cityScrollTop: function(value) {
+				document.body.scrollTop=value;
 			},
-			noSarching: function() {
-				this.isShow = true;
+			isSarching: function(isShow) {
+				if (isShow) {
+					this.isShow=true;
+				}else {
+					this.isShow=false;
+				}
 			}
+		},
+		mounted() {
+			window.addEventListener('scroll', function() {//想提高性能，可以加一个定时器
+                this.windowScrollTop = document.body.scrollTop;
+            }.bind(this), false)
 		}
-		
 	}
 	
 </script>
