@@ -1,0 +1,93 @@
+{
+	"ret": true,
+	"data": {
+		 "swiperInfo": [{
+            "imgUrl": "http://img1.qunarzz.com/piao/fusion/1707/8a/581caa2e017e202.jpg_640x200_674b3ec7.jpg",
+            "link": ""
+        },{
+            "imgUrl": "http://img1.qunarzz.com/piao/fusion/1707/8a/581caa2e017e202.jpg_640x200_674b3ec7.jpg",
+            "link": ""
+        },{
+            "imgUrl": "http://img1.qunarzz.com/piao/fusion/1707/8a/581caa2e017e202.jpg_640x200_674b3ec7.jpg",
+            "link": ""
+        },{
+            "imgUrl": "http://img1.qunarzz.com/piao/fusion/1707/8a/581caa2e017e202.jpg_640x200_674b3ec7.jpg",
+            "link": ""
+        }],
+        "iconInfo": [{
+            "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+            "title":"故宫",
+            "link": ""
+        },{
+            "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+            "title":"故宫",
+            "link": ""
+        },{
+            "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+            "title":"故宫",
+            "link": ""
+        },{
+            "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+            "title":"故宫",
+            "link": ""
+        },{
+            "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+            "title":"故宫",
+            "link": ""
+        },{
+            "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+            "title":"故宫",
+            "link": ""
+        },{
+            "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+            "title":"故宫",
+            "link": ""
+        },{
+           "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+            "title":"故宫",
+            "link": ""
+        },{
+            "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+            "title":"故宫",
+            "link": ""
+        },{
+            "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+            "title":"故宫",
+            "link": ""
+        },{
+            "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+            "title":"故宫",
+            "link": ""
+        },{
+            "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+            "title":"故宫",
+            "link": ""
+        },{
+            "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+            "title":"故宫",
+            "link": ""
+        },{
+            "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+            "title":"故宫",
+            "link": ""
+        },{
+            "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+            "title":"故宫",
+            "link": ""
+        },{
+            "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+            "title":"故宫",
+            "link": ""
+
+        }],
+        "recommendInfo":[{
+            "icon": "",
+            "title": "机票推荐",
+            "link": "iconfont icon-piao"
+        },{
+            "icon": "",
+            "title": "9元门票",
+            "link": ""
+        }]
+	}
+}

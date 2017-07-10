@@ -1,5 +1,5 @@
 {
-  "name": "laizhe",   
+  "name": "laizhe",
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "shenglong.li <913937000@qq.com>",
@@ -10,7 +10,9 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "fastclick": "^1.0.6",
     "vue": "^2.3.3",
+    "vue-awesome-swiper": "^2.5.0",
     "vue-router": "^2.3.1"
   },
   "devDependencies": {
