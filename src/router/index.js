@@ -10,11 +10,12 @@ export default new Router({
   routes: [
     {
     	path: '/',
-    	name: 'Index',
+    	name: 'index',
+        alias: '/index',
     	component: Index
     }, {
     	path: "/list",
-    	name: "List",
+    	name: "list",
     	component: List
     }, {
         path: "/oneday",
