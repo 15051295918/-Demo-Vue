@@ -1,9 +1,9 @@
 <template>
     <div>
-        user-revues
+          
     </div>
 </template>
-
+        
 <script>
 
 
@@ -22,6 +22,8 @@ export default {
 
 
 <style scoped>
-
+ div{
+     background: red;
+ }
 
 </style>
