@@ -1,5 +1,5 @@
 import Vue from 'vue'
-// APP.vue 是程序的入口大组件
+import VueExtend from './extend'
 import App from './App'
 import router from './router'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
@@ -17,11 +17,11 @@ Vue.use(VueLazyload, {
 	loading: 'https://gw.alicdn.com/tps/i1/TB147JCLFXXXXc1XVXXxGsw1VXX-112-168.png',
 	listenEvents: [ 'scroll' ]
 })
-
-
+import store from './store'
 new Vue({
-  el: '#app',
-  router: router,
-  template: '<App/>',
-  components: { App }
+  	el: '#app',
+  	router,
+  	store,
+  	template: '<App/>',
+  	components: { App }
 })

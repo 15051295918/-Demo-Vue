@@ -21,7 +21,7 @@ import hotrecommend from './hotrecommend'
 import weekendtrip from './weekendtrip'
 
 export default {
-    created: function(){
+    created: function() {
         this.$http.get('/static/index.json').then(response => {
             this.swiperInfo = response.body.data.swiperInfo;
             this.iconInfo = response.body.data.iconInfo;
@@ -31,6 +31,7 @@ export default {
             this.footernavInfo = response.body.data.footernavInfo;
             this.equipmenttype = response.body.data.equipmenttype;
             this.navIcon =  response.body.data.naviconInfo;
+
         }, response => {
             console.log("get index data error")
         });
