@@ -3,12 +3,18 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import VueResource from 'vue-resource'
 import FastClick from 'fastclick'
 import Vuex from 'vuex';
+import VueLazyload from 'vue-lazyload';
 
 Vue.config.productionTip = false
 
-Vue.use(VueAwesomeSwiper)
+Vue.use(VueAwesomeSwiper);
 Vue.use(VueResource);
-Vue.use(Vuex)
+Vue.use(Vuex);
+Vue.use(VueLazyload, {
+  preLoad: 3,
+  loading: 'http://s.qunarzz.com/piao_topic/image/common/default/288x288.png',
+  attempt: 1
+})
 
 FastClick.attach(document.body);
 
