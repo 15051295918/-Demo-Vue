@@ -1,14 +1,17 @@
 <template>
+<div>
    <div class="booking-fliter">
     	 <div class="booking-predetermine">
     	 	<booking-header></booking-header>
     	 	<booking-content></booking-content>
     	 	<booking-footer></booking-footer>
     	 </div>
-         <div class="booking-button">
+    </div>
+    
+     <div class="booking-button">
              <div  class="booking-consult">咨询</div>
              <div  class="booking-promplt">立即预定</div>
-         </div>
+        </div>
     </div>
 </template>
 
@@ -36,6 +39,7 @@ export default {
 
 <style scoped>
 .booking-fliter{
+    display: none;
 	position: absolute;
     left: 0;
     top: 0;
@@ -62,6 +66,7 @@ export default {
     border: 0 none;
     background: #ff9800;
     color: #fff;
+    z-index: 1000;
 }
 .booking-consult{
     float: left;
