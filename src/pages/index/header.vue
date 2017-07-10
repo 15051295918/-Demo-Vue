@@ -30,7 +30,7 @@ export default {
 
 <style scoped lang="scss">
 	.mp-header{
-		padding: 5px;
+		padding: 0.1rem;
 		background: #00bcd4;
 		display: flex;
 		align-items: center;
@@ -44,8 +44,8 @@ export default {
 	}
 	.mp-header-search{
 		box-sizing: border-box;
-		width: 4.2rem;
-		border-radius: 5px;
+		width: 4.8rem;
+		border-radius: 0.1rem;
 		background: white;
 		height: 0.6rem;
 		color: #e4e7ea;

@@ -1,5 +1,5 @@
 <template>
-	<div id="mp-menu-swiper">
+	<div id="mp-menu-swiper" class="border-bottom">
 		<swiper :options="swiperOption" ref="mySwiper" >
 		    <swiper-slide  >
 					<a href="#" class="mp-menu-item" :title="menuData.menuName" v-for="(menuData, index) in menuData1" :key="index" >
@@ -94,29 +94,25 @@
 </script>
 
 <style type="text/css" scoped >
-	#mp-menu-swiper{
-		border-bottom: 1px solid lightgray;
-	}
+	
 	.mp-menu-item {
 		float: left;
 		width: 25%;
 		text-align: center;
-		padding-top: 15px;
-		height:80px;
+		padding-top: 0.3rem;
+		height:1.6rem;
 	}
 	.mp-menu-item img{
-		width: 33px;
+		width: 0.66rem;
 	}
 	.mp-menu-item .keywords{
 		width: 100%;
 		text-align: center;
-		padding-top: 10px;
+		padding-top: 0.2rem;
 		color: black;
 	}
 	.swiper-container{
-		padding-bottom: 14px;
+		padding-bottom: 0.28rem;
 	}
- .swiper-container-horizontal > .swiper-pagination-bullets{
- 	bottom: 5px;
- }
+ 
 </style>

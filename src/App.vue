@@ -12,4 +12,5 @@ export default {
 
 <style>
 	@import url("./assets/css/reset.css");
+	@import url("./assets/css/border.css");
 </style>
