@@ -39,7 +39,7 @@
                         "commentText": "分",
                         "commentTag": "非常满意",
                         "commentTotalnum": "用户评论(219)",
-                        "commentRightArrow": "&#xe615;"
+                        "commentRightArrow": "&#xe768;"
                     },
                     "borderTop": {
                         "linkArea": "http://touch.piao.qunar.com/touch/weekend/comment.htm?spuId=355112&amp;cat=from_area%3Dts_type_nav%26from_index%3D2%26from_value%3D%25E4%25B8%2580%25E6%2597%25A5%25E6%25B8%25B8%26dist_city%3D%25E5%258C%2597%25E4%25BA%25AC",

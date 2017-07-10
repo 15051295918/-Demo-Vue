@@ -6,10 +6,7 @@
             <h1 class="header-title" role="title">{{JiHeader.headerTitle}}</h1>
             <span class="header-right" role="right"></span>
         </div>
-        <a class="header-back">
-            <span class="headerback-bg"></span>
-            <span class="iconfont headerback-icon" v-html="JiHeader.headerLeft"></span>
-        </a>        
+               
         <!--老纪-->
         <index-header :scrollTop="scrollTop"></index-header>
         <user-reviews></user-reviews>
@@ -95,6 +92,13 @@
         line-height: .88rem;
     }
     
+    .header-left {
+        position: absolute;
+        font-size: .36rem;
+        color: #fff;
+        text-align: center;
+    }
+    
     .header-title {
         overflow: hidden;
         margin: 0 1rem;
@@ -106,7 +110,7 @@
         color: #fff;
     }
     
-    .hheader-right {
+    .header-right {
         position: absolute;
         top: 0;
         right: 0;
@@ -116,52 +120,5 @@
         text-align: center;
         font-size: .32rem;
         color: #fff;
-    }
-    
-    .header-back {
-        left: .1rem;
-        top: .1rem;
-        width: .72rem;
-        height: .72rem;
-        line-height: .72rem;
-    }
-    
-    .header-left,
-    .header-back {
-        position: absolute;
-        font-size: .36rem;
-        color: #fff;
-        text-align: center;
-    }
-    
-    .headerback-icon {
-        position: absolute;
-        left: 0;
-        top: 0;
-        display: block;
-        width: .72rem;
-        line-height: .72rem;
-        text-align: left;
-        text-indent: .24rem;
-    }
-    
-    .headerback-bg {
-        display: block;
-        width: .72rem;
-        height: .72rem;
-        background-color: #000;
-        opacity: .5;
-        border-radius: .36rem;
-    }
-    
-    .headerback-icon {
-        position: absolute;
-        left: 0;
-        top: 0;
-        display: block;
-        width: .72rem;
-        line-height: .72rem;
-        text-align: left;
-        text-indent: .24rem;
     }
 </style>

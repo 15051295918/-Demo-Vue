@@ -11,7 +11,10 @@
                 </div>
             </div>
         </div>
-        
+        <a class="header-back">
+            <span class="headerback-bg"></span>
+            <span class="iconfont headerback-iconone" v-html="JiHeader.headerLeft"></span>
+        </a> 
     </div>
     
 </template>
@@ -89,5 +92,48 @@
         line-height: .34rem;
         white-space: nowrap;
         text-overflow: ellipsis;
+    }
+    
+    .header-back {
+        left: .1rem;
+        top: .1rem;
+        width: .72rem;
+        height: .72rem;
+        line-height: .72rem;
+        position: absolute;
+        font-size: .36rem;
+        color: #fff;
+        text-align: center;
+    }
+    
+    .headerback-iconone {
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: block;
+        width: .72rem;
+        line-height: .72rem;
+        text-align: left;
+        text-indent: .24rem;
+    }
+    
+    .headerback-bg {
+        display: block;
+        width: .72rem;
+        height: .72rem;
+        background-color: #000;
+        opacity: .5;
+        border-radius: .36rem;
+    }
+    
+    .headerback-icon {
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: block;
+        width: .72rem;
+        line-height: .72rem;
+        text-align: left;
+        text-indent: .24rem;
     }
 </style>
