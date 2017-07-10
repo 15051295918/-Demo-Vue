@@ -1,6 +1,6 @@
 <template>
 	<ul class="city-menu border-leftright">
-		<li class="city-list" v-for="item in cityInitialSort">
+		<li class="city-list" v-for="item in cityLetters">
 			<dl>
 				<dt class="city-index border-bottom">{{item}}</dt>
 				<dd class="city-item border-bottom" v-for="value in cityDatas(item)">{{value.name}}</dd>
@@ -10,11 +10,13 @@
 </template>
 
 <script>
+	
+
 	export default {
+
 		data () {
 			return {
-				cityWords: [],
-				cityDdistrictHeightArray:[]
+				
 			}
 		},
 		props: ["cityInfo", "cityLetters"],
@@ -31,19 +33,7 @@
 				})
 				return msg;
 			}
-		},
-		computed:{
-		    cityInitialSort :function(){
-		    	this.cityWords=[];
-				for(var i=0;i<this.cityInfo.length;i++){
-					var str=this.cityInfo[i].pinyin;	
-					if(this.cityWords.indexOf(str[0]) == -1){
-						this.cityWords.push(str[0]);
-						this.cityWords=this.cityWords.sort();
-					}
-				}
-				return this.cityWords
-			}
+
 		}
 	}
 

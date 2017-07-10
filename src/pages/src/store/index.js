@@ -13,4 +13,3 @@ export default new Vuex.Store({
    		city: city
 	}
 })
-

@@ -1,28 +1,25 @@
 <template>
 	<div class="cityhot">
-	
 		<div class="cityarea-group">
 			<div class="cityarea-title">您的位置</div>
 			<div class="cityarea-content city-now border-topbottom">
 				<div class="cityitem-light">
-					<router-link to="/">
-						<span class="cityitem-name cityitem-current">{{currentPosition}}</span>
-					</router-link>
+					<span class="cityitem-name cityitem-current">{{currentPosition}}</span>
 				</div>
 			</div>
 		</div>
 
 		<div>
 			<div class="cityarea-title">热门城市</div>
+		
 			<div class="cityarea-content city-now border-topbottom">
-				<router-link to="/">
-					<div class="cityitem-light" v-for="(item,index) in cityHot" v-if="index<16" :key="index">
+				<div class="cityitem-light" v-for="(item,index) in cityHot" v-if="index<16" :key="index">
+					<router-link to="/">
 						<span class="cityitem-name">{{item.name}}</span>
-					</div>
-				</router-link>
+					</router-link>
+				</div>
 			</div>
 		</div>
-
 	</div>
 </template>
 
@@ -44,7 +41,7 @@
 		props:["cityHot"],
 		data() {
 			return {
-				currentPosition:"loading..."
+				currentPosition:"loading"
 			}
 		},
 		components: {
