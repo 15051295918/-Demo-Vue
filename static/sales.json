@@ -1,6 +1,10 @@
 {
 	"ret":true,
 	"data":{
+		"tickettitleInfo":[{
+			"headertext":"门票特卖",
+			"titletext":"促销门票"
+		}],
 		"ticketproductInfo":[{
     		"imgurl":"//img1.qunarzz.com/sight/p0/1706/3b/3b526315d769f5e3a3.img.png_640x266_798a4527.png",
     		"lazyurl":"https://gw.alicdn.com/tps/i1/TB147JCLFXXXXc1XVXXxGsw1VXX-112-168.png",
@@ -9,6 +13,8 @@
     		"newPrice":29.9,
     		"originPrice":198,
     		"couponPrice":"",
+    		"hotsale":"热卖中",
+    		"coupontext":"赠券",
     		"coupon":false
     	},
     	{
@@ -19,6 +25,8 @@
     		"newPrice":125,
     		"originPrice":300,
     		"couponPrice":"",
+    		"hotsale":"热卖中",
+    		"coupontext":"赠券",
     		"coupon":false
     	},
     	{
@@ -29,6 +37,8 @@
     		"newPrice":99,
     		"originPrice":199,
     		"couponPrice":2,
+    		"hotsale":"热卖中",
+    		"coupontext":"赠券",
     		"coupon":true
     	},
     	{
@@ -39,6 +49,8 @@
     		"newPrice":99,
     		"originPrice":199,
     		"couponPrice":"",
+    		"hotsale":"热卖中",
+    		"coupontext":"赠券",
     		"coupon":false
     	},
     	{
@@ -49,6 +61,8 @@
     		"newPrice":169,
     		"originPrice":180,
     		"couponPrice":"",
+    		"hotsale":"热卖中",
+    		"coupontext":"赠券",
     		"coupon":false
     	},
     	{
@@ -59,6 +73,8 @@
     		"newPrice":160,
     		"originPrice":170,
     		"couponPrice":"",
+    		"hotsale":"热卖中",
+    		"coupontext":"赠券",
     		"coupon":false
     	},
     	{
@@ -68,6 +84,8 @@
     		"newPrice":10,
     		"originPrice":10,
     		"couponPrice":"",
+    		"hotsale":"热卖中",
+    		"coupontext":"赠券",
     		"coupon":false
     	},
     	{
@@ -78,6 +96,8 @@
     		"newPrice":30,
     		"originPrice":30,
     		"coupon":true,
+    		"hotsale":"热卖中",
+    		"coupontext":"赠券",
     		"couponPrice":1
 
     	}],

@@ -5,6 +5,8 @@
         <icons-swiper :icons="iconInfo" :recommends="recommendInfo"></icons-swiper>
         <ads></ads>
         <hotrecommend :hotsight="hotRecommendInfo"></hotrecommend>
+        <weekend-trip :weekendtripInfo="weekendtripInfo" :footernavInfo="footernavInfo" 
+        :equipmenttype="equipmenttype"></weekend-trip>
     </div>
 </template>
 
@@ -16,8 +18,7 @@ import iconswiper from './iconswiper'
 import ads from './ads'
 import detect from '@/utils/detect.js'
 import hotrecommend from './hotrecommend'
-
-console.log(detect);
+import weekendtrip from './weekendtrip'
 
 export default {
     created: function(){
@@ -26,6 +27,9 @@ export default {
             this.iconInfo = response.body.data.iconInfo;
             this.recommendInfo = response.body.data.recommendInfo;
             this.hotRecommendInfo = response.body.data.hotRecommendInfo;
+            this.weekendtripInfo = response.body.data.weekendtripInfo;
+            this.footernavInfo = response.body.data.footernavInfo;
+            this.equipmenttype = response.body.data.equipmenttype;
         }, response => {
             console.log("get index data error")
         });
@@ -35,7 +39,10 @@ export default {
             swiperInfo: [],
             iconInfo: [],
             recommendInfo: [],
-            hotRecommendInfo: []   
+            hotRecommendInfo: [],   
+            weekendtripInfo: [],
+            footernavInfo: [],
+            equipmenttype: []
         }
     },
     components: {
@@ -43,7 +50,8 @@ export default {
         "imgs-swiper": imgswiper,
         "icons-swiper": iconswiper,
         "ads": ads,
-        "hotrecommend": hotrecommend
+        "hotrecommend": hotrecommend,
+        "weekend-trip": weekendtrip
     }
 }
 </script>

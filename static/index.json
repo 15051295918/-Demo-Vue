@@ -102,6 +102,60 @@
             "listInfoDes": "梦寻生态山水，情归大美聚龙",
             "price": "90",
             "text": "起"
+	    }],
+        "weekendtripInfo":[{
+            "imgurl":"http://img1.qunarzz.com/sight/source/1505/ce/bc89bc2f0e33ea.jpg_r_640x214_3e408453.jpg",
+            "link":"",
+            "title":"学生最爱的博物馆",
+            "description":"周末干嘛？北京很多博物馆已经免费开放了"
+
+        },{
+            "imgurl":"http://img1.qunarzz.com/sight/source/1505/9e/21df651e19af5d.jpg_r_640x214_3ea5bb38.jpg",
+            "link":"",
+            "title":"寻找北京的皇城范儿",
+            "description":"数百年的宫廷庙宇，至今任然威严霸气"
+
+        },{
+            "imgurl":"http://img1.qunarzz.com/sight/source/1505/aa/7baaf8a851d221.jpg_r_640x214_1431200f.jpg",
+            "link":"",
+            "title":"北京必游TOP10",
+            "description":"来北京必去的景点非这些地方莫属"
+
+        },{
+            "imgurl":"http://img1.qunarzz.com/sight/source/1606/85/c6b6bad1b977e.jpg_r_640x214_5c638941.jpg",
+            "link":"",
+            "title":"激流勇进 露营烧烤",
+            "description":"轻松水上漂，任我乐逍遥"
+
+        },{
+            "imgurl":"http://img1.qunarzz.com/sight/source/1505/b2/fde1bfcd057a52.jpg_r_640x214_bbf3fa44.jpg",
+            "link":"",
+            "title":"儿童剧场，孩子的乐园",
+            "description":"带宝宝观看演出，近距离体验艺术的无穷魅力"
+
+        }],
+        "weekendiconInfo":[{
+            "icon":"&#xe635;"
+        }],
+        "footernavInfo":[{
+            "title":"登录",
+            "link":""
+        },{
+            "title":"我的订单",
+            "link":""
+        },{
+            "title":"最近浏览",
+            "link":""
+        },{
+            "title":"关于我们",
+            "link":""
+        }],
+        "equipmenttype":[{
+            "title":"触屏版",
+            "link":""
+        },{
+            "title":"电脑版",
+            "link":""
         }]
 	}
 }
