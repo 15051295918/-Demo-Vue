@@ -1,7 +1,8 @@
 import Vue from 'vue'
-// APP.vue 是程序的入口大组件
+import VueExtend from './extend'
 import App from './App'
 import router from './router'
+<<<<<<< HEAD
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import VueResource from 'vue-resource'
 import FastClick from 'fastclick'
@@ -18,9 +19,12 @@ Vue.use(VueLazyload, {
 });
 Vue.use(VuePaginate)
 
+import store from './store'
+
 new Vue({
   el: '#app',
-  router: router,
+  router,
+  store,
   template: '<App/>',
   components: { App }
 })
