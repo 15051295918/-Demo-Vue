@@ -10,7 +10,6 @@ import product from "./product"
 export default {
      created: function(){
         this.$http.get('/static/sighthotel.json').then(response => {
-           console.log(response)
            this.productInfo = response.body.data.productInfo;
         }, response => {
             console.log("get index data error")
