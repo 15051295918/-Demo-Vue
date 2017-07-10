@@ -28,23 +28,23 @@
 
 <script>
 	export default {
-		beforeCreate() {	
-		 	var head = document.getElementsByTagName('head')[0]; 
-			var script = document.createElement('script'); 			
-			script.src = "http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"; 			
-			script.onload = script.onreadystatechange=function(){ 
-				if(!script.readyState || script.readyState === 'loaded' || script.readyState === 'complete') { 
-					if(remote_ip_info.ret == '1') {
-					 	this.currentPosition = remote_ip_info.city;
-			        }
-				} 
-			}.bind(this) 
-			head.appendChild(script);
-		},
+		// beforeCreate() {	
+		//  	var head = document.getElementsByTagName('head')[0]; 
+		// 	var script = document.createElement('script'); 			
+		// 	script.src = "http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"; 			
+		// 	script.onload = script.onreadystatechange=function(){ 
+		// 		if(!script.readyState || script.readyState === 'loaded' || script.readyState === 'complete') { 
+		// 			if(remote_ip_info.ret == '1') {
+		// 			 	this.currentPosition = remote_ip_info.city;
+		// 	        }
+		// 		} 
+		// 	}.bind(this) 
+		// 	head.appendChild(script);
+		// },
 		props: ["cityHot"],
 		data() {
 			return {
-				currentPosition: "loading..."
+				currentPosition: "北京"
 			}
 		}
 	}
