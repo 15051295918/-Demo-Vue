@@ -1,7 +1,7 @@
 <template>
     <div>
 	    <ul class="mp-view-list mp-page">
-			<paginate ref="paginator" name="languages" :list="listCon" :per="4">
+			<paginate ref="paginator" name="languages" :list="listCon" :per="pre">
 		    	<li class="mp-sight-group border-topbottom" v-for="(item, index) in paginated('languages')" :key="'li_item_' + index">
 			    	<div class="mp-item-content">
 				    	<div class="mp-sight-info">
@@ -59,7 +59,7 @@
 			},
 			textPage () {
 				if (this.$refs.paginator) {
-					var num = parseInt(this.listCon.length/4)+1;
+					var num = parseInt(this.listCon.length/this.pre)+1;
 					var current = this.pageNum;
 					if(current < num) {
 						this.$refs.paginator.goToPage(this.pageNum+1);
@@ -69,11 +69,12 @@
 		},
 		computed: {
 			pageNum: function() {
-				return parseInt(parseInt(this.$refs.paginator.pageItemsCount)/4)+1
+				return parseInt(parseInt(this.$refs.paginator.pageItemsCount)/this.pre)+1
 			}
 		},
 		data () {
 			return {
+				pre: 8,
     			paginate: ['languages'],
     			shown: false,
 				listCon:[{
@@ -116,6 +117,134 @@
 					star: "width:95%",
 					comment: 7812,
 					address: "北京·海淀区"
+				},{
+					name: "圆明园(4A)",
+					img: "http://img1.qunarzz.com/sight/p0/1505/f5/f5f45e1a83537bcb.water.jpg_110x110_4c72dbfd.jpg",
+					url: "",
+					hot: false,
+					star: "width:95%",
+					comment: 7812,
+					address: "北京·海淀区"
+				},{
+					name: "圆明园(4A)",
+					img: "http://img1.qunarzz.com/sight/p0/1505/f5/f5f45e1a83537bcb.water.jpg_110x110_4c72dbfd.jpg",
+					url: "",
+					hot: false,
+					star: "width:95%",
+					comment: 7812,
+					address: "北京·海淀区"
+				},{
+					name: "圆明园(4A)",
+					img: "http://img1.qunarzz.com/sight/p0/1505/f5/f5f45e1a83537bcb.water.jpg_110x110_4c72dbfd.jpg",
+					url: "",
+					hot: false,
+					star: "width:95%",
+					comment: 7812,
+					address: "北京·海淀区"
+				},{
+					name: "圆明园(4A)",
+					img: "http://img1.qunarzz.com/sight/p0/1505/f5/f5f45e1a83537bcb.water.jpg_110x110_4c72dbfd.jpg",
+					url: "",
+					hot: false,
+					star: "width:95%",
+					comment: 7812,
+					address: "北京·海淀区"
+				},{
+					name: "圆明园(4A)",
+					img: "http://img1.qunarzz.com/sight/p0/1505/f5/f5f45e1a83537bcb.water.jpg_110x110_4c72dbfd.jpg",
+					url: "",
+					hot: false,
+					star: "width:95%",
+					comment: 7812,
+					address: "北京·海淀区"
+				},{
+					name: "圆明园(4A)",
+					img: "http://img1.qunarzz.com/sight/p0/1505/f5/f5f45e1a83537bcb.water.jpg_110x110_4c72dbfd.jpg",
+					url: "",
+					hot: false,
+					star: "width:95%",
+					comment: 7812,
+					address: "北京·海淀区"
+				},{
+					name: "圆明园(4A)",
+					img: "http://img1.qunarzz.com/sight/p0/1505/f5/f5f45e1a83537bcb.water.jpg_110x110_4c72dbfd.jpg",
+					url: "",
+					hot: false,
+					star: "width:95%",
+					comment: 7812,
+					address: "北京·海淀区"
+				},{
+					name: "圆明园(4A)",
+					img: "http://img1.qunarzz.com/sight/p0/1505/f5/f5f45e1a83537bcb.water.jpg_110x110_4c72dbfd.jpg",
+					url: "",
+					hot: false,
+					star: "width:95%",
+					comment: 7812,
+					address: "北京·海淀区"
+				},{
+					name: "恭王府(5A)",
+					img: "http://img1.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_110x110_d957be56.jpg",
+					url: "",
+					hot: false,
+					star: "width:90%",
+					comment: 3567,
+					address: "北京·西城区"
+				},{
+					name: "恭王府(5A)",
+					img: "http://img1.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_110x110_d957be56.jpg",
+					url: "",
+					hot: false,
+					star: "width:90%",
+					comment: 3567,
+					address: "北京·西城区"
+				},{
+					name: "恭王府(5A)",
+					img: "http://img1.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_110x110_d957be56.jpg",
+					url: "",
+					hot: false,
+					star: "width:90%",
+					comment: 3567,
+					address: "北京·西城区"
+				},{
+					name: "恭王府(5A)",
+					img: "http://img1.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_110x110_d957be56.jpg",
+					url: "",
+					hot: false,
+					star: "width:90%",
+					comment: 3567,
+					address: "北京·西城区"
+				},{
+					name: "恭王府(5A)",
+					img: "http://img1.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_110x110_d957be56.jpg",
+					url: "",
+					hot: false,
+					star: "width:90%",
+					comment: 3567,
+					address: "北京·西城区"
+				},{
+					name: "恭王府(5A)",
+					img: "http://img1.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_110x110_d957be56.jpg",
+					url: "",
+					hot: false,
+					star: "width:90%",
+					comment: 3567,
+					address: "北京·西城区"
+				},{
+					name: "恭王府(5A)",
+					img: "http://img1.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_110x110_d957be56.jpg",
+					url: "",
+					hot: false,
+					star: "width:90%",
+					comment: 3567,
+					address: "北京·西城区"
+				},{
+					name: "恭王府(5A)",
+					img: "http://img1.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_110x110_d957be56.jpg",
+					url: "",
+					hot: false,
+					star: "width:90%",
+					comment: 3567,
+					address: "北京·西城区"
 				}]
 			}
 		}
@@ -238,7 +367,6 @@
 		margin-bottom: .2rem;
 	    color: #00afc7;
 	    text-align: center;
-	    height: .7rem;
 	    line-height: .7rem;
 	}
 	.linkPage {
