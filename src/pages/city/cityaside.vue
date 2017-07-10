@@ -62,6 +62,7 @@
 						return i;
 					}
 				}
+		    	return this.cityInitialSort;
 			}
 		},
 
