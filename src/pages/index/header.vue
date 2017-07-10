@@ -9,7 +9,7 @@
   			</router-link>
   		</div>
   		<div class="header-right">
-  			<span class="header-city">北京<i class="header-city-option"></i>
+  			<span class="header-city">{{$store.state.city}}<i class="header-city-option"></i>
   			</span>  			
   		</div>
   	</header>

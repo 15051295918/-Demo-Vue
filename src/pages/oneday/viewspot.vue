@@ -5,7 +5,7 @@
 		</div>
 		<div class="viewport-box" v-for="(item, index) in viewspot" :key="'index'+ '_viewspot'">
 			<div class="viewport-img">
-				<img class="view-img" :src="item.imgUrl">
+				<img class="view-img" v-lazy="item.imgUrl">
 				<span class="viewport-bookingflag">
 					<span class="viewport-bookingtext">{{item.booktime}}</span>
 				</span>
@@ -60,7 +60,8 @@ export default {
 		background: white;
 	}
 	.viewport-box {
-
+		background: white;
+		padding-top: .2rem;
 	}
 	.city-popular{
 		position: relative;
