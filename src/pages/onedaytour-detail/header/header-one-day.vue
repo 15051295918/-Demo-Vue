@@ -1,10 +1,6 @@
 <template>
     <div>
-        <div class="header" :style="style" >
-            <a class="header-left iconfont" role="left" v-html="JiHeader.headerLeft"></a>
-            <h1 class="header-title" role="title">{{JiHeader.headerTitle}}</h1>
-            <span class="header-right" role="right"></span>
-        </div>
+
         <div class="main" id="main">
             <div class="imgavatar">
                 <img class="imgavatar-img" :src="JiHeader.imgavatarImg" :alt="JiHeader.headerTitle">
@@ -15,10 +11,7 @@
                 </div>
             </div>
         </div>
-        <a class="header-back">
-            <span class="headerback-bg"></span>
-            <span class="iconfont headerback-icon" v-html="JiHeader.headerLeft"></span>
-        </a>
+        
     </div>
     
 </template>
@@ -40,63 +33,12 @@
                     "imgavatarRight": "北京旭冉之旅"
                 }
             }
-        },
-        props: ["scrollTop"],
-        computed: {
-            style: function() {
-                return "opacity:" + this.scrollTop / 150
-            }
         }
     }
 </script>
 
 
 <style scoped>
-    .header {
-        height: .88rem;
-        background: #00bcd4;
-        z-index: 1000;
-        color: #212121;
-        font-size: .28em;
-        line-height: 1;
-        position: fixed;
-        width: 100%;
-        top: 0px;
-        left: 0px;
-        display: block;
-    }
-    
-    .header-left {
-        left: 0;
-        top: 0;
-        width: .8rem;
-        height: .88rem;
-        line-height: .88rem;
-    }
-    
-    .header-title {
-        overflow: hidden;
-        margin: 0 1rem;
-        line-height: .88rem;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        font-size: .32rem;
-        text-align: center;
-        color: #fff;
-    }
-    
-    .hheader-right {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: .8rem;
-        height: .88rem;
-        line-height: .88rem;
-        text-align: center;
-        font-size: .32rem;
-        color: #fff;
-    }
-    
     .imgavatar {
         overflow: hidden;
         position: relative;
@@ -147,52 +89,5 @@
         line-height: .34rem;
         white-space: nowrap;
         text-overflow: ellipsis;
-    }
-    
-    .header-back {
-        left: .1rem;
-        top: .1rem;
-        width: .72rem;
-        height: .72rem;
-        line-height: .72rem;
-    }
-    
-    .header-left,
-    .header-back {
-        position: absolute;
-        font-size: .36rem;
-        color: #fff;
-        text-align: center;
-    }
-    
-    .headerback-icon {
-        position: absolute;
-        left: 0;
-        top: 0;
-        display: block;
-        width: .72rem;
-        line-height: .72rem;
-        text-align: left;
-        text-indent: .24rem;
-    }
-    
-    .headerback-bg {
-        display: block;
-        width: .72rem;
-        height: .72rem;
-        background-color: #000;
-        opacity: .5;
-        border-radius: .36rem;
-    }
-    
-    .headerback-icon {
-        position: absolute;
-        left: 0;
-        top: 0;
-        display: block;
-        width: .72rem;
-        line-height: .72rem;
-        text-align: left;
-        text-indent: .24rem;
     }
 </style>
