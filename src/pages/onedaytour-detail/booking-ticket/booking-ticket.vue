@@ -1,74 +1,76 @@
 <template>
-<div>
-   <div class="booking-fliter">
-    	 <div class="booking-predetermine">
-    	 	<booking-header></booking-header>
-    	 	<booking-content></booking-content>
-    	 	<booking-footer></booking-footer>
-    	 </div>
-    </div>
+    <div>
+        <div class="booking-fliter" v-if="show">
+            <div class="booking-predetermine" >
+                <booking-header></booking-header>
+                <booking-content></booking-content>
+                <booking-footer></booking-footer>
+            </div>
+        </div>
     
-     <div class="booking-button">
-             <div  class="booking-consult">咨询</div>
-             <div  class="booking-promplt">立即预定</div>
+        <div class="booking-button">
+            <div class="booking-consult">咨询</div>
+            <div @click="show = !show" class="booking-promplt">立即预定</div>
+
         </div>
     </div>
 </template>
 
 <script>
-
 import header from './booking-header'
 import content from './booking-content'
 import footer from './booking-footer'
 
 export default {
-   
-    data () {
+
+    data() {
         return {
-             
+            show: false
         }
     },
     components: {
-    "booking-header": header,
-    "booking-content": content,
-    "booking-footer": footer
-       }
+        "booking-header": header,
+        "booking-content": content,
+        "booking-footer": footer
+    }
 }
 </script>
 
 
 <style scoped>
-.booking-fliter{
-    display: none;
-	position: absolute;
+.booking-fliter {
+    position: fixed;
     left: 0;
     top: 0;
     width: 100%;
     min-height: 100%;
     background: #f5f5f5;
-    background:rgba(127,127,127,0.5);
-	}
-.booking-predetermine{
-    display: none;
-	position:fixed;
-	bottom:0;
-	left:0;
-    width: 100%;
-    min-height:10.72rem;
-    background:#fff;
+    background: rgba(127, 127, 127, 0.5);
+    z-index: 2000;
 }
-.booking-button{
-    	position:fixed;
-	bottom:0;
-	left:0;
-	display: block;
+
+.booking-predetermine {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: 10.72rem;
+    background: #fff;
+}
+
+.booking-button {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: block;
     width: 100%;
     border: 0 none;
     background: #ff9800;
     color: #fff;
     z-index: 1000;
 }
-.booking-consult{
+
+.booking-consult {
     float: left;
     padding: 0.36rem 0;
     width: 1.02rem;
@@ -76,7 +78,8 @@ export default {
     background: #fff;
     color: #616161;
 }
-.booking-promplt{
+
+.booking-promplt {
     overflow: hidden;
     height: .98rem;
     background: #ff9800;
@@ -85,5 +88,4 @@ export default {
     text-align: center;
     line-height: .98rem;
 }
-
 </style>
