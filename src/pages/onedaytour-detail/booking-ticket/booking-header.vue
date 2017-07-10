@@ -1,7 +1,7 @@
 <template>
     <div class="header">
     	<div class="header-title">
-  			<span class="single-line">[北京出发]天安门＋故宫【赠送珍宝馆】...</span>
+  			<span class="single-line">{{text}}</span>
   			<span class="header-city">x</span>
   		</div>
   		<div class="header-price"><i class="header-money"><em class="header-fuhao">￥</em>228</i>
@@ -14,10 +14,9 @@
 
 
 export default {
-   
     data () {
         return {
-             
+			"text":"[北京出发]天安门＋故宫【赠送珍宝馆】..." 
         }
     },
     components: {
@@ -28,6 +27,10 @@ export default {
 
 
 <style scoped>
+.header{
+  padding-bottom:.3rem;
+  overfllow:hidden;
+}
 .header-title{
 	  padding: .3rem 0 .1rem 0;
 	  font-size: .34rem;
