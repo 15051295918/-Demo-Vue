@@ -18,13 +18,13 @@ export default new Router({
     	name: "List",
     	component: List
     }, {
-        path: "/weekend",
+        path: "/weekend/index",
         name: "Weekend",
         component: Weekend
     },{
     	path: '/onedaytour',
     	name: 'Oneday',
-      component: Oneday
+        component: Oneday
     } 
   ]
 })
