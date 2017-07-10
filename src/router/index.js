@@ -12,6 +12,10 @@ export default new Router({
     {
     	path: '/',
     	name: 'index',
+<<<<<<< HEAD
+=======
+        alias: '/index',
+>>>>>>> origin/master
     	component: Index
     }, {
     	path: "/list",

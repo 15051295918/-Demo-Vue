@@ -15,8 +15,12 @@ import iconswiper from './iconswiper'
 import ads from './ads'
 import detect from '@/utils/detect.js'
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 export default {
-    created: function(){
+    created: function() {
         this.$http.get('/static/index.json').then(response => {
             this.swiperInfo = response.body.data.swiperInfo;
             this.iconInfo = response.body.data.iconInfo;
