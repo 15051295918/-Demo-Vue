@@ -1,8 +1,9 @@
 <template>
     <div class="main">
 		<index-header></index-header>
-		 <imgs-swiper :data="swiperInfo"></imgs-swiper>
-        <icons-swiper :icons="iconInfo" :recommends="recommendInfo"></icons-swiper>	
+		<imgs-swiper :data="swiperInfo"></imgs-swiper>
+        <sights-classify :icons="iconInfo" :recommends="recommendInfo"></sights-classify>
+        <travel :travelInfo="travelInfo">dancer游</travel>	
     </div>
 </template>
 
@@ -10,30 +11,35 @@
 
 import header from './header'
 import imgswiper from './imgswiper'
-import iconswiper from './iconswiper'
+import sightsclassify from './sightsclassify'
+import travel from './travel'
+
 
 
 export default{
 	created: function(){
-        this.$http.get('/static/index.json').then(response => {
+        this.$http.get('/static/sights.json').then(response => {
             this.swiperInfo = response.body.data.swiperInfo;
             this.iconInfo = response.body.data.iconInfo;
             this.recommendInfo = response.body.data.recommendInfo;
+            this.travelInfo = response.body.data.travelInfo
         }, response => {
-            console.log("get index data error")
+            console.log("get sights data error")
         });
     },
 	data(){
 		return{
 			swiperInfo: [],
             iconInfo: [],
-            recommendInfo: []  
+            recommendInfo: [],
+            travelInfo: []
 		}
 	},
 	components:{
 		"index-header":header,
 		"imgs-swiper": imgswiper,
-        "icons-swiper": iconswiper
+        "sights-classify":sightsclassify,
+        "travel":travel
 	}
 }
 
@@ -43,7 +49,14 @@ export default{
 
 
 <style scoped>
-  
+  .main {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        min-height: 100%;
+        background: #f5f5f5;
+  }
 
 </style>
 

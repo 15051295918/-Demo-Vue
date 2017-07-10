@@ -9,7 +9,6 @@
             		</div>
             	</div>
             </swiper-slide>
-            <div class="swiper-pagination icon-pagination"  slot="pagination"></div>
         </swiper>
     </div>
 </template>
@@ -25,7 +24,6 @@ export default {
                 autoplay: false,
                 direction : 'horizontal',
                 autoHeight: true,
-                pagination : '.swiper-pagination',
                 paginationClickable :true
             }
         }
@@ -52,17 +50,17 @@ export default {
 	.icon-container {
 		overflow: hidden;
 		padding-bottom: .4rem;
-        height: 2.88rem;
+        height: 1.8rem;
         background: #fff;
 	}
 	.icon-wrapper {
 		padding-top: .3rem;
 		overflow: hidden;
-		width: 25%;
+		width: 20%;
 		float: left;
 	}
 	.icon-img {
-		width: .66rem;
+		width: .88rem;
 		display: block;
 		margin: 0 auto;
 	}
@@ -71,9 +69,6 @@ export default {
 		text-align: center;
 		color: #212121;
 		font-size: .28rem;
-	}
-	.icon-pagination {
-		bottom: .1rem;
 	}
     .recommend {
         display: flex;
