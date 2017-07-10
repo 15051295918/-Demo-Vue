@@ -1,7 +1,7 @@
 <template>
 	<div class="main-list">
 		<list-header></list-header>
-		<navigation></navigation>
+		<navigation :subnavinfo="subnavinfo" :threeNavInfo="threeNavInfo" @getIndex="handleGetIndex"></navigation>
 		<list-lists></list-lists>
 	</div>
 </template>
@@ -13,15 +13,32 @@
 	import lists from './lists.vue'
 
 	export default {
+		created(){
+	        this.$http.get('/static/list.json').then(response => {
+	        
+	            this.subnavinfo  = response.body.data.subnavinfo ;
+	            this.threeNavInfo  = response.body.data.subnavinfo[this.i].content ; 
+	            console.log(response)
+	        }, response => {
+	             console.log("get index data error")
+	        });	
+	    },
 		data () {
 			return {
-
+				subnavinfo:[],
+				threeNavInfo:[],
+				i:3
 			}
 		},
 		components: {
 			"list-header": header,
     		"navigation": navigation,
 			"list-lists": lists
+		},
+		methods:{
+			handleGetIndex(index){
+				this.i=index;
+			}
 		}
 	}
 

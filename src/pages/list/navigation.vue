@@ -15,43 +15,22 @@
 	</div>
 
 		<div class="sub-nav"  v-show="show">	
-			<div class="subnav-all">
+			<div class="subnav-container">
 				<div class="subnav-items subnav-title" >
-					<div class="three-nav  border-bottom" @click="handleTitle">
-						<img class="three-nav-icon" src="http://img1.qunarzz.com/piao/fusion/1608/3e/72d2396d47131702.png">
-					全部分类<span class="count">1213</span></div>
-					<div class="three-nav  border-bottom" @click="handleTitle">
-						<img class="three-nav-icon" src="http://img1.qunarzz.com/piao/fusion/1608/3e/72d2396d47131702.png">
-					无极剑圣<span class="count">999</span></div>
-					<div class="three-nav  border-bottom" @click="handleTitle">
-						<img class="three-nav-icon" src="http://img1.qunarzz.com/piao/fusion/1608/3e/72d2396d47131702.png">
-					无极剑圣<span class="count">999</span></div>
-					<div class="three-nav  border-bottom" @click="handleTitle">
-						<img class="three-nav-icon" src="http://img1.qunarzz.com/piao/fusion/1608/3e/72d2396d47131702.png">
-					无极剑圣<span class="count">555</span></div>
-					<div class="three-nav  border-bottom" @click="handleTitle">
-						<img class="three-nav-icon" src="http://img1.qunarzz.com/piao/fusion/1608/3e/72d2396d47131702.png">
-					无极剑圣<span class="count">555</span></div>
-					<div class="three-nav  border-bottom" @click="handleTitle">
-						<img class="three-nav-icon" src="http://img1.qunarzz.com/piao/fusion/1608/3e/72d2396d47131702.png">
-					无极剑圣<span class="count">555</span></div>
-					<div class="three-nav  border-bottom" @click="handleTitle">
-						<img class="three-nav-icon" src="http://img1.qunarzz.com/piao/fusion/1608/3e/72d2396d47131702.png">
-					无极剑圣<span class="count">555</span></div>
-					<div class="three-nav  border-bottom" @click="handleTitle">
-						<img class="three-nav-icon" src="http://img1.qunarzz.com/piao/fusion/1608/3e/72d2396d47131702.png">
-					无极剑圣<span class="count">555</span></div>
+				
+					<div class="subnav-item  border-bottom" v-for="(subItem, index) in subnavinfo" @click="handleSubnavClick(index)" :index= "index" v-model="index">
+						<img class="subnav-item-icon" src="http://img1.qunarzz.com/piao/fusion/1608/3e/72d2396d47131702.png">
+							{{subItem.title}}
+						<span class="count">
+							{{subItem.visitedNum}}
+						</span>
+						<div class="three-items subnav-content" v-for="threeItem in threeNavInfo">
+							<div class="three-nav ">{{threeItem.itemtitle}}<span class="count">555</span></div>
+						</div>
+					</div>
+					
 				</div>
-				<div class="subnav-items subnav-content">
-					<div class="three-nav ">无极剑圣<span class="count">555</span></div>
-					<div class="three-nav ">无极剑圣<span class="count">555</span></div>
-					<div class="three-nav ">无极剑圣<span class="count">555</span></div>
-					<div class="three-nav ">无极剑圣<span class="count">555</span></div>
-					<div class="three-nav ">无极剑圣<span class="count">555</span></div>
-					<div class="three-nav ">无极剑圣<span class="count">555</span></div>
-					<div class="three-nav ">无极剑圣<span class="count">555</span></div>
-					<div class="three-nav ">无极剑圣<span class="count">555</span></div>
-				</div>
+		
 			</div>
 			<div class="mask-div"  @touchstart="maskClick" v-model="show">
 
@@ -65,15 +44,26 @@
 export default {
 	data () {
 		return {
-			show:false
+			show:false,
+			
+
 		}
 	},
+	
+	props:["subnavinfo","threeNavInfo"],
 	methods: {
 	  	allClassClick(){
 	  		return this.show = !this.show
 	  	},
 	  	maskClick(){
 	  		return this.show = false
+	  	},
+	  	handleSubnavClick(index){
+
+	  		this.$emit("getIndex", index);
+	  		
+	  		
+	  	
 	  	}
 	}
 }
@@ -142,15 +132,12 @@ export default {
 		position: absolute;
 		z-index:100;
 		height: 100%;
-		width: 100%;
-
-		
-		
+		width: 100%;	
 	}
-	.subnav-all{
+	.subnav-container{
 		position:absolute;
 		width:100%;
-		display: flex;
+		/*display: flex;*/
 		height:4.8rem;
 		overflow: hidden;
 		background: #fff;
@@ -164,18 +151,30 @@ export default {
 		z-index:90;
 	}
 	.subnav-items {
-		flex: 1;
+		width: 100%;
 		height:100%;
-
+		
 	}
-	.three-nav {
+	.subnav-item{
+		width:50%;
+		position: relative;
 		height: .8rem;
 		line-height: .8rem;
-		padding-left: .3rem;
-	    line-height: .8rem;
-	    height: .8rem;
-	    overflow: hidden;
-	    color: #212121;
+	} 
+	.three-items{
+		width:100%;
+		position: absolute;
+		top:0;
+		right:-100%;
+		background: #f1f1f1;
+		height: .8rem;
+		line-height: .8rem;
+	}
+	.subnav-item-icon{
+		width: .3rem;
+	    height: .3rem;
+	    vertical-align: middle;
+	    margin-right: .1rem;
 	}
 	.count{
 		float: right;
@@ -184,11 +183,25 @@ export default {
     	color: #9e9e9e;
 
 	}
+
+
+/*
+	.three-nav {
+		width: 50%;
+		height: .8rem;
+		line-height: .8rem;
+		padding-left: .3rem;
+	    line-height: .8rem;
+	    height: .8rem;
+	    overflow: hidden;
+	    color: #212121;
+	}
+
 	.subnav-content{
 		background: #f1f1f1;
 	}
 
-
+*/
 
 
 .three-nav-icon {
