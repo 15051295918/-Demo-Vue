@@ -52,7 +52,7 @@ export default {
     .city {
       width:98%;
       height:1.7rem;
-      margin: 1% 0.05rem;
+      margin: 1%;
     }
     .city-items {
       float: left;
@@ -60,6 +60,7 @@ export default {
       height: .78rem;
       text-align: center;
       line-height: .78rem;
+
       background: url(//s.qunarzz.com/piao_topic/image/touch/custom/2017/2125perfect03/170704summer/menu_sprite.png) .1rem .1rem/400% 3.44rem no-repeat;
     }
     .city-items-a {
