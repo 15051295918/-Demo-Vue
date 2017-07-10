@@ -1,11 +1,12 @@
 <template>
-	<header class="header">
-  		<a class="header-left">
+	<header class="header" >
+  		<a class="header-left" v-on:click="goBack">
   			<div class="return"></div>
   		</a>
   		<div class="header-right">
-  			<span class="header-city">{{city}}<i class="header-city-option"></i>
-  			</span>  			
+  			<router-link to="/city">
+  				<span class="header-city">{{city}}<i class="header-city-option"></i></span> 
+  			</router-link>
   		</div>
   	</header>
 </template>
@@ -16,7 +17,12 @@ export default {
     return {
     }
   },
-  props: ["city"]
+  props: ["city"],
+  methods:{
+  	goBack: function() {
+  		history.go(-1)
+  	}
+  }
 }
 </script>
 
@@ -24,14 +30,13 @@ export default {
 <style scoped>
 	.header {
 	    position: relative;
-	    display: flex;
 	    width: 100%;
 	    height: .88rem;
 	    background: #00bcd4;
-	    text-align: center;
 	    color: #fff;
 	}
 	.header-left {
+		position: absolute;
 	    display: inline-block;
 	    width: .4rem;
 	    line-height: .88rem;
@@ -65,10 +70,8 @@ export default {
 		margin: .3rem .1rem;
 	}
 	.header-right{
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		margin-left: -.66rem;
-		margin-top: -.44rem;
+		width: 100%;
+		margin: 0 auto;
+		text-align: center;
 	}
 </style>

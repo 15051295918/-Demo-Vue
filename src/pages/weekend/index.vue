@@ -1,7 +1,7 @@
 <template>
 	<div class="weekend-main">
-		<weekend-header :city="city"></weekend-header>
-		<weekend-classify :city="city" :classifyInfo="classifyInfo" :nearScapeInfo="nearScapeInfo" :weekendChosenInfo="weekendChosenInfo"></weekend-classify>
+		<weekend-header :city="currentCity"></weekend-header>
+		<weekend-classify :city="currentCity" :classifyInfo="classifyInfo" :nearScapeInfo="nearScapeInfo" :weekendChosenInfo="weekendChosenInfo"></weekend-classify>
 		<weekend-pinterest :list="Pinterest"></weekend-pinterest>
 	</div>
 </template>
@@ -11,11 +11,25 @@ import header from "./header"
 import classify from "./classify"
 import pinterest from './pinterest'
 export default {
+	beforeCreate: function() {//模拟localStorage存储的城市名(汉语拼音形式)
+		var currentCitys = "beijing";
+		try{
+			if(window.localStorage){
+				window.localStorage.currentCity = currentCitys;
+			}
+		}catch(e){}
+	},
 	created: function() {
 		this.$http.get('/static/weekend.json').then(response =>{
-			this.classifyInfo = response.body.data.classifyInfo;
-			this.nearScapeInfo = response.body.data.nearScapeInfo;
-			this.weekendChosenInfo = response.body.data.weekendChosenInfo;
+			try{
+				if(window.localStorage){
+					this.currentCity = window.localStorage.currentCity;//取出本地存储的城市名
+				}
+			}catch(e){}
+			this.classifyInfo = response.body.data[this.currentCity].classifyInfo;
+			this.nearScapeInfo = response.body.data[this.currentCity].nearScapeInfo;
+			this.weekendChosenInfo = response.body.data[this.currentCity].weekendChosenInfo;
+			this.currentCity = response.body.data[this.currentCity].city;
 		}),response => {
 			console.log("get weekend data error")
 		}
@@ -27,14 +41,14 @@ export default {
 	},
 	data () {
 	    return {
-	      	"city": "上海",
+	    	"currentCity":"",
 	      	"classifyInfo": [],
 	       	"nearScapeInfo": [],
 	       	"weekendChosenInfo": [],
-	       	 Pinterest:[]
+	       	 "Pinterest":[]
 	    }
 	},
-  	components:{
+  	components: {
   		"weekend-header": header,
   		"weekend-classify": classify,
   		"weekend-pinterest":pinterest

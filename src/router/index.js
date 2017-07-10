@@ -18,7 +18,7 @@ export default new Router({
     	name: "List",
     	component: List
     }, {
-        path: "/weekend",
+        path: "/weekend/index",
         name: "Weekend",
         component: Weekend
     },{
