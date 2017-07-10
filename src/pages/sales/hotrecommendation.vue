@@ -56,14 +56,12 @@ export default {
     },
 
 	updated: function () {
-        console.group('updated 更新完成状态===============》');
         var nowTitle = document.querySelector("#js-now-title");
     },
 
     methods: {
     	handleEventNowTitle: function(e) {
 			window.addEventListener('touchmove', e => e.preventDefault())
-			alert("好烦啊")
     	},
     	menu() {
 	        this.scroll = document.body.scrollTop;
