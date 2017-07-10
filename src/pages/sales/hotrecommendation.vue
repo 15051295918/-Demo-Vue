@@ -1,5 +1,5 @@
 <template>
-<div class="hotsales">
+<div class="hotsales" id="js-hotsales">
 	<div class="hotrecommendation border-top">
 		<div class="navbar-hot border-bottom">
 			<div class="hot-toplist" v-for="(hottitle,index) in dataInfo" :key="index + '_hot_title_name'">
@@ -55,21 +55,29 @@ export default {
     methods: {
     	handleEventNowTitle: function(e) {
 			window.addEventListener('touchmove', e => e.preventDefault())
-			alert();
+			this.hotNowTitle = document.getElementById("js-now-title");
+			this.hotsales = document.getElementById("js-hotsales");
+			var mTop = this.hotsales.offsetTop,
+				sTop = document.body.scrollTop,
+    			result = mTop - sTop;
+    		this.hotsales.style.position = "absolute"
+    		this.hotsales.style.top = (mTop-result) + "px" ;
     	},
     	menu() {
-			window.onload = function() {
-				this.scroll = document.body.scrollTop;
-				var navbarHot = document.querySelector(".navbar-hot");
-				if( this.scroll >= 1888 ) {
-					navbarHot.style.position = "fixed";
-					navbarHot.style.top = "0px";
-					navbarHot.style.zIndex = 10;
-					navbarHot.style.width = 100+"%";
-				}else{
-					navbarHot.style.position = "static";
-					navbarHot.style.top = "";
-				}
+			this.scroll = document.body.scrollTop;
+			var navbarHot = document.querySelector(".navbar-hot"),
+				hotsales = document.getElementById("js-hotsales"),
+				mTop = hotsales.offsetTop,
+				result = mTop - this.scroll;
+
+			if( result < 0 ) {
+				navbarHot.style.position = "fixed";
+				navbarHot.style.top = "0px";
+				navbarHot.style.zIndex = 10;
+				navbarHot.style.width = 100+"%";
+			}else{
+				navbarHot.style.position = "static";
+				navbarHot.style.top = "";
 			}
         }
     },

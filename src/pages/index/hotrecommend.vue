@@ -3,8 +3,8 @@
 		<h2 class="hot-commend-title">热销推荐</h2>
 		<div class="hot-commend-con">
 			<ul class="hot-commend-list">
-				<li class="hot-commend-list-item border-bottom" v-for="(hotrecommendes,index) in hotsight" :key="index+'_hot_commend_info'">
-					<a href="#">
+				<li class="hot-commend-list-item border-bottom" v-for="(hotrecommendes,index) in hotsight" :key="index+'_hot_commend_info'" >
+					<router-link :to="{path:'laoji', query: {id:index}}">
 						<div class="hotlist-img">
 							<img :src="hotrecommendes.listImg" />
 						</div>
@@ -16,7 +16,7 @@
 							&yen;<em class="hotlist-num">{{hotrecommendes.price}}</em>
 							<span class="hotlist-text">{{hotrecommendes.text}}</span>
 						</div>
-					</a>
+					</router-link>
 				</li>
 			</ul>
 			<div class="hot-modmore">
@@ -32,6 +32,9 @@ export default {
 		return {
 
 		}
+	},
+	methods: {
+		
 	},
 	props:["hotsight"]
 }
