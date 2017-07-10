@@ -1,6 +1,6 @@
 <template>
   	<div class="titket-9-main">
-		<div class="app" ref="app">
+		<div class="app">
 			<div class="app-left">
 				<img src="http://source.qunarzz.com/site/images/wap/touch/images/v2/images1x/top-logo.png" class="app-logo"/>
 			</div>
