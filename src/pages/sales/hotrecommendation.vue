@@ -61,6 +61,7 @@ export default {
 				this.scroll = document.body.scrollTop;
 				var navbarHot = document.querySelector(".navbar-hot");
 				if( this.scroll >= 1888 ) {
+					console.log(navbarHot.offsetTop)
 					navbarHot.style.position = "fixed";
 					navbarHot.style.top = "0px";
 					navbarHot.style.zIndex = 10;

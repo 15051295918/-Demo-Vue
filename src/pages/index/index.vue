@@ -6,7 +6,7 @@
         <ads></ads>
         <hotrecommend :hotsight="hotRecommendInfo"></hotrecommend>
         <weekend-trip :weekendtripInfo="weekendtripInfo" :footernavInfo="footernavInfo" 
-        :equipmenttype="equipmenttype"></weekend-trip>
+        :equipmenttype="equipmenttype" :navIcon="navIcon"></weekend-trip>
     </div>
 </template>
 
@@ -30,6 +30,7 @@ export default {
             this.weekendtripInfo = response.body.data.weekendtripInfo;
             this.footernavInfo = response.body.data.footernavInfo;
             this.equipmenttype = response.body.data.equipmenttype;
+            this.navIcon =  response.body.data.naviconInfo;
         }, response => {
             console.log("get index data error")
         });
@@ -42,7 +43,8 @@ export default {
             hotRecommendInfo: [],   
             weekendtripInfo: [],
             footernavInfo: [],
-            equipmenttype: []
+            equipmenttype: [],
+            navIcon: []
         }
     },
     components: {

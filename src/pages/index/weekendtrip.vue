@@ -25,31 +25,24 @@
 	<div class="weekendtrip-footer">
 		<div class="weekendtrip-footer-navcontainer">
 			<ul class="weekendtrip-footer-ul">
-				<li class="weekendtrip-footerul-li">
+				<li class="weekendtrip-footerul-li" v-for="iconitem in navIcon">
 					<a href="#" class="weekendtrip-footerul-link">
-						<div class="weekendtrip-footerul-icon iconfont">&#xe635;</div>
-						<span class="weekendtrip-footerul-title">机票</span>
+						<div class="weekendtrip-footerul-icon iconfont" v-html="iconitem.icon"></div>
+						<span class="weekendtrip-footerul-title">{{iconitem.iconText}}</span>
 					</a>
 				</li>
-				<li class="weekendtrip-footerul-li">
-					<a href="#" class="weekendtrip-footerul-link">
-						<div class="weekendtrip-footerul-icon iconfont ">&#xe612;</div>
-						<span class="weekendtrip-footerul-title">酒店</span>
-					</a>
-				</li>
-				<li class="weekendtrip-footerul-li">
-					<a href="#" class="weekendtrip-footerul-link">
-						<div class="weekendtrip-footerul-icon iconfont ">&#xe60d;</div>
-						<span class="weekendtrip-footerul-title">公寓</span>
-					</a>
-				</li>
-				<li class="weekendtrip-footerul-li">
-					<a href="#" class="weekendtrip-footerul-link footerul-link-last">
-						<div class="weekendtrip-footerul-icon iconfont ">&#xe628;</div>
-						<span class="weekendtrip-footerul-title more">更多</span>
-					</a>
-				</li>
+				<span class="weekendtrip-footer-hide" @click="handlehideclick">
+					|
+					<span class="footer-iconfont-down iconfont">&#xe671;</span>
+					收起
+				</span>
 			</ul>
+			<span class="weekendtrip-footer-more" @click="handlemoreclick">
+			 |
+				<span class="footer-iconfont-down iconfont">&#xe628;</span>
+				 更多
+			</span>
+
 			<ol class="weekendtrip-footer-ol" >
 				<li class="weekendtrip-footerol-li"v-for="(navItem, index) in footernavInfo":key="index+'footeritem'"><a href="#">{{navItem.title}}</a></li>
 			</ol>
@@ -71,10 +64,33 @@ export default {
      	
     }
   },
-  props:["weekendtripInfo", "footernavInfo", "equipmenttype"]
+  props:["weekendtripInfo", "footernavInfo", "equipmenttype", "navIcon"],
+
+  methods: {
+  	
+  	handlemoreclick: function() {
+  		var footerul = document.querySelector(".weekendtrip-footer-ul");
+  		var footermore = document.querySelector(".weekendtrip-footer-more");
+  		var footerhide = document.querySelector(".weekendtrip-footer-hide");
+
+  		footerul.style.height = "2.2rem";
+  		footerul.style.width = "7rem";
+  		footermore.style.display = "none";
+  		footerhide.style.display = "block"; 
+  	},
+  	handlehideclick: function() {
+  		var footerul = document.querySelector(".weekendtrip-footer-ul");
+  		var footermore = document.querySelector(".weekendtrip-footer-more");
+  		var footerhide = document.querySelector(".weekendtrip-footer-hide");
+
+  		footerul.style.height = ".5rem";
+  		footerul.style.width = "6rem";
+  		footermore.style.display = "block";
+  		footerhide.style.display = "none"; 
+  	}
+  }
 }
 </script>
-
 
 <style scoped>
 	#weekendtrip{
@@ -91,12 +107,14 @@ export default {
 		font-family: tahoma,arial,"Hiragino Sans GB","微软雅黑",simsun,sans-serif;
 	}
 	.weekendtrip-item{
+		
 		position: relative;
 		margin-bottom: .1rem;
 		background: #fff;
 	}
 	.weekendtrip-item-imgcontainer{
 		overflow: hidden;
+		width: 100%;
 		height: 0;
 		padding-bottom: 37.4375%;
 	}
@@ -131,6 +149,7 @@ export default {
 		color: #212121;
 	}
 	.weekendtrip-prompt{
+		width: 100%;
 		margin-top: .1rem;
 		padding: .14rem .1rem;
 		font-size: .24rem;
@@ -155,17 +174,39 @@ export default {
 		position: relative;
 		width: 6rem;
 		height: .5rem;
-		margin: 0 auto;
+		margin-left: .4rem;
 		padding: .2rem .2rem 0 .2rem;
 		overflow: hidden;
 		list-style: none;
 	}
 	.weekendtrip-footerul-li{
-		margin-left: .1rem;
 		padding-left: .2rem;
 		height: .62rem;
+		width: 1.4rem;
 		float: left;
+
+	}
+	.weekendtrip-footer-more{
+		font-size: .05rem;
+		color: #9e9e9e;
+		position: absolute;
+		right: 1rem;
+		margin-top: -.6rem;
+	}
+	.weekendtrip-footer-hide{
+		font-size: .05rem;
+		display: none;
+		position: absolute;
+		bottom: 0;
+		right: 1.3rem;
+		color: #9e9e9e;
+
+
+	}
+	.footer-iconfont-down{
+		font-size: .5rem;
 		position: relative;
+		top:.1rem;
 	}
 	.weekendtrip-footerul-icon{
 		float: left;
@@ -220,4 +261,3 @@ export default {
 		color: black;
 	}
 </style>
-

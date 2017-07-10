@@ -63,11 +63,11 @@ export default {
   		var ticketNavbar = document.querySelector(".ticket-navbar");
   		this.scroll = document.body.scrollTop;
   		if(this.scroll >= 44){
-  		ticketNavbar.style.position = "fixed";
-  		ticketNavbar.style.top = "0px";
-  		ticketNavbar.style.zIndex = 10;
+	  		ticketNavbar.style.position = "fixed";
+	  		ticketNavbar.style.top = "0px";
+	  		ticketNavbar.style.zIndex = 10;
   		}else{
-  		ticketNavbar.style.position = "relative";
+  			ticketNavbar.style.position = "relative";
   		}
   	}
   },
