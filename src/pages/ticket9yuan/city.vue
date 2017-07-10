@@ -57,7 +57,7 @@ export default {
     .city {
       width:98%;
       height:1.7rem;
-      margin: 1% 0.05rem;
+      margin: 1%;
     }
     .city-items {
       float: left;

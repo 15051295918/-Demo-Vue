@@ -18,7 +18,7 @@
                 <li class="list-mall-box"  v-for="(item,index) in list" :key="index+'_list'">
                     <a href="#" class="list-link">
                         <div class="list-img-box">
-                            <img :src="item.img"  class="list-img">
+                            <img :src="item.img"  class="list-img" v-lazy="item.img">
                             <div class="list-img-add">
                                 <span class="list-img-pos"></span>{{item.locationName}}     
                             </div>
@@ -45,11 +45,14 @@
         </div>
     </div>  
 </template>
+
+<script src="https://unpkg.com/vue-lazyload/vue-lazyload.js"></script>
 <script>
 
 import detect from '@/utils/detect.js'
 
 export default {
+   
     created: function(){
         this.$http.get('/static/ticketRmb.json').then(response => {
             this.commentlistInfo = response.body.data.indexInfo.caption;
@@ -184,6 +187,7 @@ export default {
         box-sizing: border-box;
         float: left;
         width:50%;
+        height: 4.6rem;
         border-bottom: .08rem solid #000;
         border-right: .08rem solid #000;
         background: #fff;
@@ -191,6 +195,7 @@ export default {
     .list-img-box{
         position: relative;
         width: 100%;
+        background-image: cover;
     }
     .list-img{
         width:100%;

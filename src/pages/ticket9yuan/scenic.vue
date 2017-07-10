@@ -53,26 +53,26 @@ export default {
       height:100%;
     }
     .scenic {
-      width:94%;
+      width:93%;
       height: auto;
-      margin:0 0.15rem;
+      margin:0 2.3%;
       border: .1rem solid #000;
       border-bottom: 0;
     }
     .scenic-items {
       width:100%;
       height: 2.08rem;
-      border-bottom:  .1rem solid #000;
+      border-bottom: .1rem solid #000;
      
     }
     .scenic-left {
-      width: 18%;
+      width: 35%;
       height: 2.08rem;
       float: left;
       position: relative;
     }
     .scenic-left-img {
-      width:2.5rem;
+      width: 100%;
       height: 2.08rem;
     } 
     .scenic-city {
@@ -100,7 +100,7 @@ export default {
     }
     .scenic-right {
       float: right;
-      width: 4.5rem;
+      width: 65%;
       height: 2.08rem;
       background: #fff;
     }
@@ -110,8 +110,8 @@ export default {
       line-height: .56rem;
     }
     .scenic-product {
-      margin-left: .2rem;
-      width:4.3rem;
+      margin-left: 3%;
+      width: 97%;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -119,9 +119,9 @@ export default {
       color: #999;
     }
     .scenic-price {
-      width:4.3rem;
-      height:.6rem;
-      margin-left: .2rem;
+      width: 97%;
+      height: .6rem;
+      margin-left: 3%;
       margin-top: .4rem;
       line-height: .6rem;
     }
@@ -140,7 +140,7 @@ export default {
     }
     .current-price {
       float: left;
-      margin-left: .4rem;
+      margin-left: .5rem;
     }
     .reduction-name {
       float:left;
