@@ -120,9 +120,11 @@
 	}
 	.header-city:first-of-type {
 	    border-radius: .06rem 0 0 .06rem;
-	}
+	    border-right: none;
+	}  
 	.header-city:last-of-type {
 	    border-radius: 0 .06rem .06rem 0;
+	 	border-left: none;
 	}
 	.city-tab{
 	    display: inline-block;
