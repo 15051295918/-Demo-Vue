@@ -60,7 +60,8 @@ export default {
 		background: white;
 	}
 	.viewport-box {
-
+		background: white;
+		padding-top: .2rem;
 	}
 	.city-popular{
 		position: relative;
