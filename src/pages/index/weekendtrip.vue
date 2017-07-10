@@ -3,7 +3,7 @@
 	<div class="lazy-load" id="weekendtrip">
 		<h2 class="weekendtrip-title">周末去哪儿</h2>
 		<div>
-			<div class="weekendtrip-item" v-for="(recommendItem, index) in weekendtripInfo" :key="index+'recommendItem'" @click="handleclick(recommendItem,index)">
+			<div class="weekendtrip-item" v-for="(recommendItem, index) in weekendtripInfo" :key="index+'recommendItem'" @click="handlelinkclick(recommendItem,index)">
 				<div class="weekendtrip-item-imgcontainer">
 					<img class="weekendtrip-item-img" v-lazy="recommendItem.imgurl"/>
 				</div>
@@ -86,7 +86,7 @@ export default {
   		footermore.style.display = "block";
   		footerhide.style.display = "none"; 
   	},
-  	handleclick: function(recommendItem, index){
+  	handlelinkclick: function(recommendItem, index){
   		this.$router.push('/weekend?id='+index+'&title='+recommendItem.title);
   	}
   }
