@@ -12,7 +12,7 @@
 				<li v-for="(item,index) in spot" class="spot-concent-li" :key="index + 'spot'">
 					<div class="spot-concent-box"> 
 						<div class="spot-concent-img">
-							<img :src="item.imgsrc" class="spot-concent-img-child"/>
+							<img v-lazy="item.imgsrc" class="spot-concent-img-child"/>
 						</div>
 						<div class="spot-concent-line-box">
 							<div class="spot-concent-title">{{item.title}}</div>
