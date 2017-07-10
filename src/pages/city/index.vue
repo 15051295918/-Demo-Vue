@@ -1,9 +1,11 @@
 <template>
 	<div>
 		<city-header :cityInfo="cityInfo" @isSarching="isSarching" @isAbroad="isAbroad"></city-header>
-		<city-hot v-if="isShow" :cityInfo="cityInfo"></city-hot>
-		<city-list v-if="isShow" :cityInfo="cityInfo"></city-list>
-		<city-aside v-if="isShow" :cityInfo="cityInfo" @scrollTop="cityScrollTop" :windowScrollTop="windowScrollTop"></city-aside>
+		<div v-show="isShow">
+				<city-hot :cityHot="cityHot"></city-hot>
+				<city-list :cityInfo="cityInfo"></city-list>
+				<city-aside :cityInfo="cityInfo" @scrollTop="cityScrollTop" :windowScrollTop="windowScrollTop"></city-aside>
+		</div>
 	</div>
 </template>
 
@@ -20,6 +22,9 @@
 					this.cityInfo = response.body.data.domestic;
 					this.domesticCity = response.body.data.domestic;
 					this.overseasCity = response.body.data.overseas;
+					for (var i=0;i<17;i++) {
+						this.cityHot.push(this.cityInfo[i])
+					}
 				}else {
 					console.log("Invalid data!");
 				}
@@ -34,7 +39,8 @@
 				overseasCity: [],
 				cityInfo:[],
 				windowScrollTop:"",
-				isShow:true  //搜索时header下面组件隐藏
+				isShow:true,
+				cityHot:[] 
 			}
 		},
 		components: {
@@ -47,8 +53,16 @@
 			isAbroad: function(value) {
 				if (value) {
 					this.cityInfo = this.domesticCity;
+					this.cityHot=[];
+					for (var i=0;i<17;i++) {
+						this.cityHot.push(this.cityInfo[i])
+					}
 				}else{
 					this.cityInfo = this.overseasCity;
+					this.cityHot=[];
+					for (var i=0;i<17;i++) {
+						this.cityHot.push(this.cityInfo[i])
+					}
 				}
 				
 			},
