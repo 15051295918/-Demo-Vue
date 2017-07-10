@@ -5,8 +5,6 @@ import List from '@/pages/list/index'
 import Weekend from '@/pages/weekend/index'
 import Oneday from '@/pages/oneday/index'
 
-
-
 Vue.use(Router)
 
 export default new Router({
@@ -19,10 +17,10 @@ export default new Router({
     	path: "/list",
     	name: "List",
     	component: List
-    },{
-    	path: "/weekend",
-    	name: "weekend",
-    	component: Weekend
+    }, {
+        path: "/weekend",
+        name: "Weekend",
+        component: Weekend
     },{
     	path: '/onedaytour',
     	name: 'Oneday',

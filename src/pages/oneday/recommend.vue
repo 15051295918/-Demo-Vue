@@ -5,9 +5,9 @@
 				<h3 class="recommend-title-hot">北京热门线路推荐</h3>
 			</div>
 			<div class="recommend-top-ul">
-				<div class="recommend-top-li">铁定成团</div>
-				<div class="recommend-top-li">无自费</div>
-				<div class="recommend-top-li">无购物</div>
+				<div class="recommend-top-li">铁定成团<span class="iconfont recommend-icon1">&#xe662;</span></div>
+				<div class="recommend-top-li">无自费<span class="iconfont recommend-icon2">&#xe619;</span></div>
+				<div class="recommend-top-li">无购物<span class="iconfont recommend-icon3">&#xe6ab;</span></div>
 			</div>
 		</div>
 		<div>
@@ -39,7 +39,7 @@
 			</ul>
 			<a class="recommend-a">
 				查看全部一日游
-				<span class="recommend-a-span"></span>
+				<span class="recommend-a-span iconfont">&#xe615;</span>
 			</a>
 		</div>
 	</div>
@@ -114,7 +114,16 @@ export default {
 	    -webkit-border-radius: .46rem;
 	    -moz-border-radius: .46rem;
 	    border-radius: .46rem;
+	    position: relative;
 	}
+
+	.recommend-icon1, .recommend-icon2, .recommend-icon3 {
+		position: absolute;
+		left: .01rem;
+		bottom: -.14rem;
+		font-size: .24rem;
+	}
+
 	.recommend-concent{
 		position: relative;
 	    padding: .2rem .2rem 0 0;
@@ -225,14 +234,7 @@ export default {
 	    background: #fff;
 	}
 	.recommend-a-span{
-		display: block;
-		position: absolute;
-		top: 0.35rem;
-		right: 32%;
-		transform: rotateZ(-135deg);
-		width: .15rem;
-		height: .15rem;
-		border-left: .04rem solid #9e9e9e;
-		border-bottom: .04rem solid #9e9e9e;
+	    font-size: .22rem;
+		color: #9e9e9e;
 	}
 </style>

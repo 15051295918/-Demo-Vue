@@ -1,33 +1,56 @@
-<template>  
-	<weekend-pinterest :list="Pinterest"></weekend-pinterest>
+<template>
+	<div class="weekendMain">
+		<weekend-header :city="city"></weekend-header>
+		<weekend-classify :city="city" :classifyInfo="classifyInfo" :nearScapeInfo="nearScapeInfo" :weekendChosenInfo="weekendChosenInfo"></weekend-classify>
+		<weekend-pinterest :list="Pinterest"></weekend-pinterest>
+	</div>
 </template>
 
 <script>
-	import pinterest from './pinterest'
+import header from "./header"
+import classify from "./classify"
+import pinterest from './pinterest'
 export default {
-  created:function(){
-  	this.$http.get('/static/weekend1.json').then(response=>{
+	created: function() {
+		this.$http.get('/static/weekend.json').then(response =>{
+			this.classifyInfo = response.body.data.classifyInfo;
+			this.nearScapeInfo = response.body.data.nearScapeInfo;
+			this.weekendChosenInfo = response.body.data.weekendChosenInfo;
+		}),response => {
+			console.log("get weekend data error")
+		}
+		this.$http.get('/static/weekend1.json').then(response=>{
   		
-  		this.Pinterest=response.body.data.pinterest;
+  			this.Pinterest=response.body.data.pinterest;
   		
-  	},response=>{
-  		console.log("get data Error")
-  	})
-  },
-  data () {
-    return {
-         Pinterest:[]
-    }
-    
-  },
-  components:{
-  	"weekend-pinterest":pinterest
-  }
+	  	},response=>{
+	  		console.log("get data Error")
+	  	})
+	},
+	data () {
+	    return {
+	      	"city": "上海",
+	      	"classifyInfo": [],
+	       	"nearScapeInfo": [],
+	       	"weekendChosenInfo": [],
+	       	 Pinterest:[]
+	    }
+	},
+  	components:{
+  		"weekend-header": header,
+  		"weekend-classify": classify,
+  		"weekend-pinterest":pinterest
+  	}
 }
-
 </script>
 
-
 <style scoped>
-	
+	.weekendMain{
+		position: absolute;
+	    left: 0;
+	    top: 0;
+	    width: 100%;
+	    min-height: 100%;
+	    background: #f1f5f6;
+	}
 </style>

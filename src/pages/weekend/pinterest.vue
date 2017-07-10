@@ -40,8 +40,11 @@ export default {
  
 </script>
 
-
 <style scoped>
+	.pinterest-wrap{
+		margin-top: .2rem; 
+		background: #fff;
+	}
 	.pinterest-title{
 		line-height: .88rem;
 		text-indent: .15rem;
@@ -77,7 +80,6 @@ export default {
 	}
 	.current-price{
 		font-size:.28rem;
-		
 	}
 	.yprice{
 		margin-left: .15rem;
@@ -97,7 +99,6 @@ export default {
     }
     .list-title{
     	padding: 0.2rem;
-    	
     }
     .weekendsuggest-name{
     	font-size: .32rem; 
@@ -106,8 +107,7 @@ export default {
     	margin-bottom: .2rem;
     }
     .weekendsuggest-name-position{
-    	    color: #9e9e9e;
-	        font-size: .24rem;
+	    color: #9e9e9e;
+        font-size: .24rem;
 	}
-    
 </style>

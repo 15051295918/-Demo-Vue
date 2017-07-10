@@ -18,7 +18,7 @@ Vue.use(VueResource);
 Vue.use(VueLazyload, {
   preLoad: 1.3,
   error: 'dist/error.png',
-  loading: 'http://img01.sogoucdn.com/app/a/100520024/6fe7a1bab8fbbd8891af68f083ea894e',
+  loading: 'http://simg3.qunarzz.com/piao/images/loading_camel.gif',
   attempt:1,
   listenEvents: [ 'touchmove' ]
 })
