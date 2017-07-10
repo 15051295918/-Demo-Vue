@@ -6,7 +6,6 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import VueResource from 'vue-resource'
 import FastClick from 'fastclick'
 import VueLazyload from 'vue-lazyload'
-
 FastClick.attach(document.body);
 
 Vue.config.productionTip = false
