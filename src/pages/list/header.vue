@@ -1,5 +1,5 @@
 <template>
-	<header class="header">
+	<header class="header" @click="handleHeaderClick">
   		<a class="header-left">
   			<div class="return"></div>
   		</a>
@@ -26,6 +26,9 @@ export default {
   methods:{
   	handleClick(){
   		this.value=""
+  	},
+  	handleHeaderClick(){
+  		this.$emit("headerClick")
   	}
   }
 }

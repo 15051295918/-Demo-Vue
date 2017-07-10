@@ -1,47 +1,53 @@
 <template>
 	<div class="main-list">
-		<list-header></list-header>
-		<navigation :subnavinfo="subnavinfo" :threeNavInfo="threeNavInfo" @getIndex="handleGetIndex"></navigation>
-		<list-lists></list-lists>
+		<list-header @headerClick="headerClick"></list-header>
+		<navigator :subnavInfo = "subnavInfo" :show="showNav" @ClassClick="ClassClick"
+		@maskClick="maskClick"></navigator>
+		<!-- <list-lists></list-lists> -->
 	</div>
 </template>
 
-<script>
 
+<script>
 	import header from "./header";
-	import navigation from './navigation';
-	import lists from './lists.vue'
+	import navigator from "./navigator";
+	import lists from './lists.vue';
 
 	export default {
 		created(){
 	        this.$http.get('/static/list.json').then(response => {
-	        
-	            this.subnavinfo  = response.body.data.subnavinfo ;
-	            this.threeNavInfo  = response.body.data.subnavinfo[this.i].content ; 
-	            console.log(response)
+	        	this.subnavInfo = response.body.data.subnavinfo
 	        }, response => {
 	             console.log("get index data error")
 	        });	
 	    },
 		data () {
 			return {
-				subnavinfo:[],
-				threeNavInfo:[],
-				i:3
+				showNav:false,
+				subnavInfo:[]
 			}
 		},
 		components: {
 			"list-header": header,
-    		"navigation": navigation,
+    		"navigator" : navigator,
 			"list-lists": lists
 		},
 		methods:{
 			handleGetIndex(index){
 				this.i=index;
+			},
+			ClassClick(){
+				 return this.showNav = ! this.showNav
+			},
+			maskClick(){
+				return this.showNav = false
+			},
+			headerClick(){
+				return this.showNav = false
 			}
+
 		}
 	}
-
 </script>
 	
 
