@@ -2,9 +2,7 @@
 <div class="sales">
 	<div v-for="headeritem in tickettitleInfo">
 	<div class="ticket-header">
-		<router-link to="/">
-			<span class="ticket-header-back iconfont">&#xe685;</span>
-		</router-link>
+			<a class="ticket-header-back iconfont" href="/">&#xe685;</a>
 		<h1 class="ticket-header-title">{{headeritem.headertext}}</h1>
 	</div>
 	<div class="ticket-navbar">
@@ -15,6 +13,7 @@
 		</a>
 	</div>
 	</div>
+	
 	<div class="ticket-productlist">
 		<div class="ticket-salelist">
 			<div class="ticket-saleitem" v-for="(item,index) in ticketproductInfo" :key="index+'ticket-saleitem'">
@@ -45,7 +44,8 @@
 			</div>
 		</div>
 	</div>
-</div>	
+	
+</div>
 </template>
 <script src='https://unpkg.com/vue-lazyload/vue-lazyload.js'></script>
 <script>
@@ -63,14 +63,14 @@ export default {
   		var ticketNavbar = document.querySelector(".ticket-navbar");
   		this.scroll = document.body.scrollTop;
   		if(this.scroll >= 44){
-  		
   		ticketNavbar.style.position = "fixed";
-  		ticketNavbar.style.top = 0;
+  		ticketNavbar.style.top = "0px";
   		ticketNavbar.style.zIndex = 10;
   		}else{
   		ticketNavbar.style.position = "relative";
   		}
   	}
+  
   },
   props: ["ticketproductInfo", "tickettitleInfo"]
 }

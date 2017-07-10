@@ -51,7 +51,6 @@ export default {
    			scroll: ''
 		}
     },
-
     methods: {
     	handleEventNowTitle: function(e) {
 			window.addEventListener('touchmove', e => e.preventDefault())
