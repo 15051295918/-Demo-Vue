@@ -4,31 +4,33 @@
 			<p class="city-popular">北京热门景点门票</p>
 		</div>
 		<div class="viewport-box" v-for="(item, index) in viewspot" :key="'index'+ '_viewspot'">
-			<div class="viewport-img">
-				<img class="view-img" v-lazy="item.imgUrl">
-				<span class="viewport-bookingflag">
-					<span class="viewport-bookingtext">{{item.booktime}}</span>
-				</span>
-			</div>
-			<div class="feature">
-				<h4 class="viewsport-title">{{item.title}}</h4>
-				<div class="viewsport-taglist"></div>
-				<div class="viewport-comment">
-					<span class="iconfont view-comment-star">&#xe600;&#xe600;&#xe600;&#xe600;&#xe600;</span>
-					<span class="view-comments">{{item.comment}}</span>
-				</div>
-				<div class="viewport-price">
-					<div class="viewport-cashlist"></div>
-					<span class="view-yuan">
-						&yen;
-						<span class="view-price">{{item.price}}</span>
+			<router-link :to="{path:item.link,query:{title:item.title, id:item.id}}">
+				<div class="viewport-img">
+					<img class="view-img" v-lazy="item.imgUrl">
+					<span class="viewport-bookingflag">
+						<span class="viewport-bookingtext">{{item.booktime}}</span>
 					</span>
-					<span class="view-priceflag">起</span>
 				</div>
-				<div class="viewport-more">
-					<span class="viewport-text">{{item.address}}</span>
-				</div>				
-			</div>
+				<div class="feature">
+					<h4 class="viewsport-title">{{item.title}}</h4>
+					<div class="viewsport-taglist"></div>
+					<div class="viewport-comment">
+						<span class="iconfont view-comment-star">&#xe600;&#xe600;&#xe600;&#xe600;&#xe600;</span>
+						<span class="view-comments">{{item.comment}}</span>
+					</div>
+					<div class="viewport-price">
+						<div class="viewport-cashlist"></div>
+						<span class="view-yuan">
+							&yen;
+							<span class="view-price">{{item.price}}</span>
+						</span>
+						<span class="view-priceflag">起</span>
+					</div>
+					<div class="viewport-more">
+						<span class="viewport-text">{{item.address}}</span>
+					</div>				
+				</div>
+			</router-link>
 		</div>
 		<a class="recommend-a">
 			查看全部景点
@@ -58,10 +60,12 @@ export default {
 		align-items: center;
 		border-bottom: 0.02rem solid #f5f5f5; 
 		background: white;
+		margin-top: .2rem;
 	}
 	.viewport-box {
 		background: white;
 		padding-top: .2rem;
+		border-bottom: 0.02rem solid #f5f5f5; 
 	}
 	.city-popular{
 		position: relative;
@@ -119,6 +123,9 @@ export default {
 	.viewport-bookingtext {
 	    display: block;
 	    font-size: .24rem;
+	}
+	.viewsport-title{
+		color: #212121;
 	}
 	.viewsport-taglist {
 	    position: relative;

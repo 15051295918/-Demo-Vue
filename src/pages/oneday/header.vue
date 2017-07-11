@@ -8,15 +8,18 @@
 	  			<span class="single-line">输入城市/景点/游玩主题</span>
 	  		</div>
 	  		<div class="header-right">
-	  			<span class="header-city">北京<i class="header-city-option"></i>
-	  			</span>  			
+	  			<router-link :to="{path:headercity.href}">
+	  				<span class="header-city">{{headercity.city}}<i class="header-city-option"></i></span>  	
+	  			</router-link>
 	  		</div>
 	  	</header>
 	  	<div class="swiper-box">
 	  		<swiper :options="swiperOption" ref="mySwiper">
 		        <swiper-slide v-for="(item,index) in data" :key="index + 'data'">
 		        	<div class="img-wrapper">
-		        		<img class="swiper-img" :src="item.imgUrl"/>
+		        		<router-link :to="{path:item.link}">
+		        			<img class="swiper-img" :src="item.imgUrl"/>
+		        		</router-link>
 		        	</div>
 		        </swiper-slide>
 		        <div class="swiper-pagination"  slot="pagination"></div>
@@ -44,7 +47,7 @@ export default {
         }
     }
   },
-  props:["data"]
+  props:["data","headercity"]
 }
 </script>
 

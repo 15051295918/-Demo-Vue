@@ -1,6 +1,6 @@
 <template>
     <div class="main">
-        <index-header :data="swiperInfo"></index-header>
+        <index-header :data="swiperInfo" :headercity="headercity"></index-header>
         <icons-classify :classify="iconsclassify"></icons-classify>
         <index-spot :spot="spotInfo"></index-spot>
         <city-classify :cityclassify="cityclassify"></city-classify> 
@@ -19,14 +19,28 @@ import cityclassify from './cityclassify'
 import viewspot from './viewspot'
 
 export default {
+	beforeCreate: function() {
+		var currentCitys = "beijing";
+		try{
+			if(window.localStorage){
+				window.localStorage.currentCity = currentCitys;
+			}
+		}catch(e){}
+	},
 	created: function(){
         this.$http.get('/static/oneday.json').then(response => {
+        	try{
+				if(window.localStorage){
+					this.currentCity = window.localStorage.currentCity;
+				}
+			}catch(e){}
             this.swiperInfo = response.body.data.swiperInfo;
-            this.spotInfo = response.body.data.spotInfo;
-            this.recommendInfo = response.body.data.recommendInfo;
+            this.spotInfo = response.body.data[this.currentCity].spotInfo;
+            this.recommendInfo = response.body.data[this.currentCity].recommendInfo;
             this.iconsclassify = response.body.data.classifyInfo;
 		    this.cityclassify = response.body.data.cityInfo;
-		    this.viewspot = response.body.data.viewspotInfo;
+		    this.viewspot = response.body.data[this.currentCity].viewspotInfo;
+		    this.headercity = response.body.data[this.currentCity];
         }, response => {
             console.log("get index data error")
         });
@@ -38,7 +52,8 @@ export default {
             recommendInfo:[],
             iconsclassify: [],
 		    cityclassify: [],
-		    viewspot: []
+		    viewspot: [],
+			headercity: ""
         }
     },
     components: {

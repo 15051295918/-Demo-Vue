@@ -13,28 +13,30 @@
 		<div>
 			<ul>
 				<li v-for="(item,index) in recommend" class="recommend-concent" :key="index + 'recommend'">
-					<div class="recommend-concent-imgbox">
-						<img v-lazy="item.imgsrc" class="recommend-concent-img"/>
-						<span class="recommend-concent-imgbox-title">{{item.alt}}</span>
-					</div>
-					<div class="recommend-details">
-						<h4 class="recommend-details-title">{{item.title}}</h4>
-						<div class="recommend-details-taglist">
-							<span class="recommend-details-taglist-number">已售{{item.number}}</span>
-							<span class="recommend-details-taglist-score">{{item.score}}分</span>
+					<router-link :to="{path:item.link,query:{title:item.title, id:item.id}}">
+						<div class="recommend-concent-imgbox">
+							<img v-lazy="item.imgsrc" class="recommend-concent-img"/>
+							<span class="recommend-concent-imgbox-title">{{item.alt}}</span>
 						</div>
-						<div class="recommend-details-price">
-							<span class="recommend-details-price1">
-								￥
-								<span class="recommend-details-price2">
-									{{item.price}}
+						<div class="recommend-details">
+							<h4 class="recommend-details-title">{{item.title}}</h4>
+							<div class="recommend-details-taglist">
+								<span class="recommend-details-taglist-number">已售{{item.number}}</span>
+								<span class="recommend-details-taglist-score">{{item.score}}分</span>
+							</div>
+							<div class="recommend-details-price">
+								<span class="recommend-details-price1">
+									￥
+									<span class="recommend-details-price2">
+										{{item.price}}
+									</span>
 								</span>
-							</span>
-							<span class="recommend-details-price3">
-								起
-							</span></div>
-						<div class="recommend-details-place">出发地 ：{{item.place}}</div>
-					</div>
+								<span class="recommend-details-price3">
+									起
+								</span></div>
+							<div class="recommend-details-place">出发地 ：{{item.place}}</div>
+						</div>
+					</router-link>
 				</li>
 			</ul>
 			<a class="recommend-a">

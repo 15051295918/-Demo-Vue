@@ -2,8 +2,10 @@
 
 		    	<div class="icons-classify">
 		    		<div class="icon-wrapper" v-for="(item, index) in classify" :key="'index'+ '_iconsclassify'">
-		    			<img class="icon-img" :src="item.imgUrl">
-		    			<p class="icon-title">{{item.title}}</p>
+		    			<router-link :to="{path:item.link,query:{title:item.title, id:item.id}}">
+			    			<img class="icon-img" :src="item.imgUrl">
+			    			<p class="icon-title">{{item.title}}</p>
+		    			</router-link>
 		    		</div>
 		    	</div>
 

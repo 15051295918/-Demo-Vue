@@ -2,17 +2,21 @@
 	<div class="spot-box">
 		<div class="spot-title">
 			<span>必选景点推荐</span>
-			<a class="spot-right">
-				<span class="spot-right-title">全部景点</span>
-				<span class="spot-right-arrow"></span>
-			</a>
+			<div class="spot-right">
+				<router-link :to="{path:'/weekend/index'}">
+					<span class="spot-right-title">全部景点</span>
+					<span class="spot-right-arrow"></span>
+				</router-link>
+			</div>
 		</div>
 		<div class="spot-concent">
 			<ul class="spot-concent-ul">
 				<li v-for="(item,index) in spot" class="spot-concent-li" :key="index + 'spot'">
 					<div class="spot-concent-box"> 
 						<div class="spot-concent-img">
-							<img v-lazy="item.imgsrc" class="spot-concent-img-child"/>
+							<router-link :to="{path:item.link,query:{title:item.title, id:item.id}}">
+								<img v-lazy="item.imgsrc" class="spot-concent-img-child"/>
+							</router-link>
 						</div>
 						<div class="spot-concent-line-box">
 							<div class="spot-concent-title">{{item.title}}</div>
@@ -24,7 +28,9 @@
 				</li>
 			</ul>
 			<div class="spot-concent-more">
-				<a class="spot-concent-more-btn">北京全部一日游</a>
+				<router-link :to="{path:'/'}">
+					<span class="spot-concent-more-btn">北京全部一日游</span>
+				</router-link>
 			</div>
 		</div>
 		
@@ -62,11 +68,11 @@ export default {
 		float: right;
 	    font-size: .26rem;
     	line-height: .78rem;
-    	color: #616161;
     	margin-right: .2rem;
 	}
 	.spot-right-title{
 		float: left;
+		color: #616161;
 	}
 	.spot-right-arrow{
 		float: left;
@@ -75,6 +81,7 @@ export default {
 		transform: rotateZ(-135deg);
 		width: .15rem;
 		height: .15rem;
+		color: #616161;
 		border-left: .04rem solid #616161;
 		border-bottom: .04rem solid #616161;
 	}
