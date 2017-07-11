@@ -37,11 +37,8 @@
                 if (response.body.ret) {
                     this.headerContent = this.headerTitle = response.body.data.index.headerTitle;
                     this.tabInfo = response.body.data.tab;
-<<<<<<< HEAD
                     this.headerInfo = response.body.data.header;
-=======
                     this.footerInfo = response.body.data.footer;
->>>>>>> 8fd514cce75cf83d65b16019908f940f12a91b0c
                 } else {
                     console.log("Invalid data!");
                 }
@@ -127,11 +124,9 @@
 
         methods: {
 
-<<<<<<< HEAD
+
             openMap: function() {
-=======
-            openMap: function () {
->>>>>>> 8fd514cce75cf83d65b16019908f940f12a91b0c
+
                 if (!this.isBigMapOpen) {
                     this.headerContent = "景点地图";
                 } else {
