@@ -1,7 +1,7 @@
 <template>
 	<div class="main-list">
 		<list-header @headerClick="headerClick"></list-header>
-		<navigator :subnavInfo = "subnavInfo" :show="showNav" @ClassClick="ClassClick"
+		<navigator :subnavInfo = "subnavInfo" :show="showNav" :showMask="maskShow" :orderShow="showOrder" @ClassClick="ClassClick" @orderClick="indexOrderClick"
 		@maskClick="maskClick"></navigator>
 		<!-- <list-lists></list-lists> -->
 	</div>
@@ -24,7 +24,9 @@
 		data () {
 			return {
 				showNav:false,
-				subnavInfo:[]
+				subnavInfo:[],
+				showOrder:false,
+				maskShow:false
 			}
 		},
 		components: {
@@ -37,13 +39,17 @@
 				this.i=index;
 			},
 			ClassClick(){
-				 return this.showNav = ! this.showNav
+				 return (this.showNav = ! this.showNav,this.showOrder=false,this.maskShow=this.showNav)
+			},
+			indexOrderClick(){
+				 return (this.showOrder = ! this.showOrder,this.showNav=false,this.maskShow=this.showOrder)
 			},
 			maskClick(){
-				return this.showNav = false
+				return this.showNav =this.showOrder= this.maskShow= false
+
 			},
 			headerClick(){
-				return this.showNav = false
+				return this.showNav =this.showOrder=this.maskShow= false
 			}
 
 		}

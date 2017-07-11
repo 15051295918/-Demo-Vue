@@ -6,7 +6,7 @@
 			<span  class="triangle-show" ></span>
 			<span  class="triangle-hide" ></span>
 		</div>
-		<div class="primary-item">
+		<div class="primary-item" @click="handleOrderClick">
 			<span>推荐排序</span>	
 			<span  class="triangle-show"></span>
 			<span  class="triangle-hide"></span>
@@ -24,8 +24,14 @@
 		
 		</div>
 	</div>	
-
-	<div class="mask"  @touchstart="handleMaskClick" v-show="show">
+	<div id="order-wrapper" v-show="orderShow">
+		<div id="order-scroller">
+			<div class="order border-bottom" :class='{"order-checked":orderCheck[0]}' @click="handleOrderCheckeda">推荐排序</div>
+			<div class="order border-bottom" :class='{"order-checked":orderCheck[1]}' @click="handleOrderCheckedb">离我最近</div>
+			<div class="order border-bottom" :class='{"order-checked":orderCheck[2]}' @click="handleOrderCheckedc">人气最高</div>
+		</div>
+	</div>
+	<div class="mask"  @touchstart="handleMaskClick" v-show="showMask">
 	</div>
 
 	<threenav :threeInfo="threeInfo" :show="show"></threenav>
@@ -43,18 +49,23 @@ import "./iscroll.js";
 export default {
 	updated(){
 		new IScroll("#wrapper",{scrollX:false,scrollY:true,mouseWheel:true});
+		new IScroll("#order-wrapper",{scrollX:false,scrollY:true,mouseWheel:true});
 	},
 	data () {
 		return {
 			i : 0,
 			threeInfo:[],
-			check:[] //给每一项都要加一个不同的而不是加的都是一样的
+			check:[], //给每一项都要加一个不同的而不是加的都是一样的
+			orderCheck:[]
 		}
 	},
-	props:["subnavInfo","show"],
+	props:["subnavInfo","show","orderShow","showMask"],
 	methods: {
 	  	allClassClick(){
 	  		this.$emit("ClassClick");
+	  	},
+	  	handleOrderClick(){
+	  		this.$emit("orderClick");
 	  	},
 	  	handleSubnavItemClick(index){
 	  		this.check = [];
@@ -68,6 +79,18 @@ export default {
 		},
 	  	handleMaskClick(){
 	  		this.$emit("maskClick");
+	  	},
+	  	handleOrderCheckeda(){
+	  		this.orderCheck=[];
+	  		this.orderCheck[0]=true;
+	  	},
+	  	handleOrderCheckedb(){
+	  		this.orderCheck=[];
+	  		this.orderCheck[1]=true;
+	  	},
+	  	handleOrderCheckedc(){
+	  		this.orderCheck=[];
+	  		this.orderCheck[2]=true;
 	  	}
 	},
 	components: {
@@ -78,6 +101,7 @@ export default {
 
 
 <style scoped>
+
 	.nav{
 		position: absolute;
 		height:100%;
@@ -145,4 +169,26 @@ export default {
 	.checked{
 		background: #f1f1f1;
 	}
+/*左侧二级导航*/
+	#order-wrapper{
+		width:100%;
+		height:2.38rem;
+		background: #fff;
+		overflow: hidden;
+	}
+	#order-scroller{
+		height:2.4rem;
+	}
+	.order{
+		height:.8rem;
+		line-height: .8rem;
+		text-align: center;
+	}
+
+	.order-checked{
+		background: #f1f1f1;
+	}
+
+
+
 </style>
