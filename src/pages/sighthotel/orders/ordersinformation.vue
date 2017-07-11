@@ -1,14 +1,16 @@
 <template>
 <div class="main">
 	<div class="orders-information">
-		<div class="orders-information-traveller">
+		<div class="orders-information-traveller border-bottom">
 			<label class="orders-traveller">游客1</label>
 			<input type="text" placeholder="游客姓名" class="traveller-name">
 			<span class="orders-login iconfont customer">&#xe613;</span>
 		</div>
 		<div class="orders-phone">
 			<label class="orders-traveller">手机号</label>
-			<span class="phone-area iconfont border">+86&#xe768;</span>
+            <router-link to="/phonearea">
+    			 <span class="phone-area iconfont border">+86&#xe768;</span>
+            </router-link>
 			<input type="text" placeholder="请填写手机号" class="phone-call">
 		</div>
 	</div>
@@ -20,13 +22,14 @@
 
 	<div class="sumbit-price">
 		<div class="price border-top">	
-			<span class="product-price">产品价格 &yen; <span class="price-number">916</span><span class="product-show iconfont">&#xe667;</span></span>
+			<span class="product-price">产品价格 &yen; <span class="price-number">916</span><span class="product-show iconfont" @click="productShow" >&#xe667;</span></span>
 			<button class="submit-order">提交订单</button>
 		</div>	
-		<div class="product-info">
+		<div class="product-info" v-show="seen">
 			<p class="info-title">北京热带雨林风情园温泉酒店+欧式私汤小院住宿；小汤山温泉；纯正温泉水；【欧式温泉小院房】</p>
 			<span class="info-price">&yen;458×2</span>
 		</div>
+        <div class="layer" v-show="seen"></div>
 	</div>
 	
               
@@ -40,8 +43,17 @@ export default {
     
     data() {
       return {
+        "seen":false,
+        
       
       }
+    },
+     
+    methods: {
+        productShow: function() {
+            this.seen = !this.seen
+
+        }      
     }
    
 }
@@ -63,7 +75,7 @@ export default {
     .orders-information-traveller {
     	position: relative;
     	min-height: .5rem;
-		padding: .24rem;
+		  padding: .24rem;
     }
     .orders-phone {
     	min-height: .5rem;
@@ -91,6 +103,15 @@ export default {
 		text-overflow: ellipsis;
 		color: #888;
     }
+   .phone-call {
+      font: normal .32rem/.38rem;
+      border: 0 none;
+      outline: 0 none;
+      height: .38rem;
+      margin-top: -0.4rem;
+    
+   
+    } 
     .customer {
     	position: absolute;
     	top: .26rem;
@@ -115,23 +136,19 @@ export default {
     	border: 0 none;
     	outline: 0 none;
     }
-    .phone-call {
-    	font: normal .32rem/.38rem;
-    	border: 0 none;
-    	outline: 0 none;
-    	height: .38rem;
-    	padding: .06rem 0;
-    }
+   
     .supplier-name {
 		font-size: .3rem;
 		line-height: .5rem;
     }
     .price {
     	overflow: hidden;
+        z-index: 94;
+        background: #fff;
     }
    .sumbit-price {
    	position: fixed;
-   	z-index: 92;
+   	z-index: 94;
    	left: 0;
    	bottom: 0;
    	right: 0;
@@ -146,6 +163,7 @@ export default {
    		left: 0;
    		width: 100%;
    		padding: .15rem .2rem;
+        z-index: 94;
    		background:#fff;
    		box-sizing: border-box;
    }
@@ -185,6 +203,17 @@ export default {
    		line-height: .44rem;
    		color: #9e9e9e;
    		font-size: .24rem;
+   }
+   .layer {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 91;
+        background:rgba(0,0,0,.5);
    }
    
 </style>
