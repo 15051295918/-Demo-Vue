@@ -1,7 +1,7 @@
 <template>
     <div>
-        <header-oneDay></header-oneDay>
-        <prdcard-com></prdcard-com>
+        <header-oneDay :JiHeader="headerInfo.JiHeader"></header-oneDay>
+        <prdcard-com :JiCardCon="headerInfo.JiCardCon" :JiPrdcardTagItem="headerInfo.JiPrdcardTagItem"></prdcard-com>
     </div>
 </template>
 
@@ -19,7 +19,8 @@
         components: {
             "header-oneDay": headerOneDay,
             "prdcard-com": prdcardCom
-        }
+        },
+        props: ["headerInfo"]
     }
 </script>
 
