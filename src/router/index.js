@@ -20,7 +20,6 @@ export default new Router({
     	name: "list",
     	component: List
     }, {
-<<<<<<< HEAD
 
         path: "/oneday",
         name: "Oneday",

@@ -56,7 +56,6 @@ export default {
 		this.getScroll.refresh()
 	},
 	methods:{
-
 		handleChangeState() {
 			this.icon=!this.icon;
 			this.show=!this.show;
