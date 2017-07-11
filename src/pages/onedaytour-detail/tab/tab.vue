@@ -26,7 +26,8 @@
 				headerOffsetHeight: 0,
 				expenseElementOffsetTop: 0,
 				expenseElementOffsetHeight: 0,
-				instructionsElementOffsetTop: 0
+				instructionsElementOffsetTop: 0,
+				haveGetOffset: false
 			}
 		},
 
@@ -81,19 +82,21 @@
 		},
 
 		updated: function () {
-			var tabMainElement = document.querySelectorAll('.tab-main');
-			var tabElement = document.querySelectorAll('.tab');
-			var headerElement = document.querySelectorAll('.header');
-			var expenseElement = document.querySelectorAll('.expense-main');
-			var instructionsElement = document.querySelectorAll('.instructions-main');
-			this.mainOffsetTop = tabMainElement[0].offsetTop;
-			this.tabOffsetHeight = tabElement[0].offsetHeight;
-			this.headerOffsetHeight = headerElement[0].offsetHeight;
-			this.expenseElementOffsetTop = expenseElement[0].offsetTop;
-			this.expenseElementOffsetHeight = expenseElement[0].offsetHeight;
-			this.instructionsElementOffsetTop = instructionsElement[0].offsetTop;
-			// console.log("主体Top" + this.mainOffsetTop, "tabHeight" + this.tabOffsetHeight, "头部Height" + this.headerOffsetHeight, "费用top" + this.expenseElementOffsetTop, "费用height" + this.expenseElementOffsetHeight, "第三个top" + this.instructionsElementOffsetTop)
-
+			if (!this.haveGetOffset) {
+				var tabMainElement = document.querySelectorAll('.tab-main');
+				var tabElement = document.querySelectorAll('.tab');
+				var headerElement = document.querySelectorAll('.header');
+				var expenseElement = document.querySelectorAll('.expense-main');
+				var instructionsElement = document.querySelectorAll('.instructions-main');
+				this.mainOffsetTop = tabMainElement[0].offsetTop;
+				this.tabOffsetHeight = tabElement[0].offsetHeight;
+				this.headerOffsetHeight = headerElement[0].offsetHeight;
+				this.expenseElementOffsetTop = expenseElement[0].offsetTop;
+				this.expenseElementOffsetHeight = expenseElement[0].offsetHeight;
+				this.instructionsElementOffsetTop = instructionsElement[0].offsetTop;
+				this.haveGetOffset = true;
+				// console.log("主体Top" + this.mainOffsetTop, "tabHeight" + this.tabOffsetHeight, "头部Height" + this.headerOffsetHeight, "费用top" + this.expenseElementOffsetTop, "费用height" + this.expenseElementOffsetHeight, "第三个top" + this.instructionsElementOffsetTop)
+			}
 		}
 	}
 

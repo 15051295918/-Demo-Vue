@@ -35,7 +35,7 @@
                 <span class="iconfont">&#xe768;</span>
             </div>
         </div>
-        <div :class='{"prddetail-mapcon":true, "page-map":tourItineraryInfo.map.isBigMapOpen}' @click="handleMapClick" v-if="show">
+        <div :class='{"prddetail-mapcon":true, "page-map":isBigMapOpen}' @click="handleMapClick" v-if="show">
             <el-amap vid="amap" :zoom="tourItineraryInfo.map.zoom" :center="tourItineraryInfo.map.center" class="amap-demo">
                 <el-amap-info-window v-for="(window, index) in tourItineraryInfo.map.windows" :position="window.position" :content="window.content"
                     :visible="window.visible" :events="window.events" :key="index + 'map'"></el-amap-info-window>
@@ -51,7 +51,8 @@
 
             return {
                 tourIntimeraryOffsetTop: 0,
-                "show": true
+                "show": true,
+                "isBigMapOpen":false
             }
 
         },
@@ -63,10 +64,10 @@
         methods: {
 
             handleMapClick: function () {
-                if (this.map.isBigMapOpen) {
-                    this.map.isBigMapOpen = false;
+                if (this.isBigMapOpen) {
+                    this.isBigMapOpen = false;
                 } else {
-                    this.map.isBigMapOpen = true;
+                    this.isBigMapOpen = true;
                 }
                 this.$emit("openMap");
             }
