@@ -1,7 +1,8 @@
 <template>
-<div class="nav">
+<div>
+<div class="nav" :class='{"primary-position":primaryStyle}'>
 
-	<div class="primary-nav border-topbottom" :class='{"primary-position":primaryStyle}'>
+	<div class="primary-nav border-topbottom" >
 		<div class="primary-item border-right " @click="allClassClick">
 			<span>全部分类</span>
 			<span  class="triangle-show" ></span>
@@ -13,6 +14,8 @@
 			<span  class="triangle-hide"></span>
 		</div>		
 	</div>	
+
+
 
 	<div id="wrapper"  v-show="show">
 		<div class="subnav"   id="scroller" >
@@ -34,10 +37,11 @@
 			<div class="order border-bottom" :class='{"order-checked":orderCheck[2]}' @click="handleOrderCheckedc">人气最高</div>
 		</div>
 	</div>
-	<div class="mask"  @touchstart="handleMaskClick" v-show="showMask">
-	</div>
 
+	
 	<threenav :threeInfo="threeInfo" :show="show" @threenavClick="subThreenavClick"></threenav>
+</div>
+
 </div>
 </template>
 
@@ -73,7 +77,8 @@ export default {
 			threeInfo:[],
 			check:[], //给每一项都要加一个不同的而不是加的都是一样的
 			orderCheck:[],
-			primaryStyle:false
+			primaryStyle:false,
+			subnavStyle: false
 		}
 	},
 
@@ -99,9 +104,7 @@ export default {
 	             console.log("get index data error")
 	        })
 		},
-	  	handleMaskClick() {
-	  		this.$emit("maskClick");
-	  	},
+	
 	  	handleOrderItemClick() {
 	  		this.$emit("orderItemClick");
 	  	},
@@ -133,7 +136,7 @@ export default {
 	.nav{
 		z-index:5;
 		position: absolute;
-		height: 100%;
+		/*height: 100%;*/
 		width: 100%;
 	}
 	.primary-nav{
@@ -168,7 +171,7 @@ export default {
 		width: 100%;
 		height: 100%;
 		background: rgba(0,0,0, .35);
-		z-index: 10;
+		z-index: 0;
 	}
 	/*蒙层*/
 	#wrapper{
