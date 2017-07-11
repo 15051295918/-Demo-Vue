@@ -93,7 +93,8 @@
                         "lists": []
                     },
                     "moreQuotation": {
-
+                        "prddetailTitle": "",
+                        "lists": []
                     }
                 }
             }

@@ -1,8 +1,8 @@
 <template>
      <div class="prddetail-contain">
-        <h3 class="prddetail-title"><span class="title-leftline"></span>{{data.prddetailTitle}}</h3>
+        <h3 class="prddetail-title"><span class="title-leftline"></span>{{moreQuotation.prddetailTitle}}</h3>
         <div class="product-contain border-top">
-            <div class="prddetail-content" v-for="(list, index) in data.lists" :key="index + 'content_'" :class="{'border-bottom' :index == 0}">
+            <div class="prddetail-content" v-for="(list, index) in moreQuotation.lists" :key="index + 'content_'" :class="{'border-bottom' :index == 0}">
                <div class="productlist-item">
                    <h3 class="productprices-name">{{list.productpricesName}}</h3>
                    <p class="productprices-supplier"><span class="supplier-qunar" v-show="list.supplierqunarShow"></span>{{list.productpricesSupplier}}</p>
@@ -32,56 +32,10 @@ export default {
    
     data () {
         return {
-           "ret": true,
-           "data": {
-                "prddetailTitle": "更多报价",
-                "lists": [
-                    {
-                        "productpricesName": "【赠送珍宝馆】天安门＋故宫＋八达岭长城＋鸟巢·水立方一日游",
-                        "supplierqunarShow": true,
-                        "productpricesSupplier": "旭冉之旅",
-                        "producttagShow": false,
-                        "productTag": [
-                            {
-                                "icon": "&#xe606;",
-                                "productDesctag": "可定明日"
-                            },
-                            {
-                                "icon": "&#xe60b;",
-                                "productDesctag": "无购物"
-                            }
-                        ],
-                        "productpricesDetails": {
-                            "priceNum": 228,
-                            "icon": "&#xe768;"
-                        }
-                    },
-                    {
-                        "productpricesName": "【赠杜莎】北京故宫+八达岭长城+鸟巢水立方一日游，配无线讲解",
-                        "supplierqunarShow": false,
-                        "productpricesSupplier": "国中青",
-                        "producttagShow": true,
-                        "producttagItem": "赠券&nbsp;&yen;&nbsp;3",
-                        "productTag": [
-                            {
-                                "icon": "&#xe606;",
-                                "productDesctag": "可定明日"
-                            },
-                            {
-                                "icon": "&#xe60b;",
-                                "productDesctag": "无购物"
-                            }
-                        ],
-                        "productpricesDetails": {
-                            "priceNum": 198,
-                            "icon": "&#xe768;"
-                        }
-                    }
-                ]
-
-           }  
+  
         }
     },
+    props: ["moreQuotation"],
     components: {
         
     }

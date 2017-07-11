@@ -180,7 +180,50 @@
         "header": {},
         "footer": {
             "moreQuotation": {
-                
+                "prddetailTitle": "更多报价",
+                "lists": [
+                    {
+                        "productpricesName": "【赠送珍宝馆】天安门＋故宫＋八达岭长城＋鸟巢·水立方一日游",
+                        "supplierqunarShow": true,
+                        "productpricesSupplier": "旭冉之旅",
+                        "producttagShow": false,
+                        "productTag": [
+                            {
+                                "icon": "&#xe606;",
+                                "productDesctag": "可定明日"
+                            },
+                            {
+                                "icon": "&#xe60b;",
+                                "productDesctag": "无购物"
+                            }
+                        ],
+                        "productpricesDetails": {
+                            "priceNum": 228,
+                            "icon": "&#xe768;"
+                        }
+                    },
+                    {
+                        "productpricesName": "【赠杜莎】北京故宫+八达岭长城+鸟巢水立方一日游，配无线讲解",
+                        "supplierqunarShow": false,
+                        "productpricesSupplier": "国中青",
+                        "producttagShow": true,
+                        "producttagItem": "赠券&nbsp;&yen;&nbsp;3",
+                        "productTag": [
+                            {
+                                "icon": "&#xe606;",
+                                "productDesctag": "可定明日"
+                            },
+                            {
+                                "icon": "&#xe60b;",
+                                "productDesctag": "无购物"
+                            }
+                        ],
+                        "productpricesDetails": {
+                            "priceNum": 198,
+                            "icon": "&#xe768;"
+                        }
+                    }
+                ]
             },
             "userComment": {
                 "title": "用户评论",

@@ -1,7 +1,7 @@
 <template>
     <div class="main-footer border-leftright">
         <user-comment :userComment="footerInfo.userComment"></user-comment>
-        <more-quotation></more-quotation>
+        <more-quotation :moreQuotation="footerInfo.moreQuotation"></more-quotation>
     </div>
 </template>
         
