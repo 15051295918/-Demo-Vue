@@ -39,12 +39,10 @@ export default {
             console.log("get list data error")
         });
     },
-
     data () {
 	    return {
 	        commentlistInfo: [],
-	        count:0
-	 
+	        count:0	 
 	    }
     },
   	computed: {

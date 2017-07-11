@@ -9,7 +9,7 @@
 				<p class="app-name-ad">超过<span class="app-name-num">2亿</span>人的智慧选择</p>
 			</div>
 			<div class="app-app">下载客户端</div>
-			<div class="app-off" @click="handleClickOff">×</div>
+			<div class="app-off iconfont" @click="handleClickOff">&#xe8e7;</div>
 		</div>
   	</div>	
 </template>
@@ -97,6 +97,6 @@ export default {
 		color: #fff;
 		text-align: center;
 		line-height: .6rem;
-		font-size: .8rem;
+		font-size: .6rem;
 	}
 </style>

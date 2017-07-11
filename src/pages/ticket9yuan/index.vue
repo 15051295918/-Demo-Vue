@@ -1,6 +1,6 @@
 <template>
   	<div class="titket">
-		<app @delete="handleClickOff"></app>
+		<app @delete="handleOff"></app>
 		<titket-header></titket-header>
 		<div class="titket-main">
 			<div class="titket-ban">
@@ -9,10 +9,11 @@
 			<div class="titket-active">
 				<div class="active-content">来这app更新至最新版本方可享受本活动优惠</div>
 			</div>
-			<titket-city></titket-city>
+			<titket-city @moreCityShow="handleClickShow"></titket-city>
 			<titket-scenic :data="nineTicket"></titket-scenic>
 			<more-special :propsoff="off"></more-special>
 			<more-product></more-product>
+			<more-province @moreProvinceOff="handleClickOff" v-if="moreProvince" :moreProvinces="moreProvinces"></more-province>
 		</div>
 		
   	</div>	
@@ -26,22 +27,23 @@ import titketcity from "./city"
 import titketscenic from "./scenic"
 import morespecial from "./morespecial"
 import moreproduct from "./moreproduct"
+import moreprovince from "./moreprovince"
 
 export default {
 	created: function() {
       this.$http.get('/static/ticketRmb.json').then(response => { 
-      	// console.log(response)
       	this.nineTicket  = response.body.data.indexInfo.nineTicket
-      	// console.log(this.nineTicket)  
+      	this.moreProvinces = response.body.data.indexInfo.moreProvinces 
       }, response => {
-        // error callback失败的回调
         console.log(调错了)
       });
     },
     data () {
         return {
-     		nineTicket : [],
-     		off:false
+     		off:false,
+     		nineTicket: [],
+     		moreProvinces: [],
+     		"moreProvince" : false
         }
     },
 	components: {
@@ -50,24 +52,30 @@ export default {
 	  	"titket-city": titketcity,
 	  	"titket-scenic": titketscenic,
 	  	"more-special": morespecial,
-	  	"more-product": moreproduct
+	  	"more-product": moreproduct,
+	  	"more-province": moreprovince
 	},
 	methods:{
-		handleClickOff: function() {
+		handleOff: function() {
 			this.off = true;
-			console.log(this.off);
 			return this.off;
+		},
+		handleClickOff: function() {
+			this.moreProvince = false;
+		},
+		handleClickShow: function() {
+			this.moreProvince = true;
 		}
 	}  
 }
 </script>
-
 
 <style scoped>
 	.titket-main {
 		width:100%;
 		height: auto;
 		background: #FFEE99;
+		position: relative;
 	}
 	.titket-ban {
 		width:100%;
@@ -91,5 +99,14 @@ export default {
 		line-height: .4rem;
 		color: #fff;
 		font-size: .24rem;
+	}
+	.more-province {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 50;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.5);
 	}
 </style>
