@@ -13,7 +13,6 @@
 		</a>
 	</div>
 	</div>
-	
 	<div class="ticket-productlist">
 		<div class="ticket-salelist">
 			<div class="ticket-saleitem" v-for="(item,index) in ticketproductInfo" :key="index+'ticket-saleitem'">
