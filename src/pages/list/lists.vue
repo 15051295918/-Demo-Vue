@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="listCon">
 	    <ul class="mp-view-list mp-page">
 			<paginate ref="paginator" name="languages" :list="listCon" :per="pre">
 		    	<li class="mp-sight-group border-topbottom" v-for="(item, index) in paginated('languages')" :key="'li_item_' + index">
@@ -8,6 +8,9 @@
 					    	<a :href="item.url">
 						    	<div class="mp-sight-imgcon">
 						    		<img class="mp-sight-img" v-lazy="item.img">
+						    		<span class="mp-list-bookingflag-today" v-show="item.today">
+						    			<span class="mp-list-bookingtext">可订今日</span>
+						    		</span>
 						    	</div>
 						    	<div class="mp-sight-detail">
 							    	<h3 class="mp-sight-name">{{item.name}}</h3>
@@ -32,7 +35,7 @@
 	    <div class="mp-moreinfo">
 	    	<div class="mp-pagination">
 				<a @click="prevPage" class="linkPage">上一页</a>
-				<span v-if="$refs.paginator" ref="pageNumber" class="mp-page-num">
+				<span v-if="$refs.paginator" ref="pageNumber" class="mp-page-num" :val="pageNum">
 					{{pageNum}}
 				</span>
 				<a @click="textPage" class="linkPage">下一页</a>
@@ -48,6 +51,16 @@
 	import {Paginate, PaginateLinks} from 'vue-paginate'
 
 	export default {
+		created(){
+	        this.$http.get('/static/scenicSpotList.json').then(response => {
+	            if(response.body.ret) {
+	            	this.listCon = response.body.data.listCon;
+	            	console.log(this.listCon)
+	            }
+	        }, response => {
+	             console.log("get index data error")
+	        });	
+	    },
 		methods: {
 			prevPage () {
 				if (this.$refs.paginator) {
@@ -55,6 +68,7 @@
 					if(current > 1) {
 						this.$refs.paginator.goToPage(this.pageNum-1);
 					}
+					console.log(this.isAction)
 				}
 			},
 			textPage () {
@@ -74,184 +88,21 @@
 		},
 		data () {
 			return {
+				isAction: this.pre,
 				pre: 8,
     			paginate: ['languages'],
-    			shown: false,
-				listCon:[{
-					name: "故宫(5A)",
-					img: "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_110x110_fac6a6cd.jpg",
-					url: "",
-					hot: true,
-					star: "width:95%",
-					comment: 53822,
-					address: "北京·东城区"
-				},{
-					name: "恭王府(5A)",
-					img: "http://img1.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_110x110_d957be56.jpg",
-					url: "",
-					hot: false,
-					star: "width:90%",
-					comment: 3567,
-					address: "北京·西城区"
-				},{
-					name: "颐和园(5A)",
-					img: "http://img1.qunarzz.com/sight/p0/1505/d2/d274c92de14c93da.water.jpg_110x110_d9d85877.jpg",
-					url: "",
-					hot: true,
-					star: "width:90%",
-					comment: 9940,
-					address: "北京·海淀区"
-				},{
-					name: "八达岭长城(5A)",
-					img: "http://img1.qunarzz.com/sight/p0/1604/1b/1b6778deafaf208f90.img.jpg_110x110_1efa2758.jpg",
-					url: "",
-					hot: false,
-					star: "width:90%",
-					comment: 9519,
-					address: "北京·延庆县"
-				},{
-					name: "圆明园(4A)",
-					img: "http://img1.qunarzz.com/sight/p0/1505/f5/f5f45e1a83537bcb.water.jpg_110x110_4c72dbfd.jpg",
-					url: "",
-					hot: false,
-					star: "width:95%",
-					comment: 7812,
-					address: "北京·海淀区"
-				},{
-					name: "圆明园(4A)",
-					img: "http://img1.qunarzz.com/sight/p0/1505/f5/f5f45e1a83537bcb.water.jpg_110x110_4c72dbfd.jpg",
-					url: "",
-					hot: false,
-					star: "width:95%",
-					comment: 7812,
-					address: "北京·海淀区"
-				},{
-					name: "圆明园(4A)",
-					img: "http://img1.qunarzz.com/sight/p0/1505/f5/f5f45e1a83537bcb.water.jpg_110x110_4c72dbfd.jpg",
-					url: "",
-					hot: false,
-					star: "width:95%",
-					comment: 7812,
-					address: "北京·海淀区"
-				},{
-					name: "圆明园(4A)",
-					img: "http://img1.qunarzz.com/sight/p0/1505/f5/f5f45e1a83537bcb.water.jpg_110x110_4c72dbfd.jpg",
-					url: "",
-					hot: false,
-					star: "width:95%",
-					comment: 7812,
-					address: "北京·海淀区"
-				},{
-					name: "圆明园(4A)",
-					img: "http://img1.qunarzz.com/sight/p0/1505/f5/f5f45e1a83537bcb.water.jpg_110x110_4c72dbfd.jpg",
-					url: "",
-					hot: false,
-					star: "width:95%",
-					comment: 7812,
-					address: "北京·海淀区"
-				},{
-					name: "圆明园(4A)",
-					img: "http://img1.qunarzz.com/sight/p0/1505/f5/f5f45e1a83537bcb.water.jpg_110x110_4c72dbfd.jpg",
-					url: "",
-					hot: false,
-					star: "width:95%",
-					comment: 7812,
-					address: "北京·海淀区"
-				},{
-					name: "圆明园(4A)",
-					img: "http://img1.qunarzz.com/sight/p0/1505/f5/f5f45e1a83537bcb.water.jpg_110x110_4c72dbfd.jpg",
-					url: "",
-					hot: false,
-					star: "width:95%",
-					comment: 7812,
-					address: "北京·海淀区"
-				},{
-					name: "圆明园(4A)",
-					img: "http://img1.qunarzz.com/sight/p0/1505/f5/f5f45e1a83537bcb.water.jpg_110x110_4c72dbfd.jpg",
-					url: "",
-					hot: false,
-					star: "width:95%",
-					comment: 7812,
-					address: "北京·海淀区"
-				},{
-					name: "圆明园(4A)",
-					img: "http://img1.qunarzz.com/sight/p0/1505/f5/f5f45e1a83537bcb.water.jpg_110x110_4c72dbfd.jpg",
-					url: "",
-					hot: false,
-					star: "width:95%",
-					comment: 7812,
-					address: "北京·海淀区"
-				},{
-					name: "恭王府(5A)",
-					img: "http://img1.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_110x110_d957be56.jpg",
-					url: "",
-					hot: false,
-					star: "width:90%",
-					comment: 3567,
-					address: "北京·西城区"
-				},{
-					name: "恭王府(5A)",
-					img: "http://img1.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_110x110_d957be56.jpg",
-					url: "",
-					hot: false,
-					star: "width:90%",
-					comment: 3567,
-					address: "北京·西城区"
-				},{
-					name: "恭王府(5A)",
-					img: "http://img1.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_110x110_d957be56.jpg",
-					url: "",
-					hot: false,
-					star: "width:90%",
-					comment: 3567,
-					address: "北京·西城区"
-				},{
-					name: "恭王府(5A)",
-					img: "http://img1.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_110x110_d957be56.jpg",
-					url: "",
-					hot: false,
-					star: "width:90%",
-					comment: 3567,
-					address: "北京·西城区"
-				},{
-					name: "恭王府(5A)",
-					img: "http://img1.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_110x110_d957be56.jpg",
-					url: "",
-					hot: false,
-					star: "width:90%",
-					comment: 3567,
-					address: "北京·西城区"
-				},{
-					name: "恭王府(5A)",
-					img: "http://img1.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_110x110_d957be56.jpg",
-					url: "",
-					hot: false,
-					star: "width:90%",
-					comment: 3567,
-					address: "北京·西城区"
-				},{
-					name: "恭王府(5A)",
-					img: "http://img1.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_110x110_d957be56.jpg",
-					url: "",
-					hot: false,
-					star: "width:90%",
-					comment: 3567,
-					address: "北京·西城区"
-				},{
-					name: "恭王府(5A)",
-					img: "http://img1.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_110x110_d957be56.jpg",
-					url: "",
-					hot: false,
-					star: "width:90%",
-					comment: 3567,
-					address: "北京·西城区"
-				}]
+				listCon: []
 			}
 		}
 	}
 </script>
 
 <style scoped>
+	.listCon {
+	    position: relative;
+	    top: .78rem;
+	    z-index: 1;
+	}
 	.mp-page {
 		background-color: #f5f5f5;
 		height: 100%;
@@ -281,6 +132,32 @@
 		transition: opacity 400ms;
 		width: 1.6rem;
     	height: 1.6rem;
+	}
+	.mp-list-bookingflag-today {
+		background: #fa8514;
+		position: absolute;
+	    left: -.04rem;
+	    top: -.04rem;
+	    height: .24rem;
+	    padding: .02rem;
+	    color: #fff;
+	    line-height: .24rem;
+	}
+	.mp-list-bookingflag-today::after {
+		content: "";
+	    position: absolute;
+	    top: 0;
+	    right: -.1rem;
+	    width: 0;
+	    height: 0;
+		border-top: .14rem solid #fa8514;
+    	border-bottom: .14rem solid #fa8514;
+    	border-right: .1rem solid transparent;
+	}
+	.mp-list-bookingtext {
+		display: block;
+    	font-size: .24rem;
+    	transform: scale(.83);
 	}
 	.mp-sight-detail {
 		position: relative;
