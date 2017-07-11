@@ -49,7 +49,7 @@ export default {
 	}
 	.threenav{
 		width: 100%;
-		height: 7.6rem;
+		min-height: 100%;
 		background: #f1f1f1;
 	}
 	.three-items{
