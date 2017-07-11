@@ -13,10 +13,8 @@
 			<input v-model="value" type="text" @focus="handleInputFocus" @blur="handleInputBlur" :placeholder="placeholder" class="city-keyword" :class="{text:textalign}">		
 		</div>
 		<ul class="key-city-ul" v-if="list">
-			<router-link to="/">
-				<li class="key-city-list border-bottom"  v-for="(item,index) in cityList" :key="index+'_cityList'">		{{item.name}}
+				<li @click="handleSearchCity" class="key-city-list border-bottom"  v-for="(item,index) in cityList" :key="index+'_cityList'">		{{item.name}}
 				</li>
-			</router-link>	
 		</ul>
 	</div>
 </template>
@@ -57,6 +55,14 @@
 			},
 			handleBackFront: function() {
 				window.history.go(-1);
+			},
+			handleSearchCity: function(e) {
+				var city = e.target.innerText;
+				try{
+					window.localStorage=city;
+				}catch(e){};
+				this.$store.commit("changeCity",city)
+				this.$router.go(-1)
 			}		
 		},
 		watch: {
