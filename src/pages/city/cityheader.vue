@@ -65,10 +65,11 @@
 		    		this.list = true;
 		    		var msg = this.cityInfo;
 					var words = this.value.toString().toLowerCase();
-					words.toString().split("").map((word, num) => {
+					words.split("").map((word, num) => {
 						msg = msg.filter((value, index) => {
-							var str = value.pinyin.charAt(num).toLowerCase();
-							return word == str;
+							var strLetter = value.pinyin.charAt(num).toLowerCase();
+							var strName = value.name.charAt(num);
+							return (word == strLetter) || (word == strName);
 						})
 					})
 					this.cityList = msg;
