@@ -1,5 +1,5 @@
 <template>
-  	<div class="titket-9-main" ref="appNameAd">
+  	<div class="titket-9-main" v-if="appNameAd">
 		<div class="app" ref="app">
 			<div class="app-left">
 				<img src="http://source.qunarzz.com/site/images/wap/touch/images/v2/images1x/top-logo.png" class="app-logo"/>
@@ -18,12 +18,13 @@
 export default {
   data () {
     return {
-     
+     	appNameAd:true
     }
   },
   methods: {
   	handleClickOff: function() {
-  		this.$refs.appNameAd.style = "display: none"
+  		this.appNameAd = false;
+  		this.$emit("delete")
   	}
   }
   

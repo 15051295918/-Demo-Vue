@@ -4,6 +4,7 @@ import Index from '@/pages/index/index'
 import List from '@/pages/list/index'
 import CommentWeekend from '@/pages/commentweekend/index'
 import TicketRmb from '@/pages/ticket9yuan/index'
+import City from '@/pages/city/index'
 
 
 Vue.use(Router)
@@ -13,6 +14,7 @@ export default new Router({
     {
     	path: '/',
     	name: 'index',
+        alias: '/index',
     	component: Index
     }, {
     	path: "/list",
@@ -26,6 +28,10 @@ export default new Router({
       path: '/ticket_9yuan',
       name: 'ticket_9yuan',
       component: TicketRmb
-    }
-  ]
+    },{  
+        path: "/city",
+        name: "city",
+        component: City
+    }]
+
 })

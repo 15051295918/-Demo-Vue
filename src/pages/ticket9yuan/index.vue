@@ -1,6 +1,6 @@
 <template>
   	<div class="titket">
-		<app></app>
+		<app @delete="handleClickOff"></app>
 		<titket-header></titket-header>
 		<div class="titket-main">
 			<div class="titket-ban">
@@ -11,7 +11,7 @@
 			</div>
 			<titket-city></titket-city>
 			<titket-scenic :data="nineTicket"></titket-scenic>
-			<more-special></more-special>
+			<more-special :propsoff="off"></more-special>
 			<more-product></more-product>
 		</div>
 		
@@ -40,7 +40,8 @@ export default {
     },
     data () {
         return {
-     		nineTicket : []
+     		nineTicket : [],
+     		off:false
         }
     },
 	components: {
@@ -50,6 +51,13 @@ export default {
 	  	"titket-scenic": titketscenic,
 	  	"more-special": morespecial,
 	  	"more-product": moreproduct
+	},
+	methods:{
+		handleClickOff: function() {
+			this.off = true;
+			console.log(this.off);
+			return this.off;
+		}
 	}  
 }
 </script>
