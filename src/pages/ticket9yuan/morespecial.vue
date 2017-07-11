@@ -136,8 +136,8 @@ export default {
         border: .18rem solid #000;
     }
     .nav{
-        width:100%;
-        height:100%;
+        width: 100%;
+        height: 100%;
         background: #fff;
         display: flex;
     }
@@ -204,10 +204,12 @@ export default {
         width: 100%;
         height: 75%;
         background-image: cover;
+
     }
     .list-img{
         width:100%;
         height: 100%;
+        background-size: 100% 100%;
     }
     .list-img-add{
         position: absolute;

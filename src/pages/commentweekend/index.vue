@@ -6,23 +6,23 @@
   		</div>
 		<div class="comment-con-info">
 			<ul class="comment-ulcon" v-for="(list, index) in lists" :key="index + '_comment_list'">
-		  		<li class="comment-list border-top" v-for="item in list">
+		  		<li class="comment-list border-top" v-for="(item,liindex) in list">
 		  			<div class="comment-list-head">
 			  			<span class="comment-star">{{item.iconfont}}</span>
 			  			<span v-html="item.time" class="comment-time">{{item.time}}</span>
 		  			</div>
 		  			<div class="comment-descr">
-			  			<p class="comment-text" >
+			  			<p class="comment-text">
 			  				{{item.txt}}
 			  			</p>
-			  			<div  class="comment-text-more"><span class="iconfont">&#xe76d;</span></div>
+			  			<div  class="comment-text-more"  @click="handleAddTextClick(liindex)"><span class="iconfont" >&#xe76d;</span></div>
 		  			</div>
 		  			<div class="comment-imgbox">
 		  				<img class="comment-img" v-for="(itemimg, index) in item.img" :src="itemimg" alt="" >		
 		  			</div>
 		  		</li>
 	  		</ul>
-  			<div class="comment-addmore"  @click="handleaddmore">查看更多</div>
+  			<div class="comment-addmore"  @click="handleAddMore">查看更多</div>
 		</div>		
   	</div>	
 </template>
@@ -42,25 +42,16 @@ export default {
 
     data () {
 	    return {
-	        commentlistInfo: [] ,
+	        commentlistInfo: [],
 	        count:0
+	 
 	    }
     },
   	computed: {
-        /*lists: function() {
-            var lists = [];
-            for (var i = 0; i < 11; i++) {
-                var list = Math.floor(i / 10); 
-                if (!lists[list]) { 
-                    lists[list] = [] 
-                }
-                lists[list].push(this.commentlistInfo[i]);
-            }
-            return lists;
-        }*/
         lists: function() {
             var lists = [];
-            for (var i = 0; i < this.commentlistInfo.length; i++) {
+            var length=(this.count+1)*10>=this.commentlistInfo.length?this.commentlistInfo.length:(this.count+1)*10;
+            for (var i = 0; i < length; i++) {
                 var list = Math.floor(i / 10); 
                 if (!lists[list]) { 
                     lists[list] = [] 
@@ -71,22 +62,15 @@ export default {
         }
     },
     methods:{
-    	handleclick:function(){    		 		  		
+    	handleAddTextClick:function(liindex){ 
+    		if(this.commentlistInfo[liindex].txt.length>104){
+    			console.log(true)
+    		}else{
+    			console.log(false)
+    		};    		   		
     	},
-
-    	handleaddmore:function(){
-    		/*var lists = [];
+    	 handleAddMore:function(){		
     		this.count++;
-    		var length;
-    		length=(this.count+1)*10>=this.commentlistInfo.length?this.commentlistInfo.length:(this.count+1)*10
-            for (var i = 0; i < length; i++) {
-                var list = Math.floor(i / 10); 
-                if (!lists[list]) { 
-                    lists[list] = [] 
-                }
-                lists[list].push(this.commentlistInfo[i]);
-            }*/
-            
     	}
     	
     } 
