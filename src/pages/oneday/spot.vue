@@ -64,6 +64,16 @@ export default {
 	    font-size: .28rem;
 	    line-height: .78rem;
 	}
+	.spot-icon {
+		width: .40rem;
+		height: .40rem;
+		color: #08bed5;
+	}
+	.spot-icon .spot-recommend {
+		color: #000;
+		font-size: .32rem;
+		margin-left: .08rem;
+	}
 	.spot-right{
 		float: right;
 	    font-size: .26rem;

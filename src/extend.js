@@ -5,8 +5,8 @@ import FastClick from 'fastclick'
 import VueLazyload from 'vue-lazyload'
 import Vuex from 'vuex';
 
-Vue.config.productionTip = false
 
+Vue.config.productionTip = false
 Vue.use(VueAwesomeSwiper)
 Vue.use(VueResource);
 Vue.use(Vuex)

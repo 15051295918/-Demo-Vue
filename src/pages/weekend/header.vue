@@ -20,7 +20,7 @@ export default {
   props: ["city"],
   methods:{
   	goBack: function() {
-  		history.go(-1)
+  		this.$router.go(-1)
   	}
   }
 }

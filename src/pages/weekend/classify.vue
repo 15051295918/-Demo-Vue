@@ -3,7 +3,9 @@
 		<div class="classify">
 	  		<a class="classify-item" v-for="(item, index) in classifyInfo" :key="index+'classifyItem'"  :href="item.link">
 		  		<router-link :to="{path:'/onedaytour',query:{region:city, title:item.title, id:item.id}}">
-			  		<img class="classify-icon" :src="item.imgUrl">
+			  		<div>
+				  		<img class="classify-icon" :src="item.imgUrl">
+			  		</div>
 			  		<p class="classify-title">{{item.title}}</p>
 			  	</router-link>
 	  		</a>
@@ -89,6 +91,12 @@ export default {
 		box-sizing: border-box;
 		background: #fff;
 	}
+/*	.weekend-chosen-items{
+		overflow: hidden;
+		width: 100%;
+		height: 0;
+		padding-bottom: 31.251%;
+	}*/
 	.weekend-chosen-title{
 		width: 100%;
 		height: .88rem;

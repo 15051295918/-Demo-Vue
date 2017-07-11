@@ -18,23 +18,23 @@
    	 		</div>
    	 	</li>
    	 </ul>
+   	 <div class="loadingtext" v-if="isloading">努力加载中...</div>
    </div>
 </template>
 
 <script>
  
 export default {
-   props:["list"],
-    methods:{
-     done:function(item){
-     	if(item.yprice){     		
-     		return true;
-     	}else{
-     		return false;
-     	}
-  	 }
- 
-  }
+   	props: ["list","isloading"],
+    methods: {
+    	done: function(item){
+     		if(item.yprice){     		
+     			return true;
+     		}else{
+     			return false;
+     		}
+  	 	}
+  	}
 }
  
 </script>
@@ -109,5 +109,13 @@ export default {
     .weekendsuggest-name-position{
 	    color: #9e9e9e;
         font-size: .24rem;
+	}
+	.loadingtext{
+		height: 30px;
+	    line-height: 30px;
+	    text-align: center;
+	    font-size: .24rem;
+	    color: #25a4bb;
+	    border-top: 1px solid #ccc;
 	}
 </style>
