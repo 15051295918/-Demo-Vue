@@ -1,5 +1,5 @@
 <template>
-    <div class="main" @click="handleScroll">
+    <div class="main">
 
         <div class="header" :style="style">
             <a class="header-left iconfont" role="left">&#xe685;</a>
@@ -8,8 +8,8 @@
         </div>
 
         <!--老纪-->
-        <index-header :scrollTop="scrollTop"></index-header>
-        <user-reviews></user-reviews>
+        <index-header :scrollTop="scrollTop" :headerInfo="headerInfo"></index-header>
+        <user-reviews :userReviews="headerInfo.userReviews"></user-reviews>
 
         <!--武鹤-->
         <index-tab :tabInfo="tabInfo" :scrollTop="scrollTop" @openMap="openMap(isBigMapOpen)"></index-tab>
@@ -32,11 +32,12 @@
 
     export default {
 
-        created: function () {
+        created: function() {
             this.$http.get("/static/onedaytour-detail.json").then(response => {
                 if (response.body.ret) {
                     this.headerContent = this.headerTitle = response.body.data.index.headerTitle;
                     this.tabInfo = response.body.data.tab;
+                    this.headerInfo = response.body.data.header;
                 } else {
                     console.log("Invalid data!");
                 }
@@ -51,10 +52,19 @@
                 scrollTop: 0,
                 isBigMapOpen: false,
                 "headerTitle": "",
+                "headerInfo": {
+                    "JiHeader": {},
+                    "JiCardCon": {},
+                    "JiPrdcardTagItem": [],
+                    "userReviews": {
+                        "commentsInfoCon": {},
+                        "borderTop": {}
+                    }
+                },
                 "tabInfo": {
                     "index": {
                         "tabs": [],
-                        "tabOfset":{}
+                        "tabOfset": {}
                     },
                     "tourItinerary": {
                         "map": {},
@@ -69,16 +79,13 @@
                     "expenseExplanation": {
                         "title": "",
                         "content": {
-                            "expense": [
-                                {
-                                    "title": "",
-                                    "list": []
-                                },
-                                {
-                                    "title": "",
-                                    "list": []
-                                }
-                            ],
+                            "expense": [{
+                                "title": "",
+                                "list": []
+                            }, {
+                                "title": "",
+                                "list": []
+                            }],
                             "last": {
                                 "title": "",
                                 "content": ""
@@ -99,7 +106,7 @@
 
         mounted() {
             var this_ = this;
-            window.addEventListener('scroll', function () {
+            window.addEventListener('scroll', function() {
                 this_.scrollTop = document.body.scrollTop;
             }, false);
             this.headerContent = this.headerTitle;
@@ -107,11 +114,7 @@
 
         methods: {
 
-            handleScroll: function () {
-                alert(123)
-            },
-
-            openMap: function () {
+            openMap: function() {
                 if (!this.isBigMapOpen) {
                     this.headerContent = "景点地图";
                 } else {
@@ -123,14 +126,12 @@
         },
 
         computed: {
-
-            style: function () {
+            style: function() {
                 return "opacity:" + this.scrollTop / 150
             }
         }
 
     }
-
 </script>
 
 
@@ -138,7 +139,7 @@
     .main {
         background: #f5f5f5;
     }
-
+    
     .header {
         height: .88rem;
         background: #00bcd4;
@@ -152,7 +153,7 @@
         left: 0px;
         display: block;
     }
-
+    
     .header-left {
         left: 0;
         top: 0;
@@ -160,14 +161,14 @@
         height: .88rem;
         line-height: .88rem;
     }
-
+    
     .header-left {
         position: absolute;
         font-size: .36rem;
         color: #fff;
         text-align: center;
     }
-
+    
     .header-title {
         overflow: hidden;
         margin: 0 1rem;
@@ -178,7 +179,7 @@
         text-align: center;
         color: #fff;
     }
-
+    
     .header-right {
         position: absolute;
         top: 0;

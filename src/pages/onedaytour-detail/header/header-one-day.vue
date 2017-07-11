@@ -24,19 +24,10 @@
 
         data() {
             return {
-                "JiHeader": {
-                    "headerLeft": "&#xe685;",
 
-                    "headerTitle": "[北京出发]天安门＋故宫【赠送珍宝馆】＋八达岭长城＋鸟巢·水立方一日游",
-
-                    "imgavatarImg": "http://img1.qunarzz.com/p/tts1/1603/cb/c30a2a3b06b0def7.jpg_640x360_55f4917e.jpg",
-
-                    "imgavatarLeft": "出发地:北京",
-
-                    "imgavatarRight": "北京旭冉之旅"
-                }
             }
-        }
+        },
+        props: ["JiHeader"]
     }
 </script>
 

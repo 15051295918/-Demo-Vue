@@ -6,8 +6,7 @@
         },
         "tab": {
             "index": {
-                "tabs": [
-                    {
+                "tabs": [{
                         "title": "行程介绍"
                     },
                     {
@@ -27,19 +26,16 @@
                         116.3958138,
                         39.9109056
                     ],
-                    "windows": [
-                        {
-                            "position": [
-                                116.3958138,
-                                39.9109056
-                            ],
-                            "content": "天安门",
-                            "visible": true
-                        }
-                    ]
+                    "windows": [{
+                        "position": [
+                            116.3958138,
+                            39.9109056
+                        ],
+                        "content": "天安门",
+                        "visible": true
+                    }]
                 },
-                "routesum": [
-                    {
+                "routesum": [{
                         "icon": "&#xe601;",
                         "item": "交通",
                         "info": "汽车往返"
@@ -50,8 +46,7 @@
                         "info": "包含餐食"
                     }
                 ],
-                "cardContent": [
-                    {
+                "cardContent": [{
                         "content": "登八达岭长城，逛故宫，一天饱览两大“双遗”景点"
                     },
                     {
@@ -61,8 +56,7 @@
                         "content": "专业导游陪同讲解，无任何强制购物和隐性消费"
                     }
                 ],
-                "timeLine": [
-                    {
+                "timeLine": [{
                         "time": "7:30",
                         "icon": "&#xe65b;",
                         "title": "集合地点",
@@ -108,8 +102,7 @@
             },
             "instructions": {
                 "title": "使用说明",
-                "list": [
-                    {
+                "list": [{
                         "title": "出团信息",
                         "content": "商家会在出游前1天的20点前与您确认出团信息。若您在超过此时间预订，商家会在您预订成功后10分钟内与您确认出团信息。"
                     },
@@ -130,11 +123,9 @@
             "expenseExplanation": {
                 "title": "费用及退款说明",
                 "content": {
-                    "expense": [
-                        {
+                    "expense": [{
                             "title": "费用包含",
-                            "list": [
-                                {
+                            "list": [{
                                     "title": "门票",
                                     "content": "行程中所含的景点首道大门票:故宫（赠送珍宝馆）+八达岭长城"
                                 },
@@ -158,8 +149,7 @@
                         },
                         {
                             "title": "费用不含",
-                            "list": [
-                                {
+                            "list": [{
                                     "title": "八达岭往返滑车或缆车",
                                     "content": "八达岭往返滑车100元；缆车140元/人"
                                 },
@@ -177,7 +167,57 @@
                 }
             }
         },
-        "header": {},
+        "header": {
+            "JiHeader": {
+                "headerLeft": "&#xe685;",
+
+                "headerTitle": "[北京出发]天安门＋故宫【赠送珍宝馆】＋八达岭长城＋鸟巢·水立方一日游",
+
+                "imgavatarImg": "http://img1.qunarzz.com/p/tts1/1603/cb/c30a2a3b06b0def7.jpg_640x360_55f4917e.jpg",
+
+                "imgavatarLeft": "出发地:北京",
+
+                "imgavatarRight": "北京旭冉之旅"
+            },
+            "JiCardCon": {
+                "prdcardName": "[北京出发]天安门＋故宫【赠送珍宝馆】＋八达岭长城＋鸟巢·水立方一日游",
+                "prdcardPriceicon": "¥",
+                "prdcardPricetext": "228",
+                "prdcardGray": "起",
+                "bookingAheadText": "可订明日",
+                "prdcardSupplier": "已售:488"
+            },
+            "JiPrdcardTagItem": [{
+                "icon": "&#xe60b;",
+                "tagDesc": "条件退"
+            }, {
+                "icon": "&#xe60b;",
+                "tagDesc": "铁定成团"
+            }, {
+                "icon": "&#xe60b;",
+                "tagDesc": "无自费"
+            }, {
+                "icon": "&#xe60b;",
+                "tagDesc": "无购物"
+            }],
+            "userReviews": {
+                "commentsInfoCon": {
+                    "linkArea": "http://touch.piao.qunar.com/touch/weekend/comment.htm?spuId=355112&amp;cat=from_area%3Dts_type_nav%26from_index%3D2%26from_value%3D%25E4%25B8%2580%25E6%2597%25A5%25E6%25B8%25B8%26dist_city%3D%25E5%258C%2597%25E4%25BA%25AC",
+                    "commentScore": "4.3",
+                    "commentText": "分",
+                    "commentTag": "非常满意",
+                    "commentTotalnum": "用户评论(219)",
+                    "commentRightArrow": "&#xe768;"
+                },
+                "borderTop": {
+                    "linkArea": "http://touch.piao.qunar.com/touch/weekend/comment.htm?spuId=355112&amp;cat=from_area%3Dts_type_nav%26from_index%3D2%26from_value%3D%25E4%25B8%2580%25E6%2597%25A5%25E6%25B8%25B8%26dist_city%3D%25E5%258C%2597%25E4%25BA%25AC",
+                    "starlevelGain": "&#xe603;&#xe603;&#xe603;&#xe603;&#xe603;",
+                    "starlevelTotal": "&#xe6d3;&#xe6d3;&#xe6d3;&#xe6d3;&#xe6d3;",
+                    "commentsDate": "o*2&nbsp;&nbsp;2017-07-02",
+                    "wellcommentsText": "一天的行程很满意，小张导游讲解很仔细，没有额外消费，每个景点都很用心，最后快结束还介绍北京的特色给我们，非常好的导游，必须好评～"
+                }
+            }
+        },
         "footer": {},
         "booking-ticket": {}
     }

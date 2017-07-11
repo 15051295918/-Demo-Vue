@@ -23,29 +23,10 @@
 
         data() {
             return {
-                JiCardCon: {
-                    "prdcardName": "[北京出发]天安门＋故宫【赠送珍宝馆】＋八达岭长城＋鸟巢·水立方一日游",
-                    "prdcardPriceicon": "¥",
-                    "prdcardPricetext": "228",
-                    "prdcardGray": "起",
-                    "bookingAheadText": "可订明日",
-                    "prdcardSupplier": "已售:488"
-                },
-                JiPrdcardTagItem: [{
-                    "icon": "&#xe60b;",
-                    "tagDesc": "条件退"
-                }, {
-                    "icon": "&#xe60b;",
-                    "tagDesc": "铁定成团"
-                }, {
-                    "icon": "&#xe60b;",
-                    "tagDesc": "无自费"
-                }, {
-                    "icon": "&#xe60b;",
-                    "tagDesc": "无购物"
-                }]
+
             }
-        }
+        },
+        props: ["JiCardCon", "JiPrdcardTagItem"]
     }
 </script>
 
