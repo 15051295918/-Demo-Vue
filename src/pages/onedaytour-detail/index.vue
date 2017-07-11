@@ -1,25 +1,27 @@
 <template>
-    <div class="main">
+    <div :class="{overflow:isBigMapOpen}">
+        <div class="main">
 
-        <div class="header" :style="style">
-            <a class="header-left iconfont" role="left">&#xe685;</a>
-            <h1 class="header-title" role="title">{{headerContent}}</h1>
-            <span class="header-right" role="right"></span>
+            <div class="header" :style="style">
+                <a class="header-left iconfont" role="left">&#xe685;</a>
+                <h1 class="header-title" role="title">{{headerContent}}</h1>
+                <span class="header-right" role="right"></span>
+            </div>
+
+            <!--老纪-->
+            <index-header :scrollTop="scrollTop" :headerInfo="headerInfo"></index-header>
+            <user-reviews :userReviews="headerInfo.userReviews"></user-reviews>
+
+            <!--武鹤-->
+            <index-tab :tabInfo="tabInfo" :scrollTop="scrollTop" @openMap="openMap(isBigMapOpen)"></index-tab>
+
+            <!--国辉-->
+            <index-footer :footerInfo="footerInfo"></index-footer>
+
+            <!--坤勇-->
+            <booking-ticket></booking-ticket>
+
         </div>
-
-        <!--老纪-->
-        <index-header :scrollTop="scrollTop" :headerInfo="headerInfo"></index-header>
-        <user-reviews :userReviews="headerInfo.userReviews"></user-reviews>
-
-        <!--武鹤-->
-        <index-tab :tabInfo="tabInfo" :scrollTop="scrollTop" @openMap="openMap(isBigMapOpen)"></index-tab>
-
-        <!--国辉-->
-        <index-footer :footerInfo="footerInfo"></index-footer>
-
-        <!--坤勇-->
-        <booking-ticket></booking-ticket>
-
     </div>
 </template>
 
@@ -152,6 +154,15 @@
 <style scoped>
     .main {
         background: #f5f5f5;
+    }
+
+    .overflow {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        overflow-y: hidden;
     }
 
     .header {
