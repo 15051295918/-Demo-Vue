@@ -131,6 +131,7 @@ export default {
 
 <style scoped>
 	.nav{
+		z-index: 5;
 		position: absolute;
 		height: 100%;
 		width: 100%;
