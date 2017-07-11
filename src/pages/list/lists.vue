@@ -241,10 +241,11 @@
 		font-size: .24rem;
 	}
 	.mp-moreinfo {
-		margin-bottom: .2rem;
+		padding-bottom: .2rem;
 	    color: #00afc7;
 	    text-align: center;
 	    line-height: .7rem;
+	    background: #f5f5f5;
 	}
 	.linkPage {
 		display: inline-block;

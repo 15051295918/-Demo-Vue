@@ -64,11 +64,10 @@
 <style scoped>
 	.main-list{
 		position: absolute;
-		left: 0;
 		top: 0;
+		bottom: 0;
 		width: 100%;
 		min-height: 100%;
 		background: #f5f5f5;
-		height:1000px;
 	}
 </style>
