@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="listCon">
 	    <ul class="mp-view-list mp-page">
 			<paginate ref="paginator" name="languages" :list="listCon" :per="pre">
 		    	<li class="mp-sight-group border-topbottom" v-for="(item, index) in paginated('languages')" :key="'li_item_' + index">
@@ -98,6 +98,11 @@
 </script>
 
 <style scoped>
+	.listCon {
+	    position: relative;
+	    top: .78rem;
+	    z-index: 1;
+	}
 	.mp-page {
 		background-color: #f5f5f5;
 		height: 100%;
