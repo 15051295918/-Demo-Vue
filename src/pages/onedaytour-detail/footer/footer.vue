@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="main-footer border-leftright">
         <user-comment></user-comment>
         <more-quotation></more-quotation>
     </div>
@@ -25,6 +25,8 @@ export default {
 
 
 <style scoped>
- 
+    .main-footer::after{
+       border-color: #e3e3e4;
+    }
 
 </style>

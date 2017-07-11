@@ -1,32 +1,34 @@
 <template>
-    <div class="contain border-leftright">
-    	<h3 class="comment-title border-bottom"><span class="title-leftline"></span>{{data.title}}</h3>
-        <div class="content" v-for="(list, index) in data.lists" :key="index + 'content_'">
-        	<div class="content-level">
-                    <p class="content-graystar">
-                        <span class="iconfont graystar" v-for="item in list.contentStar" v-html="item.icon"></span>
-                        
-                    </p>
-                <div class="contain-star">   
-            		<p class="content-starlevel">
-            			<span class="iconfont star" v-for="item in list.contentStar" v-html="item.icon"></span>
-            		</p>
-                </div> 
-        		<p class="content-date">{{list.name}}&nbsp;&nbsp;{{list.date}}</p>
-         	</div>
-        	 <p class="content-text">
-        	 	{{list.contentText}}
-        	 </p>
-            <div class="contain-imgs">
-            	 <div class="comment-imgs">
-        	 		<img class="comment-img" v-for="(item, index) in list.commentImg" :src="item.src" :class="{'comment-img-first' : index == 0}" />
-        	 	 
-            	 </div>
-             </div>    
-        </div>
+    <div class="contain">
+    	<h3 class="comment-title"><span class="title-leftline"></span>{{data.title}}</h3>
+        <div class="content-contain border-topbottom">
+            <div class="content" v-for="(list, index) in data.lists" :key="index + 'content_'" :class="{'border-bottom' :index == 0}">
+            	<div class="content-level">
+                        <p class="content-graystar">
+                            <span class="iconfont graystar" v-for="item in list.contentStar" v-html="item.icon"></span>
+                            
+                        </p>
+                    <div class="contain-star">   
+                		<p class="content-starlevel">
+                			<span class="iconfont star" v-for="item in list.contentStar" v-html="item.icon"></span>
+                		</p>
+                    </div> 
+            		<p class="content-date">{{list.name}}&nbsp;&nbsp;{{list.date}}</p>
+             	</div>
+            	 <p class="content-text">
+            	 	{{list.contentText}}
+            	 </p>
+                <div class="contain-imgs">
+                	 <div class="comment-imgs">
+            	 		<img class="comment-img" v-for="(item, index) in list.commentImg" :src="item.src" :class="{'comment-img-first' : index == 0}" />
+            	 	 
+                	 </div>
+                 </div>    
+            </div>
+        </div>    
         <div class="more-comment">
                 {{data.last.comment}}
-        	<span class="iconfont" v-html="data.last.icon"></span>
+        	<span class="iconfont commet-arrows" v-html="data.last.icon"></span>
         </div>
     </div>
 </template>
@@ -156,11 +158,8 @@
 
 <style scoped>
     .contain{
-        margin-top: .2rem;
+        margin: .2rem 0 .2rem;
         background: #ffffff;
-    }
-    .contain::after{
-        color: #e3e3e4;
     }
     .comment-title{
         height: .84rem;
@@ -168,9 +167,6 @@
         line-height: .84rem;
         font-size: .32rem;
         color: #212121;
-    }
-    .comment-title::after{
-        color: #f0f0f0;
     }
     .title-leftline{
         float: left;
@@ -180,19 +176,27 @@
         background: #00bcd4;
         margin: .3rem .12rem 0 0;
     }
-    .content{
+    .content-contain{
         padding: 0 .24rem;
+    }
+    .content-contain::before{
+        color: #f0f0f0;
+    }
+    .content{
+        padding: .22rem 0 .2rem;
+    }
+    .content::before{
+        border-bottom: 1px dashed #cccccc;
     }
     .content-level{
         position: relative;
         font-size: 0;
         height: .42rem;
-        padding-top: .22rem;
     }
     .contain-star{
         position: absolute;
         left: 0;
-        top: .22rem;
+        top: 0;
         width: 1.54rem;
         height: 0.25rem;
         overflow: hidden;
@@ -245,5 +249,16 @@
     }
     .comment-img-first{
         margin-left: 0;
+    }
+    .more-comment{
+        text-align: center;
+        font-size: .28rem;
+        color: #616161;
+        height: .78rem;
+        line-height: .78rem;
+    }
+    .commet-arrows{
+       font-size: .24rem; 
+       color: #b9a49e;
     }
 </style>
