@@ -9,8 +9,9 @@
   			</router-link>
   		</div>
   		<div class="header-right">
-  			<span class="header-city">{{$store.state.city}}<i class="header-city-option"></i>
-  			</span>  			
+  			<router-link to="/city">
+  				<span class="header-city">{{$store.state.city}}<i class="header-city-option"></i></span>
+  			</router-link> 			
   		</div>
   	</header>
 </template>
