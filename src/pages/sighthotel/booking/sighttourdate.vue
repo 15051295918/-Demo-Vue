@@ -4,7 +4,9 @@
       <div class="tourdate-card">
           <span class="tourdate-text border"
                 v-for="(item,index) in tourdate.value"
-                :key="item.key">
+                :key="item.key"
+                :class="{'tourdate-text-active':index===bgchangenum}"
+                @click="handleDateClick(index)">
           {{item.displayName}}
           </span>
       </div>
@@ -17,11 +19,13 @@ export default {
     props:["tourdate"],
     data() {
       return {
-        
+        bgchangenum:""
       }
     },
     methods:{
-      
+      handleDateClick:function(index) {
+        this.bgchangenum = index;
+      }
     }
 }
 
@@ -55,9 +59,17 @@ export default {
     background: #fff;
     font-size: .28rem;
   }
-  .tourdate-text.border::before {
+  .border::before {
     border:.02rem solid #c7ced4;
     border-radius: .3rem;
+  }
+
+  .tourdate-text-active {
+    background:#b2eaf2;
+    color: #0089a1;
+  }
+  .tourdate-text-active::before {
+    border-color:#0089a1;
   }
 </style>
 

@@ -10,8 +10,8 @@
             <div class="room-title">{{item.displayName}}</div>
             <div class="room-desc">{{item.desc}}</div>
             <div class="room-chooseicon"
-                 :class="{'room-chooseicon-checked':checked}"
-                 @click="handleClick">
+                 :class="{'room-chooseicon-checked':checked[index]}"
+                 @click="handleClick(index)">
             </div>
           </div>
           <div style="clear:both"></div>
@@ -27,12 +27,14 @@ export default {
     props:["room"], 
     data() {
       return {
-        "checked":false
+        title:"",
+        checked:[false,false]
       }
     },
     methods:{
-      handleClick:function() {
-        this.checked=!this.checked
+      handleClick:function(index) {
+        this.checked.splice(0,2,false,false);
+        this.checked.splice(index,1,true);
       }
     }
 }

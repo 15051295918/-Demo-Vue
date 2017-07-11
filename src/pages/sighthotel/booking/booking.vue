@@ -1,22 +1,25 @@
 <template>
-    <div class="booking-main">
-		  <div class="booking-header">
-        <h2 class="header-title">
-          <p class="title-ellipsis">北京热带雨林风情园温泉酒店+私汤泡池</p>
-        </h2>
-        <h5 class="header-price">
-          <span class="now-price">&yen;<em class="now-price-number">458</em></span>
-          <span class="now-price-text">起/份</span>
-          <span class="market-price">票面价:&yen;<em class="market-price-number">1580</em></span>
-        </h5>
-        <div class="iconfont close-icon"
-             @click="hanndleCloseBtnClick">&#xe621;</div>
-  		</div>
-  		<date-choose :date="categoryList[0]"></date-choose>
-  		<room-choose :room="categoryList[1]"></room-choose>
-  		<sight-tour-date :tourdate="categoryList[2]"></sight-tour-date>
-  		<a class="booking-footer" href="javascript:;">立即预订</a>
-    </div>
+  <transition>
+      <div class="booking-main" v-if="show">
+  		  <div class="booking-header">
+          <h2 class="header-title">
+            <p class="title-ellipsis">北京热带雨林风情园温泉酒店+私汤泡池</p>
+          </h2>
+          <h5 class="header-price">
+            <span class="now-price">&yen;<em class="now-price-number">458</em></span>
+            <span class="now-price-text">起/份</span>
+            <span class="market-price">票面价:&yen;<em class="market-price-number">1580</em></span>
+          </h5>
+          <div class="iconfont close-icon"
+               @click="show = false">&#xe621;
+          </div>
+    		</div>
+    		<date-choose :date="categoryList[0]"></date-choose>
+    		<room-choose :room="categoryList[1]"></room-choose>
+    		<sight-tour-date :tourdate="categoryList[2]"></sight-tour-date>
+    		<a class="booking-footer" href="javascript:;">立即预订</a>
+      </div>
+  </transition>
 </template>
 
 <script>
@@ -29,20 +32,14 @@ export default {
     created:function() {
       this.$http.get('/static/selectCategory.json').then(response => {
           this.categoryList = response.body.data.categoryList;
-          // this.dateChoose = this.categoryList[0].value;
-          // console.log( this.categoryList);
       },response => {
         console.log("get index data error")
       })
     },
     data() {
       return {
-        categoryList:[]
-      }
-    },
-    methods:{
-    	hanndleCloseBtnClick:function() {
-        
+        categoryList:[{},{},{}],
+        show:true
       }
     },
     components:{
@@ -52,20 +49,19 @@ export default {
     }
 }
 
-
 </script>
 
 
 <style scoped>
   	.booking-main {
-  		position: fixed;
+  		position: absolute;
       left: 0;
       right: 0;
       bottom: 0;
+      z-index: 10;
       width: 100%;
       height: 454.4px;
       background: #fff;
-      transition: transform .3s ease-out;
   	}
     .booking-header {
       padding: 0 .2rem;
@@ -122,6 +118,16 @@ export default {
       background: #ff9800;
       color: #fff;
       font: normal .36rem/1rem Arial,"Microsoft Yahei","Helvetica Neue",Helvetica,sans-serif;
+    }
+
+    .v-leave-active {
+      transition: all .6s ease;
+    }
+    .v-leave {
+      bottom:0;
+    }
+    .v-leave-to {
+      bottom: -454.4px;
     }
 </style>
 

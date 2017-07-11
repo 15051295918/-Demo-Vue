@@ -6,17 +6,20 @@
                 v-for="(item,index) in date.value"
                 :key="item.key"
                 :style="index==3 && lastItemStyle"
-                :class="bgDateClass"
-                @click="handleDateClick">
+                :class="{'datecard-item-active':index===bgchangenum}"
+                @click="handleDateClick(index)">
             <em class="datecard-name"
                 :style="index==3 && lastNameStyle">{{item.displayName}}</em>
             <b class="datecard-detail">{{index==3 ? '' : item.valueProperties.displayDate}}</b>
           </span>
         </div>
+        <otherdate :dateshow="otherdateshow" @close="handleCloseDate"></otherdate>
     </div>
 </template>
 
 <script>
+
+import otherdate from './otherdate'
 
 export default {
     props:["date"],
@@ -29,15 +32,24 @@ export default {
           "line-height":".86rem",
           "padding-top":0
         },
-        bgDateClass:{
-          "datecard-item-active":false
-        }
+        bgchangenum:"" ,
+        otherdateshow:false
       }
     },
     methods:{
-      handleDateClick:function() {
-        this.bgDateClass
+      handleDateClick:function(index) {
+        if(index != 3) {
+          this.bgchangenum = index
+        }else {
+          this.otherdateshow = true;
+        }
+      },
+      handleCloseDate:function() {
+        this.otherdateshow = false;
       }
+    },
+    components:{
+      otherdate:otherdate
     }
 }
 
@@ -61,7 +73,6 @@ export default {
     }
     .datecard {
       display: flex;
-
     }
     .datecard-item {
       flex:1;
@@ -92,10 +103,28 @@ export default {
     .datecard-item-active {
       background:#00bcd4;
     }
-    .border::before {
-      border-radius: .3rem;
-      border:.02rem solid #bdbdbd;
+    .datecard-item-active>.datecard-name,.datecard-item-active>.datecard-detail {
+      color:#fff;
+    }
+    .datecard-item-active::before {
       border-color: #00bcd4;
+    }
+    .datecard-item-active::after {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      z-index: 11;
+      content: "\e61b";
+      font-family: "iconfont";
+      font-size: .24rem;
+      display: block;
+      width: 0;
+      height: 0;
+      background: none;
+      border:.24rem solid transparent; 
+      border-bottom-color:#fff;
+      border-right-color:#fff;
+      color: #00bcd4;
     }
     
 </style>
