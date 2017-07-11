@@ -2,37 +2,39 @@
     <div>
         <header class="header-box">
             <div class="detail-header" style="display: block; opacity: 1;">
-                <a class="header-left return" href="javascript:window.history.back();"></a>
-                <h1 class="header-title">北京热带雨林风情园温泉酒店+私汤泡池</h1>
+                <a class="header-left iconfont" href="javascript:window.history.back();">&#xe685;</a>
+                <h1 class="header-title">{{productInfodata.ticketName}}</h1>
             </div>
             <div class="topimg-box">
-                <img class="topimg-img" src="//img1.qunarzz.com/sight/p0/1501/eb/ebc33a1d2fe9a682.water.jpg" alt="北京热带雨林风情园温泉酒店+私汤泡池"/>
+                <img class="topimg-img" @click="handleShowMaskClick" :src="productInfodata.imgUrl" :alt="productInfodata.ticketName"/>
                 <div class="topimg-info">
-                    <span class="mpg-iconfont"></span>
+                    <span class="iconfont tu-iconfont">&#xe61e;</span>
                     <span>1</span>
                     <span>/</span>
-                    <span>3</span>
+                    <span>{{imgswiperInfodata.length}}</span>
                 </div>
             </div>
-            <div class="swiper-img">
-                <swiper :options="swiperOption" ref="mySwiper" >
-                    <swiper-slide class="topimg-box" v-for="(item,index) in headerInfo">
-                        <img class="topimg-img" :src="item.imgUrl" alt="itemimgAtl"/>
+            <div class="swiper-box" v-show="seen">
+                <div class="slide-closebutton iconfont" @click="handleCloseMaskClick">&#xe621;</div>
+                <swiper class="topimg-data" :options="swiperOption" ref="mySwiper" >
+                    <swiper-slide class="swiper-imgbox" v-for="(item,index) in imgswiperInfodata" :key="'imgswiperInfodata' + index">
+                        <img class="swiper-img" :src="item.imgUrl" alt="itemimgAtl"/>
                     </swiper-slide>
-                    <div class="swiper-pagination"  slot="pagination"></div>
-                    <div class="swiper-button-prev" slot="button-prev"></div>
-                    <div class="swiper-button-next" slot="button-next"></div>
                 </swiper>
+                <div class="ssss">
+                    <div class="swiper-pagination"  slot="pagination"></div>
+                    <div class="swiper-button-prev iconfont" slot="button-prev">&#xe657;</div>
+                    <div class="swiper-button-next iconfont" slot="button-next">&#xe63a;</div>    
+                </div>
             </div>
         </header>
         <div class="prdcard-con border-bottom">
             <div class="prdcard-infocon mp-prdcard-infocon-touch">
-                <h2 class="prdcard-name">北京热带雨林风情园温泉酒店+私汤泡池</h2>
-                <div class="prdcard-option" ></div>
+                <h2 class="prdcard-name">{{productInfodata.ticketName}}</h2>
             </div>
             <div class="prdcard-pricecon">
                 <span class="prdcard-priceicon">¥</span>
-                <span class="prdcard-pricetext">628</span>
+                <span class="prdcard-pricetext">{{productInfodata.lowerPrice}}</span>
                 <span class="prdcard-priceunit">起/份</span>
             </div>
         </div>   
@@ -57,27 +59,16 @@ export default {
                 nextButton:'.swiper-button-next',
                 paginationType: 'fraction'
             },
-            "headerInfo": [{
-                "title": "北京热带雨林风情园温泉酒店+私汤泡池",
-                "imgUrl": "//img1.qunarzz.com/sight/p0/1501/eb/ebc33a1d2fe9a682.water.jpg_550x250_30f5ed8d.jpg",
-                "imgAtl": "北京热带雨林风情园温泉酒店+私汤泡池",
-                "id": 1
-            },{
-                "title": "北京热带雨林风情园温泉酒店+私汤泡池",
-                "imgUrl": "//img1.qunarzz.com/sight/p0/1501/67/672d0f8d79bfdad0.water.jpg_550x250_7df500d5.jpg",
-                "imgAtl": "北京热带雨林风情园温泉酒店+私汤泡池",
-                "id": 2
-            },{
-                "title": "北京热带雨林风情园温泉酒店+私汤泡池",
-                "imgUrl": "//img1.qunarzz.com/sight/p0/201303/19/afb034c3c30d9eb7c8d65eac.jpg_550x250_b7f1f1ca.jpg",
-                "imgAtl": "北京热带雨林风情园温泉酒店+私汤泡池",
-                "id": 3
-            }],
-            "prdcard": [{
-                "name": "北京热带雨林风情园温泉酒店+私汤泡池",
-                 "pricetext": 628
-
-            }]
+            seen: false,
+        }
+    },
+    props: ["productInfodata","imgswiperInfodata"],
+    methods: {
+        handleShowMaskClick: function() {
+            this.seen = true
+        },
+        handleCloseMaskClick :function() {
+            this.seen = false
         }
     }
 }
@@ -85,23 +76,6 @@ export default {
 
 
 <style scoped>
-
-    .swiper-img {
-        position: fixed;
-        z-index: 99;
-        top: 0;
-        bottom: 0;
-        background: #000;
-        width: 100%;
-    }
-
-
-
-
-
-
-
-
     .header-box {
         position: relative;
         width: 100%;
@@ -110,6 +84,7 @@ export default {
         text-align: center;
         color: #fff;
     }
+
     .detail-header {
         position: fixed;
         top: 0;
@@ -121,6 +96,19 @@ export default {
         background: #00bcd4;
         font-size: .28rem;
     }
+
+    .header-left {
+        display: block;
+        width: .88rem;
+        height: .88rem;
+        position: absolute;
+        left: 0;
+        top: 0;
+        text-align: center;
+        color: #fff;
+        font-size: .36rem;
+    }
+
     .header-title {
         line-height: .88rem;
         overflow: hidden;
@@ -130,6 +118,7 @@ export default {
         font-size: .32rem;
         text-align: center;
     }
+
     /* 返回箭头 */
     .return{
         position: absolute;
@@ -156,6 +145,10 @@ export default {
         width: 100%;
     }
 
+    .tu-iconfont {
+        font-size: .2rem;
+    }
+
     .topimg-info {
         overflow: hidden;
         position: absolute;
@@ -171,8 +164,70 @@ export default {
         text-align: center;
         border-radius: .2rem;
     }
+    /* 蒙层图 */
+   .swiper-box {
+        display: block;
+        position: fixed;
+        z-index: 99;
+        top: 0;
+        bottom: 0;
+        background: #000;
+        width: 100%;
+    }
+    
+     .slide-closebutton {
+        position: absolute;
+        top: .6rem;
+        right: .4rem;
+        width: .6rem;
+        height: .6rem;
+        color: #fff;
+        font-size: .6rem;
+    }
 
-   
+     .topimg-data {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%;
+        margin: auto;
+    }
+
+    .swiper-imgbox {
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        padding-bottom: 56.25%;
+        position: relative;
+    }
+
+    .swiper-img {
+        width: 100%;
+    }
+    
+    .ssss {
+        width: 100%;
+        position: fixed;
+        height: .88rem;
+        width: 100%;
+        left: 0;
+        bottom: .8rem;
+    }
+
+   .swiper-button-prev,
+   .swiper-button-next {
+        width: .8rem;
+        height: .8rem;
+        font-size: .6rem;
+        background: rgba(51,51,51,.8);
+        border-radius: 50%; 
+        line-height: .8rem;  
+   }
+
     /* 配图说明 */
     .prdcard-con {
         position: relative;
@@ -225,7 +280,4 @@ export default {
         color: #9e9e9e;
         font-size: .24rem;
     }
-
-
-
 </style>

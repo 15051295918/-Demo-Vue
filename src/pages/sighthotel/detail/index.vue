@@ -1,6 +1,6 @@
 <template>
     <div class="main">
-        <detail-header ></detail-header>
+        <detail-header :imgswiperInfodata="imgswiperInfo" :productInfodata="productInfo"></detail-header>
         <detail-startGrade ></detail-startGrade>
         <detail-hotmessage ></detail-hotmessage>
         <detail-gightmessage ></detail-gightmessage>
@@ -19,9 +19,19 @@ import commentmessage from './commentmessage'
 import destine from './destine'
 
     export default {
+        created: function() {
+            this.$http.get('/static/sighthoteldetail.json').then(response => {
+                this.productInfo = response.body.data.productInfo;
+                this.imgswiperInfo = response.body.data.productInfo.imgswiperInfo;
+            }, response => {
+                console.log("get sighthoteldetail data error")
+            });
+        },
+
         data () {
             return {
-
+                productInfo: [],
+                imgswiperInfo: []
             }
         },
         components: {
