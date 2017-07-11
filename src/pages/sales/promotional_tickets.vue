@@ -7,7 +7,7 @@
 	</div>
 	<div class="ticket-navbar">
 		<span class="ticket-title">{{headeritem.titletext}}</span>
-		<a href="#" class="ticket-nabar-link">
+		<a href="/" class="ticket-nabar-link">
 			<span class="ticket-linktext">北京</span>
 			<span class="ticket-linkcorner"></span>
 		</a>
