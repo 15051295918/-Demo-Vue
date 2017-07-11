@@ -24,7 +24,7 @@ export default new Router({
     }, {
 <<<<<<< HEAD
         path: "/weekend",
-        name: "Weekend",
+        name: "weekend",
         component: Weekend
     }
   ]
