@@ -11,17 +11,14 @@
 
     export default {
 
-        data() {
-            return {
-
-            }
-        },
         components: {
             "header-oneDay": headerOneDay,
             "prdcard-com": prdcardCom
         },
         props: ["headerInfo"]
+
     }
+
 </script>
 
 

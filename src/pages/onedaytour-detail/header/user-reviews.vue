@@ -9,7 +9,7 @@
                 <span class="iconfont comments-rightarrow" v-html="userReviews.commentsInfoCon.commentRightArrow"></span>
             </span>
         </div>
-        
+
         <div class="border-top" style="padding: .1rem .2rem;background-color: #fff;">
             <a :href="userReviews.borderTop.linkArea" class="mpg-linkarea iconfont" role="select-comment" data-click="t_comment_top"></a>
             <div class="comments-item">
@@ -29,20 +29,17 @@
 <script>
     export default {
 
-        data() {
-            return {
-
-            }
-        },
+        props: ["userReviews"],
         computed: {
-            style: function() {
+            style: function () {
                 return {
                     width: this.userReviews.commentsInfoCon.commentScore * 20 + "%"
                 }
             }
-        },
-        props: ["userReviews"]
+        }
+
     }
+
 </script>
 
 
@@ -54,7 +51,7 @@
         height: .8rem;
         line-height: .8rem;
     }
-    
+
     .mpg-linkarea {
         position: absolute;
         color: #00afc7;
@@ -66,23 +63,23 @@
         width: 100%;
         height: 100%;
     }
-    
+
     .commentswell-score {
         font-size: .4rem;
         color: #00afc7;
         margin-left: .2rem;
     }
-    
+
     .commentswell-text {
         color: #00afc7;
     }
-    
+
     .comments-tagscore {
         display: inline-block;
         margin-left: .1rem;
         color: #616161;
     }
-    
+
     .comments-totalnum {
         float: right;
         position: relative;
@@ -94,7 +91,7 @@
         margin-right: .2rem;
         color: #9e9e9e;
     }
-    
+
     .comments-rightarrow {
         font-family: 'mpiconfont';
         speak: none;
@@ -104,11 +101,11 @@
         text-transform: none;
         line-height: 1;
     }
-    
+
     .border-top {
         position: relative;
     }
-    
+
     .mpg-linkarea {
         position: absolute;
         color: #00afc7;
@@ -120,11 +117,11 @@
         width: 100%;
         height: 100%;
     }
-    
+
     .comments-item:last-child {
         border-bottom: 0;
     }
-    
+
     .comments-item {
         padding: .2rem 0!important;
         padding-top: 0.2rem;
@@ -132,26 +129,26 @@
         padding-bottom: 0.2rem;
         padding-left: 0px;
     }
-    
+
     .comments-item {
         color: #616161;
         padding: .2rem 0;
         border-bottom: 1px dashed #ccc;
     }
-    
+
     .mpf-starlevel {
         display: inline-block;
         position: relative;
         width: 1.4rem;
         height: .28rem;
     }
-    
+
     .mpf-starlevel-gain {
         letter-spacing: .06rem;
         z-index: 2;
         color: #00bcd4;
     }
-    
+
     .mpf-starlevel-gain,
     .mpf-starlevel-total {
         overflow: hidden;
@@ -159,23 +156,23 @@
         top: 0;
         left: 0;
     }
-    
+
     .iconfont {
         font-size: .2rem;
     }
-    
+
     .mpf-starlevel-total {
         color: #e0e0e0;
         z-index: 1;
         letter-spacing: .06rem;
     }
-    
+
     .comments-date {
         float: right;
         margin-left: .2rem;
         color: #616161;
     }
-    
+
     .wellcomments-text {
         display: -webkit-box;
         overflow: hidden;
@@ -183,7 +180,7 @@
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
     }
-    
+
     .wellcomments-text.ellipsis2 {
         line-height: .4rem;
     }

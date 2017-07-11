@@ -8,10 +8,10 @@
             <span class="bookingahead-text">{{JiCardCon.bookingAheadText}}</span>
             <span class="prdcard-supplier">{{JiCardCon.prdcardSupplier}}</span>
         </div>
-        
+
         <div class="prdcard-tagcon">
             <div class="prdcard-tag-item" v-for="(item,index) in JiPrdcardTagItem" :key="index+'tagDesc'">
-                <span class="prdcard-tag-icon iconfont"  v-html="item.icon"></span>
+                <span class="prdcard-tag-icon iconfont" v-html="item.icon"></span>
                 <span class="prdcard-tag-desc">{{item.tagDesc}}</span>
             </div>
         </div>
@@ -21,13 +21,10 @@
 <script>
     export default {
 
-        data() {
-            return {
-
-            }
-        },
         props: ["JiCardCon", "JiPrdcardTagItem"]
+
     }
+
 </script>
 
 
@@ -39,7 +36,7 @@
         background: #fff;
         border-radius: .1rem .1rem 0 0;
     }
-    
+
     .prdcard-name {
         overflow: hidden;
         display: -webkit-box;
@@ -48,35 +45,35 @@
         line-height: .44rem;
         text-overflow: ellipsis;
     }
-    
+
     .prdcard-pricecon {
         overflow: hidden;
         margin: .16rem 0;
         height: .48rem;
         font-size: 0;
     }
-    
+
     .prdcard-priceicon {
         color: #ff8300;
         font-size: .24rem;
     }
-    
+
     .prdcard-pricetext {
         color: #ff8300;
         font-size: .48rem;
     }
-    
+
     .prdcard-gray {
         color: #9e9e9e;
         font-size: .24rem;
     }
-    
+
     .bookingahead-text {
         color: #616161;
         font-size: .24rem;
         margin-left: .2rem;
     }
-    
+
     .prdcard-supplier {
         color: #616161;
         float: right;
@@ -84,31 +81,31 @@
         margin-top: .2rem;
         font-size: .24rem;
     }
-    
+
     .prdcard-tagcon {
         overflow: hidden;
         padding-bottom: .2rem;
         font-size: 0;
     }
-    
+
     .prdcard-tag-item:not(:last-child) {
         margin-right: .2rem;
     }
-    
+
     .prdcard-tag-item {
         float: left;
         height: .34rem;
         font-size: .24rem;
         line-height: .34rem;
     }
-    
+
     .prdcard-tag-icon {
         margin-right: .04rem;
         color: #00afc7;
         font-size: .10rem;
         vertical-align: center;
     }
-    
+
     .prdcard-tag-desc {
         color: #616161;
     }

@@ -6,7 +6,6 @@
                 <div class="content-level">
                     <p class="content-graystar">
                         <span class="iconfont graystar" v-html="iconStar"></span>
-
                     </p>
                     <div class="contain-star">
                         <p class="content-starlevel">
@@ -15,31 +14,21 @@
                     </div>
                     <p class="content-date">{{list.name}}&nbsp;&nbsp;{{list.date}}</p>
                 </div>
-                <p class="content-text">
-                    {{list.contentText}}
-                </p>
+                <p class="content-text">{{list.contentText}}</p>
                 <div class="contain-imgs">
                     <div class="comment-imgs">
                         <img class="comment-img" v-for="(item, index) in list.commentImg" :src="item.src" :class="{'comment-img-first' : index == 0}"
                         />
-
                     </div>
                 </div>
             </div>
         </div>
-        <div class="more-comment">
-            {{last.comment}}
-            <span class="iconfont commet-arrows" v-html="last.icon"></span>
-        </div>
+        <div class="more-comment">{{last.comment}}<span class="iconfont commet-arrows" v-html="last.icon"></span></div>
     </div>
 </template>
 
 <script>
     export default {
-
-        props: [
-            "userComment"
-        ],
 
         data() {
             return {
@@ -50,9 +39,10 @@
                 }
             }
         },
-        components: {
 
-        }
+        props: [
+            "userComment"
+        ]
     }
 
 </script>

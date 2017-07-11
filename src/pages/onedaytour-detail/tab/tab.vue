@@ -94,26 +94,6 @@
 			this.instructionsElementOffsetTop = instructionsElement[0].offsetTop;
 			// console.log("主体Top" + this.mainOffsetTop, "tabHeight" + this.tabOffsetHeight, "头部Height" + this.headerOffsetHeight, "费用top" + this.expenseElementOffsetTop, "费用height" + this.expenseElementOffsetHeight, "第三个top" + this.instructionsElementOffsetTop)
 
-		},
-
-		watch: {
-			tabInfo: function () {
-				// var this_ = this;
-				// setTimeout(function () {
-				// 	var tabMainElement = document.querySelectorAll('.tab-main');
-				// 	var tabElement = document.querySelectorAll('.tab');
-				// 	var headerElement = document.querySelectorAll('.header');
-				// 	var expenseElement = document.querySelectorAll('.expense-main');
-				// 	var instructionsElement = document.querySelectorAll('.instructions-main');
-				// 	this_.mainOffsetTop = tabMainElement[0].offsetTop;
-				// 	this_.tabOffsetHeight = tabElement[0].offsetHeight;
-				// 	this_.headerOffsetHeight = headerElement[0].offsetHeight;
-				// 	this_.expenseElementOffsetTop = expenseElement[0].offsetTop;
-				// 	this_.expenseElementOffsetHeight = expenseElement[0].offsetHeight;
-				// 	this_.instructionsElementOffsetTop = instructionsElement[0].offsetTop;
-				// 	console.log("主体Top" + this_.mainOffsetTop, "tabHeight" + this_.tabOffsetHeight, "头部Height" + this_.headerOffsetHeight, "费用top" + this_.expenseElementOffsetTop, "费用height" + this_.expenseElementOffsetHeight, "第三个top" + this_.instructionsElementOffsetTop)
-				// }, 2000)
-			}
 		}
 	}
 
