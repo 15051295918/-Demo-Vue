@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<header class="header">
-	  		<a class="header-left">
+	  		<a class="header-left" @click="handleBackFront">
 	  			<div class="return"></div>
 	  		</a>
 	  		<div class="header-title">
@@ -47,7 +47,12 @@ export default {
         }
     }
   },
-  props:["data","headercity"]
+  props:["data","headercity"],
+  methods: {
+  	handleBackFront: function() {
+		window.history.go(-1);
+	}
+  }
 }
 </script>
 

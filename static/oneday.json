@@ -3,7 +3,7 @@
  	"data":{
  		"beijing": {
  			"city" : "北京",
- 			"href" : "/weekend/index",
+ 			"href" : "/city",
 	 		"spotInfo": [
 	     		{
 	     			"title" : "八达岭长城缆车",

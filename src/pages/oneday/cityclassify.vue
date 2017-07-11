@@ -3,7 +3,7 @@
 	<div class="city-classify">
 		<div class="city-top">
 			<p class="city-popular"><span class="iconfont city-icon">&#xe6a4;</span>热门城市</p>
-			<router-link :to="{path:'/'}">
+			<router-link :to="{path:'/city'}">
 				<p class="city-total">
 					<span class="city-all">全部城市 </span>
 					<span class="city-right-arrow"></span>

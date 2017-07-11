@@ -4,6 +4,8 @@ import Index from '@/pages/index/index'
 import List from '@/pages/list/index'
 import Weekend from '@/pages/weekend/index'
 import Oneday from '@/pages/oneday/index'
+import City from '@/pages/city/index'
+
 
 Vue.use(Router)
 
@@ -26,6 +28,10 @@ export default new Router({
     	path: '/onedaytour',
     	name: 'Oneday',
       component: Oneday
-    } 
-  ]
+    },{
+    	path: "/city",
+        name: "city",
+        component: City
+    }
+   ]
 })
