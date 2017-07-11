@@ -16,7 +16,7 @@
 			<div class="cityarea-title">热门城市</div>
 			<div class="cityarea-content city-now border-topbottom">
 				<router-link to="/">
-					<div class="cityitem-light" v-for="(item,index) in cityInfo" v-show="item.name.length<=5" v-if="index<18" :key="index">
+					<div class="cityitem-light" v-for="(item,index) in cityHot" v-show="item.name.length<=5" v-if="index<18" :key="index+'_hotcity'">
 						<span class="cityitem-name">{{item.name}}</span>
 					</div>
 				</router-link>
@@ -28,23 +28,23 @@
 
 <script>
 	export default {
-		beforeCreate() {	
-		 	var head = document.getElementsByTagName('head')[0]; 
-			var script = document.createElement('script'); 			
-			script.src = "http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"; 			
-			script.onload = script.onreadystatechange=function(){ 
-				if(!script.readyState || script.readyState === 'loaded' || script.readyState === 'complete') { 
-					if(remote_ip_info.ret == '1') {
-					 	this.currentPosition = remote_ip_info.city;
-			        }
-				} 
-			}.bind(this) 
-			head.appendChild(script);
-		},
-		props: ["cityInfo"],
+		// beforeCreate() {	
+		//  	var head = document.getElementsByTagName('head')[0]; 
+		// 	var script = document.createElement('script'); 			
+		// 	script.src = "http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"; 			
+		// 	script.onload = script.onreadystatechange=function(){ 
+		// 		if(!script.readyState || script.readyState === 'loaded' || script.readyState === 'complete') { 
+		// 			if(remote_ip_info.ret == '1') {
+		// 			 	this.currentPosition = remote_ip_info.city;
+		// 	        }
+		// 		} 
+		// 	}.bind(this) 
+		// 	head.appendChild(script);
+		// },
+		props: ["cityHot"],
 		data() {
 			return {
-				currentPosition: "loading..."
+				currentPosition: "北京"
 			}
 		}
 	}
