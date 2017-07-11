@@ -4,7 +4,7 @@
 		<li class="activity-item"  v-for="(item, index) in activityItem">
 			<router-link class="activity-item-content" to="/campaign/detail">
 				<div clas="activity-img-wrap">
-					<img class="activity-img" :src="item.image" />
+					<img class="activity-img" v-lazy="item.image" />
 				</div>
 				<div class="activity-info border">
 					<h3 class="activity-name">{{item.productName}}</h3>
@@ -14,7 +14,7 @@
 							<span class="progress-left-amount">剩余{{item.remain}}</span>
 							<span class="progress-bar">
 								<span class="process-bar-total"></span>
-								<span class="process-bar-gain" ></span>
+								<span class="process-bar-gain" :style="{width:[(item.total - item.remain) / item.total * 100 + '%']}"></span>
 							</span>
 						</div>
 						<span class="activity-grab-btn-area">
@@ -30,12 +30,13 @@
 
 
 <script>
+	
 
 	export default {
 		
 	  	data () {
 	    	return {
-	     		
+	     		progressBarWidth: 0
 	    	}
 	  	},
 	  	methods: {
@@ -43,7 +44,8 @@
 	  	},
 	  	computed: {
 	        
-	    }
+	    },
+	    props: ['activityItem']
 	    
 	}
 

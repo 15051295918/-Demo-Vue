@@ -43,7 +43,7 @@
 		display: flex;
 		width: 100%;
 		height: 1rem;
-		barkground-color: #fff;
+		background-color: #fff;
 	}
 
 	.footer-item {

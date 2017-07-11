@@ -1,7 +1,7 @@
 <template>
 	
 	<ul class="content-products-tab border-topbottom">
-		<li class="tab-item tab-item-moods"  v-for="(item, index) in tabItems" v-on:click="handleTabClick(index)" :class="{'tab-item-active': selected === index} ">{{item.title}}</li>		
+		<li class="tab-item tab-item-moods"  v-for="(item, index) in tabItems" v-model="url" v-on:click="handleTabClick(index)" :class="{'tab-item-active': selected === index} ">{{item.title}}</li>		
 	</ul>
 
 </template>
@@ -11,13 +11,14 @@
 		data() {
 
 			return {
+				url: "",
 				selected: 0,
 				tabItems: [
 					{"title": "人气专区"},
 					{"title": "夺宝新货"},
 					{"title": "即将开奖"},
 				],
-				activityItems: []
+				//activityItems: []
 			}
 		},
 		methods: {
@@ -25,26 +26,18 @@
 				this.selected = index;
 				switch(index) {
 					case 0: 
-						this.getData('/static/campaign/listOrderByHot.json');
+						this.url = '/static/campaign/listOrderByHot.json';
 						break;
 					case 1: 
-						this.getData('/static/campaign/listOrderByDate.json');
+						this.url = '/static/campaign/listOrderByDate.json';
 						break;
 					case 2: 
-						this.getData('/static/campaign/listOrderByProcess.json');
+						this.url = '/static/campaign/listOrderByProcess.json';
 						break;
 					default: 
 						console.log("get data error");
 				}
-			},
-			getData: function(url) {
-				this.$http.get(url).then(response => {
-			    	if(response.body.ret === true) {
-			    		this.activityItems = response.body.data[0].campaignProductDtoList;
-			    	}
-			  	}, response => {
-			    	console.log("get data error")
-			  	});
+				this.$emit("reqUrl", this.url);
 			}
 		},
 		computed: {
