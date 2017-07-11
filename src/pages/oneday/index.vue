@@ -1,8 +1,12 @@
 <template>
-	<od-list></od-list>
+	<div>
+		<od-list></od-list>
+		<list-page></list-page>
+	</div>
 </template>
 <script>
 import odlist from './od-list'
+import odlistpage from './od-listpage'
 export default {
   data () {
     return {
@@ -10,7 +14,8 @@ export default {
     }
   },
   components:{
-  	"od-list":odlist
+  	"od-list":odlist,
+  	"list-page":odlistpage
   }
 }
 </script>
