@@ -1,29 +1,33 @@
 <template>
-	<div class="model" v-if="show">
-			<div class="model_con" v-for="(item,index) in models" :key="index + '_model_con'" >
-				<div class="model_hidden" v-on:click="show = !show">X</div>
-				<div class="model_img_wrap"><img :src="item.s_imgUrl"></div>
-				<div class="model_detail_wrap"><p class="model_detail">{{item.detail}}</p></div>
+<div>
+	<div class="model" v-if="showSt">
+			<div class="model_con">
+				<div class="model_hidden" v-on:click="showStatus">X</div>
+				<div class="model_img_wrap"><img :src="models.s_imgUrl" class="model_img"></div>
+				<div class="model_detail_wrap"><p class="model_detail">{{models.detail}}</p></div>
 			</div>
-
-			<!-- <div class="model_btn_wrap">
-				<div class="btn_synopsis">简 介</div>
-				<div class="btn_map">地 图</div>
-			</div> -->
-	</div>	
+	</div>
+</div>
+		
 </template>
 
-<script>
+	<script>
 		export default {
 			  data () {
 				    return {
-				    	show:true
+				    	show:false
 				    }						
 			  },
-			  props:["models"],
+			  props:["showSt","models"],
+			  methods:{
+			  	showStatus(){
+			  		this.show=!this.showSt;
+			  		this.$emit("listenToChildEvent",this.show);
+			  	}
+			  }
 			
 		}
-</script>
+	</script>
 
 
 <style scoped>
@@ -50,7 +54,7 @@
 		border-radius: 0.2rem;
 	}
 
-    .model_hidden{
+    .model_hidden {
 		position: absolute;
 		top: 5px;
 		right: 10px;
@@ -59,13 +63,13 @@
 	}
 	.model_img_wrap {
 		width: 100%;
-		height: 40%;
+		height: 50%;
 		overflow: hidden;
 		border-radius: 0.2rem 0.2rem 0 0;
 		border-bottom: 1px solid #ccc;
 	}
 
-	.model_img_wrap>img{
+	.model_img {
 		width: 100%;
 	}
 
@@ -82,35 +86,6 @@
 		line-height: 0.5rem;
 	}
 
-	.model_btn_wrap {
-		position: fixed;
-		bottom: 12%;
-		left: 10%;
-		width: 80%;
-		height: 5%;
-	}
-
-    .btn_map,
-	.btn_synopsis {
-		float: left;
-		width: 20%;
-		height: 80%;
-		color: #fefefe;
-		font-size: 0.4rem;
-		text-align: center;
-		line-height: 0.6rem;
-		border-radius: .3rem;
-		border:1px solid #fff;
-		box-shadow: 0 0 13px -3px #fff inset;
-		
-	}
-
-	.btn_synopsis {
-		margin-left: 5%;
-	}
-
-	.btn_map {
-		margin-left: 48%;
-	}
+	
 
 </style>

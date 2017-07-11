@@ -1,7 +1,7 @@
 {
 	"ret": true,
-	"data":{
-		"detailInfo": [{
+	"data":[
+		[{
     		"imgUrl": "http://img1.qunarzz.com/sight/p0/1501/28/2874bfd7fa4c5291.water.jpg_600x330_f8d39e2b.jpg",
     		"title":"中国航空博物馆",
     		"content":"亚洲最大以飞机文物为主的航空珍品荟萃基地",
@@ -65,9 +65,7 @@
     	}],
 
 
-
-
-        "imperialCity": [{
+        [{
             "imgUrl": "http://img1.qunarzz.com/sight/p0/1501/f4/f467729126949c3a.water.jpg_600x330_371120bc.jpg",
             "title":"天安门广场",
             "content":"世界上最大的城市中心广场，北京的心脏",
@@ -117,9 +115,7 @@
             "detail":"富可敌国的和珅把几乎所有的稀世珍宝都藏在了这里。还等什么，快来感受一下“财富”的魅力吧！恭王府后花园融江南园林与北方建筑格局为一体，汇西洋建筑及中国古典园林建筑为一园。"
         }],
 
-
-
-        "scenic": [{
+        [{
             "imgUrl": "http://img1.qunarzz.com/sight/p0/1604/1b/1b6778deafaf208f90.img.jpg_600x330_113416a7.jpg",
             "title":"八达岭长城",
             "content":"史称天下九塞之一，是万里长城的精华",
@@ -181,10 +177,7 @@
             "detail":"这里是学生党名副其实的开心课堂，这里同样是青年情侣的浪漫圣地！时尚、动感、欢乐、梦幻的北京欢乐谷欢迎你！"
         }],
         
-
-
-
-        "floated": [{
+        [{
             "imgUrl": "http://img1.qunarzz.com/sight/p0/1603/ad/ad84d5339c3a34f390.water.jpg_600x330_d682a2d6.jpg",
             "title":"十渡风景区",
             "content":"远离城市喧嚣，感受自然之美",
@@ -228,10 +221,7 @@
             "detail":"拒马河十五渡漂流始于国家AAAA级自然风景区十五渡太行山脉平峪村，十五渡漂流开发于2011年，全长3公里，平均水深0.5米，百米落差2---5米。拒马河十五渡漂流安全、刺激、有惊无险，适宜多种人群。"
         }],
 
-
-
-
-        "theater": [{
+        [{
             "imgUrl": "http://img1.qunarzz.com/sight/p0/201401/22/9f80d13e202c19ea5b68249fef42b942.jpg_600x330_787ca0e4.jpg",
             "title":"红剧场",
             "content":"老天桥文化表演",
@@ -282,5 +272,5 @@
         }]
 
     	
-	}
+	]
 }

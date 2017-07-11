@@ -3,7 +3,7 @@
 		<weekend-header></weekend-header>
 
 		<div class="product" >
-	  		<div class="product-item" v-for="(list,index) in productInfo" :key="index+'product'" v-model="index"  @click="getModel">
+	  		<div class="product-item" v-for="(list,index) in productInfo" :key="index+'product'" v-model="index"  @click="getModel(index)">
 	  			
           <div class="product-wrapper" v-on:click="show = !show">
 	  				<img :src="list.imgUrl"/>
@@ -16,7 +16,7 @@
          </div>
 	  </div>
 
-    <weekend-model :models="productInfo" v-if="show"></weekend-model>
+    <weekend-model :models="modelInfo" v-if="show" :showSt="show" v-on:listenToChildEvent="getShowStatus"></weekend-model>
 
 	</div>
 </template>
@@ -25,32 +25,41 @@
 import header from './header'
 import model from './model'
 export default {
- created:function(){
- 	this.$http.get('/static/weekend.json').then(response => {
-            console.log(response);
-             this.productInfo = response.body.data.detailInfo;
+created:function () {
+   	this.$http.get('/static/weekend.json').then(response => {
+              console.log(response);
+               this.productInfo = response.body.data[4];
 
-        }, response => {
-            console.log("get index data error");
-        });
+          }, response => {
+              console.log("get index data error");
+          });
  },
-  data () {
+
+data () {
     return {
        show:false,
        index:"",
-       productInfo:[]
+       productInfo:[],
+       modelInfo:{}
     }
   },
+
   methods:{
-    getModel(){
-      console.log("触发有效");
+    getModel (index) {
+      console.log(index);
+      this.modelInfo=this.productInfo[index];
+    },
+    getShowStatus(status){
+      this.show=status;
     }
   },
-  components:{
+
+  components: {
   	"weekend-header": header,
     "weekend-model": model
   }
 }
+
 </script>
 
  
