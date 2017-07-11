@@ -1,21 +1,21 @@
 <template>
 	<div class=detail-wrap>
-		<div class="detail-header" @click="handleClick">
-			<img class="detailheader-img" src="http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_600x330_f922b488.jpg" />
+		<div class="detail-header" @click="handleClick" v-for="itemOne in title_data">
+			<img class="detailheader-img" :src="itemOne.picUrl" />
 			<div class="detailheader-title">
-				<span class="title">故宫(AAAAA景区)</span>
+				<span class="title">{{itemOne.name}}</span>
 			</div>
 			<div class="total-img">
-				<span class="iconfont icon-img" >&#xe634;</span>{{data.length}}
+				<span class="iconfont icon-img" >&#xe634;</span>{{swiper_data.length}}
 			</div>
 		</div>
 		<!--mask-->
 		<div class="detailheader-mask" v-show="seen">
 			<div class="swiper-wrap">
 				<swiper :options="swiperOption" ref="mySwiper">
-			        <swiper-slide v-for="item,index in data" :key="index + 'detail_img'">
+			        <swiper-slide v-for="(itemTwo,index) in swiper_data" :key="index + 'detail_img'">
 			        	<div class="img-wrapper">
-			        		<img class="swiper-img" :src="item.imgUrl"/>
+			        		<img class="swiper-img" :src="itemTwo.imgUrl"/>
 			        	</div>
 			        </swiper-slide>
 	    		</swiper>
@@ -52,7 +52,7 @@
 	        	}
 		 	}
 		 },
-		 props:["data"],
+		 props:["title_data","swiper_data"],
 		 methods:{
 		 	handleClick: function() {
 		 		return this.seen = true;
