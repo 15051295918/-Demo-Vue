@@ -131,7 +131,7 @@ export default {
 
 <style scoped>
 	.nav{
-		z-index: 5;
+		z-index:5;
 		position: absolute;
 		height: 100%;
 		width: 100%;
@@ -179,7 +179,7 @@ export default {
 	}
 	.subnav{
 		width: 100%;
-		height: 9.6rem;
+		min-height: 100%;
 		background: #fff;	
 	}
 	.sub-items{

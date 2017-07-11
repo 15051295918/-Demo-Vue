@@ -40,10 +40,10 @@
 				this.i=index;
 			},
 			ClassClick() {
-				 return (this.showNav = ! this.showNav, this.showOrder=false, this.maskShow=this.showNav)
+				return (this.showNav = ! this.showNav, this.showOrder=false, this.maskShow=this.showNav)
 			},
 			indexOrderClick() {
-				 return (this.showOrder = ! this.showOrder, this.showNav=false, this.maskShow=this.showOrder)
+				return (this.showOrder = ! this.showOrder, this.showNav=false, this.maskShow=this.showOrder)
 			},
 			maskClick() {
 				return  this.showNav =this.showOrder= this.maskShow= false
@@ -67,7 +67,7 @@
 		top: 0;
 		bottom: 0;
 		width: 100%;
-		min-height: 100%;
+		height: 100%;
 		background: #f5f5f5;
 	}
 </style>
