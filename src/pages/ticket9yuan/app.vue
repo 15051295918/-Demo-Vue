@@ -1,5 +1,5 @@
 <template>
-  	<div class="titket-9-main" ref="appNameAd">
+  	<div class="titket-9-main" v-if="appNameAd">
 		<div class="app" ref="app">
 			<div class="app-left">
 				<img src="http://source.qunarzz.com/site/images/wap/touch/images/v2/images1x/top-logo.png" class="app-logo"/>
@@ -9,7 +9,7 @@
 				<p class="app-name-ad">超过<span class="app-name-num">2亿</span>人的智慧选择</p>
 			</div>
 			<div class="app-app">下载客户端</div>
-			<div class="app-off" @click="handleClickOff">×</div>
+			<div class="app-off iconfont" @click="handleClickOff">&#xe8e7;</div>
 		</div>
   	</div>	
 </template>
@@ -18,12 +18,12 @@
 export default {
   data () {
     return {
-     
+     	"appNameAd": true
     }
   },
   methods: {
   	handleClickOff: function() {
-  		this.$refs.appNameAd.style = "display: none"
+  		this.appNameAd = false;
   	}
   }
   
@@ -96,6 +96,6 @@ export default {
 		color: #fff;
 		text-align: center;
 		line-height: .6rem;
-		font-size: .8rem;
+		font-size: .6rem;
 	}
 </style>

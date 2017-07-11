@@ -38,11 +38,15 @@ export default {
   },
   methods: {
         handleClick: function(index) {
-            this.activeIndex = index;   
+            this.activeIndex = index; 
+
             if(index==7){
-              alert(123)
+              this.$emit("moreCityShow");
+            }else{
+              1
             }         
         }
+
     }
 
 }

@@ -9,11 +9,11 @@
 			<div class="titket-active">
 				<div class="active-content">来这app更新至最新版本方可享受本活动优惠</div>
 			</div>
-			<titket-city></titket-city>
+			<titket-city @moreCityShow="handleClickShow"></titket-city>
 			<titket-scenic :data="nineTicket"></titket-scenic>
 			<more-special></more-special>
 			<more-product></more-product>
-			<!-- <more-city class="more-city"></more-city> -->
+			<more-province @moreProvinceOff="handleClickOff" v-if="moreProvince" :moreProvinces="moreProvinces"></more-province>
 		</div>
 		
   	</div>	
@@ -27,13 +27,14 @@ import titketcity from "./city"
 import titketscenic from "./scenic"
 import morespecial from "./morespecial"
 import moreproduct from "./moreproduct"
-// import morecity from "./morecity"
+import moreprovince from "./moreprovince"
 
 export default {
 	created: function() {
       this.$http.get('/static/ticketRmb.json').then(response => { 
       	// console.log(response)
       	this.nineTicket  = response.body.data.indexInfo.nineTicket
+      	this.moreProvinces = response.body.data.indexInfo.moreProvinces
       	// console.log(this.nineTicket)  
       }, response => {
         // error callback失败的回调
@@ -42,7 +43,9 @@ export default {
     },
     data () {
         return {
-     		nineTicket : []
+     		nineTicket: [],
+     		moreProvinces: [],
+     		"moreProvince" : false
         }
     },
 	components: {
@@ -52,7 +55,15 @@ export default {
 	  	"titket-scenic": titketscenic,
 	  	"more-special": morespecial,
 	  	"more-product": moreproduct,
-	  	// "more-city": morecity
+	  	"more-province": moreprovince
+	},
+	methods: {
+		handleClickOff: function() {
+			this.moreProvince = false
+		},
+		handleClickShow: function() {
+			this.moreProvince = true
+		}
 	}  
 }
 </script>
@@ -88,7 +99,7 @@ export default {
 		color: #fff;
 		font-size: .24rem;
 	}
-	.more-city {
+	.more-province {
 		position: absolute;
 		top: 0;
 		left: 0;
