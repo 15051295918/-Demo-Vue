@@ -1,5 +1,5 @@
 <template>
-    <div class="main" @click="handleScroll">
+    <div class="main">
 
         <div class="header" :style="style">
             <a class="header-left iconfont" role="left">&#xe685;</a>
@@ -15,7 +15,7 @@
         <index-tab :tabInfo="tabInfo" :scrollTop="scrollTop" @openMap="openMap(isBigMapOpen)"></index-tab>
 
         <!--国辉-->
-        <index-footer></index-footer>
+        <index-footer :footerInfo="footerInfo"></index-footer>
 
         <!--坤勇-->
         <booking-ticket></booking-ticket>
@@ -37,6 +37,7 @@
                 if (response.body.ret) {
                     this.headerContent = this.headerTitle = response.body.data.index.headerTitle;
                     this.tabInfo = response.body.data.tab;
+                    this.footerInfo = response.body.data.footer;
                 } else {
                     console.log("Invalid data!");
                 }
@@ -54,7 +55,7 @@
                 "tabInfo": {
                     "index": {
                         "tabs": [],
-                        "tabOfset":{}
+                        "tabOfset": {}
                     },
                     "tourItinerary": {
                         "map": {},
@@ -85,6 +86,15 @@
                             }
                         }
                     }
+                },
+                "footerInfo": {
+                    "userComment": {
+                        "title": "",
+                        "lists": []
+                    },
+                    "moreQuotation": {
+
+                    }
                 }
             }
         },
@@ -106,10 +116,6 @@
         },
 
         methods: {
-
-            handleScroll: function () {
-                alert(123)
-            },
 
             openMap: function () {
                 if (!this.isBigMapOpen) {

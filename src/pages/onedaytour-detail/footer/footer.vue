@@ -1,6 +1,6 @@
 <template>
     <div class="main-footer border-leftright">
-        <user-comment></user-comment>
+        <user-comment :userComment="footerInfo.userComment"></user-comment>
         <more-quotation></more-quotation>
     </div>
 </template>
@@ -16,6 +16,10 @@ export default {
              
         }
     },
+
+    props:[
+        "footerInfo"
+    ],
     components: {
         "user-comment": userComment,
         "more-quotation": moreQuotation
