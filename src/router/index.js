@@ -2,9 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/pages/index/index'
 import List from '@/pages/list/index'
-
 import Oneday from '@/pages/oneday/index'
-
 import City from '@/pages/city/index'
 
 
@@ -22,6 +20,7 @@ export default new Router({
     	name: "list",
     	component: List
     }, {
+<<<<<<< HEAD
 
         path: "/oneday",
         name: "Oneday",
