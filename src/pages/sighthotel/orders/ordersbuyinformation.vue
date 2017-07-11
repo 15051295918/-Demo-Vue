@@ -5,9 +5,9 @@
 		<span class="limit-desc">最多买5张</span>
 		<span class="available-count">剩余5张</span>
 		<div class="input-number border">
-			<span class="input-minus number iconfont">&#xe620;</span>
-			<input type="tel" max="5" min="1" value="0" class="input-number-input" />
-			<span class="input-adds number iconfont">&#xe610;</span>
+			<span class="input-minus number iconfont" @click="handleMinusClick">&#xe620;</span>
+			<input type="tel" :max="this.max" :min="this.min" :value="this.value" class="input-number-input" />
+			<span class="input-adds number iconfont" @click="handleAddsClick">&#xe610;</span>
 		</div>
 	</div>
 </div>
@@ -20,8 +20,26 @@ export default {
     
     data() {
       return {
-      
+            value: 1,
+            max: 5,
+            min: 1
       }
+    },
+    methods: {
+        handleMinusClick: function() {
+            if(this.value > this.min) {
+                this.value = this.value-1
+            }else {
+                this.value = this.min
+            }           
+        },
+        handleAddsClick: function() {
+            if(this.value < this.max) {
+                this.value = this.value + 1
+            }else {
+                this.value = this.max
+            }
+        }
     }
    
 }

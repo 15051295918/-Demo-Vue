@@ -27,7 +27,6 @@
 export default {
     created: function(){
         this.$http.get('/static/phonearea.json').then(response => {
-           console.log(response.body.data.list)
            this.list = response.body.data.list
         }, response => {
             console.log("get index data error")
@@ -35,7 +34,8 @@ export default {
     },
     data() {
       return {
-           list:[]
+            list:[]
+
       }
     },
     methods: {
@@ -48,8 +48,6 @@ export default {
             this.$router.go(-1)
         }
     }
-    
-   
 }
 
 
