@@ -7,6 +7,13 @@ import store from './store'
 
 
 new Vue({
+	beforeCreate: function() {
+		var city = '北京';
+		try {
+			city = window.localStorage.city;
+		} catch(e) {}
+		this.$store.commit("changeCity", city);
+	},
   	el: '#app',
   	router,
   	store,

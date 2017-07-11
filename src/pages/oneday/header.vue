@@ -9,7 +9,7 @@
 	  		</div>
 	  		<div class="header-right">
 	  			<router-link :to="{path:headercity.href}">
-	  				<span class="header-city">{{headercity.city}}<i class="header-city-option"></i></span>  	
+	  				<span class="header-city">{{$store.state.city}}<i class="header-city-option"></i></span>  	
 	  			</router-link>
 	  		</div>
 	  	</header>

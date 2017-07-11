@@ -15,11 +15,11 @@
 		<div>
 			<div class="cityarea-title">热门城市</div>
 			<div class="cityarea-content city-now border-topbottom">
-				<!--<router-link to="/">-->
-					<div class="cityitem-light" v-for="(item,index) in cityHot" v-show="item.name.length<=5" v-if="index<18" :key="index+'_hotcity'">
+				<!-- <router-link to="/"> -->
+					<div @click="handleHotCityClick" :data-cityname="item.name" class="cityitem-light" v-for="(item,index) in cityHot" v-show="item.name.length<=5" v-if="index<18" :key="index+'_hotcity'">
 						<span class="cityitem-name">{{item.name}}</span>
 					</div>
-				<!--</router-link>-->
+				<!-- </router-link> -->
 			</div>
 		</div>
 
@@ -45,6 +45,16 @@
 		data() {
 			return {
 				currentPosition: "loading..."
+			}
+		},
+		methods: {
+			handleHotCityClick: function(e) {
+				var city = e.target.innerText;
+				try {
+					window.localStorage.city = city;
+				}catch(e){}
+				this.$store.commit("changeCity", city);
+				this.$router.go(-1);
 			}
 		}
 	}
