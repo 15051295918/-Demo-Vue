@@ -1,13 +1,14 @@
 <template>
 	<div class="model" v-if="show">
-			<div class="model_con" v-for="(item,index) in models" :key="index + '_model_con'" >
-				<div class="model_hidden" v-on:click="show = !show">X</div>
-				<div class="model_img_wrap"><img :src="item.s_imgUrl"></div>
-				<div class="model_detail_wrap"><p class="model_detail">{{item.detail}}</p></div>
+			<div class="model_con">
+			    <div class="model_hidden" v-on:click="show = !show">X</div>
+				<div class="model_img_wrap"><img src="./imgs/pbg.png"></div>
+				<div class="model_detail_wrap"><p class="model_detail">在蜜蜂王国，可以看到形态大小不同的蜂种和硕大罕见的野生大蜜蜂蜂巢，了解“蜜蜂王国”种种引人入胜的生物学特性和社会性行为的奥秘。</p></div>
 			</div>
 
 			<!-- <div class="model_btn_wrap">
 				<div class="btn_synopsis">简 介</div>
+				<div class="btn_showtime">开放时间</div>
 				<div class="btn_map">地 图</div>
 			</div> -->
 	</div>	
@@ -15,13 +16,15 @@
 
 <script>
 		export default {
-			  data () {
-				    return {
-				    	show:true
-				    }						
-			  },
-			  props:["models"],
-			
+		  data () {
+			    return {
+			    	show:true
+			    }						
+		  },
+		  props:["models"],
+		  mounted(){
+			  	
+			  	}
 		}
 </script>
 
@@ -47,10 +50,9 @@
 		width: 90%;
 		height: 60%;
 		background-color: #fefefe;
-		border-radius: 0.2rem;
+		border-radius: 0.1rem;
 	}
-
-    .model_hidden{
+	.model_hidden{
 		position: absolute;
 		top: 5px;
 		right: 10px;
@@ -61,23 +63,19 @@
 		width: 100%;
 		height: 40%;
 		overflow: hidden;
-		border-radius: 0.2rem 0.2rem 0 0;
+		border-radius: 0.1rem 0.1rem 0 0;
 		border-bottom: 1px solid #ccc;
 	}
 
-	.model_img_wrap>img{
-		width: 100%;
-	}
-
 	.model_detail_wrap {
-		width: 92%;
+		width: 96%;
 		height: 56%;
-		padding:4%;
+		padding:2%;
 		overflow: hidden; 
 	}
 
 	.model_detail {
-		text-indent: 30px;
+		text-indent: 36px;
 		overflow: hidden;
 		line-height: 0.5rem;
 	}
@@ -97,6 +95,7 @@
 		height: 80%;
 		color: #fefefe;
 		font-size: 0.4rem;
+		font-weight: normal;
 		text-align: center;
 		line-height: 0.6rem;
 		border-radius: .3rem;

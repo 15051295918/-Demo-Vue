@@ -2,8 +2,11 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/pages/index/index'
 import List from '@/pages/list/index'
+<<<<<<< HEAD
 import Weekend from '@/pages/weekend/index'
-import Model from '@/pages/weekend/model'
+=======
+import City from '@/pages/city/index'
+>>>>>>> origin/master
 
 Vue.use(Router)
 
@@ -11,20 +14,24 @@ export default new Router({
   routes: [
     {
     	path: '/',
-    	name: 'Index',
+    	name: 'index',
+        alias: '/index',
     	component: Index
     }, {
     	path: "/list",
-    	name: "List",
+    	name: "list",
     	component: List
     }, {
+<<<<<<< HEAD
         path: "/weekend",
         name: "Weekend",
         component: Weekend
-    }, {
-        path: "/model",
-        name: "Model",
-        component: Model
     }
   ]
+=======
+        path: "/city",
+        name: "city",
+        component: City
+    }]
+>>>>>>> origin/master
 })

@@ -1,24 +1,29 @@
 <template>
 	<div class="main">
 		<weekend-header></weekend-header>
+
 		<div class="product" >
-	  		<div class="product-item" v-for="(list,index) in productInfo" :key="index+'product'">
-	  			<div class="product-wrapper">
+	  		<div class="product-item" v-for="(list,index) in productInfo" :key="index+'product'" v-model="index"  @click="getModel">
+	  			
+          <div class="product-wrapper" v-on:click="show = !show">
 	  				<img :src="list.imgUrl"/>
 	  			</div>
-	  			<div class="product-info">
+	  			
+          <div class="product-info">
 	  				<h2 class="product-name">{{list.title}}</h2>
 	  				<p class="product-detail">{{list.content}}</p>
 	  			</div>
-	  		</div>
-	  		
-  	    </div>
-       
+         </div>
+	  </div>
+
+    <weekend-model :models="productInfo" v-if="show"></weekend-model>
+
 	</div>
 </template>
 
 <script>
 import header from './header'
+import model from './model'
 export default {
  created:function(){
  	this.$http.get('/static/weekend.json').then(response => {
@@ -31,12 +36,19 @@ export default {
  },
   data () {
     return {
-      productInfo:[]
+       show:false,
+       index:"",
+       productInfo:[]
     }
-
+  },
+  methods:{
+    getModel(){
+      console.log("触发有效");
+    }
   },
   components:{
-  	"weekend-header": header
+  	"weekend-header": header,
+    "weekend-model": model
   }
 }
 </script>
@@ -60,7 +72,7 @@ export default {
   		overflow: hidden;
   		height: 0;
   		width: 100%;
-  		padding-bottom:43.125%;
+  		padding-bottom:43.37288%;
 
 
   }
