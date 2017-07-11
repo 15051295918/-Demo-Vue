@@ -13,6 +13,7 @@
 			<titket-scenic :data="nineTicket"></titket-scenic>
 			<more-special></more-special>
 			<more-product></more-product>
+			<!-- <more-city class="more-city"></more-city> -->
 		</div>
 		
   	</div>	
@@ -26,6 +27,7 @@ import titketcity from "./city"
 import titketscenic from "./scenic"
 import morespecial from "./morespecial"
 import moreproduct from "./moreproduct"
+// import morecity from "./morecity"
 
 export default {
 	created: function() {
@@ -49,7 +51,8 @@ export default {
 	  	"titket-city": titketcity,
 	  	"titket-scenic": titketscenic,
 	  	"more-special": morespecial,
-	  	"more-product": moreproduct
+	  	"more-product": moreproduct,
+	  	// "more-city": morecity
 	}  
 }
 </script>
@@ -60,6 +63,7 @@ export default {
 		width:100%;
 		height: auto;
 		background: #FFEE99;
+		position: relative;
 	}
 	.titket-ban {
 		width:100%;
@@ -83,5 +87,14 @@ export default {
 		line-height: .4rem;
 		color: #fff;
 		font-size: .24rem;
+	}
+	.more-city {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 50;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.5);
 	}
 </style>

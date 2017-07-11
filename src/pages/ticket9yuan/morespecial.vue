@@ -195,10 +195,13 @@ export default {
     .list-img-box{
         position: relative;
         width: 100%;
+        height: 75%;
         background-image: cover;
     }
     .list-img{
         width:100%;
+        height: 100%;
+        background-size: 100% 100%;
     }
     .list-img-add{
         position: absolute;
