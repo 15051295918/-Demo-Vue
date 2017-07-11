@@ -1,21 +1,21 @@
 <template>
 
-	<ul class="footer">
-  		<router-link class="footer-item footer-item-index" to="/campaign">
-  			<span class="iconfont footer-item-icon">&#xe62a;</span>
-  			<span class="footer-item-title">首页</span>
+	<ul class="cam-footer">
+  		<router-link class="cam-footer-item cam-footer-item-index" to="/campaign">
+  			<span class="iconfont cam-footer-item-icon">&#xe62a;</span>
+  			<span class="cam-footer-item-title">首页</span>
   		</router-link>
-  		<router-link class="footer-item" to="/campaign">
-  			<span class="iconfont footer-item-icon">&#xe61c;</span>
-  			<span class="footer-item-title">最新揭晓</span>
+  		<router-link class="cam-footer-item" to="/campaign">
+  			<span class="iconfont cam-footer-item-icon">&#xe61c;</span>
+  			<span class="cam-footer-item-title">最新揭晓</span>
   		</router-link>
-  		<router-link class="footer-item" to="/campaign">
-  			<span class="iconfont footer-item-icon">&#xe60f;</span>
-  			<span class="footer-item-title">帮助</span>
+  		<router-link class="cam-footer-item" to="/campaign">
+  			<span class="iconfont cam-footer-item-icon">&#xe60f;</span>
+  			<span class="cam-footer-item-title">帮助</span>
   		</router-link>
-  		<router-link class="footer-item" to="/campaign">
-  			<span class="iconfont footer-item-icon">&#xe672;</span>
-  			<span class="footer-item-title">我的</span>
+  		<router-link class="cam-footer-item" to="/campaign">
+  			<span class="iconfont cam-footer-item-icon">&#xe672;</span>
+  			<span class="cam-footer-item-title">我的</span>
   		</router-link>
   	</ul>
   	
@@ -35,7 +35,7 @@
 
 <style scoped>
 
-	.footer {
+	.cam-footer {
 		overflow: hidden;
 		position: fixed;
 		left: 0;
@@ -46,7 +46,7 @@
 		background-color: #fff;
 	}
 
-	.footer-item {
+	.cam-footer-item {
 		flex: 1;
 		display: block;	
 		margin-top: .16rem;	
@@ -54,14 +54,14 @@
 		color: #666;
 	}
 
-	.footer-item-icon {
+	.cam-footer-item-icon {
 		display: block;
 		height: .44rem;
 		line-height: .44rem;
 		font-size: .44rem;
 	}
 
-	.footer-item-title {
+	.cam-footer-item-title {
 		overflow: hidden;
 		display: block;
 		height: .4rem;
@@ -70,7 +70,7 @@
 		white-space: nowrap;
 	}
 
-	.footer-item-index {
+	.cam-footer-item-index {
 		color: #21a0af;
 	}
 
