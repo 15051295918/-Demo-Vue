@@ -1,7 +1,7 @@
 <template>
 <div id="wrapper-three" v-show="show">
 	<div class="threenav"  id="scroller-three">
-		<div class="three-items" v-for="item in threeInfo" >
+		<div class="three-items" v-for="item in threeInfo" @click="handlethreenavClick" >
 			{{item.itemtitle}}
 			<span class="three-items-count">
 				{{item.visitedNum}}
@@ -13,21 +13,24 @@
 </template>
 
 <script>
-
 import "./iscroll.js";
 
 export default {
-	updated(){
+	updated() {
 		new IScroll("#wrapper-three",{scrollX:false,scrollY:true,mouseWheel:true});
 	},
-	data () {
+	data() {
 		return {
 			
 		}
 	},
+
 	props:["threeInfo","show"],
+	
 	methods: {
-	  
+		handlethreenavClick(){
+			this.$emit("threenavClick");
+		}
 	}
 	
 }
@@ -36,27 +39,27 @@ export default {
 
 <style scoped>
 	#wrapper-three{
-		width:50%;
-		height:4.8rem;
+		width: 50%;
+		height: 4.8rem;
 		background: #f1f1f1;
 		overflow: hidden;
 		position: absolute;
-		right:0;
-		top:.8rem;
+		right: 0;
+		top: .8rem;
 	}
 	.threenav{
-		width:100%;
-		height:7.6rem;
+		width: 100%;
+		height: 7.6rem;
 		background: #f1f1f1;
 	}
 	.three-items{
 		height: .8rem;
 		line-height: .8rem;
-		padding-left:.3rem;
-		color:#212121;
+		padding-left: .3rem;
+		color: #212121;
 	}
 	.three-items-count{
-		float:right;
+		float: right;
 	    margin-right: .2rem;
 	    color: #9e9e9e
 	}
