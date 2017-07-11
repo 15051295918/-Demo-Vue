@@ -4,21 +4,24 @@
 		<h3 class="comment-title">用户评论</h3>
 		<div class="comment-list" v-for="(item, index) in data" :key="index + '_imgswiper_item'">
 			<div class="comment-item border-top">
-				<div class="comment-stardate"><span class="mpf-starlevel"><i class="mp-iconfont mpf-starlevel-gain" style="width:100.0%">BBBBB</i></span><span class="comment-date">z*9&nbsp;&nbsp;2017-06-23</span>
+				<div class="comment-stardate"><span class="mpf-starlevel">
+					<i class="iconfont mpf-starlevel-gain" style="width:100.0%">&#xe6e2;&#xe6e2;&#xe6e2;&#xe6e2;&#xe6e2;</i>
+					</span><span class="comment-date">z*9&nbsp;&nbsp;2017-06-23</span>
 				</div>
 				<p class="comment-content" v-bind:style="styleHeigth" >{{item.commentContent}}
 				</p>
-				<div :id="index" class="comment-foldbtn mp-iconfont" data-status="fold" v-on:click="commentFoldBtn">
+				<div :id="index+'0'" class="comment-foldbtn mp-iconfont" data-status="fold" v-on:click="commentFoldBtn">
 					<span>∨</span>
 
 				</div>
 				<div class="comment-imgs" mp-role="scrollImages">
-					<div class="comment-imgouter" v-for="item in dataImg">
+					<div class="comment-imgouter" v-for="item in dataImg" >
 						<div class="comment-imginner">
-							<img class="comment-img" mp-role="lazyLoadImg" data-original-src="" data-bigimg="" :src="item.commentImglist" />
+							<img class="comment-img" mp-role="lazyLoadImg" data-original-src="" data-bigimg="" :src="item.commentImglist" @click="handleClickMask"/>
 						</div>
 					</div>
-					<div class="comment-imgnumtag"><span class="commenttag-bg"></span><span class="comment-tagnum">共9张</span>
+					<div class="comment-imgnumtag"><span class="commenttag-bg">
+						</span><span class="comment-tagnum">共9张</span>
 					</div>
 				</div>
 			</div>		
@@ -26,9 +29,32 @@
 		<a href="//touch.piao.qunar.com/touch/sight/comment.htm?sightId=38170&amp;cat=from_area%3Dtl_hot_search%26from_value%3D%25E6%2595%2585%25E5%25AE%25AB%26from_index%3D4" mp-role="commentLink">
 			<div class="more-refresh border-top">
 				查看全部评论
-				<span class="mp-iconfont">F</span>
+				<span class="mp-iconfont">></span>
 			</div>
 		</a>
+		<div class="mp-imgswipe" v-show="seen">
+			<div class="mp-slide-closebutton">
+				<span class="iconfont " @click="handleClickClose">&#xe621;</span>
+			</div>
+			<div class="mp-imgswipe-show js-slider-picture mp-imgswipe-current" style="left: 0px;">
+				<div class="mp-imgswipe-img" >
+					<img src="" class="mask-img" />
+				</div>
+			</div>
+			<div class="mp-imgswipe-show js-slider-picture-back"></div>
+			<div class="mp-imgswipe-bar">
+				<div class="mp-imgswipe-note">
+					<em class="js-slider-name"></em>
+					<span class="js-slider-namesub">(1/1)</span>
+				</div>
+				<div class="mp-imgswipe-turn mp-imgswipe-prev mp-imgswipe-disabled">
+					<span class="mpg-iconfont"><</span>
+				</div>
+				<div class="mp-imgswipe-turn mp-imgswipe-next mp-imgswipe-disabled">
+					<span class="mpg-iconfont">></span>
+				</div>
+			</div>
+		</div>	
 	</div>
 
 </template>
@@ -43,7 +69,8 @@ export default {
 			styleHeigth:{
 				height:"105px",
 				overflow:"hidden"
-			}
+			},
+			seen:false
         }
     },
     methods:{
@@ -61,6 +88,15 @@ export default {
 				height.previousSibling.style.overflow="hidden";
 				loadMore.innerHTML="∨"
 			}
+		},
+
+		handleClickMask: function(e) {
+			this.seen = true;
+			document.getElementsByClassName("mask-img")[0].setAttribute("src",e.currentTarget.src)
+		},
+
+		handleClickClose:function (){
+			this.seen = false;
 		}
     },
     props:["data","dataImg"]
@@ -99,7 +135,6 @@ export default {
 
 	.mpf-starlevel {
 		vertical-align: middle;
-	    display: inline-block;
 	    position: relative;
 	    width: 1.4rem;
 	    height: .28rem;
@@ -108,6 +143,7 @@ export default {
 	.mpf-starlevel-gain {
 	    z-index: 2;
 	    color: #00bcd4;
+	    margin-bottom:1rem
 	}
 
 	.comment-date {
@@ -181,5 +217,135 @@ export default {
 	    margin-left: .1rem;
 	    color: #616161;
 	    font-size: .2rem;
+	}
+
+	.mp-imgswipe {
+	    overflow: hidden;
+	    position: fixed;
+	    z-index: 99;
+	    top: 0;
+	    bottom: 0;
+	    width: 100%;
+	    background-color: #000;
+	}
+
+	.mp-slide-closebutton {
+	    position: absolute;
+	    z-index: 3;
+	    top: 1.6rem;
+	    right: .4rem;
+	    width: .4rem;
+	    height: .6rem;
+	    padding: .2rem;
+	    color: #fff;
+	    font-size: .6rem;
+	    -webkit-border-radius: .3rem;
+	    -moz-border-radius: .3rem;
+	    border-radius: .3rem;
+	}
+
+	.mp-slide-closebutton  span{
+		display:inline-block;
+		font-size:.56rem;
+		text-align:center;
+	}
+
+	.mpg-iconfont {
+	    font-family: 'mpiconfont';
+	    speak: none;
+	    font-style: normal;
+	    font-weight: normal;
+	    font-variant: normal;
+	    text-transform: none;
+	    line-height: 1;
+	    -webkit-font-smoothing: antialiased;
+	    -moz-osx-font-smoothing: grayscale;
+	}
+
+	.mp-imgswipe-current {
+	    z-index: 2;
+	}
+
+	.mp-imgswipe-show {
+	    position: absolute;
+	    z-index: 1;
+	    width: 100%;
+	    height: 100%;
+	   
+	}
+
+	.mp-imgswipe-img {
+	    height: 100%;
+	    width:100%;
+	    position: absolute;
+	    z-index:100;
+	}
+	
+	.mp-imgswipe-img .mask-img{
+		width:100%;
+		margin-top:50%;
+	}
+
+	.mp-imgswipe-show {
+	    position: absolute;
+	    z-index: 1;
+	    width: 100%;
+	    height: 100%;
+	    
+	}
+
+	.mp-imgswipe-bar {
+	    position: absolute;
+	    z-index: 9;
+	    right: 0;
+	    bottom: .4rem;
+	    left: 0;
+	    color: #fff;
+	}
+
+	.mp-imgswipe-note {
+	    height: .8rem;
+	    font-size: .24rem;
+	    line-height: .8rem;
+	    text-align: center;
+	}
+
+	.mp-imgswipe-disabled {
+	    opacity: .5;
+	}
+
+	.mp-imgswipe-prev {
+	    left: .4rem;
+	}
+
+	.mp-imgswipe-turn {
+	    position: absolute;
+	    top: 0;
+	    width: .8rem;
+	    height: .8rem;
+	    background: rgba(51,51,51,.8);
+	    font-weight: bold;
+	    font-size: .4rem;
+	    text-align: center;
+	    vertical-align: middle;
+	    -webkit-border-radius: 50%;
+	    -moz-border-radius: 50%;
+	    border-radius: 50%;
+	}
+
+	.mp-imgswipe-turn .mpg-iconfont {
+	    line-height: .8rem;
+	}
+
+	.mp-imgswipe-disabled {
+	    opacity: .5;
+	}
+
+	.mp-imgswipe-next {
+	    right: .4rem;
+	}
+
+	.mp-imgswipe-turn .mpg-iconfont {
+	    line-height: .8rem;
 	}
 </style>

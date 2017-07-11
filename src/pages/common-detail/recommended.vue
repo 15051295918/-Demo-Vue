@@ -13,7 +13,7 @@
                         </div>
                         <div class="recommend-comment">
                             <span class="mpf-starlevel">
-                                <i class="mp-iconfont mpf-starlevel-gain" data-score="4.44" style="width:100.0%">BBBBB</i>
+                                <i class="iconfont mpf-starlevel-gain" data-score="4.44" style="width:100.0%">&#xe6e2;&#xe6e2;&#xe6e2;&#xe6e2;&#xe6e2;</i>
                                 
                             </span>
                             <span class="recommend-commentnum">{{item.recommendCommentnum}}</span>
@@ -118,7 +118,7 @@ export default {
         color: #ddd;
     }
     .recommend-commentnum {
-        margin-left: .1rem;
+        margin-left: .3rem;
         line-height: .28rem;
         font-size: .24rem;
         vertical-align: middle;
