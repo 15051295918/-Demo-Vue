@@ -31,8 +31,8 @@
 	    </ul>
 	    <div class="mp-moreinfo">
 	    	<div class="mp-pagination">
-				<a @click="prevPage" class="linkPage" :class="isActive ? 'disablePage' : ''">上一页</a>
-				<span v-if="$refs.paginator" ref="pageNumber" class="mp-page-num">
+				<a @click="prevPage" class="linkPage">上一页</a>
+				<span v-if="$refs.paginator" ref="pageNumber" class="mp-page-num" :val="pageNum">
 					{{pageNum}}
 				</span>
 				<a @click="textPage" class="linkPage">下一页</a>
@@ -55,6 +55,7 @@
 					if(current > 1) {
 						this.$refs.paginator.goToPage(this.pageNum-1);
 					}
+					console.log(this.isAction)
 				}
 			},
 			textPage () {
@@ -70,13 +71,11 @@
 		computed: {
 			pageNum: function() {
 				return parseInt(parseInt(this.$refs.paginator.pageItemsCount)/this.pre)+1
-			},
-			isActive: function() {
-				return this.pageNum==1 ? true : false
 			}
 		},
 		data () {
 			return {
+				isAction: this.pre,
 				pre: 8,
     			paginate: ['languages'],
     			shown: false,
