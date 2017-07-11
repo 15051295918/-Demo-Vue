@@ -1,9 +1,8 @@
 <template>
-	
 	<ul class="content-products-activity">
 		<li class="activity-item"  v-for="(item, index) in activityItem">
 			<router-link class="activity-item-content" to="/campaign/detail">
-				<div clas="activity-img-wrap">
+				<div class="activity-img-wrap">
 					<img class="activity-img" v-lazy="item.image" />
 				</div>
 				<div class="activity-info border">
@@ -25,9 +24,7 @@
 			</router-link>
 		</li>
 	</ul>
-	
 </template>
-
 
 <script>
 	
@@ -39,12 +36,6 @@
 	     		progressBarWidth: 0
 	    	}
 	  	},
-	  	methods: {
-	  		
-	  	},
-	  	computed: {
-	        
-	    },
 	    props: ['activityItem']
 	    
 	}
@@ -60,10 +51,10 @@
 	}
 
 	.activity-item {
-		poration: relative;
+		position: relative;
 		float: left;
 		box-sizing: border-box;
-		overflw: hidden;
+		overflow: hidden;
 		width: 50%;		
 		border-radius: .04rem;
 	}
@@ -73,6 +64,7 @@
 		display: block;		
 		margin: 0 .08rem .16rem; 
 	}
+
 	.activity-img-wrap {
 		position: relative;
 		overflow: hidden;
@@ -108,30 +100,36 @@
 		font-size: .24rem;
 		line-height: .3rem;
 	}
+
 	.activity-grab-info {
 		position: relative;
 		padding: 0 .1rem .2rem;
 	}
+
 	.activity-grab-progress {
 		position: relative;
 		width: 1.8rem;
 		color: #666;
 		font-size: .24rem;
 	}
+
 	.progress-total-amount,
 	.progress-left-amount {
 		transform: scale(.84);
 	}
+
 	.progress-total-amount {
 		display: inline-block;
 		margin-top: .04rem;
 		margin-left: -.06rem;
 	}
+
 	.progress-left-amount {
 		position: absolute;
 		top: .04rem;
 		right: -.04rem;
 	}
+
 	.progress-bar {
 		position: relative;
 		overflow: hidden;
@@ -142,18 +140,19 @@
 		border: .02rem solid #ff5353;
 		border-radius: .12rem;
 	}
+
 	.process-bar-total {
 		position: absolute;
 		height: 100%;
 		z-index: 1;
 		background: #fff;
 	}
+
 	.process-bar-gain {
 		position: absolute;
 		height: 100%;
 		background: #ff5353;
 	}
-
 
 	.activity-grab-btn-area {
 		position: absolute;
@@ -161,6 +160,7 @@
 		bottom: 0;
 		padding: .14rem 0; 
 	}
+
 	.activity-grab-btn {
 		display: inline-block;
 		width: 1.1rem;
@@ -173,4 +173,5 @@
 		border-radius: .04rem;
 		transform: scale(.75);
 	}
+
 </style>

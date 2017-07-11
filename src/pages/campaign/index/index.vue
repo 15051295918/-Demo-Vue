@@ -30,7 +30,7 @@
 	  	preLoad: 1.3,
 	  	error: 'http://simg1.qunarzz.com/piao/images/loading_camel.gif',
 	  	loading: 'http://s.qunarzz.com/piao_topic/image/common/default/288x288.png',
-	  	attempt: 2,
+	  	attempt: 1,
 	  	listenEvents: [ 'scroll' ]
 	})
 
@@ -107,6 +107,7 @@
         width: 100%;
         min-height: 100%;
         margin-top: .2rem;
+        margin-bottom: 1rem;
         background: #f5f5f5;
   	}
   	
