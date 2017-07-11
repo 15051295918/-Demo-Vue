@@ -2,7 +2,7 @@
 
     <div class="main">
 		<topBar></topBar>
-        <detail-header :data="swiperInfo"></detail-header>
+        <detail-header :swiper_data="swiperInfo" :title_data="titleInfo"></detail-header>
         <introduction></introduction>
         <recommend :data="recommendInfo"></recommend>
         <product :data="productInfo"></product>
@@ -30,6 +30,7 @@ export default {
 		this.$http.get('static/detail.json').then( response=>{
 			if(response.body.ret){
 				this.swiperInfo = response.body.data.swiperInfo;
+				this.titleInfo = response.body.data.titleInfo;
 				this.recommendInfo = response.body.data.recommendInfo;
 				this.productInfo = response.body.data.productInfo;
                 this.recommendedInfo= response.body.data.recommendedInfo;
@@ -44,6 +45,7 @@ export default {
     data () {
         return {
             swiperInfo:[],
+            titleInfo:[],
             recommendInfo:[],
             productInfo:[],
             recommendedInfo:[],
