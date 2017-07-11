@@ -159,7 +159,6 @@ export default {
 		height: 0;
 		width: 100%;
 		padding-bottom: 41.5625%;
-		background: red;
 		position: relative;
 	}
 	.ticket-saleitem-img{
