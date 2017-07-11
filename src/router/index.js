@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/pages/index/index'
 import List from '@/pages/list/index'
-import Oneday from '@/pages/oneday/index'
+import onedayTour from '@/pages/oneday-tour/index'
 
 Vue.use(Router)
 
@@ -17,9 +17,9 @@ export default new Router({
     	name: "List",
     	component: List
     }, {
-        path: "/oneday",
-        name: "Oneday",
-        component: Oneday
+        path: "/onedayTour",
+        name: "OnedayTour",
+        component: onedayTour
     }
   ]
 })
