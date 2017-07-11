@@ -2,7 +2,7 @@
 	<div class="recommend">
 		<div class="recommend-top">
 			<div class="recommend-title">
-				<h3 class="recommend-title-hot">北京热门线路推荐</h3>
+				<h3 class="recommend-title-hot">{{$store.state.city}}热门线路推荐</h3>
 			</div>
 			<div class="recommend-top-ul">
 				<div class="recommend-top-li">铁定成团<span class="iconfont recommend-icon1">&#xe662;</span></div>
@@ -11,8 +11,8 @@
 			</div>
 		</div>
 		<div>
-			<ul>
-				<li v-for="(item,index) in recommend" class="recommend-concent" :key="index + 'recommend'">
+			<ul v-if="recommend.city == $store.state.city">
+				<li v-for="(item,index) in recommend.recommendInfo" class="recommend-concent" :key="index + 'recommend'">
 					<router-link :to="{path:item.link,query:{title:item.title, id:item.id}}">
 						<div class="recommend-concent-imgbox">
 							<img v-lazy="item.imgsrc" class="recommend-concent-img"/>

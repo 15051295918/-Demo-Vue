@@ -1,11 +1,11 @@
 <template>
     <div class="main">
-        <index-header :data="swiperInfo" :headercity="headercity"></index-header>
-        <icons-classify :classify="iconsclassify"></icons-classify>
-        <index-spot :spot="spotInfo"></index-spot>
+        <index-header :data="swiperInfo" :headercity="recommendInfo"></index-header>
+        <icons-classify :classify="recommendInfo"></icons-classify>
+        <index-spot :spot="recommendInfo"></index-spot>
         <city-classify :cityclassify="cityclassify"></city-classify> 
         <index-recommend :recommend="recommendInfo"></index-recommend>
-        <view-spot :viewspot="viewspot"></view-spot>  
+        <view-spot :viewspot="recommendInfo"></view-spot>  
     </div>
 </template>
 
@@ -20,10 +20,12 @@ import viewspot from './viewspot'
 
 export default {
 	beforeCreate: function() {
-		var currentCitys = "beijing";
+		var currentCitys = "";
 		try{
-			if(window.localStorage){
-				window.localStorage.currentCity = currentCitys;
+			if(window.localStorage.city){
+				window.localStorage.currentCity = window.localStorage.city;
+			}else{
+				window.localStorage.currentCity = "北京";
 			}
 		}catch(e){}
 	},
@@ -35,12 +37,8 @@ export default {
 				}
 			}catch(e){}
             this.swiperInfo = response.body.data.swiperInfo;
-            this.spotInfo = response.body.data[this.currentCity].spotInfo;
-            this.recommendInfo = response.body.data[this.currentCity].recommendInfo;
-            this.iconsclassify = response.body.data.classifyInfo;
+            this.recommendInfo = response.body.data[this.currentCity];
 		    this.cityclassify = response.body.data.cityInfo;
-		    this.viewspot = response.body.data[this.currentCity].viewspotInfo;
-		    this.headercity = response.body.data[this.currentCity];
         }, response => {
             console.log("get index data error")
         });
@@ -48,11 +46,8 @@ export default {
     data () {
         return {
             swiperInfo:[],
-            spotInfo:[],
             recommendInfo:[],
-            iconsclassify: [],
 		    cityclassify: [],
-		    viewspot: [],
 			headercity: ""
         }
     },
