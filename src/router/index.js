@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Index from '@/pages/index/index'
 import List from '@/pages/list/index'
 import sigthotelIndex from "@/pages/sighthotel/index/index"
-import sighthotelDetail from "@/pages/sighthotel/index/detail" 
+import sigthotelDetail from "@/pages/sighthotel/detail/index"
 import sigthotelOrderIndex from "@/pages/sighthotel/orders/index"
 import phonearea from "@/pages/sighthotel/orders/phonearea"
 import City from '@/pages/city/index'
@@ -26,6 +26,10 @@ export default new Router({
         name: "sigthotelIndex",
         component: sigthotelIndex
     }, {
+        path: "/sighthotel/detail",
+        name: "sigthotelDetail",
+        component: sigthotelDetail
+    }, {
         path: "/sighthotel/order",
         name: "sigthotelOrderIndex",
         component: sigthotelOrderIndex
@@ -37,10 +41,6 @@ export default new Router({
         path: "/city",
         name: "city",
         component: City
-    }, {
-        path: "/sighthotelDetail",
-        name: "sighthotelDetail",
-        component: sighthotelDetail
     }
   ]
 })

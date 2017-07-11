@@ -35,13 +35,13 @@
 <script>
 
 export default {
-	props:["dateshow"],
+	  props:["dateshow"],
     data() {
       return {
   		
       }
     },
-    methods:{
+    methods: {
     	handleCloseDate:function() {
     		this.$emit("close")
     	}
@@ -111,7 +111,7 @@ export default {
     	
     }
 
-	.v-leave-active, .v-leave-active {
+	  .v-leave-active, .v-leave-active {
       transition: all .6s ease;
     }
     .v-enter-to, .v-leave {

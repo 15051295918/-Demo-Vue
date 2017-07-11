@@ -1,6 +1,6 @@
 <template>
   <transition>
-      <div class="booking-main" v-if="show">
+      <div class="booking-main" v-show="show">
   		  <div class="booking-header">
           <h2 class="header-title">
             <p class="title-ellipsis">北京热带雨林风情园温泉酒店+私汤泡池</p>
@@ -11,7 +11,7 @@
             <span class="market-price">票面价:&yen;<em class="market-price-number">1580</em></span>
           </h5>
           <div class="iconfont close-icon"
-               @click="show = false">&#xe621;
+               @click="handleCloseBtnClick">&#xe621;
           </div>
     		</div>
     		<date-choose :date="categoryList[0]"></date-choose>
@@ -38,15 +38,20 @@ export default {
     },
     data() {
       return {
-        categoryList:[{},{},{}],
-        show:true
+        categoryList:[{},{},{}]
+      }
+    },
+    methods: {
+      handleCloseBtnClick() {
+        this.$emit("bookclose")
       }
     },
     components:{
     	"date-choose":datechoose,
     	"room-choose":roomchoose,
     	"sight-tour-date":sighttourdate
-    }
+    },
+    props:["show"]
 }
 
 </script>
@@ -54,7 +59,7 @@ export default {
 
 <style scoped>
   	.booking-main {
-  		position: absolute;
+  		position: fixed;
       left: 0;
       right: 0;
       bottom: 0;
@@ -120,13 +125,13 @@ export default {
       font: normal .36rem/1rem Arial,"Microsoft Yahei","Helvetica Neue",Helvetica,sans-serif;
     }
 
-    .v-leave-active {
+    .v-leave-active, .v-leave-active {
       transition: all .6s ease;
     }
-    .v-leave {
-      bottom:0;
+    .v-enter-to, .v-leave {
+      bottom: 0;
     }
-    .v-leave-to {
+    .v-enter, .v-leave-to {
       bottom: -454.4px;
     }
 </style>
