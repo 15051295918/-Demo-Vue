@@ -5,10 +5,17 @@ import router from './router'
 import store from './store'
 
 new Vue({
-  el: '#app',
-  router,
-  store,
-  template: '<App/>',
-  components: { App },
-  render: h => h(App)
+	beforeCreate: function() {
+		var city = '北京';
+		try {
+			city = window.localStorage.city;
+		} catch(e) {}
+		this.$store.commit("changeCity", city);
+	},
+  	el: '#app',
+  	router,
+  	store,
+  	template: '<App/>',
+  	components: { App },
+  	render: h => h(App)
 })
