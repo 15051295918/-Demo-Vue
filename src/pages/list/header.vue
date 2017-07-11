@@ -1,10 +1,10 @@
 <template>
-	<header class="header">
+	<header class="header" @click="handleHeaderClick">
   		<a class="header-left">
   			<div class="return"></div>
   		</a>
   		<div class="header-title">
-  				<input type="text" v-model="value"  class="search-text" placeholder="输入城市或景点" :value="value"/>
+  				<input type="text" v-model="value"  class="search-text"  placeholder="输入城市或景点" :value="value"/>
   				<span class="search-del" v-show="value != ''" @click="handleClick" ></span>
   		</div>
   		<div class="header-right">
@@ -26,6 +26,9 @@ export default {
   methods:{
   	handleClick(){
   		this.value=""
+  	},
+  	handleHeaderClick(){
+  		this.$emit("headerClick")
   	}
   }
 }

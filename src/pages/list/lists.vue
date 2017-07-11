@@ -68,6 +68,7 @@
 					if(current > 1) {
 						this.$refs.paginator.goToPage(this.pageNum-1);
 					}
+					console.log(this.isAction)
 				}
 			},
 			textPage () {
