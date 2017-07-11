@@ -1,6 +1,6 @@
 <template>
-	<div class="cam-broadcast border-bottom">
-		<div class="cam-broadcast-icon">喇叭</div>
+	<div class="cam-broadcast border-topbottom">
+		<div class="cam-broadcast-icon iconfont">&#xe62f;</div>
 		<div class="cam-broadcast-content">
 			<div class="cam-broadcast-content-list" :style="{marginLeft:marginLeft+'px'}">
 				<span class="cam-broadcast-content-item"  v-for="(item, index) in broadcast" :key="index + '_cam-broadcast_item'">
@@ -14,39 +14,46 @@
 
 
 <script>
+	export default {
 
-export default {
-	created: function() {
-		var _this = this;
-		var tiemr = setInterval( function() {
-			_this.marginLeft <= -10000 ? _this.marginLeft=0 : _this.marginLeft--;
-		}, 30 );
-	},
+		created:function(){
+			var _this = this;
+			var tiemr = setInterval(function(){
+				_this.marginLeft <= -10000 ? _this.marginLeft = 0 : _this.marginLeft--;
+			},30)
+		},
 
-	data () {
-		return {
-			swiperOption: {
-	     		loop: true,
-	            autoplay: 1000,
-	            direction : 'horizontal',
-	            autoHeight: true,
-	            pagination : '.swiper-pagination',
-	            paginationClickable :true
-	        },
-	        marginLeft:0
-		}	
-	},
+		data () {
+			return {
+				swiperOption: {
+		     		loop: true,
+		            autoplay: 1000,
+		            direction: 'horizontal',
+		            autoHeight: true,
+		            pagination: '.swiper-pagination',
+		            paginationClickable: true
+		        },
+		        marginLeft: 0
+			}	
+		},
 
-	props: ["broadcast"]	
-}
+		props: ["broadcast"]
+
+	}
 </script>
 
 
 <style scoped>
+
 	.cam-broadcast {
 		display: flex;
 		height: .46rem;
-		padding: .12rem .2rem;
+		padding: .12rem .2rem;		
+	}
+
+	.cam-broadcast::before,
+	.cam-broadcast::after {
+		border-color: #c9cccd;
 	}
 	
 	.cam-broadcast-icon {
@@ -55,7 +62,7 @@ export default {
 	    height: .46rem;
 	    line-height: .46rem;
 	    color: #fc351d;
-	    font-size: .3rem;
+	    font-size: .6rem;
 		border-right: .01rem solid #eaeaea;
 	}
 
@@ -80,6 +87,5 @@ export default {
 		line-height: .46rem;
 		margin-right: .6rem;
 	}
-
 	
 </style>

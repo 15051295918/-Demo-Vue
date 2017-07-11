@@ -1,5 +1,5 @@
 <template>
-	<header class="cam-header border-bottom">
+	<header class="cam-header">
   		<a class="cam-header-left">
   			<router-link to="/">
   				<div class="cam-return"></div>
@@ -12,17 +12,19 @@
 </template>
 
 <script>
-export default {
-	data () {
-		return {
-		 
+
+	export default {
+		data () {
+			return {
+			 
+			}
 		}
 	}
-}
+
 </script>
 
-
 <style scoped>
+
 	.cam-header {
 	    position: relative;
 	    display: -webkit-box;
@@ -70,4 +72,5 @@ export default {
 		border-bottom: .03rem solid #fff;
 		margin: .3rem .1rem;
 	}
+	
 </style>
