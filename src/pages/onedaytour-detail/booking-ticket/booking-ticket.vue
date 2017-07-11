@@ -1,25 +1,29 @@
 <template>
     <div>
-        <div class="booking-fliter" v-if="show">
+        <div class="booking-fliter" v-show="show">
             <div class="booking-predetermine" >
-                <booking-header></booking-header>
+                <booking-header @close="handleClose"></booking-header>
                 <booking-content></booking-content>
                 <booking-footer></booking-footer>
+                <booking-calendar></booking-calendar>
             </div>
+            
         </div>
-    
         <div class="booking-button">
             <div class="booking-consult">咨询</div>
-            <div @click="show = !show" class="booking-promplt">立即预定</div>
+            <div @click="show = true" class="booking-promplt">立即预定</div>
 
         </div>
+
     </div>
 </template>
 
 <script>
-import header from './booking-header'
-import content from './booking-content'
-import footer from './booking-footer'
+import header from './booking-header';
+import content from './booking-content';
+import footer from './booking-footer';
+import calendar from './calendar';
+
 
 export default {
 
@@ -31,7 +35,14 @@ export default {
     components: {
         "booking-header": header,
         "booking-content": content,
-        "booking-footer": footer
+        "booking-footer": footer,
+        "booking-calendar": calendar
+ 
+    },
+    methods:{
+        handleClose:function() {
+            this.show = false;
+        }
     }
 }
 </script>
