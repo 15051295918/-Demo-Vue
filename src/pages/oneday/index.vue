@@ -1,13 +1,20 @@
 <template>
-	<div>加油</div>
+	<div class="main">
+		<fagfilter></fagfilter>
+	</div>
 </template>
 
 <script>
+import fagFilter from './fagfilter';
+
 export default {
   data () {
     return {
      
     }
+  },
+  components:{
+  	fagfilter:fagFilter
   }
 }
 </script>
