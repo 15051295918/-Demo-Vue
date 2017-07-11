@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueExtend from './extend'
 import App from './App'
 import router from './router'
-// 
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import VueResource from 'vue-resource'
 import FastClick from 'fastclick'

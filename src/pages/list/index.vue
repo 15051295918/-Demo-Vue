@@ -3,7 +3,7 @@
 		<list-header @headerClick="headerClick"></list-header>
 		<navigator :subnavInfo = "subnavInfo" :show="showNav" :showMask="maskShow" :orderShow="showOrder" @ClassClick="ClassClick" @orderClick="indexOrderClick"
 		@maskClick="maskClick" @subThreenav="subThreenav" @orderItemClick="orderClickEvent"></navigator>
-		<!-- <list-lists></list-lists> -->
+		<list-lists></list-lists>
 	</div>
 </template>
 
@@ -40,10 +40,10 @@
 				this.i=index;
 			},
 			ClassClick() {
-				 return (this.showNav = ! this.showNav, this.showOrder=false, this.maskShow=this.showNav)
+				return (this.showNav = ! this.showNav, this.showOrder=false, this.maskShow=this.showNav)
 			},
 			indexOrderClick() {
-				 return (this.showOrder = ! this.showOrder, this.showNav=false, this.maskShow=this.showOrder)
+				return (this.showOrder = ! this.showOrder, this.showNav=false, this.maskShow=this.showOrder)
 			},
 			maskClick() {
 				return  this.showNav =this.showOrder= this.maskShow= false
@@ -67,7 +67,7 @@
 		left: 0;
 		top: 0;
 		width: 100%;
-		min-height: 100%;
+		height: 100%;
 		background: #f5f5f5;
 		height:1000px;
 	}
