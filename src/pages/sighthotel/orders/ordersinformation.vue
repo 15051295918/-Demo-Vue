@@ -9,7 +9,7 @@
 		<div class="orders-phone">
 			<label class="orders-traveller">手机号</label>
             <router-link to="/phonearea">
-    			 <span class="phone-area iconfont border">+86&#xe768;</span>
+    			 <span class="phone-area iconfont border">{{$store.state.code}}&#xe768;</span>
             </router-link>
 			<input type="text" placeholder="请填写手机号" class="phone-call">
 		</div>
@@ -40,6 +40,7 @@
 
 
 export default {
+
     
     data() {
       return {

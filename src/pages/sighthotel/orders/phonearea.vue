@@ -1,3 +1,4 @@
+
 <template>
 <div class="main">
 	<div class="phonearea-header">
@@ -8,10 +9,10 @@
         <input type="text" class="countrycode-input" placeholder="请输入国家名称或代码" />
     </div>
     <ul class="countrycode-suggest">
-        <li class="suggest-item border-bottom">
-            <div class="suggest-item-content">
-                {{content}}
-                <span class="suggest-item-code">{{key}}</span>
+        <li class="suggest-item border-bottom" v-for="item in list" @click="handlePhoneCode">
+            <div class="suggest-item-content" :data-content="item.content">
+                {{item.content}}
+                <span class="suggest-item-code" :data-code="item.code">+{{item.key}}</span>
             </div>
         </li>
     </ul>
@@ -24,12 +25,28 @@
 
 
 export default {
-    
+    created: function(){
+        this.$http.get('/static/phonearea.json').then(response => {
+           console.log(response.body.data.list)
+           this.list = response.body.data.list
+        }, response => {
+            console.log("get index data error")
+        });
+    },
     data() {
       return {
-            content:"阿森松岛（AC）",
-            key: +247
+           list:[]
       }
+    },
+    methods: {
+        handlePhoneCode: function(e) {
+            var code = e.target.lastChild.innerHTML;
+            try {
+                window.localStorage.code = code;
+            }catch(e) {}
+            this.$store.commit("changeCode", code);
+            this.$router.go(-1)
+        }
     }
     
    
