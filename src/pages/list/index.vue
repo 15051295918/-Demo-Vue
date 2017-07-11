@@ -3,7 +3,7 @@
 		<list-header @headerClick="headerClick"></list-header>
 		<navigator :subnavInfo = "subnavInfo" :show="showNav" :showMask="maskShow" :orderShow="showOrder" @ClassClick="ClassClick" @orderClick="indexOrderClick"
 		@maskClick="maskClick" @subThreenav="subThreenav" @orderItemClick="orderClickEvent"></navigator>
-		<!-- <list-lists></list-lists> -->
+		<list-lists></list-lists>
 	</div>
 </template>
 
