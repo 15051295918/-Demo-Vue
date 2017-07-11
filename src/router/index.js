@@ -5,6 +5,7 @@ import List from '@/pages/list/index'
 import CampaignIndex from '@/pages/campaign/index/index'
 import CampaignHelp from '@/pages/campaign/help/index'
 import CampaignNewAannounce from '@/pages/campaign/newannounce/index'
+import CampaignComputDetails from '@/pages/campaign/comput/index'
 Vue.use(Router)
 
 export default new Router({
@@ -29,6 +30,11 @@ export default new Router({
         path: "/campaign/newannounce",
         name: "CampaignNewAannounce",
         component: CampaignNewAannounce
-    }             
+    },{
+        path: "/campaign/computDetails",
+        name: "CampaignComputDetails",
+        component: CampaignComputDetails
+    }         
+
   ]
 })

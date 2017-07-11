@@ -13,7 +13,7 @@ Vue.config.productionTip = false
 Vue.use(VueAwesomeSwiper)
 Vue.use(VueResource);
 Vue.use(VueLazyload, {
-  preLoad:0.8,
+  preLoad:1,
   attempt: 1
 })
 
