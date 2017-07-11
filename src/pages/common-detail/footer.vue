@@ -215,7 +215,7 @@
 	    color: #9e9e9e;
 	    width: 70px;
 	    text-align:center;
-	    margin-top:.1rem;
+	    padding-top:.1rem;
 	}
 
 	.qn_footer .footer_nav {
