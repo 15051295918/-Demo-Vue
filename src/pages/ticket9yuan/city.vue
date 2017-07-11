@@ -39,11 +39,10 @@ export default {
   methods: {
         handleClick: function(index) {
             this.activeIndex = index; 
-
             if(index==7){
               this.$emit("moreCityShow");
             }else{
-              1
+              
             }         
         }
 

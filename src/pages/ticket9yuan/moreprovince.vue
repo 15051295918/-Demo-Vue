@@ -3,7 +3,7 @@
 		<div class="more-province-off iconfont">&#xe8e7;</div>
 		<div class="more-province-name">
 			<ul class="more-provinces">
-				<li v-for="(items, index) in moreProvinces" key="index + '_more_provinces'" class="province-items">
+				<li v-for="(items, index) in moreProvinces" key="index + '_more_provinces'" class="province-items" @click="hanleChangeColor">
 					<span class="province-items-border">{{items.name}}</span>
 				</li>
 			</ul>
@@ -29,6 +29,9 @@ export default {
 	methods: {
 	  	handleClickOff: function() {
 	  		this.$emit("moreProvinceOff");
+	  	},
+	  	hanleChangeColor: function() {
+	  		
 	  	}
 	}
 	  

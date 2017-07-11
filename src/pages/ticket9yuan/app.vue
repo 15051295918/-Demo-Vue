@@ -8,13 +8,14 @@
 				<h2 class="app-name-title">来这看看吧</h2>
 				<p class="app-name-ad">超过<span class="app-name-num">2亿</span>人的智慧选择</p>
 			</div>
-			<div class="app-app">下载客户端</div>
+			<div class="app-app" @click="handleAppDownload">下载客户端</div>
 			<div class="app-off iconfont" @click="handleClickOff">&#xe8e7;</div>
 		</div>
   	</div>	
 </template>
 
 <script>
+import detect from '@/utils/detect.js'
 export default {
   data () {
     return {
@@ -24,7 +25,17 @@ export default {
   methods: {
   	handleClickOff: function() {
   		this.appNameAd = false;
-  	}
+  	},
+  	handleAppDownload: function() {
+  		if( detect.os == 'iOS'){
+	        Location.href = "https://itunes.apple.com/cn/app/id395096736";
+	      }else if(detect.os == 'Android'){
+	        Location.href = "https://play.google.com/store/apps/details?id=com.Qunar&hl=zh";
+	      }else if(detect.os != 'iOS' || 'Android'){
+	        location.href = "./"
+	      }
+	    }
+  	
   }
   
 }
