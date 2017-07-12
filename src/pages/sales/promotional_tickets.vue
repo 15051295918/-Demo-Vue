@@ -62,14 +62,14 @@ export default {
   }, 
   methods:{
   	handlescrollchange:function(){
-  		var ticketNavbar = document.querySelector(".ticket-navbar");
+  		this.ticketNavbar = this.$el.querySelector(".ticket-navbar");
   		this.scroll = document.body.scrollTop;
   		if(this.scroll >= 44){
-	  		ticketNavbar.style.position = "fixed";
-	  		ticketNavbar.style.top = "0px";
-	  		ticketNavbar.style.zIndex = 10;
+	  		this.ticketNavbar.style.position = "fixed";
+	  		this.ticketNavbar.style.top = 0;
+	  		this.ticketNavbar.style.zIndex = 10;
   		}else{
-  			ticketNavbar.style.position = "relative";
+  			this.ticketNavbar.style.position = "relative";
   		}
   	},
   	handlebackclick:function(){
@@ -187,6 +187,7 @@ export default {
 		overflow: hidden;
 		text-overflow: ellipsis;
 		flex: 1;
+		color: #333;
 	}
 	.ticket-saleInfo{
 		padding: .2rem 0 .3rem;
