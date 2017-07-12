@@ -1,25 +1,20 @@
 <template>
-
     <div>
         <div class="booking-fliter" v-if="show">
             <div class="booking-predetermine">
-                <transition name="booking-ticket">
                 <div class="bookings">
                 <booking-header @close="handleClose" :fff="handle"></booking-header>
-                <booking-content @close="handlereveal" @obtain="handleObtain"></booking-content>
+                <booking-content :otherDay="otherDay" @close="handlereveal" @obtain="handleObtain"></booking-content>
                 <booking-footer></booking-footer>
                 </div>
-                </transition>
-                <booking-calendar v-if="reveal" @show="handleShow"></booking-calendar>
+                <booking-calendar v-show="reveal" @show="handleShow"></booking-calendar>
             </div>
         </div>
         <div class="booking-button">
             <div class="booking-consult">咨询</div>
             <div @click="show = true" class="booking-promplt">立即预定</div>
         </div>
-       
     </div>
-
 </template>
 <script>
 import header from './booking-header';
@@ -31,6 +26,7 @@ import calendar from './calendar';
 export default {
     data() {
         return {
+            otherDay:"",
             show: false,
             reveal: false,
             handle: 0
@@ -50,8 +46,11 @@ export default {
         handlereveal: function () {
             this.reveal = true;
         },
-        handleShow: function () {
+        handleShow: function (month, date) {
             this.reveal = false;
+            if(month){
+                this.otherDay = month + "月" + date + "日";
+            }
         },
         handleObtain: function (index) {
             this.handle = index;
@@ -62,10 +61,6 @@ export default {
 
 
 <style scoped>
-.bookings {
-    position: absolute;
-}
-
 .booking-fliter {
     position: fixed;
     left: 0;
@@ -115,20 +110,5 @@ export default {
     font-size: .4rem;
     text-align: center;
     line-height: .98rem;
-}
-
-.booking-ticket-leave-active {
-    transition: all .6s ease;
-}
-
-.booking-ticket-v-enter-to,
-.booking-ticket-leave {
-    bottom: 0;
-    transition: all .6s ease;
-}
-
-.booking-ticket-enter,
-.booking-ticket-leave-to {
-    bottom: -454.4px;
 }
 </style>

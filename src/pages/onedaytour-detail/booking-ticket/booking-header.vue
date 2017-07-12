@@ -4,7 +4,7 @@
 			<span class="single-line">{{text}}</span>
 		</div>
 		<div @click="handleClick" class="single-big">
-			<span class="header-city">x</span>
+			<span class="header-city iconfont">&#xe61a;</span>
 		</div>
 		<div class="header-price">
 			<i class="header-money" v-if="fff==0">
@@ -91,15 +91,14 @@ export default {
 	display: block;
 	width: .3rem;
 	height: .3rem;
-	border-radius: 50%;
-	border: .04rem solid #ccc;
 	color: #a4a4a4;
-	font-size: .3rem;
+	font-size: .5rem;
 	text-align: center;
 }
 
 .header-price {
 	padding: 0 .2rem;
+	height:.4rem;
 }
 
 .header-money {
