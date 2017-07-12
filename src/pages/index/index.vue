@@ -16,7 +16,6 @@ import ads from './ads'
 import detect from '@/utils/detect.js'
 
 export default {
-<<<<<<< HEAD
     created: function(){
             this.$http.get('/static/index.json').then(response => {
                 this.swiperInfo = response.body.data.swiperInfo;
@@ -25,16 +24,6 @@ export default {
             }, response => {
                 console.log("get index data error")
             });
-=======
-    created: function() {
-        this.$http.get('/static/index.json').then(response => {
-            this.swiperInfo = response.body.data.swiperInfo;
-            this.iconInfo = response.body.data.iconInfo;
-            this.recommendInfo = response.body.data.recommendInfo;
-        }, response => {
-            console.log("get index data error")
-        });
->>>>>>> origin/master
     },
     data () {
         return {

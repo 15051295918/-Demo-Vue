@@ -6,6 +6,7 @@ import CampaignIndex from '@/pages/campaign/index/index'
 import CampaignHelp from '@/pages/campaign/help/index'
 import CampaignNewAannounce from '@/pages/campaign/newannounce/index'
 import CampaignComputDetails from '@/pages/campaign/comput/index'
+import CampaignAnnounceDetails from '@/pages/campaign/announceDetails/index'
 import City from '@/pages/city/index'
 Vue.use(Router)
 
@@ -21,7 +22,6 @@ export default new Router({
     	name: "list",
     	component: List
     }, {
-
         path: "/campaign",
         name: "CampaignIndex",
         component: CampaignIndex
@@ -37,6 +37,10 @@ export default new Router({
         path: "/campaign/computDetails",
         name: "CampaignComputDetails",
         component: CampaignComputDetails
+    },{
+        path: "/campaign/announceDetails",
+        name: "CampaignAnnounceDetails",
+        component: CampaignAnnounceDetails
     },{       
         path: "/city",
         name: "city",
