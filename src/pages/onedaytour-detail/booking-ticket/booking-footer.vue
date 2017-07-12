@@ -22,8 +22,8 @@ export default {
 
 
 <style scoped>
-.footer-predetermine{
-	position:fixed;
+.footer{
+   position:relative;
 	bottom:0;
 	left:0;
 	display: block;

@@ -14,7 +14,7 @@
 					<p v-for="(item, index) in other.items" :class="{'booking-adult':true, 'booking-children':index==Active}" @click="handleBtnPeople(index)">{{item}}</p>
 				</i>
 			</span>
-			<span class="booking-select" v-for="(item,index) in items"  >
+			<span class="booking-select" v-for="(item,index) in items">
 				<em class="booking-pepole">{{item.content}}</em>
 				<i class="booking-combination">
 					<p class="booking-adult booking-children">{{item.time}}</p>
@@ -28,18 +28,19 @@
 export default {
 	data() {
 		return {
+			show:true,
 			isActive:1,
 			Active:0,
 			item: [{
 				title: "今天",
-				dayte: "07月10日"
+				dayte: "07月11日"
 			}, {
 				title: "明天",
-				dayte: "07月10日"
+				dayte: "07月12日"
 			},
 			{
 				title: "后天",
-				dayte: "07月10日"
+				dayte: "07月13日"
 			},
 			{
 				title: "其他日期"
@@ -62,20 +63,19 @@ export default {
 		}
 	},
 	components: {
-
-
 	},
 	methods:{
 		handleDateClick: function(index) {
-			if( index != 0){
+			if( index != 0) {
 				this.isActive =index;
-				if(index==3){
-					alert(123)
+				if(index==3) {
+					this.$emit("close")
 				}
 			}
 		},
 		handleBtnPeople:function(index) {
 			this.Active=index;
+			this.$emit("obtain",index);
 		}
 		
 	}
