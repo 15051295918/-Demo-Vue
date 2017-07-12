@@ -18,12 +18,12 @@ export default {
     return {
      	swiperOption: {
      		loop: true,
-            autoplay: 3000,
-            direction : 'horizontal',
-            autoHeight: true,
-            pagination : '.swiper-pagination',
-            paginationClickable :true
-        }
+        autoplay: 3000,
+        direction : 'horizontal',
+        autoHeight: true,
+        pagination : '.swiper-pagination',
+        paginationClickable :true
+      }
     }
   },
   props:["data"]
