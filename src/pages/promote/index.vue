@@ -40,9 +40,14 @@ import morespecial from "./morespecial"
 import moreproduct from "./moreproduct"
 import moreprovince from "./moreprovince"
 
-var province = "dalian";
+var province = "福建";
 
 export default {
+	beforeCreated: function() {
+		try {
+            this.province = window.localStorage.province;
+        } catch(e) {}
+	},
 	created: function() {
 	    this.$http.get('/static/ticketRmb.json').then(response => { 
 	      	this.nineTicket  = response.body.data.indexInfo.nineTicket
