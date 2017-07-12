@@ -1,24 +1,24 @@
 <template>
 	<div>
 		<div class="classify">
-	  		<a class="classify-item" v-for="(item, index) in classifyInfo" :key="index+'classifyItem'"  :href="item.link">
+	  		<div class="classify-item" v-for="(item, index) in classifyInfo" :key="index+'classifyItem'">
 		  		<router-link :to="{path:'/onedaytour',query:{region:city, title:item.title, id:item.id}}">
 			  		<div>
 				  		<img class="classify-icon" :src="item.imgUrl">
 			  		</div>
 			  		<p class="classify-title">{{item.title}}</p>
 			  	</router-link>
-	  		</a>
+	  		</div>
 	  	</div>
 	  	<div class="near-scape border-top" v-if="nearScapeInfo.length"> 
 	  	<!-- 以nearScapeInfo的长度是否为零判断要不要显示这块内容 -->
-	  		<a class="near-scape-item border-rightbottom" v-for="(item, index) in nearScapeInfo" :key="index+'nearScapeInfo'" :href="item.link">
+	  		<div class="near-scape-items border-rightbottom" v-for="(item, index) in nearScapeInfo" :key="index+'nearScapeInfo'">
 	  			<router-link :to="{path:'/onedaytour',query:{id:item.id}}">
-	  				<span>
+	  				<span class="near-scape-item">
 	  					{{item.title}}
 	  				</span>
 	  			</router-link>
-	  		</a>
+	  		</div>
 	  	</div>
 	  	<div class="weekend-chosen border-topbottom">
 	  		<p class="weekend-chosen-title"><span class="pinterest-titleicon"></span>{{weekendChosenInfo.title}}</p>
@@ -65,20 +65,35 @@ export default {
 		color: #616161;
 		background: #fff;
 	}
-	.near-scape-item{
+	.near-scape::before{
+		border-color: #bbbbbb;
+	}
+	.near-scape-items{
 		display: inline-block;
 		box-sizing: border-box;
 		width: 33.333%;
 		height: .82rem;
 		line-height: .82rem;
 		text-align: center;
+	}
+	.near-scape-items::before,.near-scape-items::after{
+		border-color: #bbbbbb;
+	}
+	.near-scape-items:nth-child(3n)::before{
+		border:0;
+	}
+	.near-scape-item{
 		font-size: .28rem;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
-	}
-	.near-scape-item span{
+		display: inline-block;
+		width: 100%;
+		height: 100%;
 		color: #616161;
+	}
+	.near-scape-item::before,.near-scape-item::after{
+		border-color: #bbbbbb;
 	}
 	.weekend-chosen{
 		width: 100%;
@@ -87,6 +102,9 @@ export default {
 		padding: 0 .2rem .12rem;
 		box-sizing: border-box;
 		background: #fff;
+	}
+	.weekend-chosen::before,.weekend-chosen::after{
+		border-color: #bbbbbb;
 	}
 	.weekend-chosen-title{
 		width: 100%;
