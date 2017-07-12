@@ -2,9 +2,9 @@
     <div :class="{overflow:isBigMapOpen}">
         <div class="main">
             <div class="header" :style="style">
-                <a class="header-left iconfont" role="left">&#xe685;</a>
-                <h1 class="header-title" role="title">{{headerContent}}</h1>
-                <span class="header-right" role="right"></span>
+                    <span @click="handleGoBack" class="header-left iconfont">&#xe685;</span>
+                <h1 class="header-title">{{headerContent}}</h1>
+                <span class="header-right"></span>
             </div>
 
             <!--老纪-->
@@ -136,16 +136,20 @@
                     this.isBigMapOpen = !this.isBigMapOpen
                     document.body.scrollTop = sTop;
                 }
-                
+
+            },
+
+            handleGoBack: function() {
+                this.$router.go(-1)
             }
 
         },
 
         computed: {
             style: function () {
-                if( this.isBigMapOpen ){
+                if (this.isBigMapOpen) {
                     return "opacity:1"
-                }else{
+                } else {
                     return "opacity:" + this.scrollTop / 150
                 }
             }
