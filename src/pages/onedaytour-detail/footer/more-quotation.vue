@@ -2,23 +2,25 @@
     <div class="prddetail-contain">
         <h3 class="prddetail-title"><span class="title-leftline"></span>{{moreQuotation.prddetailTitle}}</h3>
         <div class="product-contain border-top">
-            <div class="prddetail-content" v-for="(list, index) in moreQuotation.lists" :key="index + 'content_'" :class="{'border-bottom' :index == 0}">
-                <div class="productlist-item">
-                    <h3 class="productprices-name">{{list.productpricesName}}</h3>
-                    <p class="productprices-supplier"><span class="supplier-qunar" v-show="list.supplierqunarShow"></span>{{list.productpricesSupplier}}</p>
-                    <div class="producttag-content">
-                        <p class="producttag-item border" v-show="list.producttagShow" v-html="list.producttagItem"></p>
+            <router-link to="/onedaytour/detail">
+                <div class="prddetail-content" v-for="(list, index) in moreQuotation.lists" :key="index + 'content_'" :class="{'border-bottom' :index == 0}">
+                    <div class="productlist-item">
+                        <h3 class="productprices-name">{{list.productpricesName}}</h3>
+                        <p class="productprices-supplier"><span class="supplier-qunar" v-show="list.supplierqunarShow"></span>{{list.productpricesSupplier}}</p>
+                        <div class="producttag-content">
+                            <p class="producttag-item border" v-show="list.producttagShow" v-html="list.producttagItem"></p>
+                        </div>
+                        <div class="product-tag">
+                            <p class="product-tag-item" v-for="item in list.productTag"> <span class="iconfont desctag" v-html="item.icon"></span>{{item.productDesctag}}
+                            </p>
+                        </div>
                     </div>
-                    <div class="product-tag">
-                        <p class="product-tag-item" v-for="item in list.productTag"> <span class="iconfont desctag" v-html="item.icon"></span>{{item.productDesctag}}
-                        </p>
+                    <div class="productprices-details">
+                        <i class="price">&yen;</i><span class="price-num">{{list.productpricesDetails.priceNum}}</span>
+                        <span class="iconfont product-arrow" v-html="list.productpricesDetails.icon"></span>
                     </div>
                 </div>
-                <div class="productprices-details">
-                    <i class="price">&yen;</i><span class="price-num">{{list.productpricesDetails.priceNum}}</span>
-                    <span class="iconfont product-arrow" v-html="list.productpricesDetails.icon"></span>
-                </div>
-            </div>
+            </router-link>
         </div>
         <div class="price-bottom"></div>
     </div>
