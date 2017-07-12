@@ -1,12 +1,12 @@
 <template>
-	<div class="main">
+	<div class="main" >
 		<weekend-header></weekend-header>
-
+   <!--  <p >{{$route.params.id}}</p> -->
 		<div class="product" >
 	  		<div class="product-item" v-for="(list,index) in productInfo" :key="index+'product'" v-model="index"  @click="getModel(index)">
 	  			
           <div class="product-wrapper" v-on:click="show = !show">
-	  				<img :src="list.imgUrl"/>
+	  				<img :src="list.imgUrl" class="product-img" />
 	  			</div>
 	  			
           <div class="product-info">
@@ -26,9 +26,11 @@ import header from './header'
 import model from './model'
 export default {
 created:function () {
+
    	this.$http.get('/static/weekend.json').then(response => {
-              console.log(response);
-               this.productInfo = response.body.data[4];
+              //console.log(response);
+             //console.log(this.$route.params.id);
+             this.productInfo = response.body.data[this.$route.params.id];
 
           }, response => {
               console.log("get index data error");
@@ -38,9 +40,10 @@ created:function () {
 data () {
     return {
        show:false,
+       onshow:false,
        index:"",
        productInfo:[],
-       modelInfo:{}
+       modelInfo:{},
     }
   },
 
@@ -49,7 +52,8 @@ data () {
       console.log(index);
       this.modelInfo=this.productInfo[index];
     },
-    getShowStatus(status){
+    
+    getShowStatus (status) {
       this.show=status;
     }
   },
@@ -72,25 +76,25 @@ data () {
         min-height: 100%;
         background: #f5f5f5;
   }
-  .product-item{
-	  	bakcground: #fff;
-	  	position: relative;
-	  	margin-bottom: .2rem;
+  .product-item {
+	  	 background: #fff;
+	  	 position: relative;
+	  	 margin-bottom: .2rem;
   }
-  .product-wrapper{
-  		overflow: hidden;
-  		height: 0;
-  		width: 100%;
-  		padding-bottom:43.37288%;
+  .product-wrapper {
+  		 overflow: hidden;
+  		 height: 0;
+  		 width: 100%;
+  		 padding-bottom:43.37288%;
 
 
   }
-  .product-wrapper img{width:100%;}
-  .product-info{
-  	padding:.14rem .2rem .24rem .2rem;
-  	background-color: #fff;
+  .product-wrapper .product-img{width:100%;}
+  .product-info {
+  	   padding:.14rem .2rem .24rem .2rem;
+  	   background-color: #fff;
   }
-  .product-name{
+  .product-name {
   		color: #212121;
   		font-size:.36rem;
   		line-height: .54rem;
