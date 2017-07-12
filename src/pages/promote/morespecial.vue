@@ -55,6 +55,7 @@
 import detect from '@/utils/detect.js'
 
 export default {
+   props:["propsoff"],
    beforeCreate: function() {
         var province = '福建';
         try {
@@ -112,7 +113,6 @@ export default {
             }
         }
     },
-    props:["propsoff","province"],
     mounted: function() {
         window.addEventListener("scroll", this.handleScroll)
     },

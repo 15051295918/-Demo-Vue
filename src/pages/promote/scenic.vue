@@ -33,7 +33,6 @@
 
 export default {
     beforeCreate: function() {
-        var province = '福建';
         try {
             this.province = window.localStorage.province;
         } catch(e) {}

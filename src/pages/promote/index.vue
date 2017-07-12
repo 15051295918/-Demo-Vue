@@ -40,6 +40,8 @@ import morespecial from "./morespecial"
 import moreproduct from "./moreproduct"
 import moreprovince from "./moreprovince"
 
+var province = "dalian";
+
 export default {
 	created: function() {
 	    this.$http.get('/static/ticketRmb.json').then(response => { 
@@ -54,8 +56,8 @@ export default {
      		off:false,
      		nineTicket: [],
      		moreProvinces: [],
-     		"moreProvince" : false,
-     		province: "福建"
+     		moreProvince : false,
+     		province: province
         }
     },
 	components: {

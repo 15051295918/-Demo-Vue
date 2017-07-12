@@ -67,7 +67,6 @@ export default {
             var province = e.target.innerText;
             try {
                 window.localStorage.province = province;
-                 province = window.localStorage.province;
             } catch(e) {}
                 this.$emit("provinceChange", province);
         }
