@@ -33,7 +33,8 @@
     export default {
 
         created: function () {
-            this.$http.get("/static/onedaytour-detail.json").then(response => {
+            var data = "?pid=" + this.$route.params.pid
+            this.$http.get("/static/onedaytour-detail.json" + data).then(response => {
                 if (response.body.ret) {
                     this.headerContent = this.headerTitle = response.body.data.index.headerTitle;
                     this.tabInfo = response.body.data.tab;

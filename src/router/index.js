@@ -23,7 +23,7 @@ export default new Router({
 			name: "city",
 			component: City
 		}, {
-			path: "/onedaytour/detail",
+			path: "/onedaytour/detail/pid/:pid",
 			name: "one-day-tour-detail",
 			component: OneDayTourDetail
 		}]
