@@ -5,11 +5,11 @@
   			<span class="iconfont cam-footer-item-icon">&#xe62a;</span>
   			<span class="cam-footer-item-title">首页</span>
   		</router-link>
-  		<router-link class="cam-footer-item" to="/campaign">
+  		<router-link class="cam-footer-item" to="/campaign/newannounce">
   			<span class="iconfont cam-footer-item-icon">&#xe61c;</span>
   			<span class="cam-footer-item-title">最新揭晓</span>
   		</router-link>
-  		<router-link class="cam-footer-item" to="/campaign">
+  		<router-link class="cam-footer-item" to="/campaign/help">
   			<span class="iconfont cam-footer-item-icon">&#xe60f;</span>
   			<span class="cam-footer-item-title">帮助</span>
   		</router-link>
