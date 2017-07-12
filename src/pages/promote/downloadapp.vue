@@ -19,13 +19,13 @@ import detect from '@/utils/detect.js'
 export default {
 	data () {
 		return {
-		"appNameAd": true
+			"appNameAd": true
 		}
 	},
 	methods: {
 		handleClickOff: function() {
-		this.appNameAd = false;
-		this.$emit("delete");
+			this.appNameAd = false;
+			this.$emit("delete");
 		},
 	  	handleAppDownload: function() {
 			if( detect.os == 'iOS'){
@@ -37,7 +37,6 @@ export default {
 			}
 		}  	
 	}
-  
 }
 </script>
 
