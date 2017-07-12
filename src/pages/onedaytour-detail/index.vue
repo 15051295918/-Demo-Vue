@@ -124,6 +124,12 @@
             this.headerContent = this.headerTitle;
         },
 
+        beforeDestroy:function() {
+            window.removeEventListener("scroll",function(){
+                this_.scrollTop = document.body.scrollTop;
+            },false);
+        },
+
         methods: {
 
             openMap: function () {
