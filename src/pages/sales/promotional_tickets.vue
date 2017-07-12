@@ -57,7 +57,7 @@
 export default {
   data () {
     return {
-    
+    	
     }
   }, 
   methods:{
@@ -75,10 +75,10 @@ export default {
   	handlebackclick:function(){
   		this.$router.go(-1);
   	}
-  
+  	
   },
   mounted(){
-  		window.addEventListener("scroll", this.handlescrollchange)
+  		window.addEventListener("scroll", this.handlescrollchange);
   	},
   props: ["ticketproductInfo", "tickettitleInfo"]
 }
