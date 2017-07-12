@@ -1,15 +1,14 @@
 <template>
     <div class="titket-city">
-         <ul class="city">
+        <ul class="city">
             <li :class="{'city-items' : true , activeIndexImg:index==activeIndex}" 
-                v-for="(items, index) in cityItmes" 
-                :key="index + '_city_itmes'"                 
-                @click="handleClick(index)">
-                <span class="city-change"  @click="handleCityClick">
+            v-for="(items, index) in cityItmes" 
+            :key="index + '_city_itmes'"                 
+            @click="handleClick(index)">
+                <span class="city-change"   @click="handleCityClick">
                     <a href="javascript:void(0)" 
                     class="city-items-a" 
-                    ref="moreCity"
-                    >{{items.city}}</a>
+                    ref="moreCity">{{items.city}}</a>
                 </span>
             </li>
         </ul> 
@@ -19,45 +18,45 @@
 <script>
 
 export default {
-  created: function(){
+    created: function(){
         this.$http.get('/static/ticketRmb.json').then(response => {
-            this.commentcityItmes = response.body.data.indexInfo.cityItem;
+        this.commentcityItmes = response.body.data.indexInfo.cityItem;
         }, response => {
             console.log("get list data error")
         });
     },
-  data () {
-    return {
-        commentcityItmes:[],
-        activeIndex:0
-    }
-  },
-  computed: {
+    data () {
+        return {
+            commentcityItmes:[],
+            activeIndex:0
+        }
+    },
+    computed: {
         cityItmes: function() {
             var cityItmes = [];
             for (var i = 0; i < this.commentcityItmes.length; i++) {
-                cityItmes.push(this.commentcityItmes[i]);
-            }
+            cityItmes.push(this.commentcityItmes[i]);
+        }
             return cityItmes;
         }
-  },
-  methods: {
+    },
+    methods: {
         handleClick: function(index) {
             this.activeIndex = index; 
             if(index==7){
-              this.$refs.moreCity[index].innerHTML = this.$store.state.province;
-              this.$emit("moreCityShow");
+                this.$refs.moreCity[index].innerHTML = this.$store.state.province;
+                this.$emit("moreCityShow");
             }else{
-              this.$refs.moreCity[7].innerHTML = "查看更多";
+                this.$refs.moreCity[7].innerHTML = "查看更多";
             }         
         },
         handleCityClick: function(e) {
-            var province = e.target.innerText;
-            try {
-                window.localStorage.province = province;
-                 province = window.localStorage.province;
-            } catch(e) {}
-                this.$emit("provinceChange", province);
+        var province = e.target.innerText;
+        try {
+        window.localStorage.province = province;
+        province = window.localStorage.province;
+        } catch(e) {}
+        this.$emit("provinceChange", province);
         }
     }
 }
