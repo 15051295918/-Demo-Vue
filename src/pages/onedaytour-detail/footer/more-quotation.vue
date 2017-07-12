@@ -2,8 +2,8 @@
     <div class="prddetail-contain">
         <h3 class="prddetail-title"><span class="title-leftline"></span>{{moreQuotation.prddetailTitle}}</h3>
         <div class="product-contain border-top">
-            <router-link to="/onedaytour/detail">
-                <div class="prddetail-content" v-for="(list, index) in moreQuotation.lists" :key="index + 'content_'" :class="{'border-bottom' :index == 0}">
+            <div class="prddetail-content" v-for="(list, index) in moreQuotation.lists" :key="index + 'content_'" :class="{'border-bottom' :index == 0}">
+                <router-link to="/onedaytour/detail">
                     <div class="productlist-item">
                         <h3 class="productprices-name">{{list.productpricesName}}</h3>
                         <p class="productprices-supplier"><span class="supplier-qunar" v-show="list.supplierqunarShow"></span>{{list.productpricesSupplier}}</p>
@@ -19,8 +19,8 @@
                         <i class="price">&yen;</i><span class="price-num">{{list.productpricesDetails.priceNum}}</span>
                         <span class="iconfont product-arrow" v-html="list.productpricesDetails.icon"></span>
                     </div>
-                </div>
-            </router-link>
+                </router-link>
+            </div>
         </div>
         <div class="price-bottom"></div>
     </div>

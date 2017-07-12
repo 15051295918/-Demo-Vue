@@ -15,7 +15,6 @@
 	import ExpenseExplanation from './expense-explanation';
 	import Instructions from './instructions';
 
-
 	export default {
 
 		data() {

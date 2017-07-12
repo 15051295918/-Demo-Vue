@@ -13,7 +13,7 @@
             </div>
             <h4 class="prddetail-subtitle">{{expenseExplanationInfo.content.last.title}}</h4>
             <p class="prddetail-desc" v-html="expenseExplanationInfo.content.last.content"></p>
-        </div>
+        </div> 
     </div>
 </template>
 
