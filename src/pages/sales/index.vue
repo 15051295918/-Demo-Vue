@@ -11,7 +11,15 @@ import hotrecommendation from './hotrecommendation';
 export default {
 	created:function(){
 		this.$http.get("/static/sales.json").then(response=>{
-			this.ticketInfo = response.body.data.ticketproductInfo;
+			
+			if(this.cityid[0] == 3) {
+				this.ticketInfo = response.body.data.ticketproductInfoshanghai;
+			}else if( this.cityid[0] == 4 ){
+				this.ticketInfo = response.body.data.ticketproductInfochongqing;
+			}else{
+				this.ticketInfo = response.body.data.ticketproductInfo;
+			}
+			
 			this.tickettitleInfo = response.body.data.tickettitleInfo;
 			this.hotTitleName = response.body.data.hotTitleName;
             this.hotProductName = response.body.data.hotTicketInfo;
@@ -24,8 +32,20 @@ export default {
         ticketInfo: [],
 	    hotTitleName: [],
 	    tickettitleInfo: [],
-        hotProductName: []
+        hotProductName: [],
+        cityid:[]
      }
+  },
+  mounted() {
+	  console.log(window.localStorage.city)
+	  if( window.localStorage.city=="上海" ) {
+		  console.log(this.$route.params.id) //
+		  this.cityid.unshift(3);
+		  console.log( this.cityid )
+	  }else if( window.localStorage.city=="重庆" ) {
+	  	  this.cityid.unshift(4);
+	  	  console.log(this.cityid)
+	  }
   },
   components:{
    	  "promotional-tickets":promotionaltickets,

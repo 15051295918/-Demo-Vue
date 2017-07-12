@@ -192,7 +192,8 @@
             "iconText": "车车"
         },{
             "icon": "&#xe629;",
-            "iconText": "当地人"
+            "iconText": "当地人",
+            "link":"/promote"
         }]
 	}
 }

@@ -19,7 +19,7 @@
 	<div class="ticket-productlist">
 		<div class="ticket-salelist">
 			<div class="ticket-saleitem" v-for="(item,index) in ticketproductInfo" :key="index+'ticket-saleitem'">
-				<router-link to="/weekend" :id="index" :title="item.title">
+				<router-link :to="'/onedaytour/detail/'+index" :id="index">
 					<div class="ticket-imgcontainer">
 					<img class="ticket-saleitem-img" v-lazy="item.imgurl" />
 					<div class="ticket-hotsale">
@@ -56,7 +56,7 @@
 export default {
   data () {
     return {
-    
+    	
     }
   }, 
   methods:{
@@ -74,10 +74,10 @@ export default {
   	handlebackclick:function(){
   		this.$router.go(-1);
   	}
-  
+  	
   },
   mounted(){
-  		window.addEventListener("scroll", this.handlescrollchange)
+  		window.addEventListener("scroll", this.handlescrollchange);
   	},
   props: ["ticketproductInfo", "tickettitleInfo"]
 }
