@@ -1,13 +1,13 @@
 <template>
     <div>
-    	<swiper :options="swiperOption" ref="mySwiper">
+        <swiper :options="swiperOption" ref="mySwiper">
             <swiper-slide v-for="(page, index) in pages" :key="index + '_icon_swiper_item'">
-            	<div class="icon-container">
-            		<div class="icon-wrapper" v-for="item in page">
-            			<img :src="item.imgUrl" class="icon-img">
-            			<p class="icon-title">{{item.title}}</p>
-            		</div>
-            	</div>
+                <div class="icon-container">
+                    <div class="icon-wrapper" v-for="item in page">
+                        <img :src="item.imgUrl" class="icon-img">
+                        <p class="icon-title">{{item.title}}</p>
+                    </div>
+                </div>
             </swiper-slide>
             <div class="swiper-pagination icon-pagination"  slot="pagination"></div>
         </swiper>
@@ -28,7 +28,7 @@ import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
     data () {
         return {
-         	swiperOption: {
+            swiperOption: {
                 autoplay: false,
                 direction : 'horizontal',
                 autoHeight: true,
@@ -56,32 +56,32 @@ export default {
 
 
 <style scoped>
-	.icon-container {
-		overflow: hidden;
-		padding-bottom: .4rem;
+    .icon-container {
+        overflow: hidden;
+        padding-bottom: .4rem;
         height: 2.88rem;
         background: #fff;
-	}
-	.icon-wrapper {
-		padding-top: .3rem;
-		overflow: hidden;
-		width: 25%;
-		float: left;
-	}
-	.icon-img {
-		width: .66rem;
-		display: block;
-		margin: 0 auto;
-	}
-	.icon-title {
-		margin-top: .2rem;
-		text-align: center;
-		color: #212121;
-		font-size: .28rem;
-	}
-	.icon-pagination {
-		bottom: .1rem;
-	}
+    }
+    .icon-wrapper {
+        padding-top: .3rem;
+        overflow: hidden;
+        width: 25%;
+        float: left;
+    }
+    .icon-img {
+        width: .66rem;
+        display: block;
+        margin: 0 auto;
+    }
+    .icon-title {
+        margin-top: .2rem;
+        text-align: center;
+        color: #212121;
+        font-size: .28rem;
+    }
+    .icon-pagination {
+        bottom: .1rem;
+    }
     .recommend {
         display: flex;
         background: #fff;

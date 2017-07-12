@@ -12,14 +12,14 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-    	path: '/',
-    	name: 'index',
+      path: '/',
+      name: 'index',
         alias: '/index',
-    	component: Index
+      component: Index
     }, {
-    	path: "/list",
-    	name: "list",
-    	component: List
+      path: "/list",
+      name: "list",
+      component: List
     }, {
       path: '/comment',
       name: 'comment',

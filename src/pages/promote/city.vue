@@ -9,7 +9,6 @@
                     <a href="javascript:void(0)" 
                     class="city-items-a" 
                     ref="moreCity"
-                    
                     >{{items.city}}</a>
                 </span>
             </li>
@@ -53,11 +52,12 @@ export default {
             }         
         },
         handleCityClick: function(e) {
-              var province = e.target.innerText;
-              try {
+            var province = e.target.innerText;
+            try {
                 window.localStorage.province = province;
-              } catch(e) {}
-              this.$store.commit("changeProvince",province);  
+                 province = window.localStorage.province;
+            } catch(e) {}
+                this.$emit("provinceChange", province);
         }
     }
 }
