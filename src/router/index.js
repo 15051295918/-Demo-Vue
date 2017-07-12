@@ -19,7 +19,7 @@ export default new Router({
     	name: "list",
     	component: List
     }, {
-        path: "/weekend",
+        path: "/weekend/:id/:title",
         name: "weekend",
         component: Weekend
     },{

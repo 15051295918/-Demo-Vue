@@ -3,7 +3,7 @@
   		<a class="header-left">
   			<div class="return"></div>
   		</a>
-  		<h1 class="header-title">学生最爱的博物馆 {{$route.params.id}}</h1>
+  		<h1 class="header-title">{{$route.params.title}}</h1>
   		
   	</header>
   	
