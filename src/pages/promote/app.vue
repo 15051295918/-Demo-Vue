@@ -1,5 +1,4 @@
 <template>
-
   	<div class="titket-9-main" v-if="appNameAd">  
 		<div class="app" ref="app">
 			<div class="app-left">
@@ -18,28 +17,28 @@
 <script>
 import detect from '@/utils/detect.js'
 export default {
-  data () {
-    return {
-     	"appNameAd": true
-    }
-  },
-  methods: {
-  	handleClickOff: function() {
+	data () {
+	    return {
+	     	"appNameAd": true
+	    }
+	},
+	methods: {
+	  	handleClickOff: function() {
 
-  		this.appNameAd = false;
-  	},
-  	handleAppDownload: function() {
-  		if( detect.os == 'iOS'){
-	        Location.href = "https://itunes.apple.com/cn/app/id395096736";
-	      }else if(detect.os == 'Android'){
-	        Location.href = "https://play.google.com/store/apps/details?id=com.Qunar&hl=zh";
-	      }else if(detect.os != 'iOS' || 'Android'){
-	        location.href = "./"
-	      }
-	   }
+	  		this.appNameAd = false;
+	  	},
+	  	handleAppDownload: function() {
+	  		if( detect.os == 'iOS'){
+		        Location.href = "https://itunes.apple.com/cn/app/id395096736";
+		      }else if(detect.os == 'Android'){
+		        Location.href = "https://play.google.com/store/apps/details?id=com.Qunar&hl=zh";
+		      }else if(detect.os != 'iOS' || 'Android'){
+		        location.href = "./"
+		      }
+		   }
 
-  	
-  }
+	  	
+	}
   
 }
 </script>

@@ -20,20 +20,20 @@
 <script>
 
 export default {
-  created: function(){
+    created: function(){
         this.$http.get('/static/ticketRmb.json').then(response => {
             this.commentcityItmes = response.body.data.indexInfo.cityItem;
         }, response => {
             console.log("get list data error")
         });
     },
-  data () {
-    return {
-        commentcityItmes:[],
-        activeIndex:0
-    }
-  },
-  computed: {
+    data() {
+        return {
+            commentcityItmes:[],
+            activeIndex:0
+        }
+    },
+    computed: {
         cityItmes: function() {
             var cityItmes = [];
             for (var i = 0; i < this.commentcityItmes.length; i++) {
@@ -41,8 +41,8 @@ export default {
             }
             return cityItmes;
         }
-  },
-  methods: {
+    },
+    methods: {
         handleClick: function(index) {
             this.activeIndex = index; 
             if(index==7){
@@ -66,74 +66,74 @@ export default {
 
 <style scoped>
     .titket-city {
-      width: 100%;
-      height: 1.8rem;   
+        width: 100%;
+        height: 1.8rem;   
     }
     .city {
-      width:98%;
-      height:1.7rem;
-      margin: 1%;
+        width:98%;
+        height:1.7rem;
+        margin: 1%;
     }
     .city-change{
         display: inline-block;
-     width:98%;
-      height:1.7rem;
-      margin: 1%;
+        width:98%;
+        height:1.7rem;
+        margin: 1%;
     }
     .city-items {
-      float: left;
-      width: 25%;
-      height: .9rem;
-      text-align: center;
-      line-height: .8rem;
-      background: url(//s.qunarzz.com/piao_topic/image/touch/custom/2017/2125perfect03/170704summer/menu_sprite.png) .1rem .1rem/400% 4.1rem no-repeat;
+        float: left;
+        width: 25%;
+        height: .9rem;
+        text-align: center;
+        line-height: .8rem;
+        background: url(//s.qunarzz.com/piao_topic/image/touch/custom/2017/2125perfect03/170704summer/menu_sprite.png) .1rem .1rem/400% 4.1rem no-repeat;
     }
     .city-items:nth-child(2){
-      background-position: 32.3% -3%;
+        background-position: 32.3% -3%;
     }
     .city-items:nth-child(3){
-      background-position: 66.7% -3%;
+        background-position: 66.7% -3%;
     }
     .city-items:nth-child(4){
-      background-position: 99.9% -3%;
+        background-position: 99.9% -3%;
     }
     .city-items:nth-child(5){
-      background-position: -1% 25%;
+        background-position: -1% 25%;
     }
     .city-items:nth-child(6){
-      background-position: 32.3% 25%;
+        background-position: 32.3% 25%;
     }
     .city-items:nth-child(7){
-      background-position: 66.7% 25.5%;
+        background-position: 66.7% 25.5%;
     }
     .city-items:nth-child(8){
-      background-position: 99.9% 25%;
+        background-position: 99.9% 25%;
     }
     .city-items-a {
-      color: #fff;
+        color: #fff;
     } 
    .activeIndexImg:nth-child(1){
-     background-position: -1.7% 73.6%;
+        background-position: -1.7% 73.6%;
    }
    .activeIndexImg:nth-child(2){
-     background-position: 32.3% 74%;
+        background-position: 32.3% 74%;
    }
    .activeIndexImg:nth-child(3){
-     background-position: 66.7% 74%;
+        background-position: 66.7% 74%;
    }
    .activeIndexImg:nth-child(4){
-     background-position: 99.9% 74%;
+        background-position: 99.9% 74%;
    }
    .activeIndexImg:nth-child(5){
-     background-position: -1.4% 101.6%;
+        background-position: -1.4% 101.6%;
    }
    .activeIndexImg:nth-child(6){
-     background-position: 32.3% 102%;
+        background-position: 32.3% 102%;
    }
    .activeIndexImg:nth-child(7){
-     background-position: 66.7% 102.5%;
+        background-position: 66.7% 102.5%;
    }
    .activeIndexImg:nth-child(8){
-     background-position: -3.5% 75%;
+        background-position: -3.5% 75%;
    } 
 </style>

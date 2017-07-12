@@ -31,12 +31,12 @@ import moreprovince from "./moreprovince"
 
 export default {
 	created: function() {
-      this.$http.get('/static/ticketRmb.json').then(response => { 
-      	this.nineTicket  = response.body.data.indexInfo.nineTicket
-      	this.moreProvinces = response.body.data.indexInfo.moreProvinces 
-      }, response => {
-        console.log(调错了)
-      });
+	    this.$http.get('/static/ticketRmb.json').then(response => { 
+	      	this.nineTicket  = response.body.data.indexInfo.nineTicket
+	      	this.moreProvinces = response.body.data.indexInfo.moreProvinces 
+	    }, response => {
+	        console.log(调错了)
+	    });
     },
     data () {
         return {
