@@ -5,6 +5,7 @@ import List from '@/pages/list/index'
 import CampaignIndex from '@/pages/campaign/index/index'
 import CampaignMineindex from '@/pages/campaign/mine/index'
 import CampaignMineRegister from '@/pages/campaign/mine/register'
+import City from '@/pages/city/index'
 
 Vue.use(Router)
 
@@ -12,11 +13,12 @@ export default new Router({
   routes: [
     {
     	path: '/',
-    	name: 'Index',
+    	name: 'index',
+        alias: '/index',
     	component: Index
     }, {
     	path: "/list",
-    	name: "List",
+    	name: "list",
     	component: List
     }, {
         path: "/campaign",
@@ -31,6 +33,11 @@ export default new Router({
         path: "/campaign/mine/register",
         name: "CampaignMineRegister",
         component: CampaignMineRegister
-    }     
+    },
+    {
+        path: "/city",
+        name: "city",
+        component: City
+    }    
   ]
 })
