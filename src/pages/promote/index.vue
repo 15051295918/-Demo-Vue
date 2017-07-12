@@ -43,8 +43,9 @@ import moreprovince from "./moreprovince"
 var province = "福建";
 
 export default {
-	beforeCreated: function() {
+	beforeCreate: function() {
 		try {
+			console.log(window.localStorage.province+"index")
             this.province = window.localStorage.province;
         } catch(e) {}
 	},

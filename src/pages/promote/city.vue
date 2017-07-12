@@ -7,16 +7,17 @@
                 @click="handleClick(index)">
                 <span class="city-change"  @click="handleCityClick">
                     <a href="javascript:void(0)" 
-                    class="city-items-a"
+                    class="city-items-a" 
+                    ref="moreCity"
                     >{{items.city}}</a>
                 </span>
             </li>
-            <li :class="{'city-items':true, 'activeIndexImg':activeMoreCity}" @click="handleMoreCity">
+            <li class="city-items" @click="handleMoreCity">
                 <span>
                     <a href="javascript:void(0)" 
                     class="city-items-a" 
                     ref="moreCity"
-                    >{{province}}</a>
+                    >查看更多</a>
                 </span>
             </li>
         </ul> 
@@ -26,7 +27,6 @@
 <script>
 
 export default {
-    props: ["province"],
     created: function(){
         this.$http.get('/static/ticketRmb.json').then(response => {
             this.commentcityItmes = response.body.data.indexInfo.cityItem;
@@ -34,19 +34,20 @@ export default {
             console.log("get list data error")
         });
     },
-    mounted: function() {
-        this.$refs.moreCity.innerHTML = "查看更多"
-    },
     data() {
         return {
             commentcityItmes:[],
             activeIndex:0,
-            activeMoreCity: false
+            cityIndex:0
         }
     },
     computed: {
         cityItmes: function() {
             var cityItmes = [];
+            var cityIndex = window.localStorage.index;
+            if(cityIndex){
+                this.activeIndex=cityIndex;
+            }
             for (var i = 0; i < this.commentcityItmes.length; i++) {
                 cityItmes.push(this.commentcityItmes[i]);
             }
@@ -55,20 +56,20 @@ export default {
     },
     methods: {
         handleClick: function(index) {
-            this.activeIndex = index;  
-            this.$refs.moreCity.innerHTML = "查看更多"
-            this.activeMoreCity = false;
+            this.activeIndex = index;
+            try {
+                window.localStorage.index = index;
+            } catch(e) {}      
         },
         handleMoreCity: function() {
             this.$emit("moreCityShow");
-            this.activeMoreCity = true;
         },
         handleCityClick: function(e) {
             var province = e.target.innerText;
             try {
                 window.localStorage.province = province;
             } catch(e) {}
-                this.$emit("provinceChange", province);
+            this.$emit("provinceChange", province);
         }
     }
 }
