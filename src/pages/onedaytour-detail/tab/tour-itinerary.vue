@@ -52,33 +52,23 @@
         data() {
 
             return {
-                tourIntimeraryOffsetTop: 0,
-                "show": true,
-                "isBigMapOpen": false
+                "show": true
             }
 
         },
 
         props: [
-            "tourItineraryInfo"
+            "tourItineraryInfo", "isBigMapOpen"
         ],
 
         methods: {
 
             handleMapClick: function () {
-                if (this.isBigMapOpen) {
-                    this.isBigMapOpen = false;
-                } else {
-                    this.isBigMapOpen = true;
+                if (!this.isBigMapOpen) {
+                    this.$emit("openMap");
                 }
-                this.$emit("openMap");
             }
 
-        },
-
-        mounted() {
-            var tourIntimeraryElement = document.querySelectorAll('.tour-intimerary-main');
-            this.tourIntimeraryOffsetTop = tourIntimeraryElement[0].offsetTop;
         }
 
     }
@@ -251,6 +241,6 @@
         width: 100%;
         height: 100%;
         padding-top: 0;
-        z-index: 100;
+        z-index: 2000;
     }
 </style>

@@ -12,7 +12,7 @@
             <user-reviews :userReviews="headerInfo.userReviews"></user-reviews>
 
             <!--武鹤-->
-            <index-tab :tabInfo="tabInfo" :scrollTop="scrollTop" @openMap="openMap(isBigMapOpen)"></index-tab>
+            <index-tab :isBigMapOpen="isBigMapOpen" :tabInfo="tabInfo" :scrollTop="scrollTop" @openMap="openMap(isBigMapOpen)"></index-tab>
 
             <!--国辉-->
             <index-footer :footerInfo="footerInfo"></index-footer>
@@ -133,7 +133,7 @@
                 } else {
                     this.headerContent = this.headerTitle;
                 }
-                    this.isBigMapOpen = !this.isBigMapOpen
+                this.isBigMapOpen = !this.isBigMapOpen
             },
 
             handleGoBack: function () {
@@ -172,7 +172,6 @@
         top: 0;
         right: 0;
         bottom: 0;
-        overflow-y: hidden;
     }
 
     .header {

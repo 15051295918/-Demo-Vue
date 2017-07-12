@@ -4,7 +4,7 @@
 			<li v-for="(item, index) in tabInfo.index.tabs" :class="{tabs:true, active: index==activeIndex}" @click="hadleTabItemClick(index)"
 			 :key="index + 'tab'">{{item.title}}</li>
 		</ul>
-		<tour-itinerary :tourItineraryInfo="tabInfo.tourItinerary" @openMap="openMap"></tour-itinerary>
+		<tour-itinerary :isBigMapOpen="isBigMapOpen" :tourItineraryInfo="tabInfo.tourItinerary" @openMap="openMap"></tour-itinerary>
 		<expense-explanation :expenseExplanationInfo="tabInfo.expenseExplanation"></expense-explanation>
 		<instructions :instructionsInfo="tabInfo.instructions"></instructions>
 	</div>
@@ -20,7 +20,6 @@
 
 		data() {
 			return {
-				tabShow: true,
 				mainOffsetTop: 0,
 				tabOffsetHeight: 0,
 				headerOffsetHeight: 0,
@@ -32,7 +31,7 @@
 		},
 
 		props: [
-			"scrollTop", "tabInfo"
+			"scrollTop", "tabInfo","isBigMapOpen"
 		],
 
 		components: {
@@ -53,14 +52,18 @@
 				}
 			},
 
-			openMap: function (isBigMapOpen) {
-				this.tabShow = !this.tabShow;
+			openMap: function () {
+				this.tabShow = false;
 				this.$emit("openMap");
 			}
 
 		},
 
 		computed: {
+
+			tabShow: function() {
+				return !this.isBigMapOpen
+			},
 
 			tabFixed: function () {
 				return this.scrollTop > this.mainOffsetTop - this.headerOffsetHeight;
