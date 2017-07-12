@@ -11,12 +11,6 @@ new Vue({
 			city = window.localStorage.city;
 		} catch(e) {}
 		this.$store.commit("changeCity", city);
-
-		var province = "查看更多";
-		try {
-			province = window.localStorage.province
-		} catch(e) {}
-		this.$store.commit("changeProvince", province)
 	},
   	el: '#app',
   	router,

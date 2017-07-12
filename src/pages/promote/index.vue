@@ -1,6 +1,6 @@
 <template>
   	<div class="titket">
-		<app @delete="handleOff"></app>
+		<app @delete="handleOff" @provinceChanges="handleProvinceChange"></app>
 		<titket-header></titket-header>
 		<div class="titket-main">
 			<div class="titket-ban">
@@ -9,9 +9,16 @@
 			<div class="titket-active">
 				<div class="active-content">来这app更新至最新版本方可享受本活动优惠</div>
 			</div>
-			<titket-city @moreCityShow="handleClickShow"></titket-city>
-			<titket-scenic :data="nineTicket"></titket-scenic>
-			<more-special :propsoff="off"></more-special>
+			<titket-city 
+			@moreCityShow="handleClickShow"
+			@provinceChange="handleProvinceChange"
+			></titket-city>
+			<titket-scenic 
+			:data="nineTicket" 
+			:province="province"></titket-scenic>
+			<more-special 
+			:propsoff="off" 
+			:province="province"></more-special>
 			<more-product></more-product>
 			<more-province @moreProvinceOff="handleClickOff" v-if="moreProvince" :moreProvinces="moreProvinces"></more-province>
 		</div>
@@ -43,7 +50,8 @@ export default {
      		off:false,
      		nineTicket: [],
      		moreProvinces: [],
-     		"moreProvince" : false
+     		"moreProvince" : false,
+     		province: "福建"
         }
     },
 	components: {
@@ -65,6 +73,9 @@ export default {
 		},
 		handleClickShow: function() {
 			this.moreProvince = true;
+		},
+		handleProvinceChange: function(province) {
+			this.province = province;
 		}
 	}  
 }

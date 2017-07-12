@@ -23,7 +23,7 @@
                         <div class="list-img-box">
                             <img :src="item.img"  class="list-img" v-lazy="item.img">
                             <div class="list-img-add">
-                                <span class="list-img-pos"></span>{{$store.state.province}}    
+                                <span class="list-img-pos"></span>{{province}}    
                             </div>
                             <div class="list-img-content">
                                 {{item.subName}}
@@ -55,7 +55,12 @@
 import detect from '@/utils/detect.js'
 
 export default {
-   
+   beforeCreate: function() {
+        var province = '福建';
+        try {
+            this.province = window.localStorage.province;
+        } catch(e) {}
+    },
     created: function(){
         this.$http.get('/static/ticketRmb.json').then(response => {
             this.commentlistInfo = response.body.data.indexInfo.caption;
@@ -89,13 +94,14 @@ export default {
             return nav;
         }
     },
-    props:["propsoff"],
-    mounted: function() {
-        var ceilling = this.$refs.ceiling;
-        var this_ = this;
-        window.onscroll=function(){
-            if(document.body.scrollTop>=this_.$refs.scrolllist.offsetTop){
-                if(this_.propsoff){
+    methods: {
+        handleClick: function(index) {
+            this.activeIndex = index; 
+        },
+        handleScroll: function(){
+            var ceilling = this.$refs.ceiling;
+            if(document.body.scrollTop>=this.$refs.scrolllist.offsetTop){
+                if(this.propsoff){
                     ceilling.className = 'activeNotTop';  
                 }else{
                     ceilling.className = 'activeHaveTop'; 
@@ -106,11 +112,12 @@ export default {
             }
         }
     },
-    methods: {
-        handleClick: function(index) {
-            this.activeIndex = index; 
-           /* this.activeImg = false;*/
-        }
+    props:["propsoff","province"],
+    mounted: function() {
+        window.addEventListener("scroll", this.handleScroll)
+    },
+    destroyed: function() {
+        window.removeEventListener("scroll", this.handleScroll)
     }
 }
 </script>

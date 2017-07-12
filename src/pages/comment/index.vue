@@ -1,24 +1,30 @@
 <template>
   	<div>
-  		<div class="comment-header">  			
-	  			<a  @click="handleGobackClick" class="header-return iconfont">&#xe685;</a>
+  		<div class="comment-header"> 			
+	  		<a  @click="handleGobackClick" class="header-return iconfont">&#xe685;</a>
 	  		<h1 class="comment-header-con">点评</h1>
   		</div>
 		<div class="comment-con-info" id="box">
 			<ul class="comment-ulcon" v-for="(list, index) in lists" :key="index + '_comment_list'">
 		  		<li class="comment-list border-top" v-for="(item,liindex) in list">
 		  			<div class="comment-list-head">
-			  			<span class="comment-star">{{item.iconfont}}</span>
+			  			<span class="comment-star iconfont">
+			  				&#xe604;&#xe604;&#xe604;&#xe604;&#xe604;
+			  			</span>
 			  			<span v-html="item.time" class="comment-time">{{item.time}}</span>
 		  			</div>
 		  			<div class="comment-descr">
-			  			<p :class="{isactive:show===index*10+liindex}" class="comment-text">
+			  			<p  :class="{isactive:show===index*10+liindex}" class="comment-text">
 			  				{{item.txt}}
 			  			</p>
-			  			<div class="comment-text-more"  ><span @click="handleTextMore(index*10+liindex)" class="iconfont" >&#xe76d;</span></div>
+			  			<div class="comment-text-more">
+				  			<span @click="handleTextMore(index*10+liindex)" class="iconfont" >
+				  				&#xe76d;
+				  			</span>
+			  			</div>
 		  			</div>
-		  			<div class="comment-imgbox">
-		  				<img class="comment-img" v-for="(itemimg, index) in item.img" :src="itemimg" alt="" >		
+		  			<div class="comment-imgbox" >
+		  				<img class="comment-img" v-for="(itemimg, imgindex) in item.img" @click="handleBigImg(imgindex)" :src="itemimg" alt="" >		
 		  			</div>
 		  		</li>
 	  		</ul>
@@ -29,65 +35,60 @@
 
 <script>
 
-import detect from '@/utils/detect.js'
+	import detect from '@/utils/detect.js'
 
-export default {
-    created: function(){
-        this.$http.get('/static/commentweekend.json').then(response => {
-            this.commentlistInfo = response.body.data.indexInfo;            
-        }, response => {
-            console.log("get list data error")
-        });
-    },
-    data () {
-	    return {
-	        commentlistInfo: [],
-	        count:0,
-	        isshow:[],
-	        show:false
-	    }
-    },
-  	computed: {
-        lists: function() {
-            var lists = [],
-                length=(this.count+1)*10>=this.commentlistInfo.length?this.commentlistInfo.length:(this.count+1)*10;
-            	this.isshow=[];
-            for (var i = 0; i < length; i++) { 
-            	if(this.commentlistInfo[i].txt.length>104){this.isshow.push(i)}        	
-                var list = Math.floor(i / 10); 
-                if (!lists[list]) { 
-                    lists[list] = [] 
-                }
-                lists[list].push(this.commentlistInfo[i]);
-            }	
-            return lists;
-        }
-    },
-    mounted:function(index){
-
-    		for(var i=0;i<this.isshow.length;i++){
-    			this.show=true
-    		}
-    },
-    methods:{
-    	handleTextMore:function(index){
-    		for(var j=0;j<this.isshow.length;j++){
-    			if(this.isshow.indexOf(index)!=-1){
-    				this.show = index;
-    				break;
-    			}
-    		}
-    	},
-    	 handleAddMore:function(){		
-    		this.count++;
-    	},
-    	handleGobackClick:function(){
-    		history.go(-1)
-    	}   	
-    } 
-}
+	export default {
+	    created: function() {
+	        this.$http.get( '/static/commentweekend.json' ).then( response => {
+	            this.commentlistInfo = response.body.data.indexInfo;            
+	        }, response => {
+	            console.log( "get list data error" )
+	        });
+	    },
+	    data () {
+		    return {
+		        commentlistInfo: [],
+		        count: 0,
+		        isshow: [],
+		        show: false
+		    }
+	    },
+	  	computed: {
+	        lists: function() {
+	            var lists = [],
+	                length = (this.count+1)*10 >= this.commentlistInfo.length ? this.commentlistInfo.length : (this.count + 1) * 10;
+	            	this.isshow = [];
+	            for (var i = 0; i < length; i++) { 
+	            	if(this.commentlistInfo[i].txt.length > 104){
+	            		this.isshow.push( i );
+	            	}    	
+	                var list = Math.floor(i / 10); 
+	                if ( !lists[list] ) { 
+	                    lists[list] = [];
+	                }
+	                lists[list].push( this.commentlistInfo[i] );
+	            }	
+	            return lists;
+	        }
+	    },
+	    methods:{
+	    	handleTextMore:function(index){
+	    		for(var j = 0;j < this.isshow.length;j++){
+	    			if(this.isshow.indexOf(index) != -1){
+	    				this.show = index;
+	    				break;
+	    			}
+	    		}
+	    	},
+	    	handleAddMore:function() {		
+	    		this.count++;
+	    	},
+	    	handleGobackClick:function() {
+	    		history.go(-1)
+	    	}
+	    } 
+	}
 </script>
-
 
 <style scoped>
 	#box .isactive{
@@ -149,6 +150,10 @@ export default {
 	 .comment-star{
 	 	color:red;
 	 	display: block;	 
+	 	font-size: 0.3rem;
+	 }
+	 .comment-star::after{
+	 	margin-right: -.1rem;
 	 }
 	.comment-time{		
 		color: #999;

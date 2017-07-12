@@ -1,6 +1,6 @@
 <template>
   	<div class="title-header">
-         <a class="header-left">
+         <a class="header-left" @click="handleback">
            <div class="return"></div>
          </a>
          <div class="header-title">
@@ -20,6 +20,12 @@ export default {
     return {
      
     }
+  },
+  methods: {
+    handleback: function() {
+       history.go(-1)
+    }
+   
   }
 
 }

@@ -9,7 +9,7 @@
                     <img :src="items.img" class="scenic-left-img"/>
                     <div class="scenic-city">
                       <div class="location-icon"></div>
-                      <span class="location-name">{{$store.state.province}}</span>
+                      <span class="location-name">{{province}}</span>
                     </div>
                   </div>
                   <div class="scenic-right">
@@ -32,19 +32,25 @@
 <script>
 
 export default {
-  data () {
-    return {
-     
-    }
-  },
-  props:["data"]
+    beforeCreate: function() {
+        var province = '福建';
+        try {
+            this.province = window.localStorage.province;
+        } catch(e) {}
+    },
+    data () {
+        return {
+
+        }
+    },
+    props:["data","province"]
 
 }
 </script>
 
 
 <style scoped>
-	  .scenic-title {
+	.scenic-title {
       width:100%;
       height: 1.4rem;
     }
