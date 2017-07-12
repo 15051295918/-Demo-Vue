@@ -16,30 +16,32 @@
 	<div class="ticket-productlist">
 		<div class="ticket-salelist">
 			<div class="ticket-saleitem" v-for="(item,index) in ticketproductInfo" :key="index+'ticket-saleitem'">
-				<div class="ticket-imgcontainer">
-				<img class="ticket-saleitem-img" v-lazy="item.imgurl" />
-				<div class="ticket-hotsale">
-					<span class="ticket-hotsale-text">{{item.hotsale}}</span>
-				</div>
-				</div>
-				<div class="ticket-saleInfo">
-					<p class="ticket-saleInfo-title">{{item.title}}</p>
-					<div class="ticket-priceinfo">
-						<div class="ticket-sale-qunarprice">
-							&yen;<em class="ticket-now-price">{{item.newPrice}}</em>
-						</div>
-						<div class="ticket-originprice-container">
-							<span class="ticket-coupon-container" v-if="item.coupon">
-								<span class="ticket-coupon-text">{{item.coupontext}}</span>
-								<span class="ticket-coupon-pricecontainer">
-									&yen;<em class="ticket-coupon-price">{{item.couponPrice}}</em>
+				<router-link to="/nopage" :id="index">
+					<div class="ticket-imgcontainer">
+					<img class="ticket-saleitem-img" v-lazy="item.imgurl" />
+					<div class="ticket-hotsale">
+						<span class="ticket-hotsale-text">{{item.hotsale}}</span>
+					</div>
+					</div>
+					<div class="ticket-saleInfo">
+						<p class="ticket-saleInfo-title">{{item.title}}</p>
+						<div class="ticket-priceinfo">
+							<div class="ticket-sale-qunarprice">
+								&yen;<em class="ticket-now-price">{{item.newPrice}}</em>
+							</div>
+							<div class="ticket-originprice-container">
+								<span class="ticket-coupon-container" v-if="item.coupon">
+									<span class="ticket-coupon-text">{{item.coupontext}}</span>
+									<span class="ticket-coupon-pricecontainer">
+										&yen;<em class="ticket-coupon-price">{{item.couponPrice}}</em>
+									</span>
 								</span>
-							</span>
-							<span class="ticket-origin-price">&yen;{{item.originPrice}}</span>
+								<span class="ticket-origin-price">&yen;{{item.originPrice}}</span>
+							</div>
 						</div>
 					</div>
-				</div>
-				<a class="ticket-fulllink"></a>
+					<a class="ticket-fulllink"></a>
+				</router-link>
 			</div>
 		</div>
 	</div>
