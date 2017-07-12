@@ -12,6 +12,14 @@
                     >{{items.city}}</a>
                 </span>
             </li>
+            <li class="city-items" @click="handleMoreCity">
+                <span>
+                    <a href="javascript:void(0)" 
+                    class="city-items-a" 
+                    ref="moreCity"
+                    >查看更多</a>
+                </span>
+            </li>
         </ul> 
     </div>  
 </template>
@@ -29,12 +37,17 @@ export default {
     data() {
         return {
             commentcityItmes:[],
-            activeIndex:0
+            activeIndex:0,
+            cityIndex:0
         }
     },
     computed: {
         cityItmes: function() {
             var cityItmes = [];
+            var cityIndex = window.localStorage.index;
+            if(cityIndex){
+                this.activeIndex=cityIndex;
+            }
             for (var i = 0; i < this.commentcityItmes.length; i++) {
                 cityItmes.push(this.commentcityItmes[i]);
             }
@@ -43,13 +56,13 @@ export default {
     },
     methods: {
         handleClick: function(index) {
-            this.activeIndex = index; 
-            if(index==7){
-              this.$refs.moreCity[index].innerHTML = this.$store.state.province;
-              this.$emit("moreCityShow");
-            }else{
-              this.$refs.moreCity[7].innerHTML = "查看更多";
-            }         
+            this.activeIndex = index;
+            try {
+                window.localStorage.index = index;
+            } catch(e) {}      
+        },
+        handleMoreCity: function() {
+            this.$emit("moreCityShow");
         },
         handleCityClick: function(e) {
             var province = e.target.innerText;
@@ -77,7 +90,7 @@ export default {
     .city-change{
         display: inline-block;
         width:98%;
-        height:1.7rem;
+        height: .9rem;
         margin: 1%;
     }
     .city-items {
