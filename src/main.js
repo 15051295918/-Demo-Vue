@@ -5,12 +5,14 @@ import router from './router'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import VueResource from 'vue-resource'
 import FastClick from 'fastclick'
+import VueTabs from 'vue-tabs'
 
 FastClick.attach(document.body);
 
 Vue.config.productionTip = false
 Vue.use(VueAwesomeSwiper)
 Vue.use(VueResource);
+Vue.use(VueTabs);
 
 new Vue({
   el: '#app',
