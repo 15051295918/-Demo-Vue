@@ -111,11 +111,13 @@ export default {
         console.log("心态崩了GG")
       },
       handleLoginClick: function() {
+            alert(123)
             var phoneVal = this.$refs.phone.value;
             var password = this.$refs.password.value;
             var userInfo = JSON.parse(localStorage.getItem('logInformation'));
-            if(userInfo.username == phoneVal && userInfo.password == password) {
-              alert(123)
+            console.log(userInfo[0].password,userInfo);
+            if(userInfo[0].username == phoneVal && userInfo[0].password == password) {
+              this.$router.go(-1)
            }else{
             alert("用户名或者密码输入不正确")
            }

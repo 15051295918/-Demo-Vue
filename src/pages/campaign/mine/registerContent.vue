@@ -23,9 +23,9 @@
           </div>
         </div>
     </div>
-    <router-link to="" class="btn" @click=handleregisterClick>
+    <div :class={registerChangeColor:canRegister} to="" class="btn" @click=handleregisterClick>
       注册
-    </router-link>
+    </div>
   </div>
 </div>
 </template>
@@ -34,7 +34,8 @@
 export default {
     data () {
       return {
-         canRegister:false
+         canRegister:false,
+
       }
     },
     methods:{
@@ -45,9 +46,10 @@ export default {
         if(this.canRegister){
             logInformation.push({"username": phoneVal,"password": password});
              localStorage.setItem('logInformation',JSON.stringify(logInformation));
-             history.go(-1)
+             alert('注册成功');
+             console.log(this.canRegister)
+             this.$router.go(-2)
         }else{}
-
       },
       handleChangeImg: function() {
         console.log("心态崩了GG")
@@ -57,6 +59,7 @@ export default {
         var phoneVal = this.$refs.phone.value;
         if(reg.test(phoneVal)){
             this.canRegister = true;
+
         }
       }
     }
@@ -166,5 +169,8 @@ export default {
     font-size: .36rem;
     margin: 0 auto;
     margin-top: .2rem;
+  }
+  .registerChangeColor{
+    background-color: #18a9b9;
   }
 </style>
