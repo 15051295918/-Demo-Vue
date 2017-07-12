@@ -12,8 +12,10 @@
             <div class="swiper-pagination icon-pagination"  slot="pagination"></div>
         </swiper>
         <div class="recommend border-topbottom">
-            <div class="recomment-item" v-for="(item, index) in recommends" :class="{'border-right': index == 0}">
+            <div class="recomment-item" v-for="(item, index) in recommends" :class="{'border-right': index == 0}" >
+                <router-link :to="item.link">
                 {{item.title}}
+                </router-link>
             </div>
         </div>
     </div>
@@ -88,5 +90,6 @@ export default {
         flex: 1;
         line-height: 1rem;
         text-align: center;
+        color: #000;
     }
 </style>
