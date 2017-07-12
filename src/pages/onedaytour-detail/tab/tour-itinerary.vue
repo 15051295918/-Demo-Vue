@@ -30,11 +30,13 @@
                 </li>
             </ul>
         </div>
-        <div class="card-moreoutter">
-            <div class="card-more border-bottom">查看详细产品介绍
-                <span class="iconfont">&#xe768;</span>
+        <router-link to="/">
+            <div class="card-moreoutter">
+                <div class="card-more border-bottom">查看详细产品介绍
+                    <span class="iconfont">&#xe768;</span>
+                </div>
             </div>
-        </div>
+        </router-link>
         <div :class='{"prddetail-mapcon":true, "page-map":isBigMapOpen}' @click="handleMapClick" v-if="show">
             <el-amap vid="amap" :zoom="tourItineraryInfo.map.zoom" :center="tourItineraryInfo.map.center" class="amap-demo">
                 <el-amap-info-window v-for="(window, index) in tourItineraryInfo.map.windows" :position="window.position" :content="window.content"
@@ -52,7 +54,7 @@
             return {
                 tourIntimeraryOffsetTop: 0,
                 "show": true,
-                "isBigMapOpen":false
+                "isBigMapOpen": false
             }
 
         },

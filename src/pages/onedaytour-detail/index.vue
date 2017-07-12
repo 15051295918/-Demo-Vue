@@ -1,7 +1,6 @@
 <template>
     <div :class="{overflow:isBigMapOpen}">
         <div class="main">
-
             <div class="header" :style="style">
                 <a class="header-left iconfont" role="left">&#xe685;</a>
                 <h1 class="header-title" role="title">{{headerContent}}</h1>
@@ -127,22 +126,28 @@
 
         methods: {
 
-
-            openMap: function () {
+            openMap: function (sTop) {
 
                 if (!this.isBigMapOpen) {
                     this.headerContent = "景点地图";
+                    this.isBigMapOpen = !this.isBigMapOpen
                 } else {
                     this.headerContent = this.headerTitle;
+                    this.isBigMapOpen = !this.isBigMapOpen
+                    document.body.scrollTop = sTop;
                 }
-                this.isBigMapOpen = !this.isBigMapOpen
+                
             }
 
         },
 
         computed: {
             style: function () {
-                return "opacity:" + this.scrollTop / 150
+                if( this.isBigMapOpen ){
+                    return "opacity:1"
+                }else{
+                    return "opacity:" + this.scrollTop / 150
+                }
             }
         }
 
