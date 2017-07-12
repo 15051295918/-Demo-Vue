@@ -30,12 +30,14 @@
                 </li>
             </ul>
         </div>
-        <div class="card-moreoutter">
-            <div class="card-more border-bottom">查看详细产品介绍
-                <span class="iconfont">&#xe768;</span>
+        <router-link to="/">
+            <div class="card-moreoutter">
+                <div class="card-more border-bottom">查看详细产品介绍
+                    <span class="iconfont">&#xe768;</span>
+                </div>
             </div>
-        </div>
-        <div :class='{"prddetail-mapcon":true, "page-map":tourItineraryInfo.map.isBigMapOpen}' @click="handleMapClick" v-if="show">
+        </router-link>
+        <div :class='{"prddetail-mapcon":true, "page-map":isBigMapOpen}' @click="handleMapClick" v-if="show">
             <el-amap vid="amap" :zoom="tourItineraryInfo.map.zoom" :center="tourItineraryInfo.map.center" class="amap-demo">
                 <el-amap-info-window v-for="(window, index) in tourItineraryInfo.map.windows" :position="window.position" :content="window.content"
                     :visible="window.visible" :events="window.events" :key="index + 'map'"></el-amap-info-window>
@@ -50,32 +52,23 @@
         data() {
 
             return {
-                tourIntimeraryOffsetTop: 0,
                 "show": true
             }
 
         },
 
         props: [
-            "tourItineraryInfo"
+            "tourItineraryInfo", "isBigMapOpen"
         ],
 
         methods: {
 
             handleMapClick: function () {
-                if (this.map.isBigMapOpen) {
-                    this.map.isBigMapOpen = false;
-                } else {
-                    this.map.isBigMapOpen = true;
+                if (!this.isBigMapOpen) {
+                    this.$emit("openMap");
                 }
-                this.$emit("openMap");
             }
 
-        },
-
-        mounted() {
-            var tourIntimeraryElement = document.querySelectorAll('.tour-intimerary-main');
-            this.tourIntimeraryOffsetTop = tourIntimeraryElement[0].offsetTop;
         }
 
     }
@@ -248,6 +241,6 @@
         width: 100%;
         height: 100%;
         padding-top: 0;
-        z-index: 100;
+        z-index: 2000;
     }
 </style>

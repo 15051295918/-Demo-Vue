@@ -4,7 +4,7 @@
 			<li v-for="(item, index) in tabInfo.index.tabs" :class="{tabs:true, active: index==activeIndex}" @click="hadleTabItemClick(index)"
 			 :key="index + 'tab'">{{item.title}}</li>
 		</ul>
-		<tour-itinerary :tourItineraryInfo="tabInfo.tourItinerary" @openMap="openMap"></tour-itinerary>
+		<tour-itinerary :isBigMapOpen="isBigMapOpen" :tourItineraryInfo="tabInfo.tourItinerary" @openMap="openMap"></tour-itinerary>
 		<expense-explanation :expenseExplanationInfo="tabInfo.expenseExplanation"></expense-explanation>
 		<instructions :instructionsInfo="tabInfo.instructions"></instructions>
 	</div>
@@ -20,18 +20,18 @@
 
 		data() {
 			return {
-				tabShow: true,
 				mainOffsetTop: 0,
 				tabOffsetHeight: 0,
 				headerOffsetHeight: 0,
 				expenseElementOffsetTop: 0,
 				expenseElementOffsetHeight: 0,
-				instructionsElementOffsetTop: 0
+				instructionsElementOffsetTop: 0,
+				haveGetOffset: false
 			}
 		},
 
 		props: [
-			"scrollTop", "tabInfo"
+			"scrollTop", "tabInfo","isBigMapOpen"
 		],
 
 		components: {
@@ -52,14 +52,18 @@
 				}
 			},
 
-			openMap: function (isBigMapOpen) {
-				this.tabShow = !this.tabShow;
+			openMap: function () {
+				this.tabShow = false;
 				this.$emit("openMap");
 			}
 
 		},
 
 		computed: {
+
+			tabShow: function() {
+				return !this.isBigMapOpen
+			},
 
 			tabFixed: function () {
 				return this.scrollTop > this.mainOffsetTop - this.headerOffsetHeight;
@@ -81,38 +85,20 @@
 		},
 
 		updated: function () {
-			var tabMainElement = document.querySelectorAll('.tab-main');
-			var tabElement = document.querySelectorAll('.tab');
-			var headerElement = document.querySelectorAll('.header');
-			var expenseElement = document.querySelectorAll('.expense-main');
-			var instructionsElement = document.querySelectorAll('.instructions-main');
-			this.mainOffsetTop = tabMainElement[0].offsetTop;
-			this.tabOffsetHeight = tabElement[0].offsetHeight;
-			this.headerOffsetHeight = headerElement[0].offsetHeight;
-			this.expenseElementOffsetTop = expenseElement[0].offsetTop;
-			this.expenseElementOffsetHeight = expenseElement[0].offsetHeight;
-			this.instructionsElementOffsetTop = instructionsElement[0].offsetTop;
-			// console.log("主体Top" + this.mainOffsetTop, "tabHeight" + this.tabOffsetHeight, "头部Height" + this.headerOffsetHeight, "费用top" + this.expenseElementOffsetTop, "费用height" + this.expenseElementOffsetHeight, "第三个top" + this.instructionsElementOffsetTop)
-
-		},
-
-		watch: {
-			tabInfo: function () {
-				// var this_ = this;
-				// setTimeout(function () {
-				// 	var tabMainElement = document.querySelectorAll('.tab-main');
-				// 	var tabElement = document.querySelectorAll('.tab');
-				// 	var headerElement = document.querySelectorAll('.header');
-				// 	var expenseElement = document.querySelectorAll('.expense-main');
-				// 	var instructionsElement = document.querySelectorAll('.instructions-main');
-				// 	this_.mainOffsetTop = tabMainElement[0].offsetTop;
-				// 	this_.tabOffsetHeight = tabElement[0].offsetHeight;
-				// 	this_.headerOffsetHeight = headerElement[0].offsetHeight;
-				// 	this_.expenseElementOffsetTop = expenseElement[0].offsetTop;
-				// 	this_.expenseElementOffsetHeight = expenseElement[0].offsetHeight;
-				// 	this_.instructionsElementOffsetTop = instructionsElement[0].offsetTop;
-				// 	console.log("主体Top" + this_.mainOffsetTop, "tabHeight" + this_.tabOffsetHeight, "头部Height" + this_.headerOffsetHeight, "费用top" + this_.expenseElementOffsetTop, "费用height" + this_.expenseElementOffsetHeight, "第三个top" + this_.instructionsElementOffsetTop)
-				// }, 2000)
+			if (!this.haveGetOffset) {
+				var tabMainElement = document.querySelectorAll('.tab-main');
+				var tabElement = document.querySelectorAll('.tab');
+				var headerElement = document.querySelectorAll('.header');
+				var expenseElement = document.querySelectorAll('.expense-main');
+				var instructionsElement = document.querySelectorAll('.instructions-main');
+				this.mainOffsetTop = tabMainElement[0].offsetTop;
+				this.tabOffsetHeight = tabElement[0].offsetHeight;
+				this.headerOffsetHeight = headerElement[0].offsetHeight;
+				this.expenseElementOffsetTop = expenseElement[0].offsetTop;
+				this.expenseElementOffsetHeight = expenseElement[0].offsetHeight;
+				this.instructionsElementOffsetTop = instructionsElement[0].offsetTop;
+				this.haveGetOffset = true;
+				// console.log("主体Top" + this.mainOffsetTop, "tabHeight" + this.tabOffsetHeight, "头部Height" + this.headerOffsetHeight, "费用top" + this.expenseElementOffsetTop, "费用height" + this.expenseElementOffsetHeight, "第三个top" + this.instructionsElementOffsetTop)
 			}
 		}
 	}

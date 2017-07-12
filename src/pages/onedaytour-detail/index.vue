@@ -1,25 +1,26 @@
 <template>
-    <div class="main">
+    <div :class="{overflow:isBigMapOpen}">
+        <div class="main">
+            <div class="header" :style="style">
+                <span @click="handleGoBack" class="header-left iconfont">&#xe685;</span>
+                <h1 class="header-title">{{headerContent}}</h1>
+                <span class="header-right"></span>
+            </div>
 
-        <div class="header" :style="style">
-            <a class="header-left iconfont" role="left">&#xe685;</a>
-            <h1 class="header-title" role="title">{{headerContent}}</h1>
-            <span class="header-right" role="right"></span>
+            <!--老纪-->
+            <index-header :scrollTop="scrollTop" :headerInfo="headerInfo"></index-header>
+            <user-reviews :userReviews="headerInfo.userReviews"></user-reviews>
+
+            <!--武鹤-->
+            <index-tab :isBigMapOpen="isBigMapOpen" :tabInfo="tabInfo" :scrollTop="scrollTop" @openMap="openMap(isBigMapOpen)"></index-tab>
+
+            <!--国辉-->
+            <index-footer :footerInfo="footerInfo"></index-footer>
+
+            <!--坤勇-->
+            <booking-ticket></booking-ticket>
+
         </div>
-
-        <!--老纪-->
-        <index-header :scrollTop="scrollTop" :headerInfo="headerInfo"></index-header>
-        <user-reviews :userReviews="headerInfo.userReviews"></user-reviews>
-
-        <!--武鹤-->
-        <index-tab :tabInfo="tabInfo" :scrollTop="scrollTop" @openMap="openMap(isBigMapOpen)"></index-tab>
-
-        <!--国辉-->
-        <index-footer :footerInfo="footerInfo"></index-footer>
-
-        <!--坤勇-->
-        <booking-ticket></booking-ticket>
-
     </div>
 </template>
 
@@ -32,7 +33,7 @@
 
     export default {
 
-        created: function() {
+        created: function () {
             this.$http.get("/static/onedaytour-detail.json").then(response => {
                 if (response.body.ret) {
                     this.headerContent = this.headerTitle = response.body.data.index.headerTitle;
@@ -117,7 +118,7 @@
 
         mounted() {
             var this_ = this;
-            window.addEventListener('scroll', function() {
+            window.addEventListener('scroll', function () {
                 this_.scrollTop = document.body.scrollTop;
             }, false);
             this.headerContent = this.headerTitle;
@@ -125,8 +126,7 @@
 
         methods: {
 
-
-            openMap: function() {
+            openMap: function () {
 
                 if (!this.isBigMapOpen) {
                     this.headerContent = "景点地图";
@@ -134,17 +134,30 @@
                     this.headerContent = this.headerTitle;
                 }
                 this.isBigMapOpen = !this.isBigMapOpen
+            },
+
+            handleGoBack: function () {
+                if (this.isBigMapOpen) {
+                    this.isBigMapOpen = false;
+                } else {
+                    this.$router.go(-1)
+                }
             }
 
         },
 
         computed: {
-            style: function() {
-                return "opacity:" + this.scrollTop / 150
+            style: function () {
+                if (this.isBigMapOpen) {
+                    return "opacity:1"
+                } else {
+                    return "opacity:" + this.scrollTop / 150
+                }
             }
         }
 
     }
+
 </script>
 
 
@@ -152,7 +165,15 @@
     .main {
         background: #f5f5f5;
     }
-    
+
+    .overflow {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+    }
+
     .header {
         height: .88rem;
         background: #00bcd4;
@@ -166,7 +187,7 @@
         left: 0px;
         display: block;
     }
-    
+
     .header-left {
         left: 0;
         top: 0;
@@ -174,14 +195,14 @@
         height: .88rem;
         line-height: .88rem;
     }
-    
+
     .header-left {
         position: absolute;
         font-size: .36rem;
         color: #fff;
         text-align: center;
     }
-    
+
     .header-title {
         overflow: hidden;
         margin: 0 1rem;
@@ -192,7 +213,7 @@
         text-align: center;
         color: #fff;
     }
-    
+
     .header-right {
         position: absolute;
         top: 0;
