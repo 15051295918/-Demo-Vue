@@ -82,7 +82,7 @@ export default {
       height: 2.08rem;
     } 
     .scenic-city {
-      width: 1.12rem;
+      width: 1.32rem;
       height: .4rem;
       background: rgba(0, 0, 0, 0.7);
       position: absolute;

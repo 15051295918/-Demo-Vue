@@ -17,7 +17,6 @@
 
 <script>
 export default {
-
 	created: function() {
 	    this.$http.get('/static/ticketRmb.json').then(response => {
 	        this.more = response.body.data.indexInfo.cityItem;
@@ -41,7 +40,7 @@ export default {
 	  			window.localStorage.province = province;
 	  			province = window.localStorage.province;
 	  		} catch(e) {}
-	  		this.$emit("provinceChanges",province);
+	  		this.$emit("provinceChange",province);
 	  	}
 	}
 	  

@@ -7,17 +7,16 @@
                 @click="handleClick(index)">
                 <span class="city-change"  @click="handleCityClick">
                     <a href="javascript:void(0)" 
-                    class="city-items-a" 
-                    ref="moreCity"
+                    class="city-items-a"
                     >{{items.city}}</a>
                 </span>
             </li>
-            <li class="city-items" @click="handleMoreCity">
+            <li :class="{'city-items':true, 'activeIndexImg':activeMoreCity}" @click="handleMoreCity">
                 <span>
                     <a href="javascript:void(0)" 
                     class="city-items-a" 
                     ref="moreCity"
-                    >查看更多</a>
+                    >{{province}}</a>
                 </span>
             </li>
         </ul> 
@@ -35,10 +34,14 @@ export default {
             console.log("get list data error")
         });
     },
+    mounted: function() {
+        this.$refs.moreCity.innerHTML = "查看更多"
+    },
     data() {
         return {
             commentcityItmes:[],
-            activeIndex:0
+            activeIndex:0,
+            activeMoreCity: false
         }
     },
     computed: {
@@ -52,10 +55,13 @@ export default {
     },
     methods: {
         handleClick: function(index) {
-            this.activeIndex = index;       
+            this.activeIndex = index;  
+            this.$refs.moreCity.innerHTML = "查看更多"
+            this.activeMoreCity = false;
         },
         handleMoreCity: function() {
             this.$emit("moreCityShow");
+            this.activeMoreCity = true;
         },
         handleCityClick: function(e) {
             var province = e.target.innerText;

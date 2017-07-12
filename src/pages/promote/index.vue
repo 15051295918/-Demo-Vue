@@ -12,6 +12,7 @@
 			<titket-city 
 			@moreCityShow="handleClickShow"
 			@provinceChange="handleProvinceChange"
+			:province="province"
 			></titket-city>
 			<titket-scenic 
 			:data="nineTicket" 
@@ -20,7 +21,10 @@
 			:propsoff="off" 
 			:province="province"></more-special>
 			<more-product></more-product>
-			<more-province @moreProvinceOff="handleClickOff" v-if="moreProvince" :moreProvinces="moreProvinces"></more-province>
+			<more-province 
+			@moreProvinceOff="handleClickOff"
+			@provinceChange="handleProvinceChange"
+			 v-if="moreProvince" :moreProvinces="moreProvinces"></more-province>
 		</div>
 		
   	</div>	
