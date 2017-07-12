@@ -19,7 +19,6 @@
 
             <!--坤勇-->
             <booking-ticket></booking-ticket>
-
         </div>
     </div>
 </template>
