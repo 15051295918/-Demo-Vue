@@ -17,6 +17,12 @@ Vue.use(VueLazyload, {
 })
 
 
+Vue.config.productionTip = false
+
+Vue.use(VueAwesomeSwiper)
+Vue.use(VueResource);
+Vue.use(Vuex)
+
 FastClick.attach(document.body);
 
 export default {}

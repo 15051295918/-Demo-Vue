@@ -9,7 +9,7 @@
                     <img :src="items.img" class="scenic-left-img"/>
                     <div class="scenic-city">
                       <div class="location-icon"></div>
-                      <span class="location-name">{{items.locationName}}</span>
+                      <span class="location-name">{{$store.state.province}}</span>
                     </div>
                   </div>
                   <div class="scenic-right">

@@ -1,10 +1,10 @@
 <template>
   	<div>
-  		<div class="comment-header">
-	  		<a href="" class="header-return iconfont">&#xe685;</a>
+  		<div class="comment-header">  			
+	  			<a  @click="handleGobackClick" class="header-return iconfont">&#xe685;</a>
 	  		<h1 class="comment-header-con">点评</h1>
   		</div>
-		<div class="comment-con-info">
+		<div class="comment-con-info" id="box">
 			<ul class="comment-ulcon" v-for="(list, index) in lists" :key="index + '_comment_list'">
 		  		<li class="comment-list border-top" v-for="(item,liindex) in list">
 		  			<div class="comment-list-head">
@@ -12,10 +12,10 @@
 			  			<span v-html="item.time" class="comment-time">{{item.time}}</span>
 		  			</div>
 		  			<div class="comment-descr">
-			  			<p class="comment-text">
+			  			<p :class="{isactive:show===index*10+liindex}" class="comment-text">
 			  				{{item.txt}}
 			  			</p>
-			  			<div  class="comment-text-more"  @click="handleAddTextClick(liindex)"><span class="iconfont" >&#xe76d;</span></div>
+			  			<div class="comment-text-more"  ><span @click="handleTextMore(index*10+liindex)" class="iconfont" >&#xe76d;</span></div>
 		  			</div>
 		  			<div class="comment-imgbox">
 		  				<img class="comment-img" v-for="(itemimg, index) in item.img" :src="itemimg" alt="" >		
@@ -39,46 +39,65 @@ export default {
             console.log("get list data error")
         });
     },
-
     data () {
 	    return {
 	        commentlistInfo: [],
-	        count:0
-	 
+	        count:0,
+	        isshow:[],
+	        show:false
 	    }
     },
   	computed: {
         lists: function() {
-            var lists = [];
-            var length=(this.count+1)*10>=this.commentlistInfo.length?this.commentlistInfo.length:(this.count+1)*10;
-            for (var i = 0; i < length; i++) {
+            var lists = [],
+                length=(this.count+1)*10>=this.commentlistInfo.length?this.commentlistInfo.length:(this.count+1)*10;
+            	this.isshow=[];
+            for (var i = 0; i < length; i++) { 
+            	if(this.commentlistInfo[i].txt.length>104){this.isshow.push(i)}        	
                 var list = Math.floor(i / 10); 
                 if (!lists[list]) { 
                     lists[list] = [] 
                 }
                 lists[list].push(this.commentlistInfo[i]);
-            }
+            }	
             return lists;
         }
     },
+    mounted:function(index){
+
+    		for(var i=0;i<this.isshow.length;i++){
+    			this.show=true
+    		}
+    },
     methods:{
-    	handleAddTextClick:function(liindex){ 
-    		if(this.commentlistInfo[liindex].txt.length>104){
-    			console.log(true)
-    		}else{
-    			console.log(false)
-    		};    		   		
+    	handleTextMore:function(index){
+    		for(var j=0;j<this.isshow.length;j++){
+    			if(this.isshow.indexOf(index)!=-1){
+    				this.show = index;
+    				break;
+    			}
+    		}
     	},
     	 handleAddMore:function(){		
     		this.count++;
-    	}
-    	
+    	},
+    	handleGobackClick:function(){
+    		history.go(-1)
+    	}   	
     } 
 }
 </script>
 
 
 <style scoped>
+	#box .isactive{
+		display: block;
+	    overflow: visible;
+	    text-overflow: visible;
+	}
+	#box .isactive+.comment-text-more{	
+		display: none;
+	}
 	.comment-header{
 		position: relative;
 		display: flex;
@@ -116,7 +135,6 @@ export default {
 	}
 	.comment-list{
 		position: relative;
-		overflow: hidden;
 		color: #212121;
     	font-size: .28em;
     	padding: 0 .2rem .25rem .55rem ;
@@ -141,7 +159,7 @@ export default {
 	    display: -webkit-box;
 	    overflow: hidden;
 	    text-overflow: hidden;
-	    -webkit-line-clamp:4;
+	    -webkit-line-clamp:3;
 	    -webkit-box-orient:vertical;
 	    color: #999;
 	    font-size: .28rem;

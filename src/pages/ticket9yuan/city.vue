@@ -5,7 +5,13 @@
                 v-for="(items, index) in cityItmes" 
                 :key="index + '_city_itmes'"                 
                 @click="handleClick(index)">
-                <a href="javascript:void(0)" class="city-items-a">{{items.city}}</a>
+                <span class="city-change"  @click="handleCityClick">
+                    <a href="javascript:void(0)" 
+                    class="city-items-a" 
+                    ref="moreCity"
+                    
+                    >{{items.city}}</a>
+                </span>
             </li>
         </ul> 
     </div>  
@@ -40,14 +46,20 @@ export default {
         handleClick: function(index) {
             this.activeIndex = index; 
             if(index==7){
+              this.$refs.moreCity[index].innerHTML = this.$store.state.province;
               this.$emit("moreCityShow");
             }else{
-              
+              this.$refs.moreCity[7].innerHTML = "查看更多";
             }         
+        },
+        handleCityClick: function(e) {
+              var province = e.target.innerText;
+              try {
+                window.localStorage.province = province;
+              } catch(e) {}
+              this.$store.commit("changeProvince",province);  
         }
-
     }
-
 }
 </script>
 
@@ -59,6 +71,12 @@ export default {
     }
     .city {
       width:98%;
+      height:1.7rem;
+      margin: 1%;
+    }
+    .city-change{
+        display: inline-block;
+     width:98%;
       height:1.7rem;
       margin: 1%;
     }

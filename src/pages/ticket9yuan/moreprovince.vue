@@ -3,7 +3,11 @@
 		<div class="more-province-off iconfont">&#xe8e7;</div>
 		<div class="more-province-name">
 			<ul class="more-provinces">
-				<li v-for="(items, index) in moreProvinces" key="index + '_more_provinces'" class="province-items" @click="hanleChangeColor">
+				<li v-for="(items, index) in moreProvinces" 
+				key="index + '_more_provinces'" 
+				class="province-items"
+				@click="handleClick"
+				:data-provincename="items.name">
 					<span class="province-items-border">{{items.name}}</span>
 				</li>
 			</ul>
@@ -13,7 +17,8 @@
 
 <script>
 export default {
-	created: function(){
+
+	created: function() {
 	    this.$http.get('/static/ticketRmb.json').then(response => {
 	        this.more = response.body.data.indexInfo.cityItem;
 	    }, response => {
@@ -30,8 +35,12 @@ export default {
 	  	handleClickOff: function() {
 	  		this.$emit("moreProvinceOff");
 	  	},
-	  	hanleChangeColor: function() {
-	  		
+	  	handleClick: function(e) {
+	  		var province = e.target.innerText;
+	  		try {
+	  			window.localStorage.province = province;
+	  		} catch(e) {}
+	  		this.$store.commit("changeProvince",province);
 	  	}
 	}
 	  

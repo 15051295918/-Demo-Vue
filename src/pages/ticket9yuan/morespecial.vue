@@ -6,10 +6,10 @@
         <div class="filter-outer" ref="ceiling">
             <ul class="nav">
                 <li 
-                :class="{'nav-box':true,navActive : index == activeIndex }" @click="handleClick(index)" 
+                :class="{'nav-box':true, navActive : index == activeIndex }" @click="handleClick(index)" 
                 v-for="(items, index) in nav" 
                 :key="index+'_nav'"> 
-                    <div :class="{'nav-font':true, navfont:activeImg}">
+                    <div :class="{'nav-font':true, 'navfont':true, 'activeImg' : index == activeIndex, 'activeImgNext':index-1==activeIndex}">
                         <span :class="{navbgcolor: bgColor}"></span>
                         {{items.navFont}}
                     </div>
@@ -23,7 +23,7 @@
                         <div class="list-img-box">
                             <img :src="item.img"  class="list-img" v-lazy="item.img">
                             <div class="list-img-add">
-                                <span class="list-img-pos"></span>{{item.locationName}}     
+                                <span class="list-img-pos"></span>{{$store.state.province}}    
                             </div>
                             <div class="list-img-content">
                                 {{item.subName}}
@@ -70,8 +70,7 @@ export default {
             navlistInfor:[],
             activeIndex: 0,
             is:"",
-            bgColor: true,
-            activeImg: true
+            bgColor: true
         }
     },
     computed: {
@@ -90,15 +89,16 @@ export default {
             return nav;
         }
     },
+    props:["propsoff"],
     mounted: function() {
         var ceilling = this.$refs.ceiling;
         var this_ = this;
         window.onscroll=function(){
             if(document.body.scrollTop>=this_.$refs.scrolllist.offsetTop){
-                if(1){
-                    ceilling.className = 'activeHaveTop'; 
-                }else{
+                if(this_.propsoff){
                     ceilling.className = 'activeNotTop';  
+                }else{
+                    ceilling.className = 'activeHaveTop'; 
                 }              
             }else{
                 ceilling.className = '';
@@ -108,8 +108,8 @@ export default {
     },
     methods: {
         handleClick: function(index) {
-            this.activeIndex = index;
-            
+            this.activeIndex = index; 
+           /* this.activeImg = false;*/
         }
     }
 }
@@ -141,7 +141,7 @@ export default {
         background: #fff;
         display: flex;
     }
-    .nav-box{
+    .nav-box{        
         position: relative;
         height: 100%;
         width: 25%;
@@ -294,11 +294,14 @@ export default {
         width: 100%
     }
     .navActive{
-        background: #fc0;
         color: #f93636;
+        background: #fc0;
     }
-    .navActive>div{
+     .activeImg{
+         background-image: none; 
+         border-top-color: #fff;
+     }  
+     .activeImgNext{
         background-image: none; 
-        border-top-color: #fff;
-    }
+     }
 </style>

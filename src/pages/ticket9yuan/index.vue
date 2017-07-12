@@ -1,6 +1,6 @@
 <template>
   	<div class="titket">
-		<app></app>
+		<app @delete="handleOff"></app>
 		<titket-header></titket-header>
 		<div class="titket-main">
 			<div class="titket-ban">
@@ -11,7 +11,7 @@
 			</div>
 			<titket-city @moreCityShow="handleClickShow"></titket-city>
 			<titket-scenic :data="nineTicket"></titket-scenic>
-			<more-special></more-special>
+			<more-special :propsoff="off"></more-special>
 			<more-product></more-product>
 			<more-province @moreProvinceOff="handleClickOff" v-if="moreProvince" :moreProvinces="moreProvinces"></more-province>
 		</div>
@@ -32,17 +32,15 @@ import moreprovince from "./moreprovince"
 export default {
 	created: function() {
       this.$http.get('/static/ticketRmb.json').then(response => { 
-      	// console.log(response)
       	this.nineTicket  = response.body.data.indexInfo.nineTicket
-      	this.moreProvinces = response.body.data.indexInfo.moreProvinces
-      	// console.log(this.nineTicket)  
+      	this.moreProvinces = response.body.data.indexInfo.moreProvinces 
       }, response => {
-        // error callback失败的回调
         console.log(调错了)
       });
     },
     data () {
         return {
+     		off:false,
      		nineTicket: [],
      		moreProvinces: [],
      		"moreProvince" : false
@@ -57,17 +55,20 @@ export default {
 	  	"more-product": moreproduct,
 	  	"more-province": moreprovince
 	},
-	methods: {
+	methods:{
+		handleOff: function() {
+			this.off = true;
+			return this.off;
+		},
 		handleClickOff: function() {
-			this.moreProvince = false
+			this.moreProvince = false;
 		},
 		handleClickShow: function() {
-			this.moreProvince = true
+			this.moreProvince = true;
 		}
 	}  
 }
 </script>
-
 
 <style scoped>
 	.titket-main {
