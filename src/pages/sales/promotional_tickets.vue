@@ -19,7 +19,7 @@
 	<div class="ticket-productlist">
 		<div class="ticket-salelist">
 			<div class="ticket-saleitem" v-for="(item,index) in ticketproductInfo" :key="index+'ticket-saleitem'">
-				<router-link to="/weekend" :id="index" :title="item.title">
+				<router-link :to="'/onedaytour/detail/'+index" :id="index">
 					<div class="ticket-imgcontainer">
 					<img class="ticket-saleitem-img" v-lazy="item.imgurl" />
 					<div class="ticket-hotsale">

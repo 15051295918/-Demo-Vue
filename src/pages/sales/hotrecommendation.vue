@@ -21,7 +21,7 @@
 				<div class="hostlist-img">
 					<img  class="logo" v-lazy="hotItem.imgUrl" v-lazy:background-image="hotItem.imageSrc"/>
 				</div>
-				<router-link to="/no" :id="index">
+				<router-link :to="'/onedaytour/detail/'+index" :id="index">
 					<div class="hostlist-info border-bottom">
 						<p class="hot-ticketnameinfo">{{hotItem.title}}</p>
 						<div class="hot-priceinfo">
