@@ -15,6 +15,7 @@
 	import ExpenseExplanation from './expense-explanation';
 	import Instructions from './instructions';
 
+
 	export default {
 
 		data() {
@@ -30,7 +31,7 @@
 		},
 
 		props: [
-			"scrollTop", "tabInfo","isBigMapOpen"
+			"scrollTop", "tabInfo", "isBigMapOpen"
 		],
 
 		components: {
@@ -60,7 +61,7 @@
 
 		computed: {
 
-			tabShow: function() {
+			tabShow: function () {
 				return !this.isBigMapOpen
 			},
 

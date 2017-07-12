@@ -2,7 +2,7 @@
 	<div class="content">
 		<div class="content-days">日期选择</div>
 		<div class="content-choose">
-			<span :class="{'content-choose-days': true,'content-border':true, 'content-border-dark':index == 0, active: index==isActive}" v-for="(item, index) in item" @click="handleDateClick(index)">
+			<span :class="{                                                                       'content-choose-days': true,'content-border':true, 'content-border-dark':index == 0, active: index==isActive}" v-for="(item, index) in item" @click="handleDateClick(index)">
 				<em class="content-dark">{{item.title}}</em>
 				<strong class="content-day-dark" v-if="index != 3">{{item.dayte}}</strong>
 			</span>
@@ -24,9 +24,9 @@
 		</div>
 	</div>
 </template>
-<script>
+<script>                                  
 export default {
-	data() {
+	data() {                                                                                                
 		return {
 			show:true,
 			isActive:1,
@@ -44,12 +44,12 @@ export default {
 			},
 			{
 				title: "其他日期"
-			}],
+			}],                                  
 			other: {
 				"title": "人群",
 				"items":["成人","儿童"]
 			},
-			items: [{
+			items: [{                                                                                                                                                                                                                                       
 				"content": "发车时间",
 				"time": "07:30"
 			}, {
@@ -84,6 +84,26 @@ export default {
 
 
 <style scoped>
+	
+.active::after {
+    content: '√';
+    display: block;
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    bottom: 0;
+    color: #fff;
+    font-family: 'mpiconfont';
+    speak: none;
+    font-size: .32rem;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 .content {
 	padding: 0 .2rem;
 	height: 417.6px;
