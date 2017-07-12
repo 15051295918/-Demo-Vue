@@ -46,11 +46,11 @@ export default {
 	.travel-img {
 		width: .48rem;
 		height: .42rem;
-		margin-left: 30%;
-		margin-top: .16rem;
+		margin-left: 28%;
+		margin-top: .06rem;
 	}
 	.travel-descr{
-        margin-left: .2rem;
+        margin-left: .1rem;
 	}
 	.travel-city{
 		overflow: hidden;
