@@ -1,17 +1,20 @@
 <template>
+<div class="main">
 <div class="sales">
 	<div v-for="headeritem in tickettitleInfo">
-	<div class="ticket-header">
-			<a class="ticket-header-back iconfont" href="/">&#xe685;</a>
-		<h1 class="ticket-header-title">{{headeritem.headertext}}</h1>
-	</div>
-	<div class="ticket-navbar">
-		<span class="ticket-title">{{headeritem.titletext}}</span>
-		<a href="/" class="ticket-nabar-link">
-			<span class="ticket-linktext">北京</span>
-			<span class="ticket-linkcorner"></span>
-		</a>
-	</div>
+		<div class="ticket-header">
+				<span class="ticket-header-back iconfont" @click="handlebackclick">&#xe685;</span>
+			<h1 class="ticket-header-title">{{headeritem.headertext}}</h1>
+		</div>
+		<div class="ticket-navbar">
+			<span class="ticket-title">{{headeritem.titletext}}</span>
+				<router-link to="/city">
+					<div class="ticket-nabar-link">
+					<span class="ticket-linktext">{{$store.state.city}}</span>
+					<span class="ticket-linkcorner"></span>
+					</div>
+				</router-link>
+		</div>
 	</div>
 	<div class="ticket-productlist">
 		<div class="ticket-salelist">
@@ -47,20 +50,18 @@
 	</div>
 	
 </div>
+</div>
 </template>
 <script src='https://unpkg.com/vue-lazyload/vue-lazyload.js'></script>
 <script>
 export default {
   data () {
     return {
-    	scroll:""
+    
     }
   }, 
-  mounted: function() {
-  		window.addEventListener('scroll', this.scrollChange);
-  },
   methods:{
-  	scrollChange:function(){
+  	handlescrollchange:function(){
   		var ticketNavbar = document.querySelector(".ticket-navbar");
   		this.scroll = document.body.scrollTop;
   		if(this.scroll >= 44){
@@ -70,9 +71,15 @@ export default {
   		}else{
   			ticketNavbar.style.position = "relative";
   		}
+  	},
+  	handlebackclick:function(){
+  		this.$router.go(-1);
   	}
   
   },
+  mounted(){
+  		window.addEventListener("scroll", this.handlescrollchange)
+  	},
   props: ["ticketproductInfo", "tickettitleInfo"]
 }
 </script>
@@ -161,7 +168,6 @@ export default {
 		height: 0;
 		width: 100%;
 		padding-bottom: 41.5625%;
-		background: red;
 		position: relative;
 	}
 	.ticket-saleitem-img{
