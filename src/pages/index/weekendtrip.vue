@@ -133,6 +133,7 @@ export default {
 		line-height: .48rem;
 		white-space: nowrap;
 		text-overflow: ellipsis;
+		color: #333;
 	}
 	.weekendtrip-description-text{
 		overflow: hidden;

@@ -52,7 +52,6 @@
 </div>
 </div>
 </template>
-<script src='https://unpkg.com/vue-lazyload/vue-lazyload.js'></script>
 <script>
 export default {
   data () {
@@ -120,7 +119,6 @@ export default {
 		width: 100%;
 		padding: .2rem;
 		background-color: #fff;
-		position: relative;
 		font-family: Arial,"Microsoft Yahei","Helvetica Neue",Helvetica,sans-serif;
 		color:#333;
 		font-size: .28rem;
