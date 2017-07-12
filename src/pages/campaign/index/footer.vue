@@ -13,7 +13,7 @@
   			<span class="iconfont cam-footer-item-icon">&#xe60f;</span>
   			<span class="cam-footer-item-title">帮助</span>
   		</router-link>
-  		<router-link class="cam-footer-item" to="/campaign">
+  		<router-link class="cam-footer-item" to="/campaign/mine">
   			<span class="iconfont cam-footer-item-icon">&#xe672;</span>
   			<span class="cam-footer-item-title">我的</span>
   		</router-link>

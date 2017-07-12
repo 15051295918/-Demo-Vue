@@ -7,6 +7,8 @@ import campaignHelp from '@/pages/campaign/help/index'
 import campaignNewAannounce from '@/pages/campaign/newannounce/index'
 import campaignComputDetails from '@/pages/campaign/comput/index'
 import campaignAnnounceDetails from '@/pages/campaign/announceDetails/index'
+import campaignMineindex from '@/pages/campaign/mine/index'
+import campaignMineRegister from '@/pages/campaign/mine/register'
 import City from '@/pages/city/index'
 
 Vue.use(Router)
@@ -42,15 +44,22 @@ export default new Router({
             path: "/campaign/announceDetails",
             name: "campaignAnnounceDetails",
             component: campaignAnnounceDetails
-        }, {       
-            path: "/city",
-            name: "city",
-            component: City
         }, {
             path: "/campaign/detail:id",
             name: "campaignDetail",
             component: campaignIndex
+        }, {
+            path: "/campaign/mine",
+            name: "campaignMineindex",
+            component: campaignMineindex
+        }, {
+            path: "/campaign/mine/register",
+            name: "campaignMineRegister",
+            component: campaignMineRegister
+        },   {       
+            path: "/city",
+            name: "city",
+            component: City
         }
     ]
-
 })

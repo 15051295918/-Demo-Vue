@@ -6,7 +6,9 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import VueResource from 'vue-resource'
 import FastClick from 'fastclick'
 import VueLazyload from 'vue-lazyload'
+import VueTabs from 'vue-tabs'
 import store from './store'
+
 FastClick.attach(document.body);
 
 Vue.config.productionTip = false
@@ -16,6 +18,13 @@ Vue.use(VueLazyload, {
   preLoad:1,
   attempt: 1
 })
+
+FastClick.attach(document.body);
+
+Vue.config.productionTip = false
+Vue.use(VueAwesomeSwiper)
+Vue.use(VueResource);
+Vue.use(VueTabs);
 
 new Vue({
 	  beforeCreate: function() {
