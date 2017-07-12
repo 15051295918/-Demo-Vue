@@ -5,7 +5,13 @@
                 v-for="(items, index) in cityItmes" 
                 :key="index + '_city_itmes'"                 
                 @click="handleClick(index)">
-                <a href="javascript:void(0)" class="city-items-a" ref="moreCity">{{items.city}}</a>
+                <span class="city-change"  @click="handleCityClick">
+                    <a href="javascript:void(0)" 
+                    class="city-items-a" 
+                    ref="moreCity"
+                    
+                    >{{items.city}}</a>
+                </span>
             </li>
         </ul> 
     </div>  
@@ -41,11 +47,18 @@ export default {
             this.activeIndex = index; 
             if(index==7){
               this.$refs.moreCity[index].innerHTML = this.$store.state.province;
-              // this.$emit("moreCityShow");
+              this.$emit("moreCityShow");
             }else{
               //如果不是1，点击其他，页面index==7为查看更多
-              this.$refs.moreCity[7].innerHTML = "查看更多"
+              this.$refs.moreCity[7].innerHTML = "查看更多";
             }         
+        },
+        handleCityClick: function(e) {
+              var province = e.target.innerText;
+              try {
+                window.localStorage.province = province;
+              } catch(e) {}
+              this.$store.commit("changeProvince",province);  
         }
     }
 }
@@ -59,6 +72,12 @@ export default {
     }
     .city {
       width:98%;
+      height:1.7rem;
+      margin: 1%;
+    }
+    .city-change{
+        display: inline-block;
+     width:98%;
       height:1.7rem;
       margin: 1%;
     }

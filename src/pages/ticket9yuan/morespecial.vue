@@ -23,7 +23,7 @@
                         <div class="list-img-box">
                             <img :src="item.img"  class="list-img" v-lazy="item.img">
                             <div class="list-img-add">
-                                <span class="list-img-pos"></span>{{item.locationName}}     
+                                <span class="list-img-pos"></span>{{$store.state.province}}    
                             </div>
                             <div class="list-img-content">
                                 {{item.subName}}
