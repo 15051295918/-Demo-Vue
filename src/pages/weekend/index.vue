@@ -1,40 +1,40 @@
 <template>
-	<div class="main">
-		<weekend-header></weekend-header>
-		<div class="product" >
-	  		<div class="product-item" v-for="(list,index) in productInfo" :key="index+'product'" v-model="index"  @click="getModel(index)">
-	  			
-          <div class="product-wrapper" v-on:click="show = !show">
-	  				<img :src="list.imgUrl" class="product-img"/>
-	  			</div>
-	  			
-          <div class="product-info">
-	  				<h2 class="product-name">{{list.title}}</h2>
-	  				<p class="product-detail">{{list.content}}</p>
-	  			</div>
-         </div>
-	  </div>
+  	<div class="main" >
+    		<weekend-header></weekend-header>
 
-    <weekend-model :models="modelInfo" v-if="show" :showSt="show" v-on:listenToChildEvent="getShowStatus"></weekend-model>
+    		<div class="product" >
+    	  		<div class="product-item" v-for="(list,index) in productInfo" :key="index+'product'" v-model="index"  @click="getModel(index)">
+    	  			
+                  <div class="product-wrapper" v-on:click="show = !show">
+                      <img :src="list.imgUrl" class="product-img" />
+        	  			</div>
+        	  			
+                  <div class="product-info">
+          	  				<h2 class="product-name">{{list.title}}</h2>
+          	  				<p class="product-detail">{{list.content}}</p>
+        	  			</div>
+             </div>
+    	  </div>
 
-	</div>
+        <weekend-model :models="modelInfo" v-if="show" :showInfo="show" v-on:listenToChildEvent="getShowStatus"></weekend-model>
+
+  	</div>
 </template>
 
 <script>
   import header from './header'
   import model from './model'
-  export default {
+export default {
   created:function () {
      	this.$http.get('/static/weekend.json').then(response => {
                 console.log(response);
                 this.productInfo = response.body.data[this.$route.params.id];
-
-            }, response => {
+          }, response => {
                 console.log("get index data error");
-            });
+          });
    },
 
-  data () {
+ data () {
       return {
          show:false,
          index:"",
@@ -43,7 +43,7 @@
       }
     },
 
-    methods:{
+ methods: {
         getModel (index) {
           this.modelInfo = this.productInfo[index];
         },
@@ -52,9 +52,9 @@
         }
     },
 
-    components: {
-    	"weekend-header": header,
-      "weekend-model": model
+  components: {
+    	 "weekend-header": header,
+       "weekend-model": model
     }
   }
 
@@ -82,8 +82,6 @@
   		  height: 0;
   		  width: 100%;
   		  padding-bottom:43.37288%;
-
-
   }
 
   .product-img {
@@ -99,7 +97,6 @@
     		color: #212121;
     		font-size:.36rem;
     		line-height: .54rem;
-  	
   }
 
   .product-detail {

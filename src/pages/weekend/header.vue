@@ -1,7 +1,7 @@
 <template>
 	<header class="header">
   		<a class="header-left">
-  			<div class="return"></div>
+  			<div class="return" @click="handleBack"></div>
   		</a>
   		<h1 class="header-title">{{$route.params.title}}</h1>
   		
@@ -10,15 +10,22 @@
 </template>
 
 <script>
-		export default {
-			  data () {
-				    return {
-				    	show:true
-				    }						
-			  },
-			  props:["models"],
-			
-		}
+	export default {
+	  data () {
+		    return {
+		    	show:true
+		    }						
+	  },
+
+	  methods: {
+	  	handleBack () {
+	  		this.$router.go(-1);
+	  	}
+	  },
+	  
+	  props:["models"],
+		
+	}
 </script>
 
 

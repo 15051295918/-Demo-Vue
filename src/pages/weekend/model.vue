@@ -1,9 +1,9 @@
 <template>
 <div>
-	<div class="model" v-if="showSt">
+	<div class="model" v-if="showInfo">
 			<div class="model_con">
 				<div class="model_hidden" v-on:click="showStatus">X</div>
-				<div class="model_img_wrap"><img :src="models.s_imgUrl" class="model_img"></div>
+				<div class="model_img_wrap border-bottom"><img :src="models.s_imgUrl" class="model_img"></div>
 				<div class="model_detail_wrap"><p class="model_detail">{{models.detail}}</p></div>
 			</div>
 	</div>
@@ -15,13 +15,13 @@
 		export default {
 			  data () {
 				    return {
-				    	show:false
+				    	show: false
 				    }						
 			  },
-			  props:["showSt","models"],
+			  props:["showInfo", "models"],
 			  methods:{
-			  	showStatus(){
-			  		this.show=!this.showSt;
+			  	showStatus () {
+			  		this.show = !this.showInfo;
 			  		this.$emit("listenToChildEvent",this.show);
 			  	}
 			  }
@@ -51,22 +51,23 @@
 		width: 90%;
 		height: 60%;
 		background-color: #fefefe;
-		border-radius: 0.2rem;
+		border-radius: .2rem;
 	}
 
     .model_hidden {
 		position: absolute;
-		top: 5px;
-		right: 10px;
+		z-index: 10;
+		top: .1rem;
+		right: .2rem;
 		color: #fefefe;
 
 	}
+
 	.model_img_wrap {
 		width: 100%;
 		height: 50%;
 		overflow: hidden;
-		border-radius: 0.2rem 0.2rem 0 0;
-		border-bottom: 1px solid #ccc;
+		border-radius: .2rem .2rem 0 0;
 	}
 
 	.model_img {
@@ -77,13 +78,18 @@
 		width: 92%;
 		height: 56%;
 		padding:4%;
-		overflow: hidden; 
+		overflow: hidden;
+
 	}
 
 	.model_detail {
 		text-indent: 30px;
+		line-height: .5rem;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 7;
 		overflow: hidden;
-		line-height: 0.5rem;
+
 	}
 
 	
