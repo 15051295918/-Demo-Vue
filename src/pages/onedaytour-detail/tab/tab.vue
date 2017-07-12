@@ -55,7 +55,7 @@
 
 			openMap: function (isBigMapOpen) {
 				this.tabShow = !this.tabShow;
-				this.$emit("openMap", this.expenseElementOffsetTop);
+				this.$emit("openMap");
 			}
 
 		},

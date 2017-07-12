@@ -2,7 +2,7 @@
     <div :class="{overflow:isBigMapOpen}">
         <div class="main">
             <div class="header" :style="style">
-                    <span @click="handleGoBack" class="header-left iconfont">&#xe685;</span>
+                <span @click="handleGoBack" class="header-left iconfont">&#xe685;</span>
                 <h1 class="header-title">{{headerContent}}</h1>
                 <span class="header-right"></span>
             </div>
@@ -126,21 +126,22 @@
 
         methods: {
 
-            openMap: function (sTop) {
+            openMap: function () {
 
                 if (!this.isBigMapOpen) {
                     this.headerContent = "景点地图";
-                    this.isBigMapOpen = !this.isBigMapOpen
                 } else {
                     this.headerContent = this.headerTitle;
-                    this.isBigMapOpen = !this.isBigMapOpen
-                    document.body.scrollTop = sTop;
                 }
-
+                    this.isBigMapOpen = !this.isBigMapOpen
             },
 
-            handleGoBack: function() {
-                this.$router.go(-1)
+            handleGoBack: function () {
+                if (this.isBigMapOpen) {
+                    this.isBigMapOpen = false;
+                } else {
+                    this.$router.go(-1)
+                }
             }
 
         },
