@@ -49,7 +49,6 @@ export default {
               this.$refs.moreCity[index].innerHTML = this.$store.state.province;
               this.$emit("moreCityShow");
             }else{
-              //如果不是1，点击其他，页面index==7为查看更多
               this.$refs.moreCity[7].innerHTML = "查看更多";
             }         
         },
