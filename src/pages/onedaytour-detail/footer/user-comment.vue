@@ -27,10 +27,12 @@
                 </div>
             </div>
         </div>
-        <div class="more-comment">
-            {{last.comment}}
-            <span class="iconfont commet-arrows" v-html="last.icon"></span>
-        </div>
+        <router-link to="/comment">
+            <div class="more-comment">
+                {{last.comment}}
+                <span class="iconfont commet-arrows" v-html="last.icon"></span>
+            </div>
+        </router-link>
     </div>
 </template>
 
