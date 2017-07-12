@@ -1,10 +1,15 @@
 <template>
+<div>
 	<div class="main-list">
 		<list-header @headerClick="headerClick"></list-header>
 		<navigator :subnavInfo = "subnavInfo" :show="showNav" :showMask="maskShow" :orderShow="showOrder" @ClassClick="ClassClick" @orderClick="indexOrderClick"
-		@maskClick="maskClick" @subThreenav="subThreenav" @orderItemClick="orderClickEvent"></navigator>
+		 @subThreenav="subThreenav" @orderItemClick="orderClickEvent"></navigator>
 		<list-lists></list-lists>
+		
 	</div>
+	<div class="mask" @touchstart="handleMaskClick"  v-show="maskShow">
+	</div>
+</div>
 </template>
 
 <script>
@@ -42,6 +47,9 @@
 			ClassClick() {
 				return (this.showNav = ! this.showNav, this.showOrder=false, this.maskShow=this.showNav)
 			},
+			handleMaskClick() {
+				return  this.showNav =this.showOrder=this.maskShow= false
+			},
 			indexOrderClick() {
 				return (this.showOrder = ! this.showOrder, this.showNav=false, this.maskShow=this.showOrder)
 			},
@@ -67,7 +75,14 @@
 		top: 0;
 		bottom: 0;
 		width: 100%;
-		height: 100%;
 		background: #f5f5f5;
+	}
+	.mask{
+		position: fixed;
+		top:0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0,0,0, .35);
+		z-index: 3;
 	}
 </style>

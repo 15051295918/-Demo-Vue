@@ -38,6 +38,7 @@ export default {
 <style scoped>
 	.header {
 	    position: relative;
+	    z-index: 5;
 	    display: -webkit-box;
 	    display: -moz-box;
 	    display: -ms-flexbox;

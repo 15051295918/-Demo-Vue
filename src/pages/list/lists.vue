@@ -1,37 +1,35 @@
 <template>
     <div class="listCon">
-	    <ul class="mp-view-list mp-page">
-			<paginate ref="paginator" name="languages" :list="listCon" :per="pre">
-		    	<li class="mp-sight-group border-topbottom" v-for="(item, index) in paginated('languages')" :key="'li_item_' + index">
-			    	<div class="mp-item-content">
-				    	<div class="mp-sight-info">
-					    	<a :href="item.url">
-						    	<div class="mp-sight-imgcon">
-						    		<img class="mp-sight-img" v-lazy="item.img">
-						    		<span class="mp-list-bookingflag-today" v-show="item.today">
-						    			<span class="mp-list-bookingtext">可订今日</span>
+		<paginate class="mp-view-list mp-page" ref="paginator" name="languages" :list="listCon" :per="pre">
+	    	<li class="mp-sight-group border-topbottom" v-if="item.address.split('·')[0]=='北京' && cityPageList(item.scenicSpotClassification)" v-for="(item, index) in paginated('languages')" :key="'li_item_' + index">
+		    	<div class="mp-item-content">
+			    	<div class="mp-sight-info">
+				    	<a :href="item.url">
+					    	<div class="mp-sight-imgcon">
+					    		<img class="mp-sight-img" v-lazy="item.img">
+					    		<span class="mp-list-bookingflag-today" v-show="item.today">
+					    			<span class="mp-list-bookingtext">可订今日</span>
+					    		</span>
+					    	</div>
+					    	<div class="mp-sight-detail">
+						    	<h3 class="mp-sight-name">{{item.name}}</h3>
+						    	<span class="mp-tag-word" v-show="item.hot">热</span>
+						    	<div class="mp-sight-comments">
+						    		<span class="mpf-starlevel">
+						    			<span class="mpg-iconfont mpf-starlevel-gain" :style="item.star">★★★★★</span>
+						    			<span class="mpg-iconfont mpf-starlevel-total">★★★★★</span>
 						    		</span>
+						    		<span class="mp-comments-totalnum">{{item.comment}}评论</span>
 						    	</div>
-						    	<div class="mp-sight-detail">
-							    	<h3 class="mp-sight-name">{{item.name}}</h3>
-							    	<span class="mp-tag-word" v-show="item.hot">热</span>
-							    	<div class="mp-sight-comments">
-							    		<span class="mpf-starlevel">
-							    			<span class="mpg-iconfont mpf-starlevel-gain" :style="item.star">★★★★★</span>
-							    			<span class="mpg-iconfont mpf-starlevel-total">★★★★★</span>
-							    		</span>
-							    		<span class="mp-comments-totalnum">{{item.comment}}评论</span>
-							    	</div>
-							    	<div class="mp-sight-location">
-							    		<span class="mp-sight-address">{{item.address}}</span>
-							    	</div>
+						    	<div class="mp-sight-location">
+						    		<span class="mp-sight-address">{{item.address}}</span>
 						    	</div>
-					    	</a>
-				    	</div>
+					    	</div>
+				    	</a>
 			    	</div>
-		    	</li>
-			</paginate>
-	    </ul>
+		    	</div>
+	    	</li>
+		</paginate>
 	    <div class="mp-moreinfo">
 	    	<div class="mp-pagination">
 				<a @click="prevPage" class="linkPage">上一页</a>
@@ -55,7 +53,6 @@
 	        this.$http.get('/static/scenicSpotList.json').then(response => {
 	            if(response.body.ret) {
 	            	this.listCon = response.body.data.listCon;
-	            	console.log(this.listCon)
 	            }
 	        }, response => {
 	             console.log("get index data error")
@@ -68,17 +65,25 @@
 					if(current > 1) {
 						this.$refs.paginator.goToPage(this.pageNum-1);
 					}
-					console.log(this.isAction)
 				}
 			},
 			textPage () {
 				if (this.$refs.paginator) {
-					var num = parseInt(this.listCon.length/this.pre)+1;
+					var num = parseInt(this.listCon.length/this.pre);
 					var current = this.pageNum;
 					if(current < num) {
 						this.$refs.paginator.goToPage(this.pageNum+1);
 					}
 				}
+			},
+			cityPageList: function(value,index) {
+				var isCity=false;
+				for(var i=0;i<value.length;i++) {
+					if(value[i]=='全部分类') {
+						isCity=true;
+					}
+				}
+				return isCity
 			}
 		},
 		computed: {
