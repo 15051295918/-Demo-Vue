@@ -12,7 +12,7 @@
 			  			<span v-html="item.time" class="comment-time">{{item.time}}</span>
 		  			</div>
 		  			<div class="comment-descr">
-			  			<p :class="{isactive:show==index*10+liindex}" class="comment-text">
+			  			<p :class="{isactive:show===index*10+liindex}" class="comment-text">
 			  				{{item.txt}}
 			  			</p>
 			  			<div class="comment-text-more"  ><span @click="handleTextMore(index*10+liindex)" class="iconfont" >&#xe76d;</span></div>
