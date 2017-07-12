@@ -21,20 +21,20 @@
 				<div class="hostlist-img">
 					<img  class="logo" v-lazy="hotItem.imgUrl" v-lazy:background-image="hotItem.imageSrc"/>
 				</div>
-				<div class="hostlist-info border-bottom">
-					<p class="hot-ticketnameinfo">{{hotItem.title}}</p>
-					<div class="hot-priceinfo">
-						<div class="hot-priceinfo-item">
-							<span class="hot-nowprice">&yen;<em>{{hotItem.currentprice}}</em></span>
-							<span class="hot-originprice">&yen;{{hotItem.originprice}}</span>
+				<router-link to="/no" :id="index">
+					<div class="hostlist-info border-bottom">
+						<p class="hot-ticketnameinfo">{{hotItem.title}}</p>
+						<div class="hot-priceinfo">
+							<div class="hot-priceinfo-item">
+								<span class="hot-nowprice">&yen;<em>{{hotItem.currentprice}}</em></span>
+								<span class="hot-originprice">&yen;{{hotItem.originprice}}</span>
+							</div>
 						</div>
 					</div>
-				</div>
+				</router-link>
 			</div>
 		</div>
-		
 		<a href="http://touch.piao.qunar.com/touch/list.htm?keyword=&cat=dist_city%3D%25E5%258C%2597%25E4%25BA%25AC%26from_area%3Dts_yunying%26from_value%3D_tehui_product" class="hot-moreproduct">更多当季热门推荐 >></a>
-		
 		<div class="ticket-price">
 			<span class="prompt-icon iconfont icon-jinggao"></span>
 			<strong class="prompt-info">
@@ -56,8 +56,7 @@ export default {
     methods: {
     	handleEventNowTitle: function(e) {
 			window.addEventListener('touchmove', e => e.preventDefault())
-			this.hotNowTitle = document.getElementById("js-now-title");
-			this.hotsales = document.getElementById("js-hotsales");
+			this.hotsales = this.$el.querySelector("#js-hotsales");
 			var mTop = this.hotsales.offsetTop,
 				sTop = document.body.scrollTop,
     			result = mTop - sTop;
@@ -66,19 +65,19 @@ export default {
     	},
     	handlescrollchange() {
 			this.scroll = document.body.scrollTop;
-			var navbarHot = document.querySelector(".navbar-hot"),
-				hotsales = document.getElementById("js-hotsales"),
+			var navbarhot = this.$el.querySelector(".navbar-hot"),
+				hotsales = this.$el.querySelector("#js-hotsales"),
 				mTop = hotsales.offsetTop,
 				result = mTop - this.scroll;
 
 			if( result < 0 ) {
-				navbarHot.style.position = "fixed";
-				navbarHot.style.top = "0px";
-				navbarHot.style.zIndex = 10;
-				navbarHot.style.width = 100+"%";
+				navbarhot.style.position = "fixed";
+				navbarhot.style.top = "0px";
+				navbarhot.style.zIndex = 10;
+				navbarhot.style.width = 100+"%";
 			}else{
-				navbarHot.style.position = "static";
-				navbarHot.style.top = "";
+				navbarhot.style.position = "static";
+				navbarhot.style.top = "";
 			}
         }
     },
@@ -166,12 +165,11 @@ export default {
 		height:.88rem;
 		line-height:.44rem;
 		font-size:.32rem;
-		word-break:break-all;
-		word-wrap:break-word;
 		margin-top:-.04rem;
 		display:-webkit-box;
 		overflow:hidden;
 		text-overflow:ellipsis;
+		color: #000;
 	}
 	.hot-priceinfo {
 		position: relative;
