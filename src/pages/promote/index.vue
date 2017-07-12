@@ -28,7 +28,7 @@
 
 <script>
 
-import app from "./app"
+import app from "./downloadapp"
 import header from "./header"
 import titketcity from "./city"
 import titketscenic from "./scenic"
