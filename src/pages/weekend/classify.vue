@@ -33,9 +33,6 @@
 
 <script>
 export default {
-  data () {
-    return {}
-  },
   props: ["classifyInfo", "nearScapeInfo", "weekendChosenInfo", "city"]
 }
 </script>
@@ -45,8 +42,8 @@ export default {
 		display: flex;
 		background: #fff;
 	}
-	.classify-item{
-		display:block;
+	.classify-item {
+		display: block;
 		width: 25%;
 		padding-top: .4rem;
 		padding-bottom: .5rem;
@@ -65,7 +62,7 @@ export default {
 		width: 100%;
 		display: flex;
 		flex-flow: row wrap; 
-		color:#616161;
+		color: #616161;
 		background: #fff;
 	}
 	.near-scape-item{
@@ -91,12 +88,6 @@ export default {
 		box-sizing: border-box;
 		background: #fff;
 	}
-/*	.weekend-chosen-items{
-		overflow: hidden;
-		width: 100%;
-		height: 0;
-		padding-bottom: 31.251%;
-	}*/
 	.weekend-chosen-title{
 		width: 100%;
 		height: .88rem;

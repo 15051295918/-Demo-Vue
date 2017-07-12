@@ -1,10 +1,8 @@
 <template>
-	<div id="wrapper">
-		<div class="weekend-main"  v-on:touchmove="loadMore">
-			<weekend-header :city="currentCity"></weekend-header>
-			<weekend-classify :city="currentCity" :classifyInfo="classifyInfo" :nearScapeInfo="nearScapeInfo" :weekendChosenInfo="weekendChosenInfo"></weekend-classify>
-			<weekend-pinterest :list="Pinterest" :isloading="isloading"></weekend-pinterest>
-		</div>
+	<div class="weekend-main js-weekend-main" v-on:touchstart="touchStart" v-on:touchmove="loadMore">
+		<weekend-header></weekend-header>
+		<weekend-classify :classifyInfo="classifyInfo" :nearScapeInfo="nearScapeInfo" :weekendChosenInfo="weekendChosenInfo"></weekend-classify>
+		<weekend-pinterest :list="Pinterest" :isloading="isloading"></weekend-pinterest>
 	</div>
 </template>
 
@@ -12,93 +10,67 @@
 import header from "./header"
 import classify from "./classify"
 import pinterest from './pinterest'
-import './iscroll.js'
 export default {
-	beforeCreate: function() {//模拟localStorage存储的城市名(汉语拼音形式)
-		var currentCitys = "beijing";
-		try{
-			if(window.localStorage){
-				window.localStorage.currentCity = currentCitys;
-			}
-		}catch(e){}
-	},
 	created: function() {
-		this.getPinterestData()
+		this.getWeekendData()
 	},
-	data () {
+	data() {
 	    return {
 	    	"currentCity": "",
 	      	"classifyInfo": [],
 	       	"nearScapeInfo": [],
 	       	"weekendChosenInfo": [],
 	       	"Pinterest": [],
-	       	"shouldLoadMore": true,
-	       	"initScroll": true,
-	       	"isloading": false
+	       	"preventMisuse": true,
+	       	"isloading": false,
 	    }
 	},
   	components: {
   		"weekend-header": header,
   		"weekend-classify": classify,
-  		"weekend-pinterest":pinterest,
-
+  		"weekend-pinterest": pinterest,
   	},
   	methods:{
-  		getPinterestData: function() {
-  			this.$http.get('/static/weekend.json').then(response=>{
-				try{
-					if(window.localStorage){
-						this.currentCity = window.localStorage.currentCity;//取出本地存储的城市名
-					}
-				}catch(e){}
-				this.classifyInfo = response.body.data.recommend[this.currentCity].classifyInfo;
-				this.nearScapeInfo = response.body.data.recommend[this.currentCity].nearScapeInfo;
-				this.weekendChosenInfo = response.body.data.recommend[this.currentCity].weekendChosenInfo;
-				this.currentCity = response.body.data.recommend[this.currentCity].city;
-  				for(var i=0, length=response.body.data.pinterest.length; i<length; i++){
-  					this.Pinterest.push(response.body.data.pinterest[i])
-  				}
-  				this.shouldLoadMore = true;
-  				if(this.myScroll){
-  					var this_=this;
-	  				 setTimeout(function () {
-				        this_.myScroll.refresh()
-				    }, 0)
-  				}
-  				this.isloading = false;
-		  	},response=>{
+  		getWeekendData: function() {
+  			this.$http.get('/static/weekend.json').then(response => {
+  				this.getWeekendDataSucc(response)
+		  	},response => {
 		  		console.log("get data Error")
 		  	})
   		},
+  		getWeekendDataSucc: function(response) {
+			this.currentCity = this.$store.state.city;
+			this.classifyInfo = response.body.data[this.currentCity].classifyInfo;
+			this.nearScapeInfo = response.body.data[this.currentCity].nearScapeInfo;
+			this.weekendChosenInfo = response.body.data[this.currentCity].weekendChosenInfo;
+			this.currentCity = response.body.data[this.currentCity].city;
+			for(var i=0, length=response.body.data[this.currentCity].pinterest.length; i<length; i++){
+				this.Pinterest.push(response.body.data[this.currentCity].pinterest[i])
+			}
+			this.preventMisuse = true;
+			this.isloading = false;
+  		},
+  		touchStart: function(e) {
+  			this.startY=e.changedTouches[0].clientY
+  		},
   		loadMore: function(e) {
-  			var weekendMain=document.getElementsByClassName("weekend-main")[0]
+  			var weekendMain=document.getElementsByClassName("js-weekend-main")[0]
   			var pageHeight = weekendMain.clientHeight;
   			var screenHeight = document.documentElement.offsetHeight;
-  			var scrollTop=-1*parseInt(weekendMain.style.transform.split(" ")[1],10)
-  			if(pageHeight-screenHeight-scrollTop <= 200&&this.shouldLoadMore){
-  				this.getPinterestData();
-  				this.shouldLoadMore = false;
+  			var scrollTop = document.body.scrollTop
+			this.currentTouchY = e.changedTouches[0].clientY
+			this.dragDistance = this.currentTouchY - this.startY //拖动距离
+  			if(pageHeight-screenHeight-scrollTop <= 200&&this.preventMisuse&&(this.dragDistance<-100)){
+  				this.getWeekendData();
+  				this.preventMisuse = false;
   				this.isloading = true;
   			}
-  		}
-  	},
-  	updated: function() {
-  		if(this.initScroll){
-  			this.myScroll = new IScroll('#wrapper',{
-  				checkDOMChanges:true
-  			});
-  			this.initScroll = false
   		}
   	}
 }
 </script>
 
 <style scoped>
-	#wrapper{
-		position: absolute;
-		width: 100%;
-		height: 100%;
-	}
 	.weekend-main{
 		position: absolute;
 	    left: 0;

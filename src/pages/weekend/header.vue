@@ -5,7 +5,7 @@
   		</a>
   		<div class="header-right">
   			<router-link to="/city">
-  				<span class="header-city">{{city}}<i class="header-city-option"></i></span> 
+  				<span class="header-city">{{this.$store.state.city}}<i class="header-city-option"></i></span> 
   			</router-link>
   		</div>
   	</header>
@@ -13,19 +13,14 @@
 
 <script>
 export default {
-  data () {
-    return {
-    }
-  },
   props: ["city"],
-  methods:{
+  methods: {
   	goBack: function() {
   		this.$router.go(-1)
   	}
   }
 }
 </script>
-
 
 <style scoped>
 	.header {
@@ -52,16 +47,16 @@ export default {
     	text-align: center;
     	font-size: .32rem;
     }
-    .header-city-option{
+    .header-city-option {
 		height: 0rem;
 		width: 0rem;
-		border:0.10rem solid transparent;
+		border: 0.10rem solid transparent;
     	border-top: 0.14rem solid #fff;
     	position: relative;
-    	top:0.25rem;
+    	top: 0.25rem;
     	left: .14rem;	
 	}
-    .return{
+    .return {
 		transform: rotateZ(45deg);
 		width: .24rem;
 		height: .24rem;
@@ -69,7 +64,7 @@ export default {
 		border-bottom: .04rem solid #fff;
 		margin: .3rem .1rem;
 	}
-	.header-right{
+	.header-right {
 		width: 100%;
 		margin: 0 auto;
 		text-align: center;

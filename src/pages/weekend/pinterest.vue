@@ -5,11 +5,10 @@
    	 	<li class="pinterest-item" v-for="(item,index) in list">
    	 		<div class="pinterest-list-wrap">
    	 			<div class="img-wrapper">
-   	 				
    	 				<img  class="item-img" :src="item.src"/>
    	 			</div>
    	 		    <div class="price price-suggest">
-   	 		    	<span class="current-price">￥{{item.price}}/份<span class="yprice" v-if=done(item)>￥{{item.yprice}}</span></span>
+   	 		    	<span class="current-price">￥{{item.price}}/份<span class="yprice" v-if=done(item)>		&yen;{{item.yprice}}</span></span>
    	 		    </div>
    	 		</div>
    	 		<div class="list-title">
@@ -18,12 +17,11 @@
    	 		</div>
    	 	</li>
    	 </ul>
-   	 <div class="loadingtext" v-if="isloading">努力加载中...</div>
+   	 <div class="loadingtext" v-if=isloading>努力加载中...</div>
    </div>
 </template>
 
 <script>
- 
 export default {
    	props: ["list","isloading"],
     methods: {
@@ -36,7 +34,6 @@ export default {
   	 	}
   	}
 }
- 
 </script>
 
 <style scoped>
