@@ -1,31 +1,29 @@
 <template>
   	<div>
   		<div class="comment-header">
-	  		<a href="" class="comment-header-return"></a>
-	  		<h1 class="comment-header-h">点评</h1>
+	  		<a href="" class="header-return iconfont">&#xe685;</a>
+	  		<h1 class="comment-header-con">点评</h1>
   		</div>
-		<div class="comment-headerbottom"></div>
-		<div class="comment-coninfo">
+		<div class="comment-con-info">
 			<ul class="comment-ulcon" v-for="(list, index) in lists" :key="index + '_comment_list'">
-		  		<li class="comment-list border-top" v-for="item in list">
+		  		<li class="comment-list border-top" v-for="(item,liindex) in list">
 		  			<div class="comment-list-head">
-			  			<span class="star">{{item.iconfont}}</span>
+			  			<span class="comment-star">{{item.iconfont}}</span>
 			  			<span v-html="item.time" class="comment-time">{{item.time}}</span>
 		  			</div>
 		  			<div class="comment-descr">
-			  			<p class="comment-p">
+			  			<p class="comment-text">
 			  				{{item.txt}}
 			  			</p>
-			  			<div class="comment-descmore"><span class="comment-jiantou"></span></div>
+			  			<div  class="comment-text-more"  @click="handleAddTextClick(liindex)"><span class="iconfont" >&#xe76d;</span></div>
 		  			</div>
-		  			<div class="comment-img">
-		  				<img v-for="(itemimg, index) in item.img" :src="itemimg" alt="" >		
+		  			<div class="comment-imgbox">
+		  				<img class="comment-img" v-for="(itemimg, index) in item.img" :src="itemimg" alt="" >		
 		  			</div>
 		  		</li>
 	  		</ul>
-  			<div class="comment-addmore">查看更多</div>
-		</div>
-		
+  			<div class="comment-addmore"  @click="handleAddMore">查看更多</div>
+		</div>		
   	</div>	
 </template>
 
@@ -44,13 +42,16 @@ export default {
 
     data () {
 	    return {
-	        commentlistInfo: []  
+	        commentlistInfo: [],
+	        count:0
+	 
 	    }
     },
   	computed: {
         lists: function() {
             var lists = [];
-            for (var i = 0; i < this.commentlistInfo.length; i++) {
+            var length=(this.count+1)*10>=this.commentlistInfo.length?this.commentlistInfo.length:(this.count+1)*10;
+            for (var i = 0; i < length; i++) {
                 var list = Math.floor(i / 10); 
                 if (!lists[list]) { 
                     lists[list] = [] 
@@ -59,8 +60,20 @@ export default {
             }
             return lists;
         }
-    }
-  
+    },
+    methods:{
+    	handleAddTextClick:function(liindex){ 
+    		if(this.commentlistInfo[liindex].txt.length>104){
+    			console.log(true)
+    		}else{
+    			console.log(false)
+    		};    		   		
+    	},
+    	 handleAddMore:function(){		
+    		this.count++;
+    	}
+    	
+    } 
 }
 </script>
 
@@ -74,33 +87,29 @@ export default {
 	    background: #00bcd4;
 	    z-index: 91;
 	}
-	.comment-header-h{
-		line-height: .88rem;
-		color:#fff;
-		text-align: center;
-		width: 100%;
-		font-size: .32rem;
-	}
-	.comment-header-return{
+	.header-return{
 		display: inline-block;
-		transform: rotateZ(45deg);
-		width: .22rem;
-		height: .22rem;
-		border-left: .04rem solid #fff;
-		border-bottom: .04rem solid #fff;
-		position: absolute;
-		left: .4rem;
-		top: .28rem;
+		width: 15%;
+		text-align: center;
+		color:white;
+		line-height: .88rem;
 	}
-	.comment-headerbottom{
-		height: .2rem;
+	.comment-header-con{
+		width: 100%;
+		line-height: .88rem;
+		color: #fff;
+		padding-left: 2.8rem; 
+		font-size: .32rem;
+		box-sizing: border-box;
+	}
+	.comment-con-info{
+		padding-top: .2rem;
 	    background: #f5f5f5;
-	}
-	.comment-coninfo{
-		position: relative;
+	    position: relative;
 	}
 	.comment-ulcon{
 		padding-bottom: .88rem; 
+		background:#fff;
 	}
 	.comment-list::before{
 		border-color: #999;
@@ -119,7 +128,7 @@ export default {
 		flex-flow: row;
 		padding: .25rem 0;
 	}
-	 .star{
+	 .comment-star{
 	 	color:red;
 	 	display: block;	 
 	 }
@@ -128,21 +137,29 @@ export default {
 	    font-size: .26rem;
 	    display: block;	   	     
 	}
-	.comment-p{
-	    display: block;
+	.comment-text{
+	    display: -webkit-box;
 	    overflow: hidden;
+	    text-overflow: hidden;
+	    -webkit-line-clamp:4;
+	    -webkit-box-orient:vertical;
 	    color: #999;
 	    font-size: .28rem;
 	    padding-right: .06rem;
 	    line-height: .42rem;
-	    height: 1.6rem;
 	}
-	.comment-img{
-		padding-top: .2rem;
+	.comment-text-more {
+		padding-top:  .16rem;
+	    height: .4rem;
+	    text-align: center;
+	    position: relative;
+	}
+	.comment-imgbox{
+		padding-top: .1rem;
 		overflow: hidden;
 		width: 90%;
 	}
-	.comment-img img{
+	.comment-img{
 		width: 1.05rem;
 	    height: 1.05rem;
 	    -webkit-border-radius: .06rem;
@@ -151,31 +168,19 @@ export default {
 	    position: relative;
 	    float: left;
 	    margin: .1rem .2rem 0 0;
-	}
-	.comment-descmore {
-	    height: .4rem;
-	    text-align: center;
-	    position: relative;
-	}
-	.comment-jiantou {
-	    transform: rotateZ(45deg);
-		width: .18rem;
-		height: .18rem;
-		border-right: .02rem solid #999;
-		border-bottom: .02rem solid #999;
-		position: absolute;
-		left: 48%;
-		top: .18rem;
+	}	
+	.comment-addmore::before{	
+		border-color:#999;
 	}
 	.comment-addmore{
 		height: .88rem;
+		width: 100%;
 		position: absolute;
 		bottom: 0;
 		background: #fff;
 		text-align: center;
 		font-size: .32rem;
-		width: 100%;
-		border-top: .02rem dashed #999;
 		line-height: .88rem;
+		border-top: .02rem dashed #999;	
 	}
 </style>

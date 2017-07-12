@@ -5,8 +5,11 @@
         </div>
         <div class="filter-outer" ref="ceiling">
             <ul class="nav">
-                <li class="nav-box" :class="{navActive : index == activeIndex }" @click="handleClick(index)" v-for="(items, index) in nav" :key="index+'_nav'"> 
-                    <div class="nav-font" :class="{navfont:activeImg}">
+                <li 
+                :class="{'nav-box':true,navActive : index == activeIndex }" @click="handleClick(index)" 
+                v-for="(items, index) in nav" 
+                :key="index+'_nav'"> 
+                    <div :class="{'nav-font':true, navfont:activeImg}">
                         <span :class="{navbgcolor: bgColor}"></span>
                         {{items.navFont}}
                     </div>
@@ -92,7 +95,11 @@ export default {
         var this_ = this;
         window.onscroll=function(){
             if(document.body.scrollTop>=this_.$refs.scrolllist.offsetTop){
-                ceilling.className = 'active';                
+                if(1){
+                    ceilling.className = 'activeHaveTop'; 
+                }else{
+                    ceilling.className = 'activeNotTop';  
+                }              
             }else{
                 ceilling.className = '';
                 ceilling.className = "filter-outer";
@@ -129,8 +136,8 @@ export default {
         border: .18rem solid #000;
     }
     .nav{
-        width:100%;
-        height:100%;
+        width: 100%;
+        height: 100%;
         background: #fff;
         display: flex;
     }
@@ -197,6 +204,7 @@ export default {
         width: 100%;
         height: 75%;
         background-image: cover;
+
     }
     .list-img{
         width:100%;
@@ -271,10 +279,17 @@ export default {
         text-align: center;
         border-radius: .06rem;        
     }
-    .active{
+    .activeHaveTop{
         position: fixed;
         left:0;
         top: 1.2rem;
+        z-index:1000;
+        width: 100%
+    }
+    .activeNotTop{
+        position: fixed;
+        left:0;
+        top: 0;
         z-index:1000;
         width: 100%
     }
@@ -284,8 +299,6 @@ export default {
     }
     .navActive>div{
         background-image: none; 
-    }
-    .navFontActive{
         border-top-color: #fff;
     }
 </style>
