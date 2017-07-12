@@ -1,3 +1,4 @@
 export default {
-	city: ""
+	defaultCity:"大连",
+	city:""
 }

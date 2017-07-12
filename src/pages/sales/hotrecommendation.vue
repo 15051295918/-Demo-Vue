@@ -1,4 +1,5 @@
 <template>
+<div id="main">
 <div class="hotsales" id="js-hotsales">
 	<div class="hotrecommendation border-top">
 		<div class="navbar-hot border-bottom">
@@ -43,6 +44,7 @@
 		</div>
 	</div>
 </div>
+</div>
 </template>
 <script>
 export default {
@@ -62,7 +64,7 @@ export default {
     		this.hotsales.style.position = "absolute"
     		this.hotsales.style.top = (mTop-result) + "px" ;
     	},
-    	menu() {
+    	handlescrollchange() {
 			this.scroll = document.body.scrollTop;
 			var navbarHot = document.querySelector(".navbar-hot"),
 				hotsales = document.getElementById("js-hotsales"),
@@ -82,7 +84,7 @@ export default {
     },
 
     mounted() {
-      window.addEventListener('scroll', this.menu)
+      window.addEventListener('scroll', this.handlescrollchange)
     },
 
     props:["dataInfo","hotproductInfo"]

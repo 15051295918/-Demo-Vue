@@ -59,8 +59,9 @@
 export default {
   data () {
     return {
-     	
-    }
+
+  }
+    
   },
   props:["weekendtripInfo", "footernavInfo", "equipmenttype", "navIcon"],
 
@@ -80,7 +81,6 @@ export default {
   		var footerul = document.querySelector(".weekendtrip-footer-ul");
   		var footermore = document.querySelector(".weekendtrip-footer-more");
   		var footerhide = document.querySelector(".weekendtrip-footer-hide");
-
   		footerul.style.height = ".5rem";
   		footerul.style.width = "6rem";
   		footermore.style.display = "block";

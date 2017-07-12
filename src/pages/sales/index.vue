@@ -15,7 +15,6 @@ export default {
 			this.tickettitleInfo = response.body.data.tickettitleInfo;
 			this.hotTitleName = response.body.data.hotTitleName;
             this.hotProductName = response.body.data.hotTicketInfo;
-           
 		}, response=>{
 			console.log("get index data error")
 		});
