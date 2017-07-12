@@ -4,20 +4,21 @@
             <li :class="{'city-items' : true , activeIndexImg:index==activeIndex}" 
                 v-for="(items, index) in cityItmes" 
                 :key="index + '_city_itmes'"                 
-                @click="handleClick(index)">
+                @click="handleClick(index)"
+                :data-cityname="items.city"
+                >
                 <span class="city-change"  @click="handleCityClick">
                     <a href="javascript:void(0)" 
-                    class="city-items-a" 
-                    ref="moreCity"
+                    class="city-items-a"
                     >{{items.city}}</a>
                 </span>
             </li>
-            <li class="city-items" @click="handleMoreCity">
+            <li :class="{'city-items':true , activeIndexImg:activeMoreImg}" @click="handleMoreCity">
                 <span>
                     <a href="javascript:void(0)" 
                     class="city-items-a" 
                     ref="moreCity"
-                    >查看更多</a>
+                    >{{province}}</a>
                 </span>
             </li>
         </ul> 
@@ -27,6 +28,10 @@
 <script>
 
 export default {
+    props:["province"],
+    created: function() {
+        this.$refs.moreCity.innerHTML = "查看更多";
+    },
     created: function(){
         this.$http.get('/static/ticketRmb.json').then(response => {
             this.commentcityItmes = response.body.data.indexInfo.cityItem;
@@ -38,7 +43,8 @@ export default {
         return {
             commentcityItmes:[],
             activeIndex:0,
-            cityIndex:0
+            cityIndex:0,
+            activeMoreImg: false
         }
     },
     computed: {
@@ -48,6 +54,7 @@ export default {
             if(cityIndex){
                 this.activeIndex=cityIndex;
             }
+
             for (var i = 0; i < this.commentcityItmes.length; i++) {
                 cityItmes.push(this.commentcityItmes[i]);
             }
@@ -56,6 +63,7 @@ export default {
     },
     methods: {
         handleClick: function(index) {
+            this.$refs.moreCity.innerHTML = "查看更多";
             this.activeIndex = index;
             try {
                 window.localStorage.index = index;
@@ -63,8 +71,11 @@ export default {
         },
         handleMoreCity: function() {
             this.$emit("moreCityShow");
+            this.activeMoreImg = true;
+            this.activeIndex = -1;
         },
         handleCityClick: function(e) {
+            this.activeMoreImg = false;
             var province = e.target.innerText;
             try {
                 window.localStorage.province = province;

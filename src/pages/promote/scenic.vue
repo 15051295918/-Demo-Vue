@@ -39,7 +39,7 @@ export default {
     },
     data () {
         return {
-
+            
         }
     },
     props:["data","province"]

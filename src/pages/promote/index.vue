@@ -13,6 +13,7 @@
 			@moreCityShow="handleClickShow"
 			@provinceChange="handleProvinceChange"
 			:province="province"
+			:moreShow="province"
 			></titket-city>
 			<titket-scenic 
 			:data="nineTicket" 
@@ -40,12 +41,11 @@ import morespecial from "./morespecial"
 import moreproduct from "./moreproduct"
 import moreprovince from "./moreprovince"
 
-var province = "福建";
+// var province = "福建";
 
 export default {
 	beforeCreate: function() {
 		try {
-			console.log(window.localStorage.province+"index")
             this.province = window.localStorage.province;
         } catch(e) {}
 	},
@@ -59,11 +59,12 @@ export default {
     },
     data () {
         return {
-     		off:false,
+     		off: false,
      		nineTicket: [],
      		moreProvinces: [],
      		moreProvince : false,
-     		province: province
+     		moreShow: false,
+     		province: "福建"
         }
     },
 	components: {
@@ -85,6 +86,7 @@ export default {
 		},
 		handleClickShow: function() {
 			this.moreProvince = true;
+			this.moreShow = true;
 		},
 		handleProvinceChange: function(province) {
 			this.province = province;

@@ -55,11 +55,11 @@
 import detect from '@/utils/detect.js'
 
 export default {
-   props:["propsoff"],
+   props:["propsoff","province"],
    beforeCreate: function() {
-        var province = '福建';
         try {
-            this.province = window.localStorage.province;
+            this.provinces = window.localStorage.province;
+            console.log(this.provinces)
         } catch(e) {}
     },
     created: function(){
@@ -75,8 +75,8 @@ export default {
             commentlistInfo: [],
             navlistInfor:[],
             activeIndex: 0,
-            is:"",
-            bgColor: true
+            bgColor: true,
+            provinces: ""
         }
     },
     computed: {
