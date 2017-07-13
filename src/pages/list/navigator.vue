@@ -15,8 +15,6 @@
 		</div>		
 	</div>	
 
-
-
 	<div id="wrapper"  v-show="show">
 		<div class="subnav"   id="scroller" >
 			<div :class='{"sub-items":true,  "border-bottom":true, "checked":check[index]}'  v-for="(item,index) in subnavInfo" @click="handleSubnavItemClick(index)" >
@@ -53,16 +51,15 @@ export default {
 
 	created(){
 		var h = 44;
-		var this_ = this;
 		window.onscroll = function(){
 		 	//获取页面滚走的距离
 		 	var sTop = document.body.scrollTop || document.documentElement.scrollTop;
 		 	if( sTop > h ){
-		 		this_.primaryStyle = true;
+		 		this.primaryStyle = true;
 		 	}else{
-		 		this_.primaryStyle = false;
+		 		this.primaryStyle = false;
 		 	}
-		}
+		}.bind(this)
 	},
 
 	updated() {
