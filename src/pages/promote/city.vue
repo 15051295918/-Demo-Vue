@@ -12,7 +12,7 @@
                     >{{items.city}}</a>
                 </span>
             </li>
-            <li class="city-items" @click="handleMoreCity">
+            <li :class="{'city-items': true, activeIndexImg:activeMoreImg}" @click="handleMoreCity">
                 <span>
                     <a href="javascript:void(0)" 
                     class="city-items-a" 
@@ -27,6 +27,7 @@
 <script>
 
 export default {
+    props:["province"],
     created: function(){
         this.$http.get('/static/ticketRmb.json').then(response => {
             this.commentcityItmes = response.body.data.indexInfo.cityItem;
@@ -38,6 +39,7 @@ export default {
         return {
             commentcityItmes:[],
             activeIndex:0,
+            activeMoreImg: false,
             cityIndex:0
         }
     },
@@ -57,12 +59,15 @@ export default {
     methods: {
         handleClick: function(index) {
             this.activeIndex = index;
+            this.activeMoreImg = false;
             try {
                 window.localStorage.index = index;
             } catch(e) {}      
         },
-        handleMoreCity: function() {
+        handleMoreCity: function(index) {
             this.$emit("moreCityShow");
+            this.activeMoreImg = true;
+            this.activeIndex = -1;
         },
         handleCityClick: function(e) {
             var province = e.target.innerText;

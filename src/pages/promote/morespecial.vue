@@ -19,7 +19,8 @@
         <div class="more-special-list" ref="scrolllist">            
             <ul class="list-big-box">
                 <li class="list-mall-box"  v-for="(item,index) in list" :key="index+'_list'">
-                    <a href="#" class="list-link">
+                    <a href="javascript:void(0)
+" class="list-link">
                         <div class="list-img-box">
                             <img :src="item.img"  class="list-img" v-lazy="item.img">
                             <div class="list-img-add">
@@ -56,7 +57,6 @@ import detect from '@/utils/detect.js'
 
 export default {
    beforeCreate: function() {
-        var province = '福建';
         try {
             this.province = window.localStorage.province;
         } catch(e) {}
@@ -74,7 +74,6 @@ export default {
             commentlistInfo: [],
             navlistInfor:[],
             activeIndex: 0,
-            is:"",
             bgColor: true
         }
     },
