@@ -31,9 +31,11 @@ export default {
 		handlethreenavClick(e){
 			this.$emit("threenavClick");
 			console.log(e)
-			var playItem = e.target.innerText.split(" ")[1]
+			var playItem = e.target.innerText.split(" ")[1];
+			alert(playItem)
 			try{
 				window.localStorage.playItem = playItem
+
 			}catch(err){
 
 			}

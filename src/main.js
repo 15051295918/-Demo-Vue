@@ -37,9 +37,21 @@ Vue.use(VuePaginate)
 import store from './store'
 
 new Vue({
-  el: '#app',
-  router,
-  store,
-  template: '<App/>',
-  components: { App }
+	beforeCreate: function() {
+		var playItem = "";
+		var city = '北京';
+		try {
+			playItem = window.localStorage.playItem ;
+			city = window.localStorage.city;
+			console.log(playItem)
+		} catch(e) {}
+		this.$store.commit("changeCity", city);
+		this.$store.commit("changePlayItem", playItem);
+	},
+  	el: '#app',
+  	router,
+  	store,
+  	template: '<App/>',
+  	components: { App }
 })
+
