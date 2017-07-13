@@ -4,8 +4,8 @@
 				<span class="iconfont icon-great">&#xe616;</span>
 			来这儿推荐
 		</div>
-		<div class="recommend-content border-top" v-for="(item,index) in data" :key="index + 'recomment'">
-			<div class="recommentContent-title border-right" >
+		<div class="recommend-content border-top" v-for="(item,index) in recommendData" :key="index + 'recomment'">
+			<div class="recomment-content-title border-right" >
 				<div class="title">{{item.title}}</div>
 				<span class="title-item">{{item.item_one}}</span>
 				<span class="title-item">{{item.item_two}}</span>
@@ -19,14 +19,14 @@
 
 <script>
 	export default {
-		props:["data"]
+		props:["recommendData"]
 	}
 </script>
 
 <style scoped>
 	.recommend{
-		background:#fff;
-		margin-bottom:.2rem;
+		background: #fff;
+		margin-bottom: .2rem;
 	}
 	.recommend-title{
 		height: .88rem;
@@ -38,42 +38,42 @@
 		display: flex;
 		padding: .2rem .2rem .24rem .24rem;
 	}
-	.recommentContent-title{
-		width:70%;
+	.recomment-content-title{
+		width: 70%;
 	}
 	.title{
-		margin-bottom:.2rem;
+		margin-bottom: .2rem;
 		font-size: .32rem;
 	}
 	.title-item{
-		margin-right:.2rem;
-		font-size:.24rem;
-		color:#616161;
+		margin-right: .2rem;
+		font-size: .24rem;
+		color: #616161;
 	}
 	.check{
-		width:30%;
+		width: 30%;
 		text-align: center;
 	}
 	.check-btn{
-		width:1.6rem;
-		height:0.6rem;
+		width: 1.6rem;
+		height: 0.6rem;
 		text-align: center;
 		line-height: .6rem;
 		background: orange;
-		border:none;
+		border: none;
 		border-radius: .1rem;
-		color:#fff;
+		color: #fff;
 	}
 	.icon-great{
 		display: inline-block;
-		width:0.54rem;
-		height:0.54rem;
+		width: 0.54rem;
+		height: 0.54rem;
 		border-radius: 50%;
-		background:lightpink;
+		background: lightpink;
 		text-align: center;
 		line-height: .54rem;
-		font-size:.34rem;
-		color:#fff;
+		font-size: .34rem;
+		color: #fff;
 	}
 	
 </style>

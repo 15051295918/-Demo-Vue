@@ -2,9 +2,9 @@
 
     <div class="main">
 		<topBar></topBar>
-        <detail-header :swiper_data="swiperInfo" :title_data="titleInfo"></detail-header>
+        <detail-header :swiperData="swiperInfo" :titleData="titleInfo"></detail-header>
         <introduction></introduction>
-        <recommend :data="recommendInfo"></recommend>
+        <recommend :recommendData="recommendInfo"></recommend>
         <product :data="productInfo"></product>
        	<download></download>
         <detail-comment :data="commentInfo" :dataImg="commentImg"></detail-comment>
@@ -26,7 +26,7 @@ import footer from './footer'
 import product from './product'
 
 export default {
-	created: function(){
+	created: function() {
 		this.$http.get('static/detail.json').then( response=>{
 			if(response.body.ret){
 				this.swiperInfo = response.body.data.swiperInfo;
@@ -42,6 +42,7 @@ export default {
 		});
 		
 	},
+	
     data () {
         return {
             swiperInfo:[],
@@ -53,6 +54,7 @@ export default {
             commentImg:[]
         }
     },
+    
     components: {
         "detail-header": header,
         "download": download,

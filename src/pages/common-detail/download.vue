@@ -3,36 +3,28 @@
 </template>
 
 <script>
-
-
+import detect from '@/utils/detect.js'
 
 var scroll = function(dom) {
    var beforeScrollTop = document.body.scrollTop;
     window.addEventListener("scroll", function(){
-
         var afterScrollTop = document.body.scrollTop,
             delta = afterScrollTop - beforeScrollTop;
         if (delta > 0){
             dom.style.cssText = "display:none";
         }else{
             dom.style.cssText = "display:inline";
-           
         }
         beforeScrollTop = afterScrollTop;
     }, false)
 }
 
-
-
-import detect from '@/utils/detect.js'
-
-
-
-
-
 export default {
   mounted () {
     scroll(this.$refs.app)　
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll")
   },
   methods:{
     downloadapp : function (event) {
@@ -41,7 +33,7 @@ export default {
       }else if(detect.os == 'Android'){
         Location.href = "https://play.google.com/store/apps/details?id=com.Qunar&hl=zh";
       }else if(detect.os != 'iOS' || 'Android'){
-        location.href = "http://touch.qunar.com/"
+        location.href = "./"
       }
     }
   },
