@@ -18,7 +18,7 @@
                     <a href="javascript:void(0)" 
                     class="city-items-a" 
                     ref="moreCity"
-                    >{{province}}</a>
+                    >查看更多</a>
                 </span>
             </li>
         </ul> 
@@ -28,10 +28,6 @@
 <script>
 
 export default {
-    props:["province"],
-    created: function() {
-        this.$refs.moreCity.innerHTML = "查看更多";
-    },
     created: function(){
         this.$http.get('/static/ticketRmb.json').then(response => {
             this.commentcityItmes = response.body.data.indexInfo.cityItem;
@@ -63,7 +59,6 @@ export default {
     },
     methods: {
         handleClick: function(index) {
-            this.$refs.moreCity.innerHTML = "查看更多";
             this.activeIndex = index;
             try {
                 window.localStorage.index = index;

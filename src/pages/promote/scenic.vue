@@ -34,7 +34,10 @@
 export default {
     beforeCreate: function() {
         try {
-            this.province = window.localStorage.province;
+            var province = window.localStorage.province;
+            if (province) {
+                this.$emit('provinceChange', province)
+            }
         } catch(e) {}
     },
     data () {
@@ -42,7 +45,7 @@ export default {
             
         }
     },
-    props:["data","province"]
+    props:["data", "province"]
 
 }
 </script>

@@ -17,7 +17,7 @@
 			></titket-city>
 			<titket-scenic 
 			:data="nineTicket" 
-			:province="province"></titket-scenic>
+			:province="province" @provinceChange="handleProvinceChange"></titket-scenic>
 			<more-special 
 			:propsoff="off" 
 			:province="province"></more-special>
@@ -41,14 +41,9 @@ import morespecial from "./morespecial"
 import moreproduct from "./moreproduct"
 import moreprovince from "./moreprovince"
 
-// var province = "福建";
+var province = "福建";
 
 export default {
-	beforeCreate: function() {
-		try {
-            this.province = window.localStorage.province;
-        } catch(e) {}
-	},
 	created: function() {
 	    this.$http.get('/static/ticketRmb.json').then(response => { 
 	      	this.nineTicket  = response.body.data.indexInfo.nineTicket
@@ -64,7 +59,7 @@ export default {
      		moreProvinces: [],
      		moreProvince : false,
      		moreShow: false,
-     		province: "福建"
+     		province: province
         }
     },
 	components: {

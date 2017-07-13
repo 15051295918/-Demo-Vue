@@ -36,9 +36,10 @@
 		  				</comment-img>
 		  			</div>
 		  		</li>
-				<li>
-					<div v-if="index!=sum+1" class="comment-addmore"  @click="handleAddMore">查看更多</div>
-				</li>
+		  		<li>
+					<div v-if="count===index" class="comment-addmore"  @click="handleAddMore">查看更多</div>
+			  		<div v-if="count>index" class="comment-addmore" >没有更多了</div>
+		  		</li>
 	  		</ul>
 		</div>		
   	</div>	
@@ -62,8 +63,7 @@
 		        commentlistInfo: [],
 		        count: 0,
 		        showtext: false,
-		        showimg:"",
-		        sum: 0
+		        showimg:""
 		    }
 	    },
 	    components: {
@@ -85,7 +85,6 @@
 	                }
 	                lists[list].push( this.commentlistInfo[i] );
 	            }
-	            this.sum = lists.length;
 	            return lists;
 	        }
 	    },
