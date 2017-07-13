@@ -22,13 +22,13 @@ export default {
 	       	"weekendChosenInfo": [],
 	       	"Pinterest": [],
 	       	"preventMisuse": true,
-	       	"isloading": false,
+	       	"isloading": false
 	    }
 	},
   	components: {
   		"weekend-header": header,
   		"weekend-classify": classify,
-  		"weekend-pinterest": pinterest,
+  		"weekend-pinterest": pinterest
   	},
   	methods:{
   		getWeekendData: function() {
@@ -55,7 +55,7 @@ export default {
   		},
   		loadMore: function(e) {
   			var weekendMain=document.getElementsByClassName("js-weekend-main")[0]
-  			var pageHeight = weekendMain.clientHeight;
+  			var pageHeight = weekendMain.scrollHeight; //clientHeight
   			var screenHeight = document.documentElement.offsetHeight;
   			var scrollTop = document.body.scrollTop
 			this.currentTouchY = e.changedTouches[0].clientY
