@@ -35,7 +35,8 @@
 				}
 			}
 		},
-		methods:{
+		
+		methods: {
 			handleClick: function(e) {
 				var id=e.currentTarget.id
 				var height = document.getElementById(id).style.height;
@@ -49,6 +50,7 @@
 				}
 			}
 		},
+		
 		props:["data"]
 	
 	}
@@ -57,14 +59,14 @@
 <style scoped>
 	.product{
 		overflow: hidden;
-		margin-bottom:.2rem;
-		background:#fff;
+		margin-bottom: .2rem;
+		background: #fff;
 	}
 	.product-title{
-		width:100%;
-		height:.6rem;
-		padding:.24rem;
-		color:#333333;
+		width: 100%;
+		height: .6rem;
+		padding: .24rem;
+		color: #333333;
 		font-size: .32rem;
 		line-height: .6rem;
 	}
@@ -73,8 +75,8 @@
 
 	}
 	.content-first{
-		padding:.24rem .2rem;
-		height:.4rem;
+		padding: .24rem .2rem;
+		height: .4rem;
 		line-height: .4rem;
 	}
 	.productcontent-title{
@@ -83,60 +85,60 @@
 	}
 	.title-item{
 		margin-left: .2rem;
-		color:#888;
+		color: #888;
 		font-size: .24rem;
 	}
 	.productcontent-money{
 		font-size: .36rem;
 		float: right;
-		color:orange;
+		color: orange;
 	}
 	.money-item{
-		color:#888;
+		color: #888;
 		font-size: .24rem;
 	}
 	.product-sell{
-		width:100%;
-		height:1.2rem;
-		background:#F5F5F5;
+		width: 100%;
+		height: 1.2rem;
+		background: #F5F5F5;
 		display: flex;
 		padding: .2rem .2rem .24rem .24rem;
 	}
 	.sell-title{
-		width:70%;
+		width: 70%;
 	}
 	.title{
-		margin-bottom:.2rem;
+		margin-bottom: .2rem;
 		font-size: .32rem;
 	}
 	.title-item{
 		margin-right: .2rem;
 		font-size: .24rem;
-		color:#616161;
+		color: #616161;
 	}
 	.check{
-		width:30%;
+		width: 30%;
 		text-align: center;
 	}
 	.check-btn{
-		width:1.6rem;
-		height:.6rem;
+		width: 1.6rem;
+		height: .6rem;
 		text-align: center;
 		line-height: .6rem;
-		background:orange;
-		border:none;
+		background: orange;
+		border: none;
 		border-radius: .1rem;
-		color:#fff;
+		color: #fff;
 	}
 	.icon-ticket{
 		display: inline-block;
-		width:0.54rem;
-		height:0.54rem;
+		width: .54rem;
+		height: .54rem;
 		border-radius: 50%;
-		background:lightskyblue;
+		background: lightskyblue;
 		text-align: center;
 		line-height: .54rem;
-		font-size:.34rem;
-		color:#fff;
+		font-size: .34rem;
+		color: #fff;
 	}
 </style>
