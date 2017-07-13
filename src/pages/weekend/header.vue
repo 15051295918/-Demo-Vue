@@ -1,6 +1,6 @@
 <template>
 	<header class="header" >
-  		<a class="header-left" v-on:fastclick="goBack">
+  		<a class="header-left" v-on:click="goBack">
   			<div class="return"></div>
   		</a>
   		<div class="header-right">
