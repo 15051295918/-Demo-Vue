@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Index from '@/pages/index/index'
 import List from '@/pages/list/index'
 import OneDayTourDetail from '@/pages/onedaytour_detail/index'
+import Sales from '@/pages/sales/index'
 import Comment from '@/pages/comment/index'
 import Promote from '@/pages/promote/index'
 import City from '@/pages/city/index'
@@ -37,6 +38,9 @@ export default new Router({
 			path: "/onedaytour/detail/pid/:pid",
 			name: "one-day-tour-detail",
 			component: OneDayTourDetail
-		}]
-
+		},{
+        path: "/sales",
+        name: "sales",
+        component: Sales
+    }]
 })

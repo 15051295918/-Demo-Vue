@@ -15,6 +15,5 @@ export default {
 	@import "./assets/css/border.css";
 	@import "./assets/css/iconfont.css";
 	@import "./assets/css/animate.css";
-
 </style>
 
