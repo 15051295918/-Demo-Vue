@@ -56,9 +56,10 @@
 import detect from '@/utils/detect.js'
 
 export default {
+   props:["propsoff","province"],
    beforeCreate: function() {
         try {
-            this.province = window.localStorage.province;
+            this.provinces = window.localStorage.province;
         } catch(e) {}
     },
     created: function(){
@@ -74,7 +75,8 @@ export default {
             commentlistInfo: [],
             navlistInfor:[],
             activeIndex: 0,
-            bgColor: true
+            bgColor: true,
+            provinces: ""
         }
     },
     computed: {
@@ -111,7 +113,6 @@ export default {
             }
         }
     },
-    props:["propsoff","province"],
     mounted: function() {
         window.addEventListener("scroll", this.handleScroll)
     },
@@ -122,39 +123,39 @@ export default {
 </script>
 
 <style scoped>
-    .more-special{
+    .more-special {
         font-family: Arial, "Microsoft Yahei", "Helvetica Neue", Helvetica, sans-serif;
         font-size: .28rem;
         color: #333;
     }
-    .top{
+    .top {
         width: 100%;
         min-height: .94rem;
     }
-    .top-img{
+    .top-img {
         width: 100%;
         height: 100%;
     }
-    .filter-outer{
+    .filter-outer {
         overflow: hidden;
         height: .94rem;
         margin: 0 .2rem;
         border: .18rem solid #000;
     }
-    .nav{
+    .nav {
         width: 100%;
         height: 100%;
         background: #fff;
         display: flex;
     }
-    .nav-box{        
+    .nav-box {        
         position: relative;
         height: 100%;
         width: 25%;
         padding-top: .22rem; 
         box-sizing: border-box;      
     }
-    .nav-box::before{
+    .nav-box::before {
         overflow:hidden;      
         position: absolute;
         top: .06rem;
@@ -167,16 +168,16 @@ export default {
          content:'\0020';
 
     }
-    .nav-box:nth-child(2)::before{
+    .nav-box:nth-child(2)::before {
         background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAMAAACeyVWkAAAAt1BMVEUAAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAACaISEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARBAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD5Njb1NTV1GRlvGBguCgoGAQHZLi7BKiqrJSWCHBxtFxdTEhLwNDTQLS3HKyuyJyexJiagIyOfIyORICBXExNJEBA1CwsbBgZuvk/MAAAAJHRSTlMA99T7BQHu5uG0ql9G/PPPnJGJgnFoZDAiFPe7pKB1UzUqGAtVjogYAAAA1ElEQVQY01WPR5bCMBBEy5FxIOfJQTIGhjCReP9z0SU9W/AX9br+Qt1CzdvgKR2P261+VKsw85XgM3uVfJVG4pj5YmXmKcumybwLKYdWnQ/NQq85ZSLzgNP8T5NiLnMKTBuUZaEtez4BdClnuuJHmod3bjrqmm9jnyUXS2d/zQsPklvtKKUn4K5/J7/upY+ghE9nZ1KDKVo3dqWER6B9fdduwQsmQI83rIxbbhUZAJjY/27W5UkZ0ghCX92QhCBR51p2KQ3DuHJ+DsfHKGkEnt/JI1gu84gurulvirQAAAAASUVORK5CYII=)0 0/contain no-repeat;
     }
-    .nav-box:nth-child(3)::before{
+    .nav-box:nth-child(3)::before {
         background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAMAAACeyVWkAAAAvVBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAABAgAAAAAAAAAAAAAAAAAAAABWjwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJDwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACM5wCK4wBBbQA+ZwAaKwB2xABsswBgnwBJeAA8ZAAvTQADBQCH3wB7ywBwuQBkpQBjpABalQBZlABShwAxUQApRAAeMQAPGQDmlIouAAAAJnRSTlMA/PjiBQH17tK0ql9G/OfWzpyRiYJxaGQwIhT31LukoHVTNSoYC89+ARAAAADXSURBVBjTVY/XdsIwEETH4IILodf0JhmTUBJ6+//PYsc6tuA+zNm9D9oRSj57r9Fw2PS7XqncuKaEWkOiU8gPcSQImO9GxhVlWNSZVZeyb9TlWE/1nFMsMnE4TbepFtKpzBEwfqDM6MiBTwBtyokuWMtWwRcvnXTJT27fJP9W1m7yF54ll9qSyR6Ct3ZW/j/KPoASfq2dyOqM4d/ZmRJegOZtr73DBiOgww4zU2qpSA/AyPx3Mc/OKifyIHTVHaEL4rVuZVukoR8U7imB5XsQVh2/0Uo8GK4r7zEl253rqwAAAABJRU5ErkJggg==)0 0/contain no-repeat;
     }
-    .nav-box:nth-child(4)::before{
+    .nav-box:nth-child(4)::before {
         background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAMAAACeyVWkAAAA0lBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1hZ4GDhECBgcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABW1v9U0/smYHICBQZLut5CpsY7k683iqQpZnolXW8QJy5TzvZIs9VFq8w9mbY9mLU1hJ0yfZUucYcsboMnY3YeS1kdSVccRlMZP0sSLTYRKjIJFxxWRvflAAAAKXRSTlMA+PzTBQH+9eFyZ2Eu7eXWz7WpopyRiYJHF/n37+i7satcU0U1IyETC9wVyfwAAADeSURBVBjTVZHXcsIwEEUvtsFxoff0nkg2hBZ6L///S+wuIzSch6vdMxpVXImDaiWOS34zC4MXuYpwixQNIz/JMY95zncIUUZdGN5z3nksQyWcNvNEr7h6I9lyuBrNEk0kI6pfgZ8Cy5ScsOAlgDrLgTZMqMugzTvt9ZWx2ICy07V2Kis8U261JaX+BU+UfSv/H6iPkKP8s3ZArdOGf2N7PKkKlGhYG9nv8Am+gQafoSeuu1NMAOBL7nscLtODEiryvk11Q9kDk60pS67OUgjzRrofsPyG5YLjF2st82Vno2M1DuGNwBUAAAAASUVORK5CYII=)0 0/contain no-repeat;
     }
-    .nav-font{
+    .nav-font {
         width: 100%;
         height: 100%;
         font-size: .28rem;
@@ -185,18 +186,18 @@ export default {
         border-top: .02rem solid #000;
         padding-left: 0.1rem;        
     }
-    .navfont{
+    .navfont {
         background: url("data:image/jpg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAYEBAQFBAYFBQYJBgUGCQsIBgYICwwKCgsKCgwQDAwMDAwMEAwODxAPDgwTExQUExMcGxsbHCAgICAgICAgICD/2wBDAQcHBw0MDRgQEBgaFREVGiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICD/wAARCABIAAoDAREAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAcDBQYBCP/EACQQAAEEAgECBwAAAAAAAAAAAAEAAgMEBRESMbITFDRDc6Gx/8QAGgEAAgIDAAAAAAAAAAAAAAAAAAMCBgEEBf/EAB4RAQACAQQDAAAAAAAAAAAAAAABAwIREiExIjJx/9oADAMBAAIRAxEAPwD1SgBAcJQEfiNWdAJ3cW7RAUkmTAkcN9CVtxUwtci7jCStevtktrmUItzjfSR36u3hVxBZjZb05XFq7Mkncg53n7Pyv7irJX6x8KOTJN5QkKtV9mlVfoON6wde6/uKsGFnjBRuWG8m6VdxNZWxiA6eR2uriftb+N3COjXEbXOSQmsCdqW4J1EBAf/Z")0 0/contain no-repeat;
     }
-    .list-big-box{
+    .list-big-box {
         overflow: hidden;
         margin: 0 .2rem;
         border-left: .08rem solid #000;
     }
-    .list-link{
+    .list-link {
         color: #000;
     }
-    .list-mall-box{
+    .list-mall-box {
         box-sizing: border-box;
         float: left;
         width:50%;
@@ -205,19 +206,19 @@ export default {
         border-right: .08rem solid #000;
         background: #fff;
     }
-    .list-img-box{
+    .list-img-box {
         position: relative;
         width: 100%;
         height: 75%;
         background-image: cover;
 
     }
-    .list-img{
+    .list-img {
         width:100%;
         height: 100%;
         background-size: 100% 100%;
     }
-    .list-img-add{
+    .list-img-add {
         position: absolute;
         left: 0;
         top:.06rem;
@@ -229,7 +230,7 @@ export default {
         border-radius: 0 .08rem .08rem 0;
         z-index: 1;
     }
-    .list-img-pos{
+    .list-img-pos {
         display: inline-block;
         position: absolute;
         top: 50%;
@@ -239,7 +240,7 @@ export default {
         margin-top: -.12rem;
         background: url(http://s.qunarzz.com/piao_topic/image/touch/custom/2017/2090hotspring02/sprite.png) -4.28rem 0/6rem 3.2rem no-repeat;
     }
-    .list-img-content{
+    .list-img-content {
         position: absolute;
         bottom: .08rem;
         left: .04rem;
@@ -250,30 +251,30 @@ export default {
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
     }
-    .list-detail{
+    .list-detail {
         padding: 0 .1rem;
         min-height: 1rem;
     }
-    .list-detail{
+    .list-detail {
         height: .52rem;
         padding: .1rem;
         line-height: .4rem;
     }
-    .list-price{
+    .list-price {
         display: flex;
         flex-direction:row;
         justify-content: space-between;
     }
-    .list-old-price{
+    .list-old-price {
         font-size: .24rem;
         color: #acacac;
         text-decoration: line-through;
     }
-    .list-current-price{
+    .list-current-price {
         font-size: .4rem;
         color: #f93636;
     }
-    .list-button{
+    .list-button {
         height: 100%;
         min-width: 1.5rem;
         height: .56rem;
@@ -285,29 +286,29 @@ export default {
         text-align: center;
         border-radius: .06rem;        
     }
-    .activeHaveTop{
+    .activeHaveTop {
         position: fixed;
         left:0;
         top: 1.2rem;
         z-index:1000;
         width: 100%
     }
-    .activeNotTop{
+    .activeNotTop {
         position: fixed;
         left:0;
         top: 0;
         z-index:1000;
         width: 100%
     }
-    .navActive{
+    .navActive {
         color: #f93636;
         background: #fc0;
     }
-     .activeImg{
+     .activeImg {
          background-image: none; 
          border-top-color: #fff;
      }  
-     .activeImgNext{
+     .activeImgNext {
         background-image: none; 
      }
 </style>

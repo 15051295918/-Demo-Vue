@@ -33,17 +33,19 @@
 
 export default {
     beforeCreate: function() {
-        var province = '福建';
         try {
-            this.province = window.localStorage.province;
+            var province = window.localStorage.province;
+            if (province) {
+                this.$emit('provinceChange', province)
+            }
         } catch(e) {}
     },
     data () {
         return {
-
+            
         }
     },
-    props:["data","province"]
+    props:["data", "province"]
 
 }
 </script>
@@ -82,7 +84,7 @@ export default {
       height: 2.08rem;
     } 
     .scenic-city {
-      width: 1.12rem;
+      width: 1.32rem;
       height: .4rem;
       background: rgba(0, 0, 0, 0.7);
       position: absolute;

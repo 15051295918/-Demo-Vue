@@ -17,14 +17,13 @@
 
 <script>
 export default {
-
-	created: function() {
+	/*created: function() {
 	    this.$http.get('/static/ticketRmb.json').then(response => {
 	        this.more = response.body.data.indexInfo.cityItem;
 	    }, response => {
 	        console.log("get list data error")
 	    });
-	},
+	},*/
 	data () {
 	    return {
 	     
@@ -41,7 +40,7 @@ export default {
 	  			window.localStorage.province = province;
 	  			province = window.localStorage.province;
 	  		} catch(e) {}
-	  		this.$emit("provinceChanges",province);
+	  		this.$emit("provinceChange",province);
 	  	}
 	}
 	  

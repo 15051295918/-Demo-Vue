@@ -14,21 +14,33 @@
 			  			<span v-html="item.time" class="comment-time">{{item.time}}</span>
 		  			</div>
 		  			<div class="comment-descr">
-			  			<p  :class="{isactive:show===index*10+liindex}" class="comment-text">
+			  			<p :class="{isactive:showtext===index*10+liindex}" class="comment-text">
 			  				{{item.txt}}
 			  			</p>
-			  			<div class="comment-text-more">
+			  			<div v-if="item.show" class="comment-text-more">
 				  			<span @click="handleTextMore(index*10+liindex)" class="iconfont" >
 				  				&#xe76d;
 				  			</span>
 			  			</div>
 		  			</div>
 		  			<div class="comment-imgbox" >
-		  				<img class="comment-img" v-for="(itemimg, imgindex) in item.img" @click="handleBigImg(imgindex)" :src="itemimg" alt="" >		
+		  				<img class="comment-img" 
+			  				v-for="(itemimg, imgindex) in item.img" 
+			  				:src="itemimg" 
+			  				@click="handleOpenImg(index*10+liindex)" 
+		  				/>
+		  				<comment-img 
+			  				v-if="showimg===index*10+liindex" 
+			  				@closeimgbox="handleCloseImg" 
+			  				:propsimglist="item.img">
+		  				</comment-img>
 		  			</div>
 		  		</li>
+		  		<li>
+					<div v-if="count===index" class="comment-addmore"  @click="handleAddMore">查看更多</div>
+			  		<div v-if="count>index" class="comment-addmore" >没有更多了</div>
+		  		</li>
 	  		</ul>
-  			<div class="comment-addmore"  @click="handleAddMore">查看更多</div>
 		</div>		
   	</div>	
 </template>
@@ -36,6 +48,7 @@
 <script>
 
 	import detect from '@/utils/detect.js'
+	import commentimg from "./commentimg"
 
 	export default {
 	    created: function() {
@@ -49,43 +62,48 @@
 		    return {
 		        commentlistInfo: [],
 		        count: 0,
-		        isshow: [],
-		        show: false
+		        showtext: false,
+		        showimg:""
 		    }
 	    },
+	    components: {
+		  	"comment-img": commentimg
+		}, 
 	  	computed: {
 	        lists: function() {
 	            var lists = [],
 	                length = (this.count+1)*10 >= this.commentlistInfo.length ? this.commentlistInfo.length : (this.count + 1) * 10;
-	            	this.isshow = [];
-	            for (var i = 0; i < length; i++) { 
+	            for (var i = 0; i < length; i++) {
 	            	if(this.commentlistInfo[i].txt.length > 104){
-	            		this.isshow.push( i );
-	            	}    	
+	            		this.commentlistInfo[i].show=true
+	            	} else{
+	            		this.commentlistInfo[i].show=false
+	            	};
 	                var list = Math.floor(i / 10); 
 	                if ( !lists[list] ) { 
 	                    lists[list] = [];
 	                }
 	                lists[list].push( this.commentlistInfo[i] );
-	            }	
+	            }
 	            return lists;
 	        }
 	    },
-	    methods:{
-	    	handleTextMore:function(index){
-	    		for(var j = 0;j < this.isshow.length;j++){
-	    			if(this.isshow.indexOf(index) != -1){
-	    				this.show = index;
-	    				break;
-	    			}
-	    		}
+	    methods: {
+	    	handleTextMore: function(index) {	
+	    		this.showtext = index;		
 	    	},
-	    	handleAddMore:function() {		
-	    		this.count++;
+	    	handleAddMore: function() {		
+	    		this.count++;	    		
 	    	},
-	    	handleGobackClick:function() {
-	    		history.go(-1)
-	    	}
+	    	handleGobackClick: function() {
+	    		history.go(-1);
+	    	},
+	    	handleOpenImg: function(allindex) {
+	    		this.showimg = allindex;
+	    	},
+	    	handleCloseImg: function() {
+	    		 this.showimg = ""
+	    	}	
 	    } 
 	}
 </script>
@@ -129,7 +147,7 @@
 	}
 	.comment-ulcon{
 		padding-bottom: .88rem; 
-		background:#fff;
+		background: #fff;
 	}
 	.comment-list::before{
 		border-color: #999;
@@ -148,7 +166,7 @@
 		padding: .25rem 0;
 	}
 	 .comment-star{
-	 	color:red;
+	 	color: red;
 	 	display: block;	 
 	 	font-size: 0.3rem;
 	 }
@@ -164,8 +182,8 @@
 	    display: -webkit-box;
 	    overflow: hidden;
 	    text-overflow: hidden;
-	    -webkit-line-clamp:3;
-	    -webkit-box-orient:vertical;
+	    -webkit-line-clamp: 3;
+	    -webkit-box-orient: vertical;
 	    color: #999;
 	    font-size: .28rem;
 	    padding-right: .06rem;

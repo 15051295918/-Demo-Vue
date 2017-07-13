@@ -12,15 +12,20 @@
 			<titket-city 
 			@moreCityShow="handleClickShow"
 			@provinceChange="handleProvinceChange"
+			:province="province"
+			:moreShow="province"
 			></titket-city>
 			<titket-scenic 
 			:data="nineTicket" 
-			:province="province"></titket-scenic>
+			:province="province" @provinceChange="handleProvinceChange"></titket-scenic>
 			<more-special 
 			:propsoff="off" 
 			:province="province"></more-special>
 			<more-product></more-product>
-			<more-province @moreProvinceOff="handleClickOff" v-if="moreProvince" :moreProvinces="moreProvinces"></more-province>
+			<more-province 
+			@moreProvinceOff="handleClickOff"
+			@provinceChange="handleProvinceChange"
+			 v-if="moreProvince" :moreProvinces="moreProvinces"></more-province>
 		</div>
 		
   	</div>	
@@ -36,6 +41,8 @@ import morespecial from "./morespecial"
 import moreproduct from "./moreproduct"
 import moreprovince from "./moreprovince"
 
+var province = "福建";
+
 export default {
 	created: function() {
 	    this.$http.get('/static/ticketRmb.json').then(response => { 
@@ -47,11 +54,12 @@ export default {
     },
     data () {
         return {
-     		off:false,
+     		off: false,
      		nineTicket: [],
      		moreProvinces: [],
-     		"moreProvince" : false,
-     		province: "福建"
+     		moreProvince : false,
+     		moreShow: false,
+     		province: province
         }
     },
 	components: {
@@ -73,6 +81,7 @@ export default {
 		},
 		handleClickShow: function() {
 			this.moreProvince = true;
+			this.moreShow = true;
 		},
 		handleProvinceChange: function(province) {
 			this.province = province;

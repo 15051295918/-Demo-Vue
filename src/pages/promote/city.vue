@@ -4,15 +4,16 @@
             <li :class="{'city-items' : true , activeIndexImg:index==activeIndex}" 
                 v-for="(items, index) in cityItmes" 
                 :key="index + '_city_itmes'"                 
-                @click="handleClick(index)">
+                @click="handleClick(index)"
+                :data-cityname="items.city"
+                >
                 <span class="city-change"  @click="handleCityClick">
                     <a href="javascript:void(0)" 
-                    class="city-items-a" 
-                    ref="moreCity"
+                    class="city-items-a"
                     >{{items.city}}</a>
                 </span>
             </li>
-            <li :class="{'city-items': true, activeIndexImg:activeMoreImg}" @click="handleMoreCity">
+            <li :class="{'city-items':true , activeIndexImg:activeMoreImg}" @click="handleMoreCity">
                 <span>
                     <a href="javascript:void(0)" 
                     class="city-items-a" 
@@ -39,8 +40,8 @@ export default {
         return {
             commentcityItmes:[],
             activeIndex:0,
-            activeMoreImg: false,
-            cityIndex:0
+            cityIndex:0,
+            activeMoreImg: false
         }
     },
     computed: {
@@ -50,6 +51,7 @@ export default {
             if(cityIndex){
                 this.activeIndex=cityIndex;
             }
+
             for (var i = 0; i < this.commentcityItmes.length; i++) {
                 cityItmes.push(this.commentcityItmes[i]);
             }
@@ -70,12 +72,12 @@ export default {
             this.activeIndex = -1;
         },
         handleCityClick: function(e) {
+            this.activeMoreImg = false;
             var province = e.target.innerText;
             try {
                 window.localStorage.province = province;
-                 province = window.localStorage.province;
             } catch(e) {}
-                this.$emit("provinceChange", province);
+            this.$emit("provinceChange", province);
         }
     }
 }
