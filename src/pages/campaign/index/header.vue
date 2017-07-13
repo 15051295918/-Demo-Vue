@@ -24,7 +24,6 @@
 </script>
 
 <style scoped>
-
 	.cam-header {
 	    position: relative;
 	    display: -webkit-box;

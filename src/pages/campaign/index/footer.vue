@@ -34,7 +34,6 @@
 </script>
 
 <style scoped>
-
 	.cam-footer {
 		overflow: hidden;
 		position: fixed;

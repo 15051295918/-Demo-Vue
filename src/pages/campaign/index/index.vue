@@ -79,9 +79,7 @@
 
 </script>
 
-
 <style scoped>
-
 	.campaign-main {
 		background: #F3F3F3;
 		overflow: hidden;
@@ -97,6 +95,5 @@
         margin-top: .2rem;
         margin-bottom: 1rem;
         background: #f5f5f5;
-  	}
-  	
+  	}	
 </style>

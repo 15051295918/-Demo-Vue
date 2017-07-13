@@ -1,19 +1,29 @@
 <template>
 	<div class="help-page">
 		<div class="help-header">
-			<router-link to="/campaign/newannounce">
-				<a class="help-header-left"></a>
-			</router-link>
+			<router-link to="/campaign/newannounce" class="help-header-left"></router-link>
 	  		<h1 class="help-header-middle">计算详情</h1>
 	  		<router-link to="/">
 	  			<a class="help-header-right"><img src="../../../assets/img/campaignIMG/help-logo.png" class="help-header-logo"/><br>首页</a>
 	  		</router-link>
 		</div>
 		<div class="formular border-bottom">
-			<p class="lucky-num">幸运号码：<span>{{winningNo}}</span><span class="formular-button fromularbutton" @click="handleOpen">计算公式</span></p>
-			<p class="formular-info">=<span class="fomular-hightlight">数值A</span>%<span class="fomular-hightlight">商品所需人次数</span>(取余)+10000001</p>
-			<p class="formular-info">=<span class="fomular-hightlight">{{timeTotal}}</span>%<span class="fomular-hightlight">{{personTimes}}</span>(取余)+10000001</p>
-			<p class="formular-info">=<span class="fomular-hightlight">{{winningNo}}</span></p>
+			<p class="lucky-num">
+				幸运号码：
+				<span>{{$route.params.id}}</span>
+				<span class="formular-button fromularbutton" @click="handleOpen">计算公式</span>
+			</p>
+			<p class="formular-info">=
+				<span class="fomular-hightlight">数值A</span>%
+				<span class="fomular-hightlight">商品所需人次数</span>(取余)+10000001
+			</p>
+			<p class="formular-info">=
+				<span class="fomular-hightlight">{{timeTotal}}</span>%
+				<span class="fomular-hightlight">{{personTimes}}</span>(取余)+10000001
+			</p>
+			<p class="formular-info">=
+				<span class="fomular-hightlight">{{$route.params.id}}</span>
+			</p>
 		</div>
 		<formular :computs="computInfo"></formular>
 		<div class="mask" v-if="seen">
@@ -24,28 +34,27 @@
 					<li class="notice-item">
 						<div class="notice-num">01</div>
 						<div class="notice-info">
-						奖品的最后一个号码认购完毕后，将公示该认购时间点前本站全部奖品的最后100个记录的参与时间（包括该奖品最后一个参与时间）；
+							奖品的最后一个号码认购完毕后，将公示该认购时间点前本站全部奖品的最后100个记录的参与时间（包括该奖品最后一个参与时间）；
        					</div>
 					</li>
 					<li class="notice-item">
 						<div class="notice-num">02</div>
 						<div class="notice-info">
-						将这100个记录的参与时间按照时、分、秒、毫秒组合，然后相加，得到数值A（如19:23:54.124则是192354124）
+							将这100个记录的参与时间按照时、分、秒、毫秒组合，然后相加，得到数值A（如19:23:54.124则是192354124）
        					</div>
 					</li>
 					<li class="notice-item border-bottom">
 						<div class="notice-num">03</div>
 						<div class="notice-info">
-						数值A除以奖品总需人次数，得到一个余数，用这个余数加上原始数10000001，得到幸运号码。拥有该幸运号码者，获得该奖品。
+							数值A除以奖品总需人次数，得到一个余数，用这个余数加上原始数10000001，得到幸运号码。拥有该幸运号码者，获得该奖品。
       					</div>
 					</li>
 				</ul>
 				<div class="guide">
 					<p class="guide-item">什么是余数？</p>
-					<p class="guide-item">当两个整数相除的结果不能以整数商表示时，余数是其“余留下的量”。
-					</p>
+					<p class="guide-item">当两个整数相除的结果不能以整数商表示时，余数是其“余留下的量”。</p>
 					<p class="guide-item">举例：26除以4，商为6，余数为2，</p>
-					<p class="guide-item">　　　26=6×4+2。</p>
+					<pre class="guide-item">　　　26=6×4+2。</pre>
 				</div>
 			</div>
 		</div>
@@ -54,37 +63,41 @@
 
 <script>
 	import formulamain from "./formular"
-	export default {
-	created: function(){
+	export default {		
+		created: function(){
 	        this.$http.get('/static/campaign/comput.json').then(response => {
 	        	this.winningNo= response.body.data.winningNo;
 	        	this.timeTotal= response.body.data.timeTotal;
 	        	this.personTimes= response.body.data.personTimes;
 	        	this.computInfo = response.body.data.computInfo;
-	            }, response => {
+	        }, response => {
 	            console.log("get index data error")
 	        });
-	  },
-	  data () {
-	    return {
-		    winningNo: [],
-		    timeTotal: [],
-		    personTimes: [],
-	     	computInfo: [ ],
-	     	seen: false
-	    }
-	  },
-	  components: {
-	  	"formular" : formulamain
-	  },
-	  methods: {
-	  	handleOpen: function() {
-	  		this.seen = true;
-	  	},
-	  	handleClose: function() {
-	  		this.seen = false;
-	  	}
-	  }
+		},
+
+		data () {
+			return {
+				winningNo: [],
+				timeTotal: [],
+				personTimes: [],
+				computInfo: [],
+				seen: false
+			}
+		},
+
+		components: {
+			"formular": formulamain
+		},
+
+		methods: {
+			handleOpen: function() {
+				this.seen = true;
+			},
+
+			handleClose: function() {
+				this.seen = false;
+			}
+		}
 	}
 </script>
 
@@ -98,16 +111,19 @@
 	    color: #fff;
 	    border-bottom: #1b7a8b .02rem solid;
 	}
+
 	.help-header-left {
 	    position: absolute;
 	    left: 0;
 	    top: 0;
-	    width: .8rem;
-	    height: .8rem; 
-	    background: url(../../../assets/img/campaignIMG/help-header-left.png) center center no-repeat;
-	    background-size: .26rem .34rem;
-	    z-index: 91;
+	    transform: rotateZ(45deg);
+	    width: .2rem;
+	    height: .2rem;
+	    margin: .3rem .4rem;
+	    border-left: .03rem solid #fff;
+	    border-bottom: .03rem solid #fff;
 	}
+
 	.help-header-middle {
 		overflow: hidden;
 	    margin: 0 1rem;
@@ -118,6 +134,7 @@
 	    white-space: nowrap;
 	    text-overflow: ellipsis;
 	}
+
 	.help-header-right {
 	    position: absolute;
 	    top: 0;
@@ -129,14 +146,17 @@
 	    text-decoration: none;
 	    color: #fff;
 	}
+
 	.help-header-logo {
 	    width: .56rem;
 	    margin: .08rem .1rem 0 0;
 	}
+
 	.formular {
 		padding: .4rem .2rem .3rem .2rem;
 		background: #fff;	
 	}
+
 	.lucky-num {
 		position: relative;
 		line-height: .3rem;
@@ -145,6 +165,7 @@
 		font-size: .3rem;
 		font-weight: bold;
 	}
+
 	.formular-button {
 		position: absolute;
 		top: -.02rem;
@@ -152,6 +173,7 @@
 		font-weight: normal;
 		color: #1ba9bb;
 	}
+
 	.fromularbutton:after {
 		position: relative;
 		top: -.04rem;
@@ -168,13 +190,16 @@
 		-o-transform: rotate(45deg);
 		transform: rotate(45deg);
 	}
+
 	.formular-info {
 		line-height: .4rem;
 		color: #666;
 	}
+
 	.fomular-hightlight {
 		color: #ff3850;
 	}
+
 	.mask {
 		position: fixed;
 		top: 0;
@@ -185,6 +210,7 @@
 		height: 100%;
 		background: rgba(0, 0, 0, 0.5)
 	}
+
 	.notice {
 		position: relative;
 	    top: 50%;
@@ -197,6 +223,7 @@
 	    -moz-border-radius: .08rem;
 	    border-radius: .08rem;
 	}
+
 	.close-button {
 		position: absolute;
 	    right: -.3rem;
@@ -213,18 +240,22 @@
 	    -moz-border-radius: .3rem;
 	    border-radius: .3rem;
 	}
+
 	.notice-title {
 	    line-height: .42rem;
 	    padding: .2rem 0 .1rem .16rem;
 	    font-weight: bold;
 	    color: #1ba9ba;
 	}
+
 	.notice-list {
     	padding: 0 .14rem 0 .2rem;
 	}
+
 	.notice-item {
 	    padding-bottom: .28rem;
 	}
+	
 	.notice-num {
 	    position: relative;
 	    width: .4rem;
@@ -248,6 +279,7 @@
 	    -o-transform-origin: left top;
 	    transform-origin: left top;
 	}
+
 	.notice-item:not(:last-of-type) .notice-num::after {
 	    content: '';
 	    position: absolute;
@@ -257,6 +289,7 @@
 	    width: .02rem;
 	    background: #1ba9ba;
 	}
+
 	.notice-info {
 	    line-height: .32rem;
 	    margin-left: .4rem;
@@ -265,9 +298,11 @@
 	    word-break: break-all;
 	    word-wrap: break-word;
 	}
+
 	.guide {
 	    padding: .18rem .2rem 0 .2rem;
 	}
+
 	.guide-item {
 	    line-height: .3rem;
 	    font-size: .24rem;

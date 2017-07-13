@@ -13,18 +13,12 @@ FastClick.attach(document.body);
 
 Vue.config.productionTip = false
 Vue.use(VueAwesomeSwiper)
-Vue.use(VueResource);
+Vue.use(VueResource)
+Vue.use(VueTabs);
 Vue.use(VueLazyload, {
   preLoad:1,
   attempt: 1
 })
-
-FastClick.attach(document.body);
-
-Vue.config.productionTip = false
-Vue.use(VueAwesomeSwiper)
-Vue.use(VueResource);
-Vue.use(VueTabs);
 
 new Vue({
 	  beforeCreate: function() {

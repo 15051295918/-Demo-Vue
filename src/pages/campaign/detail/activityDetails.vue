@@ -44,6 +44,7 @@
 					<div class="descroption-item-contain">{{productInfo.productInclude}}</div>
 				</div>
 			</div>
+
 			<div class="cam-prddetail-group border-topbottom">
 				<h3 class="cam-prddetail-title border-bottom">景点介绍</h3>
 				<div class="cam-prddetail-content">
@@ -51,12 +52,14 @@
 					<span class="cam-other-entrance iconfont">&#xe768;</span>
 				</div>
 			</div>
+
 			<div class="cam-prddetail-group border-topbottom">
 				<div class="cam-prddetail-content">
 					<h4 class="cam-descroption-title">晒单</h4>
 					<span class="cam-other-entrance iconfont">&#xe768;</span>
 				</div>
 			</div>
+
 			<div class="cam-prddetail-group border-topbottom cam-margin-fixedbottom">
 				<div class="cam-prddetail-content">
 					<h4 class="cam-descroption-title">往期揭晓</h4>
@@ -69,8 +72,6 @@
 			</div>
 			<span class="bcak-btn iconfont" v-if="show" @click="handlebckBtnClick">&#xe657;</span>
 		</div>
-
-		
 
 	</div>
 </template>
@@ -87,6 +88,7 @@
 	            console.log("get index data error")
 	        });
 		},
+
 		data() {
 			return {
 				show: true,
@@ -94,6 +96,7 @@
 				productInfo: {}
 			}
 		},
+
 		methods: {
 			handlebckBtnClick: function() {
 				this.$router.go(-1);
@@ -111,6 +114,7 @@
 	.activity-detail-page {
 		background-color: #f3f3f3;
 	}
+
 	.header {
 		position: fixed;
 		top: 0;
@@ -121,15 +125,19 @@
 		opacity: 0.555556;
 		z-index: 999;
 	}
+
 	.fade-enter-active, .fade-leave-active {
 	  	transition: opacity .5s
 	}
+
 	.fade-enter, .fade-leave-to {
 	  	opacity: 0
 	}
+	
 	.header.botter-bottom::before {
 		border-color: #1b7a8b;
 	}
+	
 	.header-title {
 		overflow: hidden;
 		margin: 0 1rem;		
@@ -140,6 +148,7 @@
 		text-align: center;
 		color: #fff;
 	}
+	
 	.bcak-btn {
 		position: absolute;
 		top: 0;
@@ -151,16 +160,19 @@
 		font-size: .36rem; 
 		color: #fff;
 	}
+	
 	.product-img-content {
 		overflow: hidden;
 		position: relative;
 		min-height: 3.6rem;
 		max-height: 4.1rem;
 	}
+	
 	.product-img {
 		width: 100%;
 		min-height: 3.6rem;
 	}
+	
 	.product-topbanner-mask {
 		position: absolute;
 		left: 0;
@@ -170,6 +182,7 @@
 		color: #fff;
 		background: linear-gradient(to top, rgba(0, 0, 0, .5), rgba(0, 0, 0, 0));
 	}
+	
 	.product-img-infocon {
 		position: absolute;
 		bottom: .1rem;
@@ -177,6 +190,7 @@
 		width: 100%;
 		color: #fff;
 	}
+	
 	.product-img-issue {
 		display: inline-block;
 		height: .32rem;
@@ -188,6 +202,7 @@
 		line-height: .32rem;
 		border-radius: .04rem;
 	}
+	
 	.product-content {
 		position: relative;
 		margin-top: -.1rem;
@@ -195,15 +210,18 @@
 		background: #fff;
 		border-radius: .1rem .1rem 0 0;
 	}
+	
 	.product-content::before,
 	.detail-grab-progresscon::before {
 		border-color: #c9cccd;
 	}
 	
+	
 	.product-name {
 		font-size: .32rem;
 		line-height: .36rem;
 	}
+	
 	.product-status {
 		display: inline-block;
 		height: .36rem;
@@ -215,28 +233,34 @@
 		color: #fff; 
 		background-color: #1fbdd0;
 	}
+	
 	.product-prize {
 		font-size: .24rem;
 		line-height: .3rem;
 		padding: .08rem 0 .36rem;
 		color: #999;
 	}
+	
 	.detail-grab-progresscon {
 		padding: .3rem 0 .08rem;
 	}
+	
 	.detail-grab-progress {
 		position: relative;
 		font-size: .24rem;
 		color: #666;	
 	}
+	
 	.progress-left-amount {
 		position: absolute;
 		top: .02rem;
 		right: 0;
 	}
+	
 	.progress-left-amount .color-red {
 		color: #ff5353;
 	}
+	
 	.progress-bar {
 		position: relative;
 		overflow: hidden;
@@ -246,17 +270,20 @@
 		border: .02rem solid #ff5353;
 		border-radius: .12rem;
 	}
+	
 	.process-bar-total {
 		position: absolute;
 		height: 100%;
 		z-index: 1;
 		background: #fff;
 	}
+	
 	.process-bar-gain {
 		position: absolute;
 		height: 100%;
 		background: #ff5353;
 	}
+	
 
 	.cam-prddetail-group {
 		position: relative;
@@ -264,11 +291,13 @@
 		padding: .01rem 0;
 		background-color: #fff;
 	}
+	
 	.cam-prddetail-group.border-topbottom::before,
 	.cam-prddetail-group.border-topbottom::after,
 	.cam-prddetail-title.border-bottom::before {
 		border-color: #dadada;
 	}
+	
 
 	.cam-prddetail-title {
 		overflow: hidden;
@@ -279,6 +308,7 @@
 		text-indent: .15rem;
 		padding: 0 .2rem;
 	}
+	
 	.cam-prddetail-title::after {
 		content: "";
 		position: absolute;
@@ -289,6 +319,7 @@
 		background: #1ba9ba;
 		border-radius: .04rem;
 	}
+	
 	.cam-prddetail-content {
 		position: relative;
 		margin: .2rem 0;
@@ -298,9 +329,11 @@
 		overflow: hidden;
 		padding: 0 .2rem;
 	}
+	
 	.descroption-item-contain {
 		color: #888;
 	}
+	
 	.cam-other-entrance {
 		position: absolute;
 		top: 50%;
@@ -309,14 +342,17 @@
 		color: #bbb;
 		transform: translate(0, -50%); 
 	}
+	
 	.cam-margin-fixedbottom {
 		margin-bottom: 1.08rem;
 	}
+	
 	.cam-bottomfixed-area {
 		position: fixed;
 		bottom: 0;
 		width: 100%;
 	}
+	
 	.cam-status-button {
 		display: block;
 		height: .88rem;
@@ -327,5 +363,6 @@
 		color: #fff;
 		background-color: #ff3850;
 	}
+	
 </style>
 

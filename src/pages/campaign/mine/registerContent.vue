@@ -1,43 +1,45 @@
 <template>
-<div>
   <div>
-     <div class="formStyle">
-        <div class="formContolFrist">
-          <label class="contolLabel">手机号</label>
-          <div class="contolContainer">
-            <input class="contolText" type="text" name="" ref="phone" placeholder="请输入手机号"@blur=handlePhoneOnblur>
+    <div>
+       <div class="formStyle">
+          <div class="formContolFrist">
+            <label class="contolLabel">手机号</label>
+            <div class="contolContainer">
+              <input class="contolText" type="text" name="" ref="phone" placeholder="请输入手机号"@blur=handlePhoneOnblur>
+            </div>
           </div>
-        </div>
-        <div class="formContolFrist">
-          <label class="contolLabel">图形码</label>
-          <div class="contolContainer">
-            <input class="contolText" type="text" name="" placeholder="请输入图形码">
-             <img class="rightBtn contolImg" src="https://user.qunar.com/captcha/api/image?k={en7mni(z&p=ucenter_login&c=ef7d278eca6d25aa6aec7272d57f0a9a&t=736" @click=handleChangeImg >
+          <div class="formContolFrist">
+            <label class="contolLabel">图形码</label>
+            <div class="contolContainer">
+              <input class="contolText" type="text" name="" placeholder="请输入图形码">
+               <img class="rightBtn contolImg" src="https://user.qunar.com/captcha/api/image?k={en7mni(z&p=ucenter_login&c=ef7d278eca6d25aa6aec7272d57f0a9a&t=736" @click=handleChangeImg >
+            </div>
+          </div> 
+          <div class="formContollast">
+            <label class="contolLabel">密码</label>
+            <div class="contolContainer">
+              <input class="contolText" type="password" ref="password" name="" placeholder="请输入验证码">
+              <div class="rightBtn">获取不了大哥</div>
+            </div>
           </div>
-        </div> 
-        <div class="formContollast">
-          <label class="contolLabel">密码</label>
-          <div class="contolContainer">
-            <input class="contolText" type="password" ref="password" name="" placeholder="请输入验证码">
-            <div class="rightBtn">获取不了大哥</div>
-          </div>
-        </div>
-    </div>
-    <div :class={registerChangeColor:canRegister} to="" class="btn" @click=handleregisterClick>
-      注册
+      </div>
+      <div :class={registerChangeColor:canRegister} to="" class="btn" @click=handleregisterClick>
+        注册
+      </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
-export default {
+
+  export default {
     data () {
       return {
          canRegister:false,
 
       }
     },
+
     methods:{
       handleregisterClick: function() {
         var phoneVal = this.$refs.phone.value;
@@ -51,9 +53,11 @@ export default {
              this.$router.go(-2)
         }else{}
       },
+
       handleChangeImg: function() {
         console.log("心态崩了GG")
       },
+
       handlePhoneOnblur: function() {
         var reg = /^1[3|4|5|7|8][0-9]{9}$/;
         var phoneVal = this.$refs.phone.value;
@@ -68,7 +72,7 @@ export default {
 
 
 <style scoped>
-  .formStyle{
+  .formStyle {
     border-top:.01rem solid #ccc;
     border-bottom:.01rem solid #ccc;
     margin-top:.2rem;
@@ -76,7 +80,8 @@ export default {
     background:#fff;
     font-size:.16rem
   }
-  .formContolFrist{
+  
+  .formContolFrist {
     display:-webkit-box;
     display:-webkit-flex;
     display:-moz-box;
@@ -90,7 +95,8 @@ export default {
     border-bottom:.01rem solid #ddd;
     line-height:.45rem
   }
-  .formContollast{
+  
+  .formContollast {
     display:-webkit-box;
     display:-webkit-flex;
     display:-moz-box;
@@ -103,7 +109,8 @@ export default {
     width:100%;
     line-height:.45rem
   }
-  .contolLabel{
+  
+  .contolLabel {
     display:block;
     width:1.8rem;
     height: .9rem;
@@ -111,7 +118,8 @@ export default {
     font-size: .32rem;
     line-height: .9rem;
   }
-  .contolContainer{
+  
+  .contolContainer {
     display:-webkit-box;
     display:-webkit-flex;
     display:-moz-box;
@@ -131,7 +139,8 @@ export default {
     border:0;
     vertical-align:middle
   }
-  .contolText{
+  
+  .contolText {
     -webkit-box-flex:1;
     -webkit-flex:1;
     -moz-box-flex:1;
@@ -145,7 +154,8 @@ export default {
     color:#000;
     font-size: .32rem;
   }
-  .rightBtn{
+  
+  .rightBtn {
     display:block;
     margin:.14rem .2rem;
     width:2rem;
@@ -157,7 +167,8 @@ export default {
     color: #d7dce0;
     font-size: .28rem;
   }
-  .btn{
+  
+  .btn {
     color:#fff;
     text-align:center;
     width: 7.88rem;
@@ -170,7 +181,9 @@ export default {
     margin: 0 auto;
     margin-top: .2rem;
   }
-  .registerChangeColor{
+  
+  .registerChangeColor {
     background-color: #18a9b9;
   }
+  
 </style>

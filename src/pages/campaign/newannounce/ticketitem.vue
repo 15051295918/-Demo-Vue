@@ -1,6 +1,7 @@
 <template>
 	<ul class="newticket-container">
 		<li class="newticket-item border-bottom" v-for="(item,index) in announces" :key="index + 'announce_item'">
+		    <router-link :to="'/campaign/announceDetails/'+item.winningNo">
 			<a href="###">
 				<div class="newticket-item-imgcontainer">
 					<img  v-lazy="item.pic" :alt="item.productName" class="newticket-loading newticket-item-img">
@@ -10,7 +11,7 @@
 					<p class="newticket-item-text">夺宝期号 : {{item.groupDrawNo}}</p>
 					<p class="newticket-item-text">幸运号码 : 
 						<span class="newticket-item-wincode">{{item.winningNo}}</span>
-						<router-link to="/campaign/computDetails">
+						<router-link :to="'/campaign/computDetails/'+item.winningNo">
 							<a class="newticket-item-calculate" href="###">计算详情
 							</a>
 						</router-link>
@@ -19,28 +20,30 @@
 					<p class="newticket-item-text">揭晓时间 :{{date(item.raffleTime)}}</p>
 				</div>
 			</a>
+			</router-link>
 		</li>
 	</ul>
 </template>
+
 <script src="https://unpkg.com/vue-lazyload/vue-lazyload.js"></script>
 
 <script>
-export default {
-  data () {
-    return {
-    	date : function (nS) {
-    		var now = new Date(nS);
-    		var month = now.getMonth()+1; 
-			var date = now.getDate(); 
-			var hour = now.getHours(); 
-			var minute = now.getMinutes(); 		
-		 return month+"月"+date+"日,"+hour+":"+minute;  
-		}
-    }
-  },
-  props: ["announces"]
- 
-}
+	export default {
+		data () {
+			return {
+				date : function(nS) {
+					var now = new Date(nS),
+						month = now.getMonth()+1, 
+						date = now.getDate(),
+						hour = now.getHours(), 
+						minute = now.getMinutes(); 		
+			 		return month+"月"+date+"日,"+hour+":"+minute;  
+				}
+			}
+		},
+
+		props: ["announces"]	 
+	}
 </script>
 
 <style scoped>
@@ -49,21 +52,22 @@ export default {
 	    overflow: hidden;
 	    padding: .2rem;
 	}
+
 	.newticket-item-imgcontainer {
     	float: left;
 	}
+
 	.newticket-item-img {
 	    width: 1.8rem;
 	    height: 1.8rem;
-	    -o-border-radius: .08rem;
-	    -webkit-border-radius: .08rem;
-	    -moz-border-radius: .08rem;
 	    border-radius: .08rem;
 	}
+
 	.newticket-item-info {
 	    margin-top: -.04rem;
 	    margin-left: 2rem;
 	}
+
 	.newticket-item-name {
 	    line-height: .4rem;
 	    margin-bottom: .04rem;
@@ -71,15 +75,18 @@ export default {
 	    font-weight: normal;
 	    color: #333;
 	}
+
 	.newticket-item-text {
 	    position: relative;
 	    line-height: .36rem;
 	    font-size: .24rem;
 	    color: #999;
 	}
+
 	.newticket-item-wincode {
 	    color: #ff3850;
 	}
+
 	.newticket-item-calculate {
 	    position: absolute;
 	    display: block;
@@ -88,4 +95,5 @@ export default {
 	    padding: .02rem .1rem;
 	    color: #999;
 	}
+
 </style>

@@ -70,22 +70,21 @@
 </template>
 
 <script>
+	import header from './header'
 
-import header from './header'
 
+	export default {
+		data () {
+			return {
 
-export default {
-	data () {
-		return {
+			}
+		},
 
+		components: {
+			"order-header": header
 		}
-	},
 
-	components: {
-		"order-header": header
 	}
-
-}
 </script>
 
 

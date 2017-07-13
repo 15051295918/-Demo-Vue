@@ -43,12 +43,12 @@ export default new Router({
             path: "/campaign/newannounce",
             name: "campaignNewAannounce",
             component: campaignNewAannounce
-        }, {
-            path: "/campaign/computDetails",
+        },{
+            path: "/campaign/computDetails/:id",
             name: "campaignComputDetails",
             component: campaignComputDetails
-        }, {
-            path: "/campaign/announceDetails",
+        },{
+            path: "/campaign/announceDetails/:id",
             name: "campaignAnnounceDetails",
             component: campaignAnnounceDetails
         }, {

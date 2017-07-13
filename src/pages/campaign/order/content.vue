@@ -76,60 +76,59 @@
 </template>
 
 <script>
-export default {
-	
-	data () {
-		return {
-			number: 1,
-			seen: false,
-			show: false
-		}
-	},
-
-	methods: {
-		handleMinus: function() {
-			this.number--
-		},
-
-		handlePlus: function() {
-			this.number++
-		},
-
-		handleFive: function() {
-			this.number = 5
-		},
-
-		handleTen: function() {
-			this.number = 10
-		},
-
-		handleFifteen: function() {
-			this.number = 15
-		},
-
-		handleTwenty: function() {
-			this.number = 20
-		}
-	},
-
-	watch:{
-		number: function() {
-			if(this.number > 1 ) {
-				this.seen = true
-			}else{
-				this.number = 1
-				this.seen =false
+	export default {		
+		data () {
+			return {
+				number: 1,
+				seen: false,
+				show: false
 			}
-			if(this.number >= 66 ) {
-				this.show =true
-				this.number = 66
-			}else {
-				this.show= false
+		},
+
+		methods: {
+			handleMinus: function() {
+				this.number--
+			},
+
+			handlePlus: function() {
+				this.number++
+			},
+
+			handleFive: function() {
+				this.number = 5
+			},
+
+			handleTen: function() {
+				this.number = 10
+			},
+
+			handleFifteen: function() {
+				this.number = 15
+			},
+
+			handleTwenty: function() {
+				this.number = 20
 			}
-			this.$emit("listenToChildEvent", this.number)
+		},
+
+		watch:{
+			number: function() {
+				if(this.number > 1 ) {
+					this.seen = true
+				}else{
+					this.number = 1
+					this.seen =false
+				}
+				if(this.number >= 66 ) {
+					this.show =true
+					this.number = 66
+				}else {
+					this.show= false
+				}
+				this.$emit("listenToChildEvent", this.number)
+			}
 		}
 	}
-}
 </script>
 
 
@@ -163,7 +162,8 @@ export default {
 	    background-color: #fff;
 	}
 
-	.cam-order-focus-outer::before, .cam-order-focus-outer::after{
+	.cam-order-focus-outer::before,
+	.cam-order-focus-outer::after {
 	    content: "\0020";
 	    position: absolute;
 	    z-index: 2;
@@ -221,7 +221,7 @@ export default {
 	}
 
 	.cam-order-input-con {
-	    width: 69.5%;
+	    width: 62%;
 	    height: .74rem;
 	    padding: 0 .06rem;
 	    border: 0 none;
@@ -280,8 +280,9 @@ export default {
 	}
 
 	.cam-order-number-plus {
-	    position: relative;
+	    position: absolute;
 	    top:.02rem;
+	    right: .02rem;
 	    display: inline-block;
 	    width: .7rem;
 	    height: .7rem;
@@ -398,6 +399,7 @@ export default {
 
 	.cam-order-textinput {
 		float: left;
+		width: 70%;
 		line-height: .5rem;
 	    height: .36rem;
 	    padding: .06rem 0;

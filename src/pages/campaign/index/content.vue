@@ -1,18 +1,13 @@
 <template>
-	<ul class="content-products-activity">
-		
-		<li class="activity-item"  v-for="(item, index) in activityItem">
-			
+	<ul class="content-products-activity">		
+		<li class="activity-item"  v-for="(item, index) in activityItem">		
 			<router-link class="activity-item-content" :to="'/campaign/detail/'+item.productId">
 				<div class="activity-img-wrap">
 					<img class="activity-img" v-lazy="item.image" />
 				</div>
-				
 				<div class="activity-info border">
-					<h3 class="activity-name">{{item.productName}}</h3>
-					
-					<div class="activity-grab-info">
-						
+					<h3 class="activity-name">{{item.productName}}</h3>		
+					<div class="activity-grab-info">			
 						<div class="activity-grab-progress">
 							<span class="progress-total-amount">总需{{item.total}}</span>
 							<span class="progress-left-amount">剩余{{item.remain}}</span>
@@ -27,19 +22,15 @@
 								<span class="activity-grab-btn">一元夺宝</span>
 							</span>
 						</router-link>
-					</div>
-					
+					</div>	
 				</div>
-
 			</router-link>
 		</li>
-
 	</ul>
 </template>
 
 <script>
 	export default {
-		
 	  	data () {
 	    	return {
 	     		progressBarWidth: 0
@@ -47,13 +38,10 @@
 	  	},
 
 	    props: ['activityItem']
-	    
 	}
-
 </script>
 
 <style scoped>
-
 	.content-products-activity {
 		min-height: 3.3rem;
 		overflow: hidden;

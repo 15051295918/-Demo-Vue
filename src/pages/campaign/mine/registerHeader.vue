@@ -10,12 +10,12 @@
 </template>
 
 <script>
-export default {
-	  data () {
-	    return {
-	     
-	    }
-	  }
+	export default {
+		data () {
+			return {
+			 
+			}
+		}
 	} 
 </script>
 
@@ -33,6 +33,7 @@ export default {
 	    text-align: center;
 	    color: #fff;
 	}
+	
 	.header-left {
 	    display: inline-block;
 	    width: .4rem;
@@ -42,6 +43,7 @@ export default {
 	    font-size: .36rem;
 	    text-align: left;
 	}
+	
 	.header-title {
 		position: relative;
 		height: .88rem;
@@ -50,6 +52,7 @@ export default {
 		line-height: .88rem;
 		width: 5.88rem;
 	}
+	
 	.single-line {
 	    display: inline-block;
 	    overflow: hidden;
@@ -61,6 +64,7 @@ export default {
 	    text-overflow: ellipsis;
 	    color: #ccc;
 	}
+	
 	.header-city {
 		line-height: .88rem;
     	padding: 0 .25rem;
@@ -69,6 +73,7 @@ export default {
     	font-size: .32rem;
     	color: #75ffff;
     }
+    
     .header-city-option{
 		height: 0rem;
 		width: 0rem;
@@ -77,6 +82,7 @@ export default {
     	position: relative;
     	top:0.22rem;  	
 	}
+	
     .return{
 		transform: rotateZ(45deg);
 		width: .24rem;
@@ -85,4 +91,5 @@ export default {
 		border-bottom: .04rem solid #fff;
 		margin: .3rem .1rem;
 	}
+	
 </style>

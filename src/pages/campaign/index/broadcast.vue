@@ -6,21 +6,18 @@
 				<span class="cam-broadcast-content-item"  v-for="(item, index) in broadcast" :key="index + '_cam-broadcast_item'">
 					{{item.userName+" 花"+item.groupDrawNo+"元 得到了"+item.productName}}
 				</span>
-			</div>
-			
+			</div>		
 		</div>
 	</div>
 </template>
 
-
 <script>
 	export default {
-
-		created:function(){
+		created: function() {
 			var _this = this;
-			var tiemr = setInterval(function(){
+			var tiemr = setInterval(function() {
 				_this.marginLeft <= -10000 ? _this.marginLeft = 0 : _this.marginLeft--;
-			},30)
+			}, 30)
 		},
 
 		data () {
@@ -33,18 +30,17 @@
 		            pagination: '.swiper-pagination',
 		            paginationClickable: true
 		        },
+
 		        marginLeft: 0
 			}	
 		},
 
 		props: ["broadcast"]
-
 	}
 </script>
 
 
 <style scoped>
-
 	.cam-broadcast {
 		display: flex;
 		height: .46rem;
@@ -68,7 +64,6 @@
 
 	.cam-broadcast-content {
 		overflow: hidden;
-		/* float: left; */
 		width: 90%;
 		height: .46rem;
 	    margin-left: .1rem;

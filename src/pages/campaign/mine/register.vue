@@ -9,18 +9,16 @@
 
 	import registerHeader from './registerHeader'
   import registerContent from './registerContent'
-export default {
-  data () {
-    return {}
-  }, 
+  
+  export default {
+    data () {
+      return {}
+    }, 
+
     components: {
        "registerHeader":registerHeader,
        "registerContent":registerContent
     }
-}
+  }
 </script>
 
-
-<style scoped>
-	
-</style>

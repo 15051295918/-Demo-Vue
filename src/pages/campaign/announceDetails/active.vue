@@ -10,7 +10,9 @@
 			<div class="prdcard-name">
 				<span class="pracard-status end">已揭晓</span>150元酒店代金劵
 			</div>
-			<div class="prdcard-prdname">本期奖品：¥50去哪儿网酒店代金券一张（房订单满¥51以上可用）；使用规则：1.去哪儿网客户端购买酒店时抵扣现金，不予找零或退换；2. 含有【代金券】标签的报价均可使用。</div>
+			<div class="prdcard-prdname">
+				本期奖品：¥50去哪儿网酒店代金券一张（房订单满¥51以上可用）；使用规则：1.去哪儿网客户端购买酒店时抵扣现金，不予找零或退换；2. 含有【代金券】标签的报价均可使用。
+			</div>
 			<div class="grab-card">
 				<div class="grab-card-title">
 					<span class="lucky-number">{{index}}</span>
@@ -69,18 +71,15 @@
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-     
-    }
-  },
-  props:["index"],
-  created:function(){
-  	console.log(this.index);
-  }
+	export default {
+		data () {
+			return {
 
-}
+			}
+		},
+
+		props:["index"]
+	}
 </script>
 
 
@@ -88,16 +87,19 @@ export default {
 	.active-main {
 		background: #ededed;
 	}
+
 	.active-img {
 	    overflow: hidden;
 	    position: relative;
 	    min-height: 3.6rem;
 	    max-height: 4.1rem;
 	}
+
 	.img-active {
 	    width: 100%;
 	    min-height: 3.6rem;
 	}
+
 	.img-infocon {
 	    position: absolute;
 	    bottom: .1rem;
@@ -105,6 +107,7 @@ export default {
 	    width: 100%;
 	    color: #fff;
 	}
+
 	.img-issue {
 	    display: inline-block;
 	    height: .32rem;
@@ -119,6 +122,7 @@ export default {
 	    -moz-border-radius: .04rem;
 	    border-radius: .04rem;
 	}
+
 	.prdcard-con {
 	    position: relative;
 	    margin-top: -.1rem;
@@ -128,10 +132,12 @@ export default {
 	    -moz-border-radius: .1rem .1rem 0 0;
 	    border-radius: .1rem .1rem 0 0;
 	}
+
 	.prdcard-name {
 	    font-size: .32rem;
 	    line-height: .36rem;
 	}
+
 	.pracard-status {
 	    display: inline-block;
 	    height: .36rem;
@@ -143,21 +149,25 @@ export default {
 	    line-height: .36rem;
 	    vertical-align: .04rem;
 	}
+
 	.pracard-status.end {
 	    background-color: #ff3850;
 	}
+
 	.prdcard-prdname {
 	    padding: .08rem 0 .36rem;
 	    color: #999;
 	    font-size: .24rem;
 	    line-height: .3rem;
 	}
+
 	.grab-card {
 	    overflow: hidden;
 	    -webkit-border-radius: .04rem .04rem 0 0;
 	    -moz-border-radius: .04rem .04rem 0 0;
 	    border-radius: .04rem .04rem 0 0;
 	}
+
 	.grab-card-title {
 	    position: relative;
 	    height: .72rem;
@@ -167,6 +177,7 @@ export default {
 	    font-size: .28rem;
 	    line-height: .72rem;
 	}
+
 	.comput-detail {
 	    position: absolute;
 	    top: .06rem;
@@ -182,6 +193,7 @@ export default {
 	    -moz-border-radius: .04rem;
 	    border-radius: .04rem;
 	}
+
 	.grab-card-content {
 	    padding: .12rem .2rem;
 	    border-right: 1px solid #dadada;
@@ -193,12 +205,14 @@ export default {
 	    -moz-border-radius: .0 0 .04rem .04rem;
 	    border-radius: .0 0 .04rem .04rem;
 	}
+
 	.ellipsis {
 	    overflow: hidden;
 	    width: 100%;
 	    white-space: nowrap;
 	    text-overflow: ellipsis;
 	}
+
 	.card-item-title {
 	    overflow: hidden;
 	    display: inline-block;
@@ -206,10 +220,12 @@ export default {
 	    width: 1.5rem;
 	    vertical-align: middle;
 	}
+
 	.card-item-desc {
 	    vertical-align: middle;
 	    margin-right: .2rem;
 	}
+
 	.grab-card-notjoin {
 	    margin: .08rem 0;
 	    height: .5rem;
@@ -218,11 +234,13 @@ export default {
 	    line-height: .5rem;
 	    text-align: center;
 	}
+
 	.prddetail-group {
 	    margin-top: .2rem;
 	    padding: .01rem 0;
 	    background-color: #fff;
 	}
+
 	.prddetail-title {
 	    overflow: hidden;
 	    position: relative;
@@ -232,6 +250,7 @@ export default {
 	    text-indent: .15rem;
 	    padding: 0 .2rem;
 	}
+
 	.prddetail-title::after {
 	    content: "";
 	    position: absolute;
@@ -244,6 +263,7 @@ export default {
 	    -moz-border-radius: .04rem;
 	    border-radius: .04rem;
 	}
+
 	.prddetail-content {
 	    position: relative;
 	    margin: .2rem 0;
@@ -252,12 +272,15 @@ export default {
 	    overflow: hidden;
 	    padding: 0 .2rem;	
 	}
+
 	.description-title {
 	    color: #333;
 	}
+
 	.prddetail-desc {
 	    color: #888;
 	}
+
 	.other-entrance {
 	    position: absolute;
 	    top: 50%;
@@ -270,6 +293,4 @@ export default {
 	    -o-transform: translate(0,-50%);
 	    transform: translate(0,-50%);
 	}
-
-
 </style>

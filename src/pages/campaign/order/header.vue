@@ -10,19 +10,21 @@
 </template>
 
 <script>
-export default {
-	data () {
-		return {
-		 
-		}
-	},
+	export default {
 
-	methods: {
-		handleBack: function() {
-			this.$router.go(-1)
+		data () {
+			return {
+			 
+			}
+		},
+
+		methods: {
+			handleBack: function() {
+				this.$router.go(-1)
+			}
 		}
+		
 	}
-}
 
 </script>
 

@@ -11,29 +11,29 @@
 
 <script>
 
-export default {
+	export default {
 
-	data () {
-		return {
-			swiperOption: {
-	     		loop: true,
-	            autoplay: 3000,
-	            direction: 'horizontal',
-	            autoHeight: true,
-	            pagination: '.swiper-pagination',
-	            paginationClickable: true
-	        }
-		}	
-	},
-	
-	props:["swiper"]
+		data () {
+			return {
+				swiperOption: {
+		     		loop: true,
+		            autoplay: 3000,
+		            direction: 'horizontal',
+		            autoHeight: true,
+		            pagination: '.swiper-pagination',
+		            paginationClickable: true
+		        }
+			}	
+		},
+		
+		props:["swiper"]
 
-}
+	}
+
 </script>
 
 
 <style scoped>
-
 	.cm-img-wrapper {
 		overflow: hidden;
 		width: 100%;

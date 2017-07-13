@@ -8,33 +8,34 @@
 
 <script>
 
-import header from './header'
-import content from './content'
-import footer from './footer'
+	import header from './header'
+	import content from './content'
+	import footer from './footer'
 
-export default {
-	data () {
-		return {
-			number: 1
+	export default {
+		data () {
+			return {
+				number: 1
+			}
+		},
+
+		components: {
+			"order-header": header,
+			"order-content": content,
+			"order-footer": footer
+		},
+
+		methods: {
+			handleChange: function(numbers) {
+				this.number = numbers
+			}		
 		}
-	},
-
-	components: {
-		"order-header": header,
-		"order-content": content,
-		"order-footer": footer
-	},
-
-	methods: {
-		handleChange: function(numbers) {
-			this.number = numbers
-		}		
 	}
-}
 </script>
 
 
 <style scoped>
+
 	.cam-order-main {
 		position: absolute;
 		left: 0;

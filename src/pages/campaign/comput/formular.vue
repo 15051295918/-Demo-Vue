@@ -17,14 +17,15 @@
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-     
-    }
-  },
-  props: ["computs"]
-}
+	export default {
+		data () {
+			return {
+			 
+			}
+		},
+
+		props: ["computs"]
+	}
 </script>
 
 
@@ -34,29 +35,35 @@ export default {
 		padding: .3rem .2rem;
 		background: #fff;
 	}
+
 	.content-title {
 		line-height: .5rem;
 		margin-bottom: .04rem;
 	}
+
 	.content-info {
 		line-height: .36rem;
 		margin-bottom: .06rem;
 		color: #666;
 	}
+
 	.list {
 		padding-top: .12rem;
 		font-size: .24rem;
 	}
+
 	.list-item {
 		line-height: .4rem;
 		color: #666;
 	}
+
 	.item-nametitle {
 		line-height: .32rem;
 		text-align: center;
 		color: #999;
 		margin-bottom: .06rem;
 	}
+
 	.item-name {
 		overflow: hidden;
 		float: right;
@@ -64,15 +71,18 @@ export default {
 		white-space: nowrap;
 		text-overflow: ellipsis;
 	}
+
 	.item-timetitle {
 		line-height: .32rem;
 		margin-left: 1.2rem;
 		color: #999;
 		margin-bottom: .06rem;
 	}
+
 	.item-time {
 		margin-right: 1.4rem;
 	}
+	
 	.item-hightlight {
 		color: #ff3850;
 	}

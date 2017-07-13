@@ -11,26 +11,25 @@
   				注册
   			</router-link>
   			</span>  			
-  		</div>
-  		
+  		</div>	
   	</header>
 </template>
  
 <script>
-export default {
-	  data () {
-	    return {
-	     
-	    }
-	  },
-	  methods: {
-	  	handleReturnClick:function() {
-	  		this.$router.push({path: "/campaign"});
-	  	}
-	  }
+	export default {
+		data () {
+			return {
+
+			}
+		},
+
+		methods: {
+			handleReturnClick: function() {
+				this.$router.push({ path: "/campaign" });
+			}
+		}
 	}
 </script>
-
 
 <style scoped>
 	.header {
@@ -45,6 +44,7 @@ export default {
 	    text-align: center;
 	    color: #fff;
 	}
+
 	.header-left {
 	    display: inline-block;
 	    width: .4rem;
@@ -54,6 +54,7 @@ export default {
 	    font-size: .36rem;
 	    text-align: left;
 	}
+
 	.header-title {
 		box-flex: 1;
 		-webkit-box-flex: 1;
@@ -65,6 +66,7 @@ export default {
 		text-align: center;
 		line-height: .88rem;
 	}
+
 	.single-line {
 	    display: inline-block;
 	    overflow: hidden;
@@ -76,6 +78,7 @@ export default {
 	    text-overflow: ellipsis;
 	    color: #ccc;
 	}
+
 	.header-city {
 		line-height: .88rem;
     	padding: 0 .25rem;
@@ -84,7 +87,8 @@ export default {
     	font-size: .32rem;
     	color: #75ffff;
     }
-    .header-city-option{
+
+    .header-city-option {
 		height: 0rem;
 		width: 0rem;
 		border:0.13rem solid transparent;
@@ -92,7 +96,8 @@ export default {
     	position: relative;
     	top:0.22rem;  	
 	}
-    .return{
+
+    .return {
 		transform: rotateZ(45deg);
 		width: .24rem;
 		height: .24rem;

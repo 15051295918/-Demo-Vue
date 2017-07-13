@@ -1,6 +1,5 @@
 <template>	
     <footer class="cam-order-control-outer">
-
         <div class="cam-order-booking-intro" @click="hidden = !hidden">
             <em>应付金额</em>
             <strong class="cam-order-price">
@@ -33,31 +32,29 @@
         </div>
         
 		<div class="cam-order-mask" v-if="hidden" @click="handleHidden"></div>
-
     </footer>
 </template>
 
 <script>
-export default {
-	data () {
-		return {
-			hidden: false
-		}
-	},
+	export default {
+		data () {
+			return {
+				hidden: false
+			}
+		},
 
-	methods: {
-		handleHidden: function() {
-			return this.hidden = false
-		}
-	},
+		methods: {
+			handleHidden: function() {
+				return this.hidden = false
+			}
+		},
 
-	props:[ "numberInfo" ]
-}
+		props:[ "numberInfo" ]
+	}
 </script>
 
 
 <style scoped>
-
 	.cam-order-control-outer {
 	    position: fixed;
 	    z-index: 92;
@@ -131,7 +128,8 @@ export default {
 	    padding: .15rem .2rem;
 	}
 
-	.cam-order-booking-detail-outer .cam-order-info-main, .cam-order-booking-detail-outer .cam-order-info-sub {
+	.cam-order-booking-detail-outer .cam-order-info-main,
+	.cam-order-booking-detail-outer .cam-order-info-sub {
 	    padding-right: 1.46rem;
 	}
 

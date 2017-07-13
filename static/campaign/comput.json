@@ -1,7 +1,6 @@
 {
     "ret": true,
     "data": {
-        "winningNo": "100000008",
         "timeTotal": 15196387,
         "personTimes": 60,
         "computInfo": [
