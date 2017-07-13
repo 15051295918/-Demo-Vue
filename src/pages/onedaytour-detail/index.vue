@@ -30,6 +30,7 @@
     import Footer from './footer/footer';
     import BookingTicket from './booking-ticket/booking-ticket';
 
+
     export default {
 
         created: function () {

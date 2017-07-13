@@ -2,7 +2,7 @@
 	<div class="content">
 		<div class="content-days">日期选择</div>
 		<div class="content-choose">
-			<span :class="{                                                                       'content-choose-days': true,'content-border':true, 'content-border-dark':index == 0, active: index==isActive}" v-for="(item, index) in item" @click="handleDateClick(index)">
+			<span :class="{'content-choose-days': true,'content-border':true, 'content-border-dark':index == 0, active: index==isActive}" v-for="(item, index) in item" @click="handleDateClick(index)">
 				<em class="content-dark">{{item.title}}</em>
 				<strong class="content-day-dark" v-if="index != 3">{{item.date}}</strong>
 				<strong class="content-day-dark" v-else>{{otherDay}}</strong>
@@ -21,7 +21,7 @@
 					<p class=" booking-adult booking-children ">{{item.time}}</p>
 				</i>
 			</span>
-	
+			
 		</div>
 	</div>
 </template>

@@ -344,6 +344,8 @@
                 ]
             }
         },
-        "booking-ticket": {}
+        "booking-ticket": {
+                        
+        }
     }
 }

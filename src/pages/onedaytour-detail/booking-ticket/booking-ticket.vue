@@ -2,11 +2,9 @@
     <div>
         <div class="booking-fliter" v-show="show">
             <div class="booking-predetermine">
-                <div class="bookings">
                 <booking-header @close="handleClose" :fff="handle"></booking-header>
                 <booking-content :otherDay="otherDay" @close="handlereveal" @obtain="handleObtain"></booking-content>
                 <booking-footer></booking-footer>
-                </div>
                 <booking-calendar v-show="reveal" @show="handleShow"></booking-calendar>
             </div>
         </div>
@@ -21,7 +19,6 @@ import header from './booking-header';
 import content from './booking-content';
 import footer from './booking-footer';
 import calendar from './calendar';
-
 
 export default {
     data() {
@@ -110,5 +107,24 @@ export default {
     font-size: .4rem;
     text-align: center;
     line-height: .98rem;
+}
+.v-leave-active {
+    transition: all .6s ease;
+}
+
+.v-enter-to,
+.v-leave {
+    bottom: 0;
+    transition: all .6s ease;
+}
+
+.v-enter,
+.v-leave-to {
+    bottom: -454.4px;
+}
+
+.td-active {
+    border-radius: .2rem;
+    background: #00bcd4;
 }
 </style>
