@@ -37,14 +37,10 @@ export default {
      }
   },
   mounted() {
-	  console.log(window.localStorage.city)
 	  if( window.localStorage.city=="上海" ) {
-		  console.log(this.$route.params.id) //
 		  this.cityid.unshift(3);
-		  console.log( this.cityid )
 	  }else if( window.localStorage.city=="重庆" ) {
 	  	  this.cityid.unshift(4);
-	  	  console.log(this.cityid)
 	  }
   },
   components:{

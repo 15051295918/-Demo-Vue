@@ -48,7 +48,7 @@
 				<li class="weekendtrip-footerol-li"v-for="(navItem, index) in footernavInfo":key="index+'footeritem'"><a href="#">{{navItem.title}}</a></li>
 			</ol>
 			<div class="weekendtrip-equipmenttype" >
-				<a href="#" v-for="(typeItem, index) in equipmenttype" class="equipmenttype-click" :class="{'fontcolor': index==0}">{{typeItem.title}}</a>
+				<a href="#" v-for="(typeItem, index) in equipmenttype" class="equipmenttype-click" :class="{'weekendtrip-equipmenttype-fontcolor': index==0}">{{typeItem.title}}</a>
 			</div>
 			<div class="weekendtrip-footer-last">
 			Qunar 京ICP备123061意见反馈
@@ -259,7 +259,7 @@ export default {
 		font-size: .28rem;
 		padding: .2rem;
 	}
-	.fontcolor{
+	.weekendtrip-equipmenttype-fontcolor{
 		color: black;
 	}
 </style>

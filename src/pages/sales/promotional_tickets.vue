@@ -79,6 +79,7 @@ export default {
   mounted(){
   		window.addEventListener("scroll", this.handlescrollchange);
   	},
+
   props: ["ticketproductInfo", "tickettitleInfo"]
 }
 </script>
@@ -117,6 +118,7 @@ export default {
 	}
 	.ticket-navbar{
 		width: 100%;
+		position: relative;
 		padding: .2rem;
 		background-color: #fff;
 		font-family: Arial,"Microsoft Yahei","Helvetica Neue",Helvetica,sans-serif;
@@ -137,10 +139,12 @@ export default {
 		padding: .2rem .4rem .2rem .2rem;
 		line-height: .48rem;
 		text-decoration: none;
+		z-index: 10;
 	}
 	.ticket-linktext{
 		color: #666;
 		font-size: .28rem;
+
 	}
 	.ticket-linkcorner{
 		 width: 0;
