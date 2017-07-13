@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="booking-fliter" v-if="show">
+        <div class="booking-fliter" v-show="show">
             <div class="booking-predetermine">
                 <div class="bookings">
                 <booking-header @close="handleClose" :fff="handle"></booking-header>
