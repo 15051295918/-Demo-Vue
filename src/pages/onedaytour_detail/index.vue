@@ -28,7 +28,7 @@
     import UserReviews from './header/user-reviews';
     import Tab from './tab/tab';
     import Footer from './footer/footer';
-    import BookingTicket from './booking-ticket/booking-ticket';
+    import BookingTicket from './booking_ticket/booking-ticket';
 
 
     export default {
