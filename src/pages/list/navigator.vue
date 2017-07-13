@@ -15,8 +15,6 @@
 		</div>		
 	</div>	
 
-
-
 	<div id="wrapper"  v-show="show">
 		<div class="subnav"   id="scroller" >
 			<div :class='{"sub-items":true,  "border-bottom":true, "checked":check[index]}'  v-for="(item,index) in subnavInfo" @click="handleSubnavItemClick(index)" >

@@ -26,8 +26,6 @@ import VuePaginate from 'vue-paginate'
 // Vue.use(VuePaginate)
 
 
-
-
 Vue.config.productionTip = false
 Vue.use(VueAwesomeSwiper)
 Vue.use(VueResource);
