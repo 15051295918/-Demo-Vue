@@ -1,10 +1,10 @@
 <template>
 	<div class="help-page">
 		<div class="help-header">
-			<router-link to="/campaign/newannounce" class="help-header-left"></router-link>
+			<a class="help-header-left iconfont" @click="handleBackBtnClick">&#xe657;</a>
 	  		<h1 class="help-header-middle">计算详情</h1>
 	  		<router-link to="/">
-	  			<a class="help-header-right"><img src="../../../assets/img/campaignIMG/help-logo.png" class="help-header-logo"/><br>首页</a>
+	  			<a class="help-header-right"><img src="../../../../assets/img/campaign/help-logo.png" class="help-header-logo"/><br>首页</a>
 	  		</router-link>
 		</div>
 		<div class="formular border-bottom">
@@ -96,6 +96,10 @@
 
 			handleClose: function() {
 				this.seen = false;
+			},
+
+			handleBackBtnClick: function() {
+				this.$router.go(-1);
 			}
 		}
 	}
@@ -112,16 +116,17 @@
 	    border-bottom: #1b7a8b .02rem solid;
 	}
 
+	.bcak-btn,
 	.help-header-left {
 	    position: absolute;
 	    left: 0;
 	    top: 0;
-	    transform: rotateZ(45deg);
-	    width: .2rem;
-	    height: .2rem;
-	    margin: .3rem .4rem;
-	    border-left: .03rem solid #fff;
-	    border-bottom: .03rem solid #fff;
+	    width: .84rem;
+		height: .88rem;
+		text-align: center;
+		line-height: .88rem;
+		font-size: .36rem; 
+		color: #fff;
 	}
 
 	.help-header-middle {

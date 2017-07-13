@@ -1,14 +1,14 @@
 <template>
 	<div class="activity-detail-page">
 		
-		<transition name="fade">
+		<transition name="fade" id="header">
 			<div class="header border-bottom" v-if="!show">
 				<span class="header-left-back bcak-btn iconfont" @click="handlebckBtnClick">&#xe657;</span>
 				<h1 class="header-title">{{productInfo.campaignName}}</h1>
 			</div>
 		</transition>
 
-		<div class="activity-detail-page-main">
+		<div class="activity-detail-page-main" id="detailPage">
 
 			<div class="product-img-content">
 				<img class="product-img" :src="productInfo.images"/>
@@ -77,7 +77,7 @@
 </template>
 
 <script>
-	
+
 	export default {
 		created: function() {
 			this.$http.get('/static/campaign/activityProduct.json').then(response => {        	

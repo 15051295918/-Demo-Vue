@@ -1,10 +1,10 @@
 <template>
 	<div class="help-page">
 		<div class="help-header">
-			<div class="help-header-left" @click="handleClick"></div>			
+			<div class="help-header-left iconfont" @click="handleClick">&#xe657;</div>			
 	  		<h1 class="help-header-middle">最新揭晓</h1>
 	  		<router-link to="/">
-	  			<a class="help-header-right"><img src="../../../assets/img/campaignIMG/help-logo.png" class="help-header-logo"/><br>首页</a>
+	  			<a class="help-header-right"><img src="../../../assets/img/campaign/help-logo.png" class="help-header-logo"/><br>首页</a>
 	  		</router-link>
 		</div>
 		<newannounce-main :announces="announceInfo"></newannounce-main>		
@@ -36,7 +36,7 @@
 
 		methods: {
 			handleClick: function() {
-				return this.$router.go(-1)
+				this.$router.go(-1)
 			}
 		}
 	}
@@ -56,12 +56,12 @@
 	    position: absolute;
 	    left: 0;
 	    top: 0;
-	    transform: rotateZ(45deg);
-	    width: .2rem;
-	    height: .2rem;
-	    margin: .3rem .4rem;
-	    border-left: .03rem solid #fff;
-	    border-bottom: .03rem solid #fff;
+	    width: .84rem;
+		height: .88rem;
+		text-align: center;
+		line-height: .88rem;
+		font-size: .36rem; 
+		color: #fff;
 	}
 	
 	.help-header-middle {

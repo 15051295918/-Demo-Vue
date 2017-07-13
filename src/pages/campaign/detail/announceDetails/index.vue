@@ -1,11 +1,14 @@
 <template>
-	<div class="help-page">
+	<div class="announce-detail-page">
 		<div class="help-header" v-scroll-show>
-			<router-link class="help-header-left" to="/campaign/newannounce"></router-link>
-	  		<h1 class="help-header-middle">150元酒店代金劵</h1>
-	  	</div>
-	  	<activies :index="$route.params.id"></activies>
+			<span class="help-header-left iconfont" @click="handleBackBtnClick">&#xe657;</span>
+		  	<h1 class="help-header-middle">150元酒店代金劵</h1>
+		</div>
+		<activies :index="$route.params.id"></activies>
+		<span class="back-btn iconfont" v-if="show" @click="handleBackBtnClick">&#xe657;</span>
 	</div>
+		
+	
 </template>
 
 <script>
@@ -13,12 +16,18 @@
 	export default {
 		data () {
 		    return {
-		     	
+		     	show: true
 		    }
 		},
 
 		components: {
 		   "activies": detailactive     
+		},
+
+		methods: {
+			handleBackBtnClick: function() {
+				this.$router.go(-1);
+			}
 		},
 
 		directives: {
@@ -29,12 +38,12 @@
 	                	var timer = null;
 	                    if ( document.body.scrollTop > el.offsetTop ) {
                             timer = setInterval(function() {
-                            	speed += 0.2;
+                            	speed += 0.1;
                             	el.style.opacity = speed;
                             	if( speed >= 1 ) {
                             		clearInterval(timer)
                             	}
-                            }, 30);
+                            }, 13);
 	                    }
 	                })
 	            }
@@ -44,6 +53,9 @@
 </script>
 
 <style scoped>
+	.announce-detail-page {
+		position: relative;
+	}
 	.help-header {
 	    position: fixed;
 	    width: 100%;
@@ -58,16 +70,17 @@
 	    opacity: 0;
 	}
 
+	.back-btn,
 	.help-header-left {
 	    position: absolute;
 	    left: 0;
 	    top: 0;
-	    transform: rotateZ(45deg);
-	    width: .2rem;
-	    height: .2rem;
-	    margin: .3rem .4rem;
-	    border-left: .03rem solid #fff;
-	    border-bottom: .03rem solid #fff;
+	    width: .84rem;
+		height: .88rem;
+		text-align: center;
+		line-height: .88rem;
+		font-size: .36rem; 
+		color: #fff;
 	}
 	
 	.help-header-middle {

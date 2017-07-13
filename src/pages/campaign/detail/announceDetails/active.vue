@@ -16,8 +16,8 @@
 			<div class="grab-card">
 				<div class="grab-card-title">
 					<span class="lucky-number">{{index}}</span>
-					<router-link to="/campaign/computDetails">
-						<a href="###" class="comput-detail">计算详情</a>
+					<router-link class="comput-detail" :to="'/campaign/computDetails/' + index">
+						计算详情
 					</router-link>
 				</div>
 				<div class="grab-card-content">

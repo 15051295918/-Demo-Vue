@@ -6,8 +6,11 @@ import City from '@/pages/city/index'
 import campaignIndex from '@/pages/campaign/index/index'
 import campaignHelp from '@/pages/campaign/help/index'
 import campaignNewAannounce from '@/pages/campaign/newannounce/index'
-import campaignComputDetails from '@/pages/campaign/comput/index'
-import campaignAnnounceDetails from '@/pages/campaign/announceDetails/index'
+
+import campaignComputDetails from '@/pages/campaign/detail/comput/index'
+
+import campaignAnnounceDetails from '@/pages/campaign/detail/announceDetails/index'
+
 import campaignMineindex from '@/pages/campaign/mine/index'
 import campaignMineRegister from '@/pages/campaign/mine/register'
 import campaignDetail from '@/pages/campaign/detail/activityDetails'
