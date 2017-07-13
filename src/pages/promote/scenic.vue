@@ -33,17 +33,19 @@
 
 export default {
     beforeCreate: function() {
-        var province = '福建';
         try {
-            this.province = window.localStorage.province;
+            var province = window.localStorage.province;
+            if (province) {
+                this.$emit('provinceChange', province)
+            }
         } catch(e) {}
     },
     data () {
         return {
-
+            
         }
     },
-    props:["data","province"]
+    props:["data", "province"]
 
 }
 </script>
