@@ -65,7 +65,7 @@
 			</div>
 
 			<div class="cam-bottomfixed-area">
-				<router-link class="cam-status-button" to="/campaign">立即参与</router-link>
+				<router-link class="cam-status-button" to="/campaign/order">立即参与</router-link>
 			</div>
 			<span class="bcak-btn iconfont" v-if="show" @click="handlebckBtnClick">&#xe657;</span>
 		</div>
@@ -80,7 +80,6 @@
 	export default {
 		created: function() {
 			this.$http.get('/static/campaign/activityProduct.json').then(response => {        	
-	           	//console.log(response);
 	           	if(response.body.ret) {
 	           		this.productInfo = response.body.data
 	           	}
@@ -108,7 +107,7 @@
 
 </script>
 
-<style scrop>
+<style scoped>
 	.activity-detail-page {
 		background-color: #f3f3f3;
 	}

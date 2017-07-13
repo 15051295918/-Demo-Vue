@@ -1,9 +1,7 @@
 <template>
 	<div class="help-page">
 		<div class="help-header">
-			<router-link to="/campaign/newannounce">
-				<a class="help-header-left"></a>
-			</router-link>
+			<a class="help-header-left" @click="handleBackBtnClick"></a>
 	  		<h1 class="help-header-middle">50元酒店代金劵</h1>
 	  	</div>
 	</div>
@@ -16,8 +14,15 @@
 		     	
 		    }
 		},
+		
 		components: {
 		        
+		},
+
+		methods: {
+			handleBackBtnClick: function() {
+				this.$router.go(-1)
+			}
 		}
 	}
 </script>

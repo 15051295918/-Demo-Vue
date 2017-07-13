@@ -22,9 +22,11 @@
 							</span>
 						</div>
 
-						<span class="activity-grab-btn-area" @click="handleGrabBtnClick">
-							<span class="activity-grab-btn">一元夺宝</span>
-						</span>
+						<router-link to="/campaign/order">
+							<span class="activity-grab-btn-area">
+								<span class="activity-grab-btn">一元夺宝</span>
+							</span>
+						</router-link>
 					</div>
 					
 				</div>
@@ -36,8 +38,6 @@
 </template>
 
 <script>
-	
-
 	export default {
 		
 	  	data () {
@@ -45,11 +45,7 @@
 	     		progressBarWidth: 0
 	    	}
 	  	},
-	  	methods: {
-	  		handleGrabBtnClick: function() {
-	  			
-	  		}
-	  	},
+
 	    props: ['activityItem']
 	    
 	}
@@ -62,6 +58,7 @@
 		min-height: 3.3rem;
 		overflow: hidden;
 		padding: .16rem .12rem .04rem;
+		margin-bottom: 1rem;
 	}
 
 	.activity-item {
@@ -73,7 +70,6 @@
 		border-radius: .04rem;
 	}
 	
-
 	.activity-item-content {
 		display: block;		
 		margin: 0 .08rem .16rem; 

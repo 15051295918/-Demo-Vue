@@ -3,7 +3,9 @@
 		<div class="cam-broadcast-icon iconfont">&#xe62f;</div>
 		<div class="cam-broadcast-content">
 			<div class="cam-broadcast-content-list" :style="{marginLeft:marginLeft+'px'}">
-				<span class="cam-broadcast-content-item"  v-for="(item, index) in broadcast" :key="index + '_cam-broadcast_item'">{{item.userName+" 花"+item.groupDrawNo+"元 得到了"+item.productName}}</span>
+				<span class="cam-broadcast-content-item"  v-for="(item, index) in broadcast" :key="index + '_cam-broadcast_item'">
+					{{item.userName+" 花"+item.groupDrawNo+"元 得到了"+item.productName}}
+				</span>
 			</div>
 			
 		</div>

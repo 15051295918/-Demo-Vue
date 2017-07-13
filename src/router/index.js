@@ -11,7 +11,8 @@ import campaignAnnounceDetails from '@/pages/campaign/announceDetails/index'
 import campaignMineindex from '@/pages/campaign/mine/index'
 import campaignMineRegister from '@/pages/campaign/mine/register'
 import campaignDetail from '@/pages/campaign/detail/activityDetails'
-
+import campaignOrder from '@/pages/campaign/order/index'
+import campaignShowText from '@/pages/campaign/order/showtext'
 
 Vue.use(Router)
 
@@ -66,7 +67,15 @@ export default new Router({
             path: "/campaign/detail/:productId",
             name: "campaignDetail",
             component: campaignDetail
-        }        
-
+        }, {       
+        	path: "/campaign/order",
+            name: "campaignOrder",
+            component: campaignOrder
+        }, {
+            path: "/campaign/showtext",
+            name: "campaignShowText",
+            component: campaignShowText
+        }            
     ]
+
 })

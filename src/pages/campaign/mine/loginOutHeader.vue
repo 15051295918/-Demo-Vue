@@ -25,7 +25,7 @@ export default {
 	  },
 	  methods: {
 	  	handleReturnClick:function() {
-	  		this.$router.go(-1)
+	  		this.$router.push({path: "/campaign"});
 	  	}
 	  }
 	}

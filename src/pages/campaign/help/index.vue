@@ -1,9 +1,7 @@
 <template>
 	<div class="help-page">
 		<div class="help-header">
-			<router-link to="/campaign">
 				<a class="help-header-left"></a>
-			</router-link>
 	  		<h1 class="help-header-middle">一元夺宝活动规则&常见问题</h1>
 	  		<router-link to="/">
 	  			<a class="help-header-right"><img src="../../../assets/img/campaignIMG/help-logo.png" class="help-header-logo"/><br>首页</a>
@@ -25,9 +23,12 @@
 		     	
 		    }
 		},
+
 		components: {
 		        "help-main": helpmain
 		}
+
+		
 	}
 </script>
 
