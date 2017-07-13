@@ -1,25 +1,25 @@
 <template>
-   <div class="pinterest-wrap border-top">
-   	 <h2 class="pinterest-title"><span class="pinterest-titleicon"></span>精选玩法</h2>
-   	 <ul class="pinterest-conter" >
-   	 	<li class="pinterest-item" v-for="(item,index) in list">
-   	 		<router-link :to="{path:'productdetail'}">
-	   	 		<div class="pinterest-list-wrap">
-	   	 			<div class="img-wrapper">
-	   	 				<img  class="item-img" :src="item.src"/>
-	   	 			</div>
-	   	 		    <div class="price price-suggest">
-	   	 		    	<span class="current-price">￥{{item.price}}/份<span class="yprice" v-if=done(item)>		&yen;{{item.yprice}}</span></span>
-	   	 		    </div>
-	   	 		</div>
-	   	 		<div class="list-title">
-	   	 			<h5 class="weekendsuggest-name">{{item.title}}</h5>
-	   	 			<p class="weekendsuggest-name-position">{{item.position}}</p>
-	   	 		</div>
-   	 		</router-link>
-   	 	</li>
-   	 </ul>
-   	 <div class="loadingtext" v-if=isloading>努力加载中...</div>
+    <div class="pinterest-wrap border-top">
+   	    <h2 class="pinterest-title"><span class="pinterest-titleicon"></span>精选玩法</h2>
+   	    <ul class="pinterest-conter" >
+	   	 	<li class="pinterest-item" v-for="(item,index) in list">
+	   	 		<router-link :to="{path:'productdetail'}">
+		   	 		<div class="pinterest-list-wrap">
+		   	 			<div class="img-wrapper">
+		   	 				<img  class="item-img" :src="item.src"/>
+		   	 			</div>
+		   	 		    <div class="price price-suggest">
+		   	 		    	<span class="current-price">￥{{item.price}}/份<span class="yprice" v-if=done(item)>&yen;{{item.yprice}}</span></span>
+		   	 		    </div>
+		   	 		</div>
+		   	 		<div class="list-title">
+		   	 			<h5 class="weekendsuggest-name">{{item.title}}</h5>
+		   	 			<p class="weekendsuggest-name-position">{{item.position}}</p>
+		   	 		</div>
+	   	 		</router-link>
+	   	 	</li>
+   		</ul>
+   	<div class="loadingtext" v-if=isloading>努力加载中...</div>
    </div>
 </template>
 

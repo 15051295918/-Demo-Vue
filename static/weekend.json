@@ -1,6 +1,21 @@
 {
     "ret": true,
     "data": {
+        "weekendChosenInfo": {
+                "title":"周末精选",
+                "weekendChosenItems":[
+                    {
+                        "id":1,
+                        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1706/b7/2fcf77183b457302.jpg_640x200_0f7a1098.jpg",
+                        "link": "promote"
+                    },
+                    {
+                        "id":2,
+                        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1704/fe/8e9fb9b5f4ec402.jpg_640x200_72215135.jpg",
+                        "link": ""
+                    }
+                ]
+            },
         "北京": {
             "city": "北京",
             "classifyInfo": [
@@ -61,21 +76,7 @@
                     "title": "常州"
                 }
             ],
-            "weekendChosenInfo": {
-                "title":"周末精选",
-                "weekendChosenItems":[
-                    {
-                        "id":1,
-                        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1706/b7/2fcf77183b457302.jpg_640x200_0f7a1098.jpg",
-                        "link": ""
-                    },
-                    {
-                        "id":2,
-                        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1704/fe/8e9fb9b5f4ec402.jpg_640x200_72215135.jpg",
-                        "link": ""
-                    }
-                ]
-            },
+            
             "pinterest":[
                 {"title":"大雪纷飞 王府探秘【恭王府成人票】",
                     "position":"西城区·什刹海",
@@ -160,23 +161,7 @@
                 }
             ],
             "nearScapeInfo": [
-               
             ],
-            "weekendChosenInfo": {
-                "title":"周末精选",
-                "weekendChosenItems":[
-                     {
-                        "id":1,
-                        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1706/b7/2fcf77183b457302.jpg_640x200_0f7a1098.jpg",
-                        "link": ""
-                    },
-                    {
-                        "id":2,
-                        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1704/fe/8e9fb9b5f4ec402.jpg_640x200_72215135.jpg",
-                        "link": ""
-                    }
-                ]
-            },
             "pinterest":[
                 {"title":"大雪纷飞 王府探秘【恭王府成人票】",
                     "position":"西城区·什刹海",

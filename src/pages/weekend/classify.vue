@@ -2,7 +2,8 @@
 	<div>
 		<div class="classify">
 	  		<div class="classify-item" v-for="(item, index) in classifyInfo" :key="index+'classifyItem'">
-		  		<router-link :to="{path:'/onedaytour',query:{region:city, title:item.title, id:item.id}}">
+		  		<router-link :to="{path:'/onedaytour',query:{region:city, title:encodeURI(item.title), id:item.id}}">
+		  		<!-- 路径中传参数，转换了中文字符，解析方法{{decodeURI($route.query.title)}} -->
 			  		<div>
 				  		<img class="classify-icon" :src="item.imgUrl">
 			  		</div>
@@ -23,7 +24,7 @@
 	  	<div class="weekend-chosen border-topbottom">
 	  		<p class="weekend-chosen-title"><span class="pinterest-titleicon"></span>{{weekendChosenInfo.title}}</p>
 	  		<div class="weekend-chosen-items" v-for="(item, index) in weekendChosenInfo.weekendChosenItems" :key="item+'weekendChosen'">
-	  			<router-link :to="{path:'/onedaytour',query:{id:item.id}}">	
+	  			<router-link :to="{path:'/'+item.link}">	
 	  				<img class="weekend-chosen-toppic" :src="item.imgUrl"/>
 	  			</router-link>
 	  		</div>
@@ -32,9 +33,9 @@
 </template>
 
 <script>
-export default {
-  props: ["classifyInfo", "nearScapeInfo", "weekendChosenInfo", "city"]
-}
+	export default {
+	  props: ["classifyInfo", "nearScapeInfo", "weekendChosenInfo", "city"]
+	}
 </script>
 
 <style scoped>
