@@ -66,8 +66,9 @@
 				if (this.$refs.paginator) {
 					var current = this.pageNum;
 					if(current > 1) {
-						this.$refs.paginator.goToPage(this.pageNum-1);
+						// this.$refs.paginator.goToPage(this.pageNum-1);
 					}
+					this.sortList("离我最近")
 				}
 			},
 			textPage () {
@@ -93,6 +94,9 @@
 					case "人气最高": this.listCon.sort(function(x,y) {
 						return x.comment < y.comment ? 1 : -1
 					});break;
+					case "离我最近": this.listCon.sort(function(x,y) {
+						return x.address < y.address ? 1 : -1
+					});
 					case "推荐排序": this.listCon.sort(function(x,y) {
 						return x.hot < y.hot ? 1 : -1
 					});
