@@ -1,9 +1,9 @@
 <template>
 	<ul class="city-menu border-leftright">
-		<li class="city-list" v-for="item in cityInitialSort">
+		<li class="city-list" v-for="(item,index) in cityInitialSort" :key="index+'_head'">
 			<dl>
 				<dt class="city-index border-bottom">{{item}}</dt>
-				<dd class="city-item border-bottom" v-for="value in cityDatas(item)">{{value.name}}</dd>
+				<dd class="city-item border-bottom" @click="handleClickCityList" v-for="value in cityDatas(item)" :key="'_list'+index">{{value.name}}</dd>
 			</dl>
 		</li>
 	</ul>
@@ -29,6 +29,14 @@
 					})
 				})
 				return msg;
+			},
+			handleClickCityList: function(e) {
+				var city = e.target.innerText;
+				try{
+					window.localStorage.city = city;
+				}catch(e) {}
+				this.$store.commit("changeCity", city);
+				this.$router.go(-1);	
 			}
 		},
 		computed:{

@@ -9,11 +9,13 @@
 
 export default {
   mounted () {
-    var top = this.$refs.top;
     var this_ = this;
     window.addEventListener("scroll", function(){
       this_.sTop = document.body.scrollTop;
     }, false)
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll")
   },
   data () {
     return {
@@ -34,12 +36,12 @@ export default {
 
 <style scoped>
 	.topbar{
-        position: fixed;
-        height: .88rem;
-        background: #00bcd4;
-        z-index: 98;
-        width: 100%;
-        left: 0px;
+      position: fixed;
+      height: .88rem;
+      background: #00bcd4;
+      z-index: 98;
+      width: 100%;
+      left: 0px;
     }
     .top-back{
       position: absolute;
