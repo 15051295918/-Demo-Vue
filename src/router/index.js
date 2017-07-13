@@ -5,6 +5,7 @@ import list from '@/pages/list/index'
 import City from '@/pages/city/index'
 import campaignIndex from '@/pages/campaign/index/index'
 import campaignOrder from '@/pages/campaign/order/index'
+import campaignShowText from '@/pages/campaign/order/showtext'
 
 Vue.use(Router)
 
@@ -35,7 +36,11 @@ export default new Router({
         	path: "/campaign/order",
             name: "campaignOrder",
             component: campaignOrder
-        }        
+        }, {
+            path: "/campaign/showtext",
+            name: "campaignShowText",
+            component: campaignShowText
+        }            
     ]
 
 })

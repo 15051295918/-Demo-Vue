@@ -1,9 +1,7 @@
 <template>
 	<header class="cam-order-header border-bottom">
-  		<a class="cam-order-header-left">
-  			<router-link to="/">
-  				<div class="cam-order-return"></div>
-  			</router-link>
+  		<a class="cam-order-header-left" @click="handleBack">
+			<div class="cam-order-return"></div>
   		</a>
   		<div class="cam-order-header-title">			
 			<h1 class="cam-order-single-line">订单填写</h1>
@@ -17,8 +15,15 @@ export default {
 		return {
 		 
 		}
+	},
+
+	methods: {
+		handleBack: function() {
+			this.$router.go(-1)
+		}
 	}
 }
+
 </script>
 
 
