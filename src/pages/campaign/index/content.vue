@@ -1,13 +1,18 @@
 <template>
 	<ul class="content-products-activity">
+		
 		<li class="activity-item"  v-for="(item, index) in activityItem">
-			<router-link class="activity-item-content" to="/campaign/detail">
+			
+			<router-link class="activity-item-content" :to="'/campaign/detail/'+item.productId">
 				<div class="activity-img-wrap">
 					<img class="activity-img" v-lazy="item.image" />
 				</div>
+				
 				<div class="activity-info border">
 					<h3 class="activity-name">{{item.productName}}</h3>
+					
 					<div class="activity-grab-info">
+						
 						<div class="activity-grab-progress">
 							<span class="progress-total-amount">总需{{item.total}}</span>
 							<span class="progress-left-amount">剩余{{item.remain}}</span>
@@ -16,13 +21,17 @@
 								<span class="process-bar-gain" :style="{width:[(item.total - item.remain) / item.total * 100 + '%']}"></span>
 							</span>
 						</div>
-						<span class="activity-grab-btn-area">
+
+						<span class="activity-grab-btn-area" @click="handleGrabBtnClick">
 							<span class="activity-grab-btn">一元夺宝</span>
 						</span>
 					</div>
+					
 				</div>
+
 			</router-link>
 		</li>
+
 	</ul>
 </template>
 
@@ -35,6 +44,11 @@
 	    	return {
 	     		progressBarWidth: 0
 	    	}
+	  	},
+	  	methods: {
+	  		handleGrabBtnClick: function() {
+	  			this.$router.go(-1);
+	  		}
 	  	},
 	    props: ['activityItem']
 	    

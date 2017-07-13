@@ -4,6 +4,7 @@ import Index from '@/pages/index/index'
 import list from '@/pages/list/index'
 import City from '@/pages/city/index'
 import campaignIndex from '@/pages/campaign/index/index'
+import campaignDetail from '@/pages/campaign/detail/activityDetails'
 
 Vue.use(Router)
 
@@ -27,9 +28,9 @@ export default new Router({
             name: "campaignIndex",
             component: campaignIndex
         }, {
-            path: "/campaign/detail:id",
+            path: "/campaign/detail/:productId",
             name: "campaignDetail",
-            component: campaignIndex
+            component: campaignDetail
         }        
     ]
 
