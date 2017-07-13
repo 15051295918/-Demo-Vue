@@ -7,15 +7,17 @@ import VueResource from 'vue-resource'
 import FastClick from 'fastclick'
 import VueLazyload from 'vue-lazyload'
 import store from './store'
+
 FastClick.attach(document.body);
 
 Vue.config.productionTip = false
 Vue.use(VueAwesomeSwiper)
-Vue.use(VueResource);
+Vue.use(VueResource)
 Vue.use(VueLazyload, {
   preLoad:1,
   attempt: 1
 })
+
 new Vue({
 	beforeCreate: function() {
 		var city = '北京';

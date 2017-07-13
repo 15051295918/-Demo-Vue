@@ -1,6 +1,6 @@
 <template>
 	<div class="help-page">
-		<div class="help-header" :style="headSeen">
+		<div class="help-header"   v-scroll-show>
 			<router-link to="/campaign/newannounce">
 				<a class="help-header-left"></a>
 			</router-link>
@@ -13,46 +13,64 @@
 <script>
 	import detailactive from "./active"
 	export default {
-		data () {
-		    return {
-		     	headSeen: {
-		     		position: "fixed",
-		     		width: "100%",
-		     		top: " 0",
-		     		left: "0",
-		     		display: "block",
-		     		opacity: "0"
-		     	}	
-		    }
-		},
 		components: {
 		   "activies": detailactive     
 		},
-		methods: {
-			
-		}
+		directives: {
+	        scrollShow: {
+	            bind: function(el) {
+	                window.addEventListener('scroll', function() {
+	                	var speed=0;
+	                	var timer=null;
+	                    if (document.body.scrollTop > el.offsetTop) {
+	                            timer=setInterval(function(){
+	                            	speed+=0.1;
+	                            	el.style.opacity=speed;
+	                            	if(speed>=1){
+	                            		clearInterval(timer)
+	                            	}
+	                            },30);
+	                    }else{
+	                            timer=setInterval(function(){
+	                            	speed-=0.1;
+	                            	el.style.opacity=speed;
+	                            	if(speed<=0){
+	                            		clearInterval(timer)
+	                            	}
+	                            },30);
+	                    }
+	                })
+	            }
+	        }
+	    }
 	}
 </script>
 
 <style scoped>
 
 	.help-header {
-	    position: relative;
-	    background: #1ba9ba;
+	    position: fixed;
+	    width: 100%;
+	    top: 0;
+	    left: 0;
+	    z-index: 100;
 	    height: .8rem;
 	    text-align: center;
 	    color: #fff;
+	    background: #1ba9ba;
 	    border-bottom: #1b7a8b .02rem solid;
+	    opacity: 0;
 	}
 	.help-header-left {
 	    position: absolute;
 	    left: 0;
 	    top: 0;
-	    width: .8rem;
-	    height: .8rem; 
-	    background: url(../../../assets/img/campaignIMG/help-header-left.png) center center no-repeat;
-	    background-size: .26rem .34rem;
-	    z-index: 91;
+	    transform: rotateZ(45deg);
+	    width: .2rem;
+	    height: .2rem;
+	    margin: .3rem .4rem;
+	    border-left: .03rem solid #fff;
+	    border-bottom: .03rem solid #fff;
 	}
 	.help-header-middle {
 		overflow: hidden;

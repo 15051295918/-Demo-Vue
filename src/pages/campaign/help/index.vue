@@ -44,11 +44,12 @@
 	    position: absolute;
 	    left: 0;
 	    top: 0;
-	    width: .8rem;
-	    height: .8rem; 
-	    background: url(../../../assets/img/campaignIMG/help-header-left.png) center center no-repeat;
-	    background-size: .26rem .34rem;
-	    z-index: 91;
+	    transform: rotateZ(45deg);
+	    width: .2rem;
+	    height: .2rem;
+	    margin: .3rem .4rem;
+	    border-left: .03rem solid #fff;
+	    border-bottom: .03rem solid #fff;
 	}
 	.help-header-middle {
 		overflow: hidden;

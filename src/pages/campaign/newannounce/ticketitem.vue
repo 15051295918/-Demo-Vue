@@ -1,6 +1,7 @@
 <template>
 	<ul class="newticket-container">
 		<li class="newticket-item border-bottom" v-for="(item,index) in announces" :key="index + 'announce_item'">
+		    <router-link to="/campaign/announceDetails">
 			<a href="###">
 				<div class="newticket-item-imgcontainer">
 					<img  v-lazy="item.pic" :alt="item.productName" class="newticket-loading newticket-item-img">
@@ -19,6 +20,7 @@
 					<p class="newticket-item-text">揭晓时间 :{{date(item.raffleTime)}}</p>
 				</div>
 			</a>
+			</router-link>
 		</li>
 	</ul>
 </template>
@@ -29,12 +31,12 @@ export default {
   data () {
     return {
     	date : function (nS) {
-    		var now = new Date(nS);
-    		var month = now.getMonth()+1; 
-			var date = now.getDate(); 
-			var hour = now.getHours(); 
-			var minute = now.getMinutes(); 		
-		 return month+"月"+date+"日,"+hour+":"+minute;  
+	    		var now = new Date(nS);
+	    		var month = now.getMonth()+1; 
+				var date = now.getDate(); 
+				var hour = now.getHours(); 
+				var minute = now.getMinutes(); 		
+		 		return month+"月"+date+"日,"+hour+":"+minute;  
 		}
     }
   },
