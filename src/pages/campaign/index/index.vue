@@ -12,11 +12,8 @@
 	</div>
 </template>
 
-<script src="https://unpkg.com/vue-lazyload/vue-lazyload.js"></script>
-
 <script>
-
-	import Vue from 'vue'	
+	
 	import header from './header'
 	import imgswiper from './imgswiper'
 	import category from './category'
@@ -24,15 +21,6 @@
 	import indexTab from './tab.vue'
 	import indexContent from './content.vue'
 	import footer from './footer.vue'
-	import VueLazyload from 'vue-lazyload'
-
-	Vue.use(VueLazyload, {
-	  	preLoad: 1.3,
-	  	error: 'http://simg1.qunarzz.com/piao/images/loading_camel.gif',
-	  	loading: 'http://s.qunarzz.com/piao_topic/image/common/default/288x288.png',
-	  	attempt: 1,
-	  	listenEvents: [ 'scroll' ]
-	})
 
 	export default {
 

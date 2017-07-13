@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/pages/index/index'
 import List from '@/pages/list/index'
+import City from '@/pages/city/index'
 import campaignIndex from '@/pages/campaign/index/index'
 import campaignHelp from '@/pages/campaign/help/index'
 import campaignNewAannounce from '@/pages/campaign/newannounce/index'
@@ -9,7 +10,8 @@ import campaignComputDetails from '@/pages/campaign/comput/index'
 import campaignAnnounceDetails from '@/pages/campaign/announceDetails/index'
 import campaignMineindex from '@/pages/campaign/mine/index'
 import campaignMineRegister from '@/pages/campaign/mine/register'
-import City from '@/pages/city/index'
+import campaignDetail from '@/pages/campaign/detail/activityDetails'
+
 
 Vue.use(Router)
 
@@ -24,6 +26,10 @@ export default new Router({
         	path: "/list",
         	name: "list",
         	component: List
+        }, {       
+            path: "/city",
+            name: "city",
+            component: City
         }, {
             path: "/campaign",
             name: "campaignIndex",
@@ -56,10 +62,11 @@ export default new Router({
             path: "/campaign/mine/register",
             name: "campaignMineRegister",
             component: campaignMineRegister
-        },   {       
-            path: "/city",
-            name: "city",
-            component: City
-        }
+        }, {
+            path: "/campaign/detail/:productId",
+            name: "campaignDetail",
+            component: campaignDetail
+        }        
+
     ]
 })
