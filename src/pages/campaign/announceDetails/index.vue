@@ -23,22 +23,15 @@
 	                	var speed=0;
 	                	var timer=null;
 	                    if (document.body.scrollTop > el.offsetTop) {
-	                            timer=setInterval(function(){
-	                            	speed+=0.1;
+	                            timer = setInterval(function(){
+	                            	speed += 0.2;
 	                            	el.style.opacity=speed;
-	                            	if(speed>=1){
-	                            		clearInterval(timer)
-	                            	}
-	                            },30);
-	                    }else{
-	                            timer=setInterval(function(){
-	                            	speed-=0.1;
-	                            	el.style.opacity=speed;
-	                            	if(speed<=0){
+	                            	if(speed >= 1){
 	                            		clearInterval(timer)
 	                            	}
 	                            },30);
 	                    }
+	                    
 	                })
 	            }
 	        }

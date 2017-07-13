@@ -14,7 +14,9 @@
 			<div class="grab-card">
 				<div class="grab-card-title">
 					<span class="lucky-number">10000007</span>
-					<a href="###" class="comput-detail">计算详情</a>
+					<router-link to="/campaign/computDetails">
+						<a href="###" class="comput-detail">计算详情</a>
+					</router-link>
 				</div>
 				<div class="grab-card-content">
 					<div class="ellipsis">
