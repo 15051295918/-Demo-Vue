@@ -6,6 +6,9 @@ import VueLazyload from 'vue-lazyload'
 import Vuex from 'vuex';
 
 
+
+
+
 Vue.config.productionTip = false
 Vue.use(VueAwesomeSwiper)
 Vue.use(VueResource);
