@@ -68,11 +68,6 @@
                 }
             }
         },
-        computed: {
-            swiper() {
-                return this.$refs.mySwiper.swiper
-            }
-        },
         methods: {
             handleShow: function () {
                 this.$emit("show")

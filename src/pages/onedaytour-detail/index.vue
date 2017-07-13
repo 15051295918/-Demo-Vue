@@ -108,7 +108,7 @@
                     }
                 },
                 "bookTicketInfo": {
-                    "bookingContent": {
+                    "content": {
                         "item": [],
                         "other": {
                             "title": "",
@@ -116,7 +116,7 @@
                         },
                         "items": []
                     },
-                    "bookingHeader": {
+                    "header": {
                         "text": "",
                         "money": "",
                         "version": "",
@@ -125,7 +125,7 @@
                         "versionother": "",
                         "moneysother": ""
                     },
-                    "canlendar": {
+                    "calendar": {
                         "months": []
                     }
                 }
