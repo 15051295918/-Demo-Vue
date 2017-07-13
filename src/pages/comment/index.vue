@@ -27,19 +27,20 @@
 		  				<img class="comment-img" 
 			  				v-for="(itemimg, imgindex) in item.img" 
 			  				:src="itemimg" 
-			  				@click="handleOpenImg(index*10+liindex)" 
+			  				@click="handleOpenImg(imgindex,index*10+liindex)" 
 		  				/>
 		  				<comment-img 
 			  				v-if="showimg===index*10+liindex" 
 			  				@closeimgbox="handleCloseImg" 
+			  				:imgindex="imgindex"
 			  				:propsimglist="item.img">
 		  				</comment-img>
 		  			</div>
 		  		</li>
 		  		<li>
-					<div v-if="count===index" class="comment-addmore"  @click="handleAddMore">查看更多</div>
+			  		<div v-if="count===index" class="comment-addmore"  @click="handleAddMore">查看更多</div>
 			  		<div v-if="count>index" class="comment-addmore" >没有更多了</div>
-		  		</li>
+			  	</li>
 	  		</ul>
 		</div>		
   	</div>	
@@ -63,7 +64,8 @@
 		        commentlistInfo: [],
 		        count: 0,
 		        showtext: false,
-		        showimg:""
+		        showimg:"",
+		        imgindex:""
 		    }
 	    },
 	    components: {
@@ -84,24 +86,25 @@
 	                    lists[list] = [];
 	                }
 	                lists[list].push( this.commentlistInfo[i] );
-	            }
+	            }	
 	            return lists;
 	        }
 	    },
 	    methods: {
-	    	handleTextMore: function(index) {	
+	    	handleTextMore:function(index){	
 	    		this.showtext = index;		
 	    	},
-	    	handleAddMore: function() {		
-	    		this.count++;	    		
+	    	handleAddMore:function() {		
+	    		this.count++;
 	    	},
-	    	handleGobackClick: function() {
+	    	handleGobackClick:function() {
 	    		history.go(-1);
 	    	},
-	    	handleOpenImg: function(allindex) {
+	    	handleOpenImg:function(imgindex,allindex) {
 	    		this.showimg = allindex;
+	    		this.imgindex = imgindex;
 	    	},
-	    	handleCloseImg: function() {
+	    	handleCloseImg:function(){
 	    		 this.showimg = ""
 	    	}	
 	    } 
@@ -109,15 +112,15 @@
 </script>
 
 <style scoped>
-	#box .isactive{
+	#box .isactive {
 		display: block;
 	    overflow: visible;
 	    text-overflow: visible;
 	}
-	#box .isactive+.comment-text-more{	
+	#box .isactive+.comment-text-more {	
 		display: none;
 	}
-	.comment-header{
+	.comment-header {
 		position: relative;
 		display: flex;
 		flex-flow: row;
@@ -125,14 +128,14 @@
 	    background: #00bcd4;
 	    z-index: 91;
 	}
-	.header-return{
+	.header-return {
 		display: inline-block;
 		width: 15%;
 		text-align: center;
 		color:white;
 		line-height: .88rem;
 	}
-	.comment-header-con{
+	.comment-header-con {
 		width: 100%;
 		line-height: .88rem;
 		color: #fff;
@@ -140,50 +143,50 @@
 		font-size: .32rem;
 		box-sizing: border-box;
 	}
-	.comment-con-info{
+	.comment-con-info {
 		padding-top: .2rem;
 	    background: #f5f5f5;
 	    position: relative;
 	}
-	.comment-ulcon{
+	.comment-ulcon {
 		padding-bottom: .88rem; 
-		background: #fff;
+		background:#fff;
 	}
-	.comment-list::before{
+	.comment-list::before {
 		border-color: #999;
 	}
-	.comment-list{
+	.comment-list {
 		position: relative;
 		color: #212121;
     	font-size: .28em;
     	padding: 0 .2rem .25rem .55rem ;
     	font-family: Arial,"Microsoft Yahei","Helvetica Neue",Helvetica,sans-serif;
 	}
-	.comment-list-head{
+	.comment-list-head {
 		display: flex;
 		justify-content: space-between;
 		flex-flow: row;
 		padding: .25rem 0;
 	}
-	 .comment-star{
-	 	color: red;
+	 .comment-star {
+	 	color:red;
 	 	display: block;	 
 	 	font-size: 0.3rem;
 	 }
-	 .comment-star::after{
+	 .comment-star::after {
 	 	margin-right: -.1rem;
 	 }
-	.comment-time{		
+	.comment-time {		
 		color: #999;
 	    font-size: .26rem;
 	    display: block;	   	     
 	}
-	.comment-text{
+	.comment-text {
 	    display: -webkit-box;
 	    overflow: hidden;
 	    text-overflow: hidden;
-	    -webkit-line-clamp: 3;
-	    -webkit-box-orient: vertical;
+	    -webkit-line-clamp:3;
+	    -webkit-box-orient:vertical;
 	    color: #999;
 	    font-size: .28rem;
 	    padding-right: .06rem;
@@ -195,12 +198,12 @@
 	    text-align: center;
 	    position: relative;
 	}
-	.comment-imgbox{
+	.comment-imgbox {
 		padding-top: .1rem;
 		overflow: hidden;
 		width: 90%;
 	}
-	.comment-img{
+	.comment-img {
 		width: 1.05rem;
 	    height: 1.05rem;
 	    -webkit-border-radius: .06rem;
@@ -210,10 +213,10 @@
 	    float: left;
 	    margin: .1rem .2rem 0 0;
 	}	
-	.comment-addmore::before{	
+	.comment-addmore::before {	
 		border-color:#999;
 	}
-	.comment-addmore{
+	.comment-addmore {
 		height: .88rem;
 		width: 100%;
 		position: absolute;
