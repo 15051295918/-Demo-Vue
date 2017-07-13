@@ -38,7 +38,7 @@ export default {
 	props: ["otherDay","contentInfo"],
 	watch: {
 		otherDay: function () {
-			this.item[3].date = this.otherDay;
+			this.contentInfo.item[3].date = this.otherDay;
 		}
 	},
 	methods: {
