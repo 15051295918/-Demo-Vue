@@ -3,3 +3,4 @@ export default {
       state.city = city;
     }
 }
+

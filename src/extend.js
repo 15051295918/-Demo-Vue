@@ -2,8 +2,8 @@ import Vue from 'vue'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import VueResource from 'vue-resource'
 import FastClick from 'fastclick'
-import VueLazyload from 'vue-lazyload'
 import Vuex from 'vuex';
+import VueLazyload from 'vue-lazyload';
 
 
 Vue.config.productionTip = false
