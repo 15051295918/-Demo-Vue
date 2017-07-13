@@ -34,11 +34,11 @@ export default new Router({
         name: "CampaignNewAannounce",
         component: CampaignNewAannounce
     },{
-        path: "/campaign/computDetails",
+        path: "/campaign/computDetails/:id",
         name: "CampaignComputDetails",
         component: CampaignComputDetails
     },{
-        path: "/campaign/announceDetails",
+        path: "/campaign/announceDetails/:id",
         name: "CampaignAnnounceDetails",
         component: CampaignAnnounceDetails
     },{       

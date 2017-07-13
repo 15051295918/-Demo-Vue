@@ -1,7 +1,7 @@
 <template>
 	<ul class="newticket-container">
 		<li class="newticket-item border-bottom" v-for="(item,index) in announces" :key="index + 'announce_item'">
-		    <router-link to="/campaign/announceDetails">
+		    <router-link :to="'/campaign/announceDetails/'+item.winningNo">
 			<a href="###">
 				<div class="newticket-item-imgcontainer">
 					<img  v-lazy="item.pic" :alt="item.productName" class="newticket-loading newticket-item-img">
@@ -11,7 +11,7 @@
 					<p class="newticket-item-text">夺宝期号 : {{item.groupDrawNo}}</p>
 					<p class="newticket-item-text">幸运号码 : 
 						<span class="newticket-item-wincode">{{item.winningNo}}</span>
-						<router-link to="/campaign/computDetails">
+						<router-link :to="'/campaign/computDetails/'+item.winningNo">
 							<a class="newticket-item-calculate" href="###">计算详情
 							</a>
 						</router-link>

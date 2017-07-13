@@ -1,19 +1,19 @@
 <template>
 	<div class="active-main">
 		<div class="active-img">
-			<img src="//img1.qunarzz.com/piao/fusion/1706/82/5cb48a2aef75c302.jpg" class="img-active">
+			<img src="https://img1.qunarzz.com/piao/fusion/1706/8d/c33af08f4c1f2702.jpg_270x270_8ec6a463.jpg" class="img-active">
 			<div class="img-infocon">
 				<span class="img-issue">期号：27</span>
 			</div>
 		</div>
 		<div class="prdcard-con border-bottom">
 			<div class="prdcard-name">
-				<span class="pracard-status end">已揭晓</span>50元酒店代金劵
+				<span class="pracard-status end">已揭晓</span>150元酒店代金劵
 			</div>
 			<div class="prdcard-prdname">本期奖品：¥50去哪儿网酒店代金券一张（房订单满¥51以上可用）；使用规则：1.去哪儿网客户端购买酒店时抵扣现金，不予找零或退换；2. 含有【代金券】标签的报价均可使用。</div>
 			<div class="grab-card">
 				<div class="grab-card-title">
-					<span class="lucky-number">10000007</span>
+					<span class="lucky-number">{{index}}</span>
 					<router-link to="/campaign/computDetails">
 						<a href="###" class="comput-detail">计算详情</a>
 					</router-link>
@@ -35,7 +35,7 @@
 			<h3 class="prddetail-title border-bottom">宝贝说明</h3>
 			<div class="prddetail-content">
 				<li class="description-title">产品包含</li>
-				<p class="prddetail-desc">¥50去哪儿网酒店代金券一张（房订单满¥51以上可用）；使用规则：1.去哪儿网客户端购买酒店时抵扣现金，不予找零或退换；2. 含有【代金券】标签的报价均可使用。</p>
+				<p class="prddetail-desc">¥150去哪儿网酒店代金券一张（房订单满¥51以上可用）；使用规则：1.去哪儿网客户端购买酒店时抵扣现金，不予找零或退换；2. 含有【代金券】标签的报价均可使用。</p>
 				<li class="description-title">使用时间</li>
 				<p>平日周末通用</p>
 			</div>
@@ -74,6 +74,10 @@ export default {
     return {
      
     }
+  },
+  props:["index"],
+  created:function(){
+  	console.log(this.index);
   }
 
 }

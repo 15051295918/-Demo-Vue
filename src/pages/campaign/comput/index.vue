@@ -10,10 +10,10 @@
 	  		</router-link>
 		</div>
 		<div class="formular border-bottom">
-			<p class="lucky-num">幸运号码：<span>{{winningNo}}</span><span class="formular-button fromularbutton" @click="handleOpen">计算公式</span></p>
+			<p class="lucky-num">幸运号码：<span>{{$route.params.id}}</span><span class="formular-button fromularbutton" @click="handleOpen">计算公式</span></p>
 			<p class="formular-info">=<span class="fomular-hightlight">数值A</span>%<span class="fomular-hightlight">商品所需人次数</span>(取余)+10000001</p>
 			<p class="formular-info">=<span class="fomular-hightlight">{{timeTotal}}</span>%<span class="fomular-hightlight">{{personTimes}}</span>(取余)+10000001</p>
-			<p class="formular-info">=<span class="fomular-hightlight">{{winningNo}}</span></p>
+			<p class="formular-info">=<span class="fomular-hightlight">{{$route.params.id}}</span></p>
 		</div>
 		<formular :computs="computInfo"></formular>
 		<div class="mask" v-if="seen">

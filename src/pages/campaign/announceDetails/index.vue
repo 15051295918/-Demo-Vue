@@ -4,9 +4,9 @@
 			<router-link to="/campaign/newannounce">
 				<a class="help-header-left"></a>
 			</router-link>
-	  		<h1 class="help-header-middle">50元酒店代金劵</h1>
+	  		<h1 class="help-header-middle">150元酒店代金劵</h1>
 	  	</div>
-	  	<activies></activies>
+	  	<activies :index="$route.params.id"></activies>
 	</div>
 </template>
 
