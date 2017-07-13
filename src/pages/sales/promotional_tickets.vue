@@ -52,7 +52,6 @@
 </div>
 </div>
 </template>
-<script src='https://unpkg.com/vue-lazyload/vue-lazyload.js'></script>
 <script>
 export default {
   data () {
@@ -80,6 +79,7 @@ export default {
   mounted(){
   		window.addEventListener("scroll", this.handlescrollchange);
   	},
+
   props: ["ticketproductInfo", "tickettitleInfo"]
 }
 </script>
@@ -118,9 +118,9 @@ export default {
 	}
 	.ticket-navbar{
 		width: 100%;
+		position: relative;
 		padding: .2rem;
 		background-color: #fff;
-		position: relative;
 		font-family: Arial,"Microsoft Yahei","Helvetica Neue",Helvetica,sans-serif;
 		color:#333;
 		font-size: .28rem;
@@ -139,10 +139,12 @@ export default {
 		padding: .2rem .4rem .2rem .2rem;
 		line-height: .48rem;
 		text-decoration: none;
+		z-index: 10;
 	}
 	.ticket-linktext{
 		color: #666;
 		font-size: .28rem;
+
 	}
 	.ticket-linkcorner{
 		 width: 0;
