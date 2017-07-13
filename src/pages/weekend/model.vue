@@ -1,28 +1,28 @@
 <template>
-<div>
-	<div class="model" v-if="showInfo">
-			<div class="model_con">
-				<div class="model_hidden" v-on:click="showStatus">X</div>
-				<div class="model_img_wrap border-bottom"><img :src="models.s_imgUrl" class="model_img"></div>
-				<div class="model_detail_wrap"><p class="model_detail">{{models.detail}}</p></div>
-			</div>
+	<div>
+		<div class="model" v-if="showInfo">
+				<div class="model_con">
+					<div class="model_hidden" v-on:click="showStatus">X</div>
+					<div class="model_img_wrap border-bottom"><img :src="models.s_imgUrl" class="model_img"></div>
+					<div class="model_detail_wrap"><p class="model_detail">{{models.detail}}</p></div>
+				</div>
+		</div>
 	</div>
-</div>
 		
 </template>
 
 	<script>
 		export default {
 			  data () {
-				    return {
-				    	show: false,
-				    }						
+		    	 return {
+			    	show: false,
+			     }						
 			  },
 			  props:["showInfo", "models"],
 			  methods:{
 			  	showStatus () {
 			  		this.show = !this.showInfo;
-			  		this.$emit("listenToChildEvent",this.show);
+			  		this.$emit("listenToShowStatus",this.show);
 			  	}
 			  }
 			
@@ -41,7 +41,6 @@
 		width: 100%;
 		height: 100%;
 		background-color: rgba(0,0,0,0.5);
-		
 	}
 
 	.model_con {
@@ -60,7 +59,6 @@
 		top: .1rem;
 		right: .2rem;
 		color: #fefefe;
-
 	}
 
 	.model_img_wrap {
@@ -79,7 +77,6 @@
 		height: 56%;
 		padding:4%;
 		overflow: hidden;
-
 	}
 
 	.model_detail {
@@ -89,7 +86,6 @@
 		-webkit-box-orient: vertical;
 		-webkit-line-clamp: 7;
 		overflow: hidden;
-
 	}
 
 	

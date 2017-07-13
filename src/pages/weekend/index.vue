@@ -4,9 +4,8 @@
 
     		<div class="product" >
     	  		<div class="product-item" v-for="(list,index) in productInfo" :key="index+'product'" v-model="index"  @click="getModel(index)">
-    	  			
-                  <div class="product-wrapper" v-on:click="show = !show">
-                      <img :src="list.imgUrl" class="product-img" />
+    	  			    <div class="product-wrapper" v-on:click="show = !show">
+                      <img class="product-img"  v-lazy="list.imgUrl"  />
         	  			</div>
         	  			
                   <div class="product-info">
@@ -16,7 +15,7 @@
              </div>
     	  </div>
 
-        <weekend-model :models="modelInfo" v-if="show" :showInfo="show" v-on:listenToChildEvent="getShowStatus"></weekend-model>
+        <weekend-model :models="modelInfo" v-if="show" :showInfo="show" v-on:listenToShowStatus="getShowStatus"></weekend-model>
 
   	</div>
 </template>
@@ -34,7 +33,7 @@ export default {
           });
    },
 
- data () {
+  data () {
       return {
          show:false,
          index:"",
@@ -43,7 +42,7 @@ export default {
       }
     },
 
- methods: {
+  methods: {
         getModel (index) {
           this.modelInfo = this.productInfo[index];
         },
