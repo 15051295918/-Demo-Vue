@@ -4,7 +4,8 @@
 		<div class="content-choose">
 			<span :class="{                                                                       'content-choose-days': true,'content-border':true, 'content-border-dark':index == 0, active: index==isActive}" v-for="(item, index) in item" @click="handleDateClick(index)">
 				<em class="content-dark">{{item.title}}</em>
-				<strong class="content-day-dark" v-if="index != 3">{{item.dayte}}</strong>
+				<strong class="content-day-dark" v-if="index != 3">{{item.date}}</strong>
+				<strong class="content-day-dark" v-else>{{otherDay}}</strong>
 			</span>
 		</div>
 		<div class="booking-note">
@@ -14,10 +15,10 @@
 					<p v-for="(item, index) in other.items" :class="{'booking-adult':true, 'booking-children':index==Active}" @click="handleBtnPeople(index)">{{item}}</p>
 				</i>
 			</span>
-			<span class="booking-select" v-for="(item,index) in items">
+			<span class="booking-select" v-for="(item,index) in items" :key="index + 'last'">
 				<em class="booking-pepole">{{item.content}}</em>
-				<i class="booking-combination">
-					<p class="booking-adult booking-children">{{item.time}}</p>
+				<i class="booking-combinatio">
+					<p class=" booking-adult booking-children ">{{item.time}}</p>
 				</i>
 			</span>
 	
@@ -28,26 +29,26 @@
 export default {
 	data() {                                                                                                
 		return {
-			show:true,
-			isActive:1,
-			Active:0,
+			show: true,
+			isActive: 1,
+			Active: 0,
 			item: [{
 				title: "今天",
-				dayte: "07月11日"
+				date: "07月12日"
 			}, {
 				title: "明天",
-				dayte: "07月12日"
+				date: "07月13日"
 			},
 			{
 				title: "后天",
-				dayte: "07月13日"
-			},
-			{
-				title: "其他日期"
-			}],                                  
+				date: "07月14日"
+			}, {
+				title: "其他日期",
+				date: ""
+			}],
 			other: {
 				"title": "人群",
-				"items":["成人","儿童"]
+				"items": ["成人", "儿童"]
 			},
 			items: [{                                                                                                                                                                                                                                       
 				"content": "发车时间",
@@ -62,22 +63,27 @@ export default {
 
 		}
 	},
-	components: {
+
+	props: ["otherDay"],
+	watch: {
+		otherDay: function () {
+			this.item[3].date = this.otherDay;
+		}
 	},
-	methods:{
-		handleDateClick: function(index) {
-			if( index != 0) {
-				this.isActive =index;
-				if(index==3) {
+	methods: {
+		handleDateClick: function (index) {
+			if (index != 0) {
+				this.isActive = index;
+				if (index == 3) {
 					this.$emit("close")
 				}
 			}
 		},
-		handleBtnPeople:function(index) {
-			this.Active=index;
-			this.$emit("obtain",index);
+		handleBtnPeople: function (index) {
+			this.Active = index;
+			this.$emit("obtain", index);
 		}
-		
+
 	}
 }
 </script>
@@ -158,6 +164,7 @@ export default {
 .content-border:nth-child(4) {
 	line-height: 100%;
 }
+
 .content-border-dark {
 	border-color: #ececec;
 	color: #dedede;
@@ -169,12 +176,12 @@ export default {
 	text-align: center;
 	font-size: .28rem;
 	line-height: .36rem;
-	
+
 	padding-bottom: .08rem;
 }
 
 .content-day-dark:nth-child(4) {
-	display:inline;
+	display: inline;
 }
 
 .content-other {
@@ -193,7 +200,6 @@ export default {
 .booking-select {
 	display: block;
 	width: 100%;
-	padding-bottom: .25rem;
 }
 
 .booking-note {
@@ -216,7 +222,6 @@ export default {
 
 .booking-adult {
 	display: inline-block;
-	float: left;
 	margin-right: .2rem;
 	margin-top: .15rem;
 	border: .02rem solid #c7ced4;
