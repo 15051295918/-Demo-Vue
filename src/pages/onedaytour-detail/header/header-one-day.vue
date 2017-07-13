@@ -1,6 +1,5 @@
 <template>
     <div>
-
         <div class="main" id="main">
             <div class="imgavatar">
                 <img class="imgavatar-img" :src="JiHeader.imgavatarImg" :alt="JiHeader.headerTitle">
@@ -11,10 +10,10 @@
                 </div>
             </div>
         </div>
-        <a class="header-back">
+        <span class="header-back">
             <span class="headerback-bg"></span>
             <span class="iconfont headerback-iconone" v-html="JiHeader.headerLeft"></span>
-        </a>
+        </span>
     </div>
 
 </template>
@@ -25,7 +24,6 @@
         props: ["JiHeader"]
 
     }
-
 </script>
 
 
@@ -35,13 +33,13 @@
         position: relative;
         height: 4rem;
     }
-
+    
     .imgavatar-img {
         width: 100%;
         min-height: 4rem;
         vertical-align: middle;
     }
-
+    
     .imgavatar-mask {
         position: absolute;
         left: 0;
@@ -50,7 +48,7 @@
         height: .93rem;
         color: #fff;
     }
-
+    
     .imgavatar-infocon {
         overflow: hidden;
         position: absolute;
@@ -59,16 +57,16 @@
         width: 100%;
         font-size: 0;
     }
-
+    
     .imgavatar-left {
         margin-left: .2rem;
     }
-
+    
     .imgavatar-right {
         margin-right: .2rem;
         float: right;
     }
-
+    
     .imgavatar-left,
     .imgavatar-right {
         overflow: hidden;
@@ -81,7 +79,7 @@
         white-space: nowrap;
         text-overflow: ellipsis;
     }
-
+    
     .header-back {
         left: .1rem;
         top: .1rem;
@@ -93,7 +91,7 @@
         color: #fff;
         text-align: center;
     }
-
+    
     .headerback-iconone {
         position: absolute;
         left: 0;
@@ -104,7 +102,7 @@
         text-align: left;
         text-indent: .24rem;
     }
-
+    
     .headerback-bg {
         display: block;
         width: .72rem;
@@ -113,7 +111,7 @@
         opacity: .5;
         border-radius: .36rem;
     }
-
+    
     .headerback-icon {
         position: absolute;
         left: 0;
