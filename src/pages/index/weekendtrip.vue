@@ -11,7 +11,6 @@
 					<div class="weekendtrip-descriptioncontainer">
 						<p class="weekendtrip-description-title">{{recommendItem.title}}</p>
 						<p class="weekendtrip-description-text">{{recommendItem.description}}</p>
-					
 					</div>
 				</router-link>
 			</div>
@@ -54,42 +53,36 @@
 			Qunar 京ICP备123061意见反馈
 		</div>
 		</div>
-		
 	</div>
 </div>
 </template>
 <script>
 export default {
-  data () {
-    return {
-
-  }
-    
-  },
-  props:["weekendtripInfo", "footernavInfo", "equipmenttype", "navIcon"],
-
-  methods: {
-  	
-  	handlemoreclick: function() {
-  		var footerul = document.querySelector(".weekendtrip-footer-ul");
-  		var footermore = document.querySelector(".weekendtrip-footer-more");
-  		var footerhide = document.querySelector(".weekendtrip-footer-hide");
-
-  		footerul.style.height = "2.2rem";
-  		footerul.style.width = "7rem";
-  		footermore.style.display = "none";
-  		footerhide.style.display = "block"; 
-  	},
-  	handlehideclick: function() {
-  		var footerul = document.querySelector(".weekendtrip-footer-ul");
-  		var footermore = document.querySelector(".weekendtrip-footer-more");
-  		var footerhide = document.querySelector(".weekendtrip-footer-hide");
-  		footerul.style.height = ".5rem";
-  		footerul.style.width = "6rem";
-  		footermore.style.display = "block";
-  		footerhide.style.display = "none"; 
-  	}
-  }
+	data () {
+			return {
+		}
+	},
+	props:["weekendtripInfo", "footernavInfo", "equipmenttype", "navIcon"],
+	methods: {	
+	  	handlemoreclick: function() {
+	  		var footerul = document.querySelector(".weekendtrip-footer-ul");
+	  		var footermore = document.querySelector(".weekendtrip-footer-more");
+	  		var footerhide = document.querySelector(".weekendtrip-footer-hide");
+	  		footerul.style.height = "2.2rem";
+	  		footerul.style.width = "7rem";
+	  		footermore.style.display = "none";
+	  		footerhide.style.display = "block"; 
+	  	},
+	  	handlehideclick: function() {
+	  		var footerul = document.querySelector(".weekendtrip-footer-ul");
+	  		var footermore = document.querySelector(".weekendtrip-footer-more");
+	  		var footerhide = document.querySelector(".weekendtrip-footer-hide");
+	  		footerul.style.height = ".5rem";
+	  		footerul.style.width = "6rem";
+	  		footermore.style.display = "block";
+	  		footerhide.style.display = "none"; 
+	  	}
+	}
 }
 </script>
 
@@ -108,7 +101,6 @@ export default {
 		font-family: tahoma,arial,"Hiragino Sans GB","微软雅黑",simsun,sans-serif;
 	}
 	.weekendtrip-item{
-		
 		position: relative;
 		margin-bottom: .1rem;
 		background: #fff;
@@ -165,7 +157,6 @@ export default {
 		float: left;
 		line-height: .32rem;
 		font-size: .2rem;
-
 	}
 	.weekendtrip-price-desc{
 		font-size: .24rem;
@@ -186,7 +177,6 @@ export default {
 		height: .62rem;
 		width: 1.4rem;
 		float: left;
-
 	}
 	.weekendtrip-footer-more{
 		font-size: .05rem;
@@ -202,8 +192,6 @@ export default {
 		bottom: 0;
 		right: 1.3rem;
 		color: #9e9e9e;
-
-
 	}
 	.footer-iconfont-down{
 		font-size: .5rem;

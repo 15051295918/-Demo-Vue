@@ -1,49 +1,49 @@
 <template>
 <div id="main">
-<div class="hotsales" id="js-hotsales">
-	<div class="hotrecommendation border-top">
-		<div class="navbar-hot border-bottom">
-			<div class="hot-toplist" v-for="(hottitle,index) in dataInfo" :key="index + '_hot_title_name'">
-				<div class="hot-navbar">
-					<span class="hot-navbar-title">{{hottitle.navbarTitle}}</span>
-				</div>
-				<div class="hot-toplist">
-					<ul class="hot-now">
-						<li class="hot-now-li">
-							<span @click="handleEventNowTitle" id="js-now-title" class="hot-now-title">{{hottitle.nowTitle}}</span>
-						</li>
-					</ul>
+	<div class="hotsales" id="js-hotsales">
+		<div class="hotrecommendation border-top">
+			<div class="navbar-hot border-bottom">
+				<div class="hot-toplist" v-for="(hottitle,index) in dataInfo" :key="index + '_hot_title_name'">
+					<div class="hot-navbar">
+						<span class="hot-navbar-title">{{hottitle.navbarTitle}}</span>
+					</div>
+					<div class="hot-toplist">
+						<ul class="hot-now">
+							<li class="hot-now-li">
+								<span @click="handleEventNowTitle" id="js-now-title" class="hot-now-title">{{hottitle.nowTitle}}</span>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="hostlist-items ">
-			<div class="hotlist-item-flexbox" v-for="(hotItem,index) in hotproductInfo" :key="index + '_hot_list_item'">
-				<div class="hostlist-img">
-					<img  class="logo" v-lazy="hotItem.imgUrl" v-lazy:background-image="hotItem.imageSrc"/>
-				</div>
-				<router-link :to="'/onedaytour/detail/'+index" :id="index">
-					<div class="hostlist-info border-bottom">
-						<p class="hot-ticketnameinfo">{{hotItem.title}}</p>
-						<div class="hot-priceinfo">
-							<div class="hot-priceinfo-item">
-								<span class="hot-nowprice">&yen;<em>{{hotItem.currentprice}}</em></span>
-								<span class="hot-originprice">&yen;{{hotItem.originprice}}</span>
+			<div class="hostlist-items ">
+				<div class="hotlist-item-flexbox" v-for="(hotItem,index) in hotproductInfo" :key="index + '_hot_list_item'">
+					<div class="hostlist-img">
+						<img  class="logo" v-lazy="hotItem.imgUrl" v-lazy:background-image="hotItem.imageSrc"/>
+					</div>
+					<router-link :to="'/onedaytour/detail/'+index" :id="index">
+						<div class="hostlist-info border-bottom">
+							<p class="hot-ticketnameinfo">{{hotItem.title}}</p>
+							<div class="hot-priceinfo">
+								<div class="hot-priceinfo-item">
+									<span class="hot-nowprice">&yen;<em>{{hotItem.currentprice}}</em></span>
+									<span class="hot-originprice">&yen;{{hotItem.originprice}}</span>
+								</div>
 							</div>
 						</div>
-					</div>
-				</router-link>
+					</router-link>
+				</div>
+			</div>
+			<a href="http://touch.piao.qunar.com/touch/list.htm?keyword=&cat=dist_city%3D%25E5%258C%2597%25E4%25BA%25AC%26from_area%3Dts_yunying%26from_value%3D_tehui_product" class="hot-moreproduct">更多当季热门推荐 >></a>
+			<div class="ticket-price">
+				<span class="prompt-icon iconfont icon-jinggao"></span>
+				<strong class="prompt-info">
+					票面价
+				</strong>
+				是指通过景区指定窗口售卖的纸质门票上标注的价格
 			</div>
 		</div>
-		<a href="http://touch.piao.qunar.com/touch/list.htm?keyword=&cat=dist_city%3D%25E5%258C%2597%25E4%25BA%25AC%26from_area%3Dts_yunying%26from_value%3D_tehui_product" class="hot-moreproduct">更多当季热门推荐 >></a>
-		<div class="ticket-price">
-			<span class="prompt-icon iconfont icon-jinggao"></span>
-			<strong class="prompt-info">
-				票面价
-			</strong>
-			是指通过景区指定窗口售卖的纸质门票上标注的价格
-		</div>
 	</div>
-</div>
 </div>
 </template>
 <script>
@@ -69,7 +69,6 @@ export default {
 				hotsales = this.$el.querySelector("#js-hotsales"),
 				mTop = hotsales.offsetTop,
 				result = mTop - this.scroll;
-
 			if( result < 0 ) {
 				navbarhot.style.position = "fixed";
 				navbarhot.style.top = "0px";
@@ -83,9 +82,10 @@ export default {
     },
 
     mounted() {
-      window.addEventListener('scroll', this.handlescrollchange)
+    	setTimeout(function(){
+			window.addEventListener('scroll', this.handlescrollchange)
+    	}.bind(this),100)
     },
-
     props:["dataInfo","hotproductInfo"]
 }
 </script>
