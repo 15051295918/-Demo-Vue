@@ -1,7 +1,7 @@
 <template>
     <div class="listCon">
 		<paginate class="mp-view-list mp-page" ref="paginator" name="languages" :list="listCon" :per="pre">
-	    	<li class="mp-sight-group border-topbottom" v-if="item.address.split('·')[0]=='北京' && cityPageList(item.scenicSpotClassification)" v-for="(item, index) in paginated('languages')" :key="'li_item_' + index">
+	    	<li class="mp-sight-group border-topbottom" v-for="(item, index) in paginated('languages')" :key="'li_item_' + index">
 		    	<div class="mp-item-content">
 			    	<div class="mp-sight-info">
 				    	<a :href="item.url">
@@ -51,8 +51,11 @@
 	export default {
 		created(){
 	        this.$http.get('/static/scenicSpotList.json').then(response => {
+	            var this_ = this;
 	            if(response.body.ret) {
-	            	this.listCon = response.body.data.listCon;
+	            	this.listCon = response.body.data.listCon.filter(function(item){ 
+					    return item.address.split('·')[0]=='北京' && this_.cityPageList(item.scenicSpotClassification)
+					});
 	            }
 	        }, response => {
 	             console.log("get index data error")
@@ -69,21 +72,31 @@
 			},
 			textPage () {
 				if (this.$refs.paginator) {
-					var num = parseInt(this.listCon.length/this.pre);
+					var num = parseInt(this.listCon.length/this.pre)+1;
 					var current = this.pageNum;
 					if(current < num) {
 						this.$refs.paginator.goToPage(this.pageNum+1);
 					}
 				}
 			},
-			cityPageList: function(value,index) {
-				var isCity=false;
+			cityPageList(value,index) {
+				var Classify=false;
 				for(var i=0;i<value.length;i++) {
 					if(value[i]=='全部分类') {
-						isCity=true;
+						Classify=true;
 					}
 				}
-				return isCity
+				return Classify
+			},
+			sortList(str) {
+				switch(str) {
+					case "人气最高": this.listCon.sort(function(x,y) {
+						return x.comment < y.comment ? 1 : -1
+					});break;
+					case "推荐排序": this.listCon.sort(function(x,y) {
+						return x.hot < y.hot ? 1 : -1
+					});
+				}
 			}
 		},
 		computed: {
