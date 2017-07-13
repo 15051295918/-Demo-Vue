@@ -1,5 +1,5 @@
 <template>
-	<div id="qunarFooter" class="qn_footer">
+	<div id="qunarFooter" class="lz_footer">
 		<div class="main_nav_wrapper">
 			<ul class="main_nav" id="qunarFooterUL" v-bind:style="styleObject">
 				<li class="flight">
@@ -70,7 +70,7 @@
 						<span class="title">当地人</span>
 					</a>
 				</li>
-				<li class="tag" v-on:click="qnFooterToggle" v-bind:style="styleObjecttop">
+				<li class="tag" v-on:click="lzFooterToggle" v-bind:style="styleObjecttop">
 					<span v-show="isShow"><span class="iconfont icon-more">&#xe628;</span>更多</span>
 					<span v-show="isHide"><span class="iconfont icon-packup">&#xe671;</span>收起</span>
 				</li>				
@@ -98,12 +98,12 @@
 					<a href="//touch.qunar.com/h5/">触屏版</a>
 				</li>
 				<li>
-					<a href="http://www.qunar.com/index.htm?from=mobile&amp;qn163=1" onclick="computer()">电脑版</a>
+					<a href="http://www.qunar.com/index.htm?from=mobile&amp;lz163=1" onclick="computer()">电脑版</a>
 				</li>
 			</ul>
 			<div class="copyright">
 				<span>Qunar 京ICP备05021087</span>
-				<a class="qn_ml25" href="//touch.qunar.com/h5/feedback">意见反馈</a>
+				<a class="lz_ml25" href="//touch.qunar.com/h5/feedback">意见反馈</a>
 			</div>
 	</div>
 
@@ -126,9 +126,10 @@
 				}
 			}	
 		},
+
 		methods: {
 
-		  	qnFooterToggle:function (){
+		  	lzFooterToggle:function (){
 		  		if(this.isShow){
 		  			this.styleObject.height="110px"
 			  		this.styleObjecttop.top="97px"
@@ -140,7 +141,6 @@
 					this.isShow=!this.isShow
 					this.isHide=!this.isHide
 		  		}
-
 		  	}
 	  	}
 	}
@@ -159,15 +159,17 @@
 		text-align: center;
 		line-height: .38rem;
 	}
+
 	.tag .icon-more, .tag .icon-packup{
 		border:none;
 		font-size: .36rem;
 	}
-	.qn_footer {
+	
+	.lz_footer {
 	    background: #f3f3f3;
 	}
 
-	.qn_footer .main_nav {
+	.lz_footer .main_nav {
 	    position: relative;
 	    width: 300px;
 	    height: 25px;
@@ -176,7 +178,7 @@
 	    overflow: hidden;
 	}
 
-	.qn_footer .main_nav li {
+	.lz_footer .main_nav li {
 	    margin: 0px;
 	    padding-left: 10px;
 	    height: 31px;
@@ -186,18 +188,18 @@
 	    background: none;
 	}
 
-	.qn_footer .main_nav li a {
+	.lz_footer .main_nav li a {
 	    display: block;
 	    height: 22px;
 	    width: 100%;
 	    font-size: 12px;
 	}
 
-	.qn_footer .main_nav .flight .icon {
+	.lz_footer .main_nav .flight .icon {
 	    background-position: 0 0;
 	}
 
-	.qn_footer .main_nav li .title {
+	.lz_footer .main_nav li .title {
 	    float: left;
 	    display: inline-block;
 	    color: #9e9e9e;
@@ -206,7 +208,7 @@
 	    font-size: 12px;
 	}
 
-	.qn_footer .main_nav li.tag {
+	.lz_footer .main_nav li.tag {
 	    position: absolute;
 	    top: 8px;
 	    right: 6px;
@@ -218,58 +220,58 @@
 	    padding-top:.1rem;
 	}
 
-	.qn_footer .footer_nav {
+	.lz_footer .footer_nav {
 	    width: 100%;
 	    height: 39px;
 	    border-bottom: 1px solid #cacaca;
 	}
 
-	.qn_footer .footer_nav li {
+	.lz_footer .footer_nav li {
 	    float: left;
 	    padding-left: 20px;
 	}
 
-	.qn_footer .footer_nav li a {
+	.lz_footer .footer_nav li a {
 	    position: relative;
 	    color: #25a4bb;
 	    font-size: 14px;
 	    line-height: 39px;
 	}
 
-	.qn_footer .mobile_pc {
+	.lz_footer .mobile_pc {
 	    padding: 10px 0 0 0;
 	    text-align: center;
 	}
 
-	.qn_footer .mobile_pc li {
+	.lz_footer .mobile_pc li {
 	    display: inline-block;
 	    margin: 0 15px;
 	}
 
-	.qn_footer .mobile_pc .active a {
+	.lz_footer .mobile_pc .active a {
 	    color: black;
 	}
 
-	.qn_footer .mobile_pc a {
+	.lz_footer .mobile_pc a {
 	    font-size: 14px;
 	    color: #25a4bb;
 	}
 
-	.qn_footer .copyright {
+	.lz_footer .copyright {
 	    color: #9e9e9e;
 	    text-align: center;
 	    font-size: 14px;
 	    padding: 10px;
 	}
 
-	.qn_footer .copyright {
+	.lz_footer .copyright {
 	    color: #9e9e9e;
 	    text-align: center;
 	    font-size: 14px;
 	    padding: 10px;
 	}
 
-	.qn_footer .copyright a {
+	.lz_footer .copyright a {
 	    color: #9e9e9e;
 	    height: 33px;
 	}

@@ -15,7 +15,7 @@
 </template>
 
 <script >
-import topBar from './topBar'	
+import topBar from './topBar'
 import header from './detail_header'
 import download from './download'
 import address from './address'

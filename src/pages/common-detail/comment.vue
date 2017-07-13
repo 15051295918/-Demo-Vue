@@ -4,8 +4,8 @@
 		<h3 class="comment-title">用户评论</h3>
 		<div class="comment-list" v-for="(item, index) in data" :key="index + '_imgswiper_item'">
 			<div class="comment-item border-top">
-				<div class="comment-stardate"><span class="mpf-starlevel">
-					<i class="iconfont mpf-starlevel-gain" style="width:100.0%">&#xe6e2;&#xe6e2;&#xe6e2;&#xe6e2;&#xe6e2;</i>
+				<div class="comment-stardate"><span class="lzf-starlevel">
+					<i class="iconfont lzf-starlevel-gain" style="width:100.0%">&#xe6e2;&#xe6e2;&#xe6e2;&#xe6e2;&#xe6e2;</i>
 					</span><span class="comment-date">z*9&nbsp;&nbsp;2017-06-23</span>
 				</div>
 				<p class="comment-content" v-bind:style="styleHeigth" >{{item.commentContent}}
@@ -32,25 +32,25 @@
 				<span class="mp-iconfont">></span>
 			</div>
 		</a>
-		<div class="mp-imgswipe" v-show="seen">
-			<div class="mp-slide-closebutton">
+		<div class="lz-swiper" v-show="seen">
+			<div class="lz-slide-closebutton">
 				<span class="iconfont " @click="handleClickClose">&#xe621;</span>
 			</div>
-			<div class="mp-imgswipe-show js-slider-picture mp-imgswipe-current" style="left: 0px;">
-				<div class="mp-imgswipe-img" >
+			<div class="lz-swiper-show js-slider-picture lz-swiper-current" style="left: 0px;">
+				<div class="lz-swiper-img" >
 					<img src="" class="mask-img" />
 				</div>
 			</div>
-			<div class="mp-imgswipe-show js-slider-picture-back"></div>
-			<div class="mp-imgswipe-bar">
-				<div class="mp-imgswipe-note">
+			<div class="lz-swiper-show js-slider-picture-back"></div>
+			<div class="lz-swiper-bar">
+				<div class="lz-swiper-note">
 					<em class="js-slider-name"></em>
 					<span class="js-slider-namesub">(1/1)</span>
 				</div>
-				<div class="mp-imgswipe-turn mp-imgswipe-prev mp-imgswipe-disabled">
+				<div class="lz-swiper-turn lz-swiper-prev lz-swiper-disabled">
 					<span class="mpg-iconfont"><</span>
 				</div>
-				<div class="mp-imgswipe-turn mp-imgswipe-next mp-imgswipe-disabled">
+				<div class="lz-swiper-turn lz-swiper-next lz-swiper-disabled">
 					<span class="mpg-iconfont">></span>
 				</div>
 			</div>
@@ -61,7 +61,6 @@
 
 <script>
 
-
 export default {
 
     data () {
@@ -70,11 +69,13 @@ export default {
 				height:"105px",
 				overflow:"hidden"
 			},
+
 			seen:false
         }
     },
+
     methods:{
-		commentFoldBtn:function (e){
+		commentFoldBtn: function (e) {
 			//操作dom
 			var id=e.currentTarget.id
 			var height=document.getElementById(id).previousSibling
@@ -90,22 +91,24 @@ export default {
 			}
 		},
 
-		handleClickMask: function(e) {
+		handleClickMask: function (e) {
 			this.seen = true;
-			document.getElementsByClassName("mask-img")[0].setAttribute("src",e.currentTarget.src)
+			var maskImg=document.getElementsByClassName("mask-img")[0]
+			maskImg.setAttribute("src",e.currentTarget.src)
 		},
 
-		handleClickClose:function (){
+		handleClickClose: function () {
 			this.seen = false;
 		}
     },
-    props:["data","dataImg"]
+
+    props: ["data","dataImg"]
 	
 }
 </script>
 
-
 <style scoped>
+
 	.comment-container {
 	    margin-top: .2rem;
 	}
@@ -133,14 +136,14 @@ export default {
 	    line-height: .6rem;
 	}
 
-	.mpf-starlevel {
+	.lzf-starlevel {
 		vertical-align: middle;
 	    position: relative;
 	    width: 1.4rem;
 	    height: .28rem;
 	}
 
-	.mpf-starlevel-gain {
+	.lzf-starlevel-gain {
 	    z-index: 2;
 	    color: #00bcd4;
 	    margin-bottom:1rem
@@ -219,7 +222,7 @@ export default {
 	    font-size: .2rem;
 	}
 
-	.mp-imgswipe {
+	.lz-swiper {
 	    overflow: hidden;
 	    position: fixed;
 	    z-index: 99;
@@ -229,7 +232,7 @@ export default {
 	    background-color: #000;
 	}
 
-	.mp-slide-closebutton {
+	.lz-slide-closebutton {
 	    position: absolute;
 	    z-index: 3;
 	    top: 1.6rem;
@@ -244,29 +247,17 @@ export default {
 	    border-radius: .3rem;
 	}
 
-	.mp-slide-closebutton  span{
+	.lz-slide-closebutton  span{
 		display:inline-block;
 		font-size:.56rem;
 		text-align:center;
 	}
 
-	.mpg-iconfont {
-	    font-family: 'mpiconfont';
-	    speak: none;
-	    font-style: normal;
-	    font-weight: normal;
-	    font-variant: normal;
-	    text-transform: none;
-	    line-height: 1;
-	    -webkit-font-smoothing: antialiased;
-	    -moz-osx-font-smoothing: grayscale;
-	}
-
-	.mp-imgswipe-current {
+	.lz-swiper-current {
 	    z-index: 2;
 	}
 
-	.mp-imgswipe-show {
+	.lz-swiper-show {
 	    position: absolute;
 	    z-index: 1;
 	    width: 100%;
@@ -274,19 +265,19 @@ export default {
 	   
 	}
 
-	.mp-imgswipe-img {
+	.lz-swiper-img {
 	    height: 100%;
 	    width:100%;
 	    position: absolute;
 	    z-index:100;
 	}
 	
-	.mp-imgswipe-img .mask-img{
+	.lz-swiper-img .mask-img{
 		width:100%;
 		margin-top:50%;
 	}
 
-	.mp-imgswipe-show {
+	.lz-swiper-show {
 	    position: absolute;
 	    z-index: 1;
 	    width: 100%;
@@ -294,7 +285,7 @@ export default {
 	    
 	}
 
-	.mp-imgswipe-bar {
+	.lz-swiper-bar {
 	    position: absolute;
 	    z-index: 9;
 	    right: 0;
@@ -303,22 +294,22 @@ export default {
 	    color: #fff;
 	}
 
-	.mp-imgswipe-note {
+	.lz-swiper-note {
 	    height: .8rem;
 	    font-size: .24rem;
 	    line-height: .8rem;
 	    text-align: center;
 	}
 
-	.mp-imgswipe-disabled {
+	.lz-swiper-disabled {
 	    opacity: .5;
 	}
 
-	.mp-imgswipe-prev {
+	.lz-swiper-prev {
 	    left: .4rem;
 	}
 
-	.mp-imgswipe-turn {
+	.lz-swiper-turn {
 	    position: absolute;
 	    top: 0;
 	    width: .8rem;
@@ -333,19 +324,19 @@ export default {
 	    border-radius: 50%;
 	}
 
-	.mp-imgswipe-turn .mpg-iconfont {
+	.lz-swiper-turn .mpg-iconfont {
 	    line-height: .8rem;
 	}
 
-	.mp-imgswipe-disabled {
+	.lz-swiper-disabled {
 	    opacity: .5;
 	}
 
-	.mp-imgswipe-next {
+	.lz-swiper-next {
 	    right: .4rem;
 	}
 
-	.mp-imgswipe-turn .mpg-iconfont {
+	.lz-swiper-turn .mpg-iconfont {
 	    line-height: .8rem;
 	}
 </style>
