@@ -62,7 +62,7 @@ export default {
 
  
 <style scoped>
-	 .main {
+	.main {
         position: absolute;
         left: 0;
         top: 0;
