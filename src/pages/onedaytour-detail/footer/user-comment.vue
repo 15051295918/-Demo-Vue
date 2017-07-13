@@ -49,7 +49,6 @@
             "userComment"
         ]
     }
-
 </script>
 
 
@@ -58,7 +57,7 @@
         margin: .2rem 0 .2rem;
         background: #ffffff;
     }
-
+    
     .comment-title {
         height: .84rem;
         padding-left: .24rem;
@@ -66,7 +65,7 @@
         font-size: .32rem;
         color: #212121;
     }
-
+    
     .title-leftline {
         float: left;
         display: block;
@@ -75,29 +74,29 @@
         background: #00bcd4;
         margin: .3rem .12rem 0 0;
     }
-
+    
     .content-contain {
         padding: 0 .24rem;
     }
-
+    
     .content-contain::before {
         color: #f0f0f0;
     }
-
+    
     .content {
         padding: .22rem 0 .2rem;
     }
-
+    
     .content::before {
         border-bottom: 1px dashed #cccccc;
     }
-
+    
     .content-level {
         position: relative;
         font-size: 0;
         height: .42rem;
     }
-
+    
     .contain-star {
         position: absolute;
         left: 0;
@@ -106,32 +105,32 @@
         height: 0.25rem;
         overflow: hidden;
     }
-
+    
     .content-starlevel {
         width: 2rem;
         height: .25rem;
     }
-
+    
     .content-graystar {
         float: left;
     }
-
+    
     .star {
         font-size: .28rem;
         color: #00bcd4;
     }
-
+    
     .graystar {
         font-size: .28rem;
         color: #e0e0e0;
     }
-
+    
     .content-date {
         float: right;
         font-size: .2rem;
         color: #616161;
     }
-
+    
     .content-text {
         font-size: .24rem;
         color: #616161;
@@ -142,30 +141,30 @@
         overflow: hidden;
         margin: .06rem 0 .04rem;
     }
-
+    
     .contain-imgs {
         overflow: hidden;
         width: 100%;
         height: 0;
         padding-bottom: 22.857%;
     }
-
+    
     .comment-imgs {
         overflow-x: auto;
         white-space: nowrap;
         font-size: 0;
     }
-
+    
     .comment-img {
         margin-left: .2rem;
         width: 1.6rem;
         height: 1.6rem;
     }
-
+    
     .comment-img-first {
         margin-left: 0;
     }
-
+    
     .more-comment {
         text-align: center;
         font-size: .28rem;
@@ -173,7 +172,7 @@
         height: .78rem;
         line-height: .78rem;
     }
-
+    
     .commet-arrows {
         font-size: .24rem;
         color: #b9a49e;
