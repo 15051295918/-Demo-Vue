@@ -3,11 +3,11 @@
         <div class="booking-fliter" v-show="show">
             <div class="booking-predetermine">
                 <div class="bookings">
-                <booking-header @close="handleClose" :fff="handle"></booking-header>
-                <booking-content :otherDay="otherDay" @close="handlereveal" @obtain="handleObtain"></booking-content>
+                <booking-header :bookingHeaderInfo="bookTicketInfo.bookingHeader" @close="handleClose" :fff="handle"></booking-header>
+                <booking-content :bookingContentInfo="bookTicketInfo.bookingContent" :otherDay="otherDay" @close="handlereveal" @obtain="handleObtain"></booking-content>
                 <booking-footer></booking-footer>
                 </div>
-                <booking-calendar v-show="reveal" @show="handleShow"></booking-calendar>
+                <booking-calendar :bookingCanlendar="bookTicketInfo.canlendar" v-show="reveal" @show="handleShow"></booking-calendar>
             </div>
         </div>
         <div class="booking-button">
@@ -32,6 +32,8 @@ export default {
             handle: 0
         }
     },
+
+    props:["bookTicketInfo"],
     components: {
         "booking-header": header,
         "booking-content": content,

@@ -18,7 +18,7 @@
             <index-footer :footerInfo="footerInfo"></index-footer>
 
             <!--坤勇-->
-            <booking-ticket></booking-ticket>
+            <!-- <booking-ticket :bookTicketInfo="bookTicketInfo"></booking-ticket> -->
         </div>
     </div>
 </template>
@@ -28,7 +28,7 @@
     import UserReviews from './header/user-reviews';
     import Tab from './tab/tab';
     import Footer from './footer/footer';
-    import BookingTicket from './booking-ticket/booking-ticket';
+    // import BookingTicket from './booking-ticket/booking-ticket';
 
     export default {
 
@@ -40,6 +40,7 @@
                     this.tabInfo = response.body.data.tab;
                     this.headerInfo = response.body.data.header;
                     this.footerInfo = response.body.data.footer;
+                    this.bookTicketInfo = response.body.data.bookingTicket;
                 } else {
                     console.log("Invalid data!");
                 }
@@ -104,6 +105,28 @@
                         "prddetailTitle": "",
                         "lists": []
                     }
+                },
+                "bookTicketInfo": {
+                    "bookingContent": {
+                        "item": [],
+                        "other": {
+                            "title": "",
+                            "items": []
+                        },
+                        "items": []
+                    },
+                    "bookingHeader": {
+                        "text": "",
+                        "money": "",
+                        "version": "",
+                        "moneys": "",
+                        "moneyother": "",
+                        "versionother": "",
+                        "moneysother": ""
+                    },
+                    "canlendar": {
+                        "months": []
+                    }
                 }
             }
         },
@@ -124,10 +147,10 @@
             this.headerContent = this.headerTitle;
         },
 
-        beforeDestroy:function() {
-            window.removeEventListener("scroll",function(){
+        beforeDestroy: function () {
+            window.removeEventListener("scroll", function () {
                 this_.scrollTop = document.body.scrollTop;
-            },false);
+            }, false);
         },
 
         methods: {

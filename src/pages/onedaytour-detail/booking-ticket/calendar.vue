@@ -2,7 +2,7 @@
     <transition>
         <div class="calendar">
             <div class="calendar-choose">
-                <h1 class="calendar-choose-time">选择时间</h1>
+                <h1 class="calendar-choose-time" v-if="title">{{title}}</h1>
                 <div class="single-big" @click="handleShow">
                     <span class="header-city iconfont">&#xe61a;</span>
                 </div>
@@ -25,7 +25,7 @@
                             </thead>
                             <tbody>
                                 <tr v-for="(itemInner1, trIndex) in item.date" :key="trIndex+'tr'">
-                                    <td v-for="(itemInner, tdIndex) in itemInner1" :class="{'calendar-unit':true, 'td-active':monthIndex == dataMonthIndex && trIndex == dataTrIndex && tdIndex ==dataTdIndex }"
+                                    <td v-for="(itemInner, tdIndex) in itemInner1" :class="{today:itemInner.date == '今天','calendar-unit':true, 'td-active':monthIndex == dataMonthIndex && trIndex == dataTrIndex && tdIndex ==dataTdIndex }"
                                         :key="tdIndex+'td'" @click="handleDateClick(monthIndex, trIndex, tdIndex)">
                                         <p class="calendar-bgc">{{itemInner.date}}</p>
                                         <p class="calendar-data" v-if="itemInner.price">&yen;{{itemInner.price}}
@@ -51,9 +51,10 @@
 
         data() {
             return {
-                dataMonthIndex: 1,
-                dataTrIndex: 1,
-                dataTdIndex: 1,
+                title:"选择时间",
+                dataMonthIndex: 100,
+                dataTrIndex: 100,
+                dataTdIndex: 100,
                 months: [{
                     title: "2017年7月",
                     month: 7,
@@ -543,6 +544,12 @@
     .header-city {
         color: #9e9e9e;
         font-size: .5rem;
+    }
+
+    .today{
+        background: #e3e3e3;
+        border-radius: .2rem;
+        color:#9e9e9e;
     }
 
     .v-leave-active {
