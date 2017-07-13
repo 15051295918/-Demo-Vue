@@ -3,7 +3,9 @@
 <div class="sales">
 	<div v-for="headeritem in tickettitleInfo">
 		<div class="ticket-header">
-				<span class="ticket-header-back iconfont" @click="handlebackclick">&#xe685;</span>
+			<p class="ticket-headerback-link" @click="handlebackclick">
+				<span class="ticket-header-back"></span>
+			</p>
 			<h1 class="ticket-header-title">{{headeritem.headertext}}</h1>
 		</div>
 		<div class="ticket-navbar">
@@ -21,7 +23,7 @@
 			<div class="ticket-saleitem" v-for="(item,index) in ticketproductInfo" :key="index+'ticket-saleitem'">
 				<router-link :to="'/onedaytour/detail/'+index" :id="index">
 					<div class="ticket-imgcontainer">
-					<img class="ticket-saleitem-img" v-lazy="item.imgurl" />
+					<img class="ticket-saleitem-img" v-lazy="item.imgurl" v-lazy:background-image="item.lazyurl"/>
 					<div class="ticket-hotsale">
 						<span class="ticket-hotsale-text">{{item.hotsale}}</span>
 					</div>
@@ -54,12 +56,13 @@
 </template>
 <script>
 export default {
-  data () {
-    return {
-    	
-    }
-  }, 
-  methods:{
+	data () {
+	    return {
+	    	
+	    }
+	}, 
+
+	  methods:{
   	handlescrollchange:function(){
   		this.ticketNavbar = this.$el.querySelector(".ticket-navbar");
   		this.scroll = document.body.scrollTop;
@@ -71,16 +74,21 @@ export default {
   			this.ticketNavbar.style.position = "relative";
   		}
   	},
+
   	handlebackclick:function(){
   		this.$router.go(-1);
   	}
   	
-  },
-  mounted(){
-  		window.addEventListener("scroll", this.handlescrollchange);
+    },
+
+    mounted(){
+    	setTimeout(function(){
+    		window.addEventListener("scroll", this.handlescrollchange);
+    	}.bind(this),100);
+  		
   	},
 
-  props: ["ticketproductInfo", "tickettitleInfo"]
+    props: ["ticketproductInfo", "tickettitleInfo"]
 }
 </script>
 <style scoped>
@@ -91,20 +99,27 @@ export default {
 	.ticket-header{
 		position: relative;
 		height: .88rem;
-		background: #1ba9ba;
+		background: #00bcd4;
 		border-bottom: #1b7a8b 1px solid;
 		z-index: 20;
 	}
 	.ticket-header-back{
 		position: absolute;
+		left: .2rem;
+		top: 0;
+		transform: rotateZ(45deg);
+		width: .24rem;
+		height: .24rem;
+		border-left: .04rem solid #fff;
+		border-bottom: .04rem solid #fff;
+		margin: .3rem .1rem;
+	}
+	.ticket-headerback-link{
+		position: absolute;
 		left: 0;
 		top: 0;
-		width: .84rem;
+		width: .8rem;
 		height: .88rem;
-		line-height: .88rem;
-		text-align: center;
-		font-size: .36rem;
-		color: #fff; 
 	}
 	.ticket-header-title{
 		overflow: hidden;
@@ -157,7 +172,6 @@ export default {
 	}
 	.ticket-productlist{
 		width: 100%;
-		background-color: #fff;
 	}
 	.ticket-saleitem{
 		color: #333;
@@ -167,13 +181,14 @@ export default {
 	}
 	.ticket-imgcontainer{
 		overflow: hidden;
-		height: 0;
+		height: 3.1172rem;
 		width: 100%;
-		padding-bottom: 41.5625%;
 		position: relative;
 	}
 	.ticket-saleitem-img{
 		width: 100%;
+		height: 100%;
+		background-size: cover;  
 	}
 	.ticket-saleInfo{
 		display: flex;

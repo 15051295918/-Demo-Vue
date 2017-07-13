@@ -6,7 +6,7 @@
 			<div class="weekendtrip-item" v-for="(recommendItem, index) in weekendtripInfo" :key="index+'recommendItem'">
 				<router-link :to="'/weekend/'+index+'/'+recommendItem.title">
 					<div class="weekendtrip-item-imgcontainer">
-						<img class="weekendtrip-item-img" v-lazy="recommendItem.imgurl"/>
+						<img class="weekendtrip-item-img" :src="recommendItem.imgurl"/>
 					</div>
 					<div class="weekendtrip-descriptioncontainer">
 						<p class="weekendtrip-description-title">{{recommendItem.title}}</p>

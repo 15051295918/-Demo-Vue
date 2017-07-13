@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import promotionaltickets from "./promotional_tickets";
+import promotionaltickets from "./promotionaltickets";
 import hotrecommendation from './hotrecommendation';
 export default {
 	created:function(){
