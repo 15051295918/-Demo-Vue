@@ -49,7 +49,6 @@ export default {
             if(cityIndex){
                 this.activeIndex=cityIndex;
             }
-
             for (var i = 0; i < this.commentcityItmes.length; i++) {
                 cityItmes.push(this.commentcityItmes[i]);
             }

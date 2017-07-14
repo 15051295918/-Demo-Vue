@@ -19,9 +19,10 @@
         <div class="more-special-list" ref="scrolllist">            
             <ul class="list-big-box">
                 <li class="list-mall-box"  v-for="(item,index) in list" :key="index+'_list'">
-                    <a href="#" class="list-link">
+                <router-link to="/oneday/detail/:id">
+                    <a class="list-link">
                         <div class="list-img-box">
-                            <img :src="item.img"  class="list-img" v-lazy="item.img">
+                            <img class="list-img" v-lazy="item.img">
                             <div class="list-img-add">
                                 <span class="list-img-pos"></span>{{province}}    
                             </div>
@@ -43,6 +44,7 @@
                             </div>
                         </div>
                     </a>
+                    </router-link>
                 </li>
             </ul>
         </div>

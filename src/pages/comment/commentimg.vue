@@ -84,14 +84,15 @@
         width: 100%;
     }
     .swiper-pagination {
-        color: #eee;
+        color: #999;
         font-size: .32rem;
+       line-height: .8rem;
     }   
     .bottom-optionbox {
         width: 100%;
         height: 1rem;
         position: fixed;
-        left: 0;
+        left: .1rem;
         bottom: .8rem;
     }
    .swiper-button-prev,
@@ -102,6 +103,6 @@
         background: rgba(51,51,51,.8);
         border-radius: 50%; 
         line-height: .8rem; 
-        color: #eee;
+        color: #999;
    }
 </style> 
