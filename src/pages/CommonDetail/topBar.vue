@@ -15,7 +15,7 @@ export default {
     }, false)
   },
   beforeDestroy() {
-    window.removeEventListener("scroll")
+    window.removeEventListener("scroll",false)
   },
   data () {
     return {

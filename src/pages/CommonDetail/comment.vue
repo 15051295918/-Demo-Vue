@@ -26,7 +26,7 @@
 				</div>
 			</div>		
 		</div>
-		<a href="//touch.piao.qunar.com/touch/sight/comment.htm?sightId=38170&amp;cat=from_area%3Dtl_hot_search%26from_value%3D%25E6%2595%2585%25E5%25AE%25AB%26from_index%3D4" mp-role="commentLink">
+		<a href="/#/comment" mp-role="commentLink">
 			<div class="more-refresh border-top">
 				查看全部评论
 				<span class="mp-iconfont">></span>

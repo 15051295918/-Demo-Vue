@@ -1,5 +1,5 @@
 <template>
-	<a class="app-download iconfont" ref="app" @click="downloadapp">&#xe6c4;</a>
+	<div class="app-download iconfont" ref="app" @click="downloadapp">&#xe6c4;</div>
 </template>
 
 <script>
@@ -24,16 +24,16 @@ export default {
     scroll(this.$refs.app)　
   },
   beforeDestroy() {
-    window.removeEventListener("scroll")
+    window.removeEventListener("scroll",false)
   },
   methods:{
     downloadapp : function (event) {
       if( detect.os == 'iOS'){
-        Location.href = "https://itunes.apple.com/cn/app/id395096736";
+        window.open("https://itunes.apple.com/cn/app/id395096736", "_self");
       }else if(detect.os == 'Android'){
-        Location.href = "https://play.google.com/store/apps/details?id=com.Qunar&hl=zh";
+        window.open("https://play.google.com/store/apps/details?id=com.Qunar&hl=zh", "_self");
       }else if(detect.os != 'iOS' || 'Android'){
-        location.href = "./"
+        window.open("http://app.qunar.com/", "_self");
       }
     }
   },
@@ -56,8 +56,8 @@ export default {
         width: 1.36rem;
         height: 1.15rem;
         z-index: 98;
-        
         background-size: 1.36rem 1.36rem;
         font-size: 1rem;
+        color: #00afc7;
     }
 </style>
