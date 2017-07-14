@@ -17,7 +17,7 @@ export default new Router({
     {
       path: '/',
       name: 'index',
-        alias: '/index',
+      alias: '/index',
       component: Index
     }, {
       path: "/list",
@@ -28,21 +28,25 @@ export default new Router({
       name: 'comment',
       component: Comment
     }, {
-        path: "/weekend/:id/:title",
-        name: "weekend",
-        component: Weekend
-    },{
-        path: "/city",
-        name: "city",
-        component: City
+      path: "/weekend/:id/:title",
+      name: "weekend",
+      component: Weekend
+    }, {
+      path: "/city",
+      name: "city",
+      component: City
     }, {
       path: '/promote',
       name: 'promote',
       component: Promote
     }, {
-        path: "/sales",
-        name: "sales",
-        component: Sales
+      path: "/sales",
+      name: "sales",
+      component: Sales
+    }, {
+      path: "/oneday/detail/:pid",
+      name: "one-day",
+      component: OneDayTourDetail
     }
-    ]
+  ]
 })
