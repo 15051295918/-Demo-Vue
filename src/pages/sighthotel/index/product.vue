@@ -1,12 +1,14 @@
 <template>
 	<div class="index-produt border-top">
 		<div class="produt-title border-top">推荐产品</div>
-		<div class="product-item" v-for="item in data">
-			<div class="item-swiper">
-				<img class="item-img" :src="item.imgUrl" alt=""/>			
+		<router-link to="sighthotel/detail">
+			<div class="product-item" v-for="item in data">
+				<div class="item-swiper">
+					<img class="item-img" :src="item.imgUrl" alt=""/>			
+				</div>
+				<div class="item-name">{{item.name}}</div>	
 			</div>
-			<div class="item-name">{{item.name}}</div>	
-		</div>
+		</router-link>
 		<a href="/" class="product-more border-top">暂无更多数据</a>	
 	</div>
 </template>

@@ -6,3 +6,4 @@ export default {
       state.code = code;
     },
 }
+

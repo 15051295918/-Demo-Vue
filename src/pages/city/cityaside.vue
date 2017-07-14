@@ -1,6 +1,6 @@
 <template>
 	<ul class="letter" id="letter" >
-		<li @click="cityInitialHandleClick(item)" @touchmove.prevent="cityInitialHandleMousedown($event)" :class="{initial:index==cityInitialReturnIndex()}" v-for="(item, index) in cityInitialSortMethod">{{item.initialSort}}</li>	
+		<li class="letter-list" @click="cityInitialHandleClick(item)" @touchmove.prevent="cityInitialHandleMousedown($event)" v-for="(item, index) in cityInitialSortMethod">{{item.initialSort}}</li>	
 	</ul>
 </template>
 
@@ -41,6 +41,9 @@
 							index = this.cityInitialSort.length - 1;
 							break;
 						}
+						if(parseInt(window.getComputedStyle(document.body,false)["height"])-this.cityInitialSort[i].cityDistrictHeight<=window.innerHeight/2){
+							return;
+						}
 					}
 					this.$emit("scrollTop", this.cityInitialSort[index].cityDistrictHeight);	
 				}
@@ -48,26 +51,13 @@
 
 			cityInitialHandleClick: function(value) {
 				this.$emit("scrollTop", value.cityDistrictHeight);				
-			},
-
-			cityInitialReturnIndex: function(e) {
-				var maxCityDistrictHeight = this.cityInitialSort[this.cityInitialSort.length - 1].cityDistrictHeight - parseInt(window.innerHeight / 2, 10);
-				if(this.windowScrollTop >= maxCityDistrictHeight) {//容错
-					return this.cityInitialSort.length - 1;
-				}
-				for(var i = 0; i < this.cityInitialSort.length - 1; i++){
-					var prevCityDistrictHeight = this.cityInitialSort[i].cityDistrictHeight - parseInt(window.innerHeight / 2, 10);
-					var nextCityDistrictHeight = this.cityInitialSort[i + 1].cityDistrictHeight - parseInt(window.innerHeight / 2, 10);
-					if(this.windowScrollTop >= prevCityDistrictHeight && this.windowScrollTop <= nextCityDistrictHeight) {
-						return i;
-					}
-				}
-		    	return this.cityInitialSort;
 			}
+
 		},
 
 		computed: {
 		    cityInitialSortMethod: function() {
+		    	this.cityInitialSort=[];
 		    	var cityInitialSort = [],
 		    		cityDdistrictHeightArray = [],
 		    		count = 1,
@@ -108,14 +98,11 @@
 		right:0;
 		z-index: 9999;
 	}
-	li{
+	.letter-list{
 		font-size: 0.24rem;
 		width: .32rem;
 		line-height: .32rem;
 		color:#00afc7;
 		text-align: center;
-	}
-	li.initial{
-		color:#f00;
 	}
 </style>

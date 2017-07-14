@@ -17,7 +17,9 @@
     		<date-choose :date="categoryList[0]"></date-choose>
     		<room-choose :room="categoryList[1]"></room-choose>
     		<sight-tour-date :tourdate="categoryList[2]"></sight-tour-date>
-    		<a class="booking-footer" href="javascript:;">立即预订</a>
+        <router-link to="/sighthotel/order">
+    		  <a class="booking-footer" href="javascript:;">立即预订</a>
+        </router-link>
       </div>
   </transition>
 </template>
