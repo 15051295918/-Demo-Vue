@@ -1,4 +1,3 @@
 export default {
-	city: "",
-	code: ""
+	city:""
 }
