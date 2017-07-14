@@ -9,6 +9,7 @@
 				<span class="iconfont icon-img" >&#xe634;</span>{{swiperData.length}}
 			</div>
 		</div>
+		<div class="detail-header-close iconfont" @click="handleSkipClick">&#xe685;</div>
 		<div class="detailheader-mask" v-show="seen">
 			<div class="swiper-wrap">
 				<swiper :options="swiperOption" ref="mySwiper">
@@ -30,6 +31,7 @@
 	       	</div>
 	       	<div class="swiper-pagination" slot="pagination"></div>
 		</div>
+
 	</div>
 </template>
 
@@ -56,9 +58,14 @@
 		 methods: {
 		 	handleClick: function() {
 		 		return this.seen = true;
+		 	},
+		 	
+		 	handleSkipClick:function() {
+		 		window.history.back();
 		 	}
 		 }
 	}
+	
 </script>
 <style scoped>
 	.detail-wrap{
@@ -96,6 +103,19 @@
 		color: #fff;
 		text-align: center;
 		line-height: .4rem;
+	}
+	.detail-header-close{
+		z-index: 100;
+		position: absolute;
+		left: .1rem;
+		top: .1rem;
+		width: .72rem;
+		height: .72rem;
+		background: rgba(0,0,0,.6);
+		border-radius: 50%;
+		color: #FFF;
+		text-align: center;
+		line-height: .72rem;
 	}
 	.detailheader-mask{
 		position: fixed;

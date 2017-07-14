@@ -7,7 +7,7 @@
 		<div class="product-content border-bottom" v-for="(item,index) in data" :key="index + 'product'"  :id="index" @click="handleClick"  :style="object_height" >
 			<div class="content-first" >
 				<span class="productcontent-title">{{item.title}}<span class="title-item">{{item.title_item}}</span></span>
-				<span class="productcontent-money">&yen{{item.price}}<span class="money-item">起<span class="iconfont icon-down" :id="'icon'+index">&#xe64b;</span></span></span>
+				<span class="productcontent-money">&yen{{item.price}}<span class="money-item">起<span class="iconfont icon-downs" :id="'icon'+index">&#xe64b;</span></span></span>
 			</div>
 			<div class="product-sell">
 				<div class="sell-title border-right">
@@ -78,8 +78,10 @@
 		padding: .24rem .2rem;
 		height: .4rem;
 		line-height: .4rem;
+		display: flex;
 	}
 	.productcontent-title{
+		width: 80%;
 		float: left;
 		font-size: .3rem;
 	}
@@ -89,8 +91,9 @@
 		font-size: .24rem;
 	}
 	.productcontent-money{
+		width: 20%;
 		font-size: .36rem;
-		float: right;
+		text-align: right;
 		color: orange;
 	}
 	.money-item{

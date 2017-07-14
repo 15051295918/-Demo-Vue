@@ -1,14 +1,15 @@
 <template>
 	<div class="address-info">
-		<div class="address border-bottom" @click="handleAddressClick">
+		<div class="address border-bottom">
 			<p class="address-txt"><span class="iconfont icon-style">&#xe618;</span>北京市东城区景山前街4号<span class="iconfont icon-right">&#xe768;</span></p>
 		</div>
 		<div class="address border-bottom">
 			<p class="address-txt"><span class="iconfont icon-style">&#xe634;</span>查看景点简介及开放时间<span class="iconfont icon-right">&#xe768;</span></p>
 		</div>
 		<div class="address-score">
-			<span class="iconfont icon-face">&#xe629;</span>
-			<span class="iconfont icon-star">&#xe6e2;&#xe6e2;&#xe6e2;&#xe6e2;&#xe6e2;</span>
+			<span class="iconfont icon-faces">&#xe629;</span>
+
+			<span class="iconfont icon-stars">&#xe6e2;&#xe6e2;&#xe6e2;&#xe6e2;&#xe6e2;</span>
 			<span class="scroe">4.9分</span>
 			<span class="iconfont icon-right">&#xe768;</span>
 		</div>
@@ -25,9 +26,7 @@
 		},
 		
 		methods: {
-			handleAddressClick: function() {
-				alert("aaa")
-			}
+			
 			
 		}
 	}
@@ -68,11 +67,11 @@
 		float: right;
 		margin-right: 0.6rem;
 	}
-	.icon-face{
+	.icon-faces{
 		color: deepskyblue;
 		font-size: .4rem;
 	}
-	.icon-star{
+	.icon-stars{
 		color: deepskyblue;
 		font-size: .4rem;
 	}
