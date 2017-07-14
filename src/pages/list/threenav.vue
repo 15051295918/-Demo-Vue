@@ -37,9 +37,7 @@ export default {
 				playItem = playItem=="" ? "全部分类" : playItem;
 				window.localStorage.playItem = playItem;
 
-			}catch(err){
-
-			}
+			}catch(err){}
 		}
 	}
 	
