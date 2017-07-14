@@ -20,45 +20,45 @@ import commentmessage from './commentmessage'
 import destine from './destine'
 import booking from '../booking/booking'
 
-    export default {
-        created: function() {
-            this.$http.get('/static/sighthoteldetail.json').then(response => {
-                this.productInfo = response.body.data.productInfo;
-                this.imgswiperInfo = response.body.data.productInfo.imgswiperInfo;
-            }, response => {
-                console.log("get sighthoteldetail data error")
-            });
-        },
-        data () {
-            return {
-                productInfo: [],
-                imgswiperInfo: [],
-                bookingShow:false
-            }
-        },
-        methods: {
-            handleBookingShow() {
-                this.bookingShow = true;
-            },
-            handleBookingClose() {
-                this.bookingShow = false;
-            }
-        },
-        components: {
-            "detail-header" : header,
-            "detail-startGrade" : startgrade,
-            "detail-hotmessage" : hotmessage,
-            "detail-gightmessage" : gightmessage,
-            "detail-commentmessage" : commentmessage,
-            "detail-destine" : destine, 
-            "booking":booking
+export default {
+    created: function() {
+        this.$http.get('/static/sighthoteldetail.json').then(response => {
+            this.productInfo = response.body.data.productInfo;
+            this.imgswiperInfo = response.body.data.productInfo.imgswiperInfo;
+        }, response => {
+            console.log("get sighthoteldetail data error")
+        });
+    },
+    data () {
+        return {
+            productInfo: [],
+            imgswiperInfo: [],
+            bookingShow:false
         }
-
+    },
+    methods: {
+        handleBookingShow() {
+            this.bookingShow = true;
+        },
+        handleBookingClose() {
+            this.bookingShow = false;
+        }
+    },
+    components: {
+        "detail-header" : header,
+        "detail-startGrade" : startgrade,
+        "detail-hotmessage" : hotmessage,
+        "detail-gightmessage" : gightmessage,
+        "detail-commentmessage" : commentmessage,
+        "detail-destine" : destine, 
+        "booking":booking
     }
+
+}
 </script>
 
 <style scoped>
-     .main {
+    .main {
         position: absolute;
         left: 0;
         top: 0;

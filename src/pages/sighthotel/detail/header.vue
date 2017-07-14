@@ -84,7 +84,6 @@ export default {
         text-align: center;
         color: #fff;
     }
-
     .detail-header {
         position: fixed;
         top: 0;
@@ -96,7 +95,6 @@ export default {
         background: #00bcd4;
         font-size: .28rem;
     }
-
     .header-left {
         display: block;
         width: .88rem;
@@ -108,7 +106,6 @@ export default {
         color: #fff;
         font-size: .36rem;
     }
-
     .header-title {
         line-height: .88rem;
         overflow: hidden;
@@ -118,8 +115,6 @@ export default {
         font-size: .32rem;
         text-align: center;
     }
-
-    /* 返回箭头 */
     .return{
         position: absolute;
         z-index: 10;
@@ -132,7 +127,6 @@ export default {
         border-bottom: .04rem solid #fff;
         margin: .3rem .1rem;
     }
-
     .topimg-box {
         width: 100%;
         height: 0;
@@ -140,15 +134,12 @@ export default {
         padding-bottom: 56.25%;
         position: relative;
     }
-
     .topimg-img {
         width: 100%;
     }
-
     .tu-iconfont {
         font-size: .2rem;
     }
-
     .topimg-info {
         overflow: hidden;
         position: absolute;
@@ -164,7 +155,6 @@ export default {
         text-align: center;
         border-radius: .2rem;
     }
-    /* 蒙层图 */
    .swiper-box {
         display: block;
         position: fixed;
@@ -174,7 +164,6 @@ export default {
         background: #000;
         width: 100%;
     }
-    
      .slide-closebutton {
         position: absolute;
         top: .6rem;
@@ -184,8 +173,7 @@ export default {
         color: #fff;
         font-size: .6rem;
     }
-
-     .topimg-data {
+    .topimg-data {
         position: absolute;
         top: 0;
         left: 0;
@@ -196,7 +184,6 @@ export default {
         padding-bottom: 56.25%;
         margin: auto;
     }
-
     .swiper-imgbox {
         width: 100%;
         height: 0;
@@ -204,11 +191,9 @@ export default {
         padding-bottom: 56.25%;
         position: relative;
     }
-
     .swiper-img {
         width: 100%;
     }
-    
     .page-btn {
         width: 100%;
         position: fixed;
@@ -217,9 +202,7 @@ export default {
         left: 0;
         bottom: .8rem;
     }
-
-   .swiper-button-prev,
-   .swiper-button-next {
+    .swiper-button-prev, .swiper-button-next {
         width: .8rem;
         height: .8rem;
         font-size: .6rem;
@@ -227,8 +210,6 @@ export default {
         border-radius: 50%; 
         line-height: .8rem;  
    }
-
-    /* 配图说明 */
     .prdcard-con {
         position: relative;
         margin-top: -.1rem;
@@ -236,22 +217,18 @@ export default {
         background: #fff;
         border-radius: .1rem .1rem 0 0;
     }
-
     .prdcard-con::before {
         border-color: #dadada;
     }
-    
     .prdcard-infocon {
         font-size: .32rem;
         color: #212121;
         line-height: .38rem;
     }
-
     .prdcard-pricecon {
         overflow: hidden;
         height: .7rem;
     }
-
     .prdcard-priceicon {
         display: block;
         float: left;
@@ -261,7 +238,6 @@ export default {
         font-size: .4rem;
         transform: scale(.5);
     }
-
     .prdcard-pricetext {
         display: block;
         float: left;
@@ -270,7 +246,6 @@ export default {
         color: #ff8300;
         font-size: .48rem;
     }
-    
     .prdcard-priceunit {
         display: block;
         float: left;

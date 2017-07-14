@@ -32,15 +32,12 @@ export default {
         margin-top: .2rem;
         background: #fff;
     }
-
     .start-grade::before {
         border-color: #dadada;
     }
-
     .start-grade::after {
         border-color: #dadada;
     }
-
     .linkarea {
         position: absolute;
         z-index: 2;
@@ -51,23 +48,19 @@ export default {
         width: 100%;
         height: 100%;
     }
-    
     .comments-total {
         line-height: .9rem;
         color: #212121;
         font-size: .28rem;
     }
-
     .starlevel {
         color: #00bcd4;
     }
-    
     .comments-totalnum {
         padding-left: .1rem;
         color: #9e9e9e;
         font-size: .28rem;
     }
-    
     .comments-arrow {
         position: absolute;
         z-index: 1;
@@ -80,13 +73,4 @@ export default {
         border-bottom: .02rem solid #9e9e9e;
         margin: .3rem .1rem;
     }
-    
-
-
-
-
-
-
-
-
 </style>

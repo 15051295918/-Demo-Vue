@@ -70,7 +70,6 @@
         background: #fff;
         margin-top:.2rem;
     }
-
     .prddetail-title {
         overflow: hidden;
         position: relative;
@@ -79,7 +78,6 @@
         line-height: .9rem;
         text-indent: .38rem;
     }
-    
     .comment-content {
         overflow: hidden;
         line-height: .48rem;
@@ -87,36 +85,29 @@
         font-size: .28rem;
         color: #9e9e9e;
     }
-
     .comments-item {
         position: relative;
         padding: .2rem 0 .3rem 0;
     }
-
     .comments-name {
         line-height: .42rem;
         color: #212121;
-    }
-    
+    } 
     .content-level {
         line-height: .6rem;
     }
-    
     .starlevel {
         top: .02rem;
         position: relative;
         width: 1.4rem;
         height: .28rem;
     }
-
     .starlevel-gain {
         color: #00bcd4;
     }
-
     .comments-date {
         margin-left: .2rem;
-    }
-    
+    } 
     .comments-text {
         line-height: .42rem;
         font-size: .28rem;
@@ -125,9 +116,7 @@
         display: -webkit-box;
         -webkit-line-clamp: 4;
         -webkit-box-orient: vertical;
-
     }
-
     .comments-imgs {
         margin-top: .1rem;
         overflow: hidden;
@@ -135,13 +124,11 @@
         font-size: 0;
         white-space: nowrap; 
     }
-
     .comments-img {
         width: 1.6rem;
         height: 1.6rem;
         margin-right: .2rem;
     }
-    
     .prddetail-entercon {
         position: relative;
         margin: 0 auto;
@@ -150,8 +137,6 @@
         font-size: .28rem;
         text-align: center;
     }
-
-
     .go-arrow {
         padding-left: .08rem;
         color: #9e9e9e;

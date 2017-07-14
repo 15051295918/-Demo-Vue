@@ -1,20 +1,22 @@
 <template class="header">
 	<header class="j-header">
-		<a class="j-header-left mpg-iconfont" mp-role="left"><</a>
+		<a class="j-header-left iconfont" mp-role="left">&#xe657;</a>
 		<h1 class="j-header-title" mp-role="title">
-			<a href="//touch.piao.qunar.com/touch/weekend/cityselect.htm?nextpage=sighthotel&amp;region=%E5%8C%97%E4%BA%AC&amp;cat=from_area%3Dt_change_city%26dist_city%3D%25E5%258C%2597%25E4%25BA%25AC">
+			<router-link to="/city">
 				<span class="j-header-title-extend">北京</span>
-			</a>
+			</router-link>
 		</h1>
 		<span class="j-header-right" mp-role="right">
-			<a href="//touch.piao.qunar.com/touch/list.htm?isSearch=1&amp;region=%E5%8C%97%E4%BA%AC&amp;cityName=%E5%8C%97%E4%BA%AC&amp;limitCondition=sightHotel&amp;cat=from_area%3Dt_search%26dist_city%3D%25E5%258C%2597%25E4%25BA%25AC">
+			<router-link to="/city">
 				<span class="j-header-search iconfont">&#xe6d1;</span>
-			</a>
+			</router-link>
 		</span>
 	</header>
 </template>
 
 <script>
+
+
 export default{
 	data(){
 		return{

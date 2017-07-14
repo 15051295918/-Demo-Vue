@@ -25,15 +25,10 @@ export default {
         "orders-product":ordersproduct,
         "orders-buyinformation": ordersbuyinformation,
         "orders-information": ordersinformation
-
-    }
-
-   
+    } 
 }
 
-
 </script>
-
 
 <style scoped>
   	.main {
@@ -43,6 +38,5 @@ export default {
         min-height: 100%;
         background: #f5f5f5;
     }
-
 </style>
 

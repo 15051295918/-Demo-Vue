@@ -1,4 +1,3 @@
-
 <template>
 <div class="main">
 	<div class="phonearea-header">
@@ -15,14 +14,11 @@
                 <span class="suggest-item-code" :data-code="item.code">+{{item.key}}</span>
             </div>
         </li>
-    </ul>
-	
-              
+    </ul>             
 </div>
 </template>
 
 <script>
-
 
 export default {
     created: function(){
@@ -47,9 +43,7 @@ export default {
             this.$store.commit("changeCode", code);
             this.$router.go(-1)
         }
-    }
-    
-   
+    } 
 }
 
 

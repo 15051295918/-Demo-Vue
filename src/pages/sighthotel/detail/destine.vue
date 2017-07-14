@@ -39,7 +39,6 @@
     	width: 100%;
     	height: 1.2rem;
     }
-
     .fixbooking-con {
 		display: flex;
     	position: fixed;
@@ -50,31 +49,26 @@
 		height: .98rem;
 		font-size: .24rem;
     }
-
 	.fixbooking-pricecon {
 		flex: 1;
 		height: .98rem;
 		background: #fff;
 		text-indent: .2rem;
 	}
-
 	.fixbooking-priceitemsingle {
 		line-height: .98rem;
 		height: .98rem;
 		color: #9e9e9e;
 		font-size: .24rem;
 	}
-
 	.fixbooking-priceicon {
 		color: #ff8300;
    		font-size: .24rem;
 	}
-
 	.fixbooking-price {
 		color: #ff9800;
     	font-size: .4rem;
 	}
-
 	.fixbooking-btn {
 		flex: 1;
 		line-height: .98rem;
@@ -87,7 +81,5 @@
 	.fixbooking-btn-a {
 		color: #fff;
 	}
-
-
 </style>
 

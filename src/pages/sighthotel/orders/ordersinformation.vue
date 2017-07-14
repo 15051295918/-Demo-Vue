@@ -38,27 +38,21 @@
 
 <script>
 
-
 export default {
-
-    
+  
     data() {
       return {
         "seen":false,
-        
-      
       }
     },
-     
+
     methods: {
         productShow: function() {
             this.seen = !this.seen
-
         }      
     }
    
 }
-
 
 </script>
 
@@ -71,139 +65,136 @@ export default {
         margin: .2rem 0;
     }
     .orders-information {		
-		background: #fff;
+		    background: #fff;
     }
     .orders-information-traveller {
-    	position: relative;
-    	min-height: .5rem;
-		  padding: .24rem;
+      	position: relative;
+      	min-height: .5rem;
+  		  padding: .24rem;
     }
     .orders-phone {
-    	min-height: .5rem;
-		padding: .24rem;
+      	min-height: .5rem;
+  		  padding: .24rem;
     }
     .orders-traveller {
-    	float: left;
-    	width: 1.6rem;
-    	color: #616161;
-    	font-size: .3rem;
-    	line-height: .5rem;
+      	float: left;
+      	width: 1.6rem;
+      	color: #616161;
+      	font-size: .3rem;
+      	line-height: .5rem;
     }
     .phone-area  {
-		display: absolute;
-		display: inline-block;
-		min-width: .4rem;
-		max-width: 1rem;
-		margin-right: .1rem;
-		padding: 0 .24rem 0 .06rem;
-		text-align: right;
-		overflow: hidden;
-		font-size: .28rem;
-		line-height: .5rem;
-		white-space: nowrap;
-		text-overflow: ellipsis;
-		color: #888;
+    		display: absolute;
+    		display: inline-block;
+    		min-width: .4rem;
+    		max-width: 1rem;
+    		margin-right: .1rem;
+    		padding: 0 .24rem 0 .06rem;
+    		text-align: right;
+    		overflow: hidden;
+    		font-size: .28rem;
+    		line-height: .5rem;
+    		white-space: nowrap;
+    		text-overflow: ellipsis;
+    		color: #888;
     }
    .phone-call {
-      font: normal .32rem/.38rem;
-      border: 0 none;
-      outline: 0 none;
-      height: .38rem;
-      margin-top: -0.4rem;
-    
-   
+        font: normal .32rem/.38rem;
+        border: 0 none;
+        outline: 0 none;
+        height: .38rem;
+        margin-top: -0.4rem;
     } 
     .customer {
-    	position: absolute;
-    	top: .26rem;
-    	right: .2rem;
-    	width: .4rem;
-    	height: .5rem;
-    	color: #1ba9ba;
-    	display: inline-block;
-    	font-size: .32rem;
-    	line-height: .5rem;
-    	text-align: center;
+      	position: absolute;
+      	top: .26rem;
+      	right: .2rem;
+      	width: .4rem;
+      	height: .5rem;
+      	color: #1ba9ba;
+      	display: inline-block;
+      	font-size: .32rem;
+      	line-height: .5rem;
+      	text-align: center;
     }
     .orders-supplier {
-    	position: relative;
-    	margin-top: .2rem;
-    	min-height: .5rem;
-		padding: .24rem;
-		background: #fff;
+      	position: relative;
+      	margin-top: .2rem;
+      	min-height: .5rem;
+    		padding: .24rem;
+    		background: #fff;
     }
     .traveller-name {
-    	font: normal .32rem/.38rem;
-    	border: 0 none;
-    	outline: 0 none;
+      	font: normal .32rem/.38rem;
+      	border: 0 none;
+      	outline: 0 none;
     }
-   
     .supplier-name {
-		font-size: .3rem;
-		line-height: .5rem;
+    		font-size: .3rem;
+    		line-height: .5rem;
     }
     .price {
-    	overflow: hidden;
+    	  overflow: hidden;
         z-index: 94;
         background: #fff;
     }
    .sumbit-price {
-   	position: fixed;
-   	z-index: 94;
-   	left: 0;
-   	bottom: 0;
-   	right: 0;
-   	width: 100%;
-   	height: 1rem;
-   	background: #fff;
+       	position: fixed;
+       	z-index: 94;
+       	left: 0;
+       	bottom: 0;
+       	right: 0;
+       	width: 100%;
+       	height: 1rem;
+       	background: #fff;
    }
    .product-info {
-   		position: absolute;
-   		right: 0;
-   		bottom: 1rem;
-   		left: 0;
-   		width: 100%;
-   		padding: .15rem .2rem;
+     		position: absolute;
+     		right: 0;
+     		bottom: 1rem;
+     		left: 0;
+     		width: 100%;
+     		padding: .15rem .2rem;
         z-index: 94;
-   		background:#fff;
-   		box-sizing: border-box;
+     		background:#fff;
+     		box-sizing: border-box;
    }
    .product-price {
-   		position: relative;
-   		float: left;
-   		font-size: .24rem;
-   		line-height: 1rem;
-   		text-indent: .2rem;
-   		width: 50%;
-   		color: #ff8300;
+     		position: relative;
+     		float: left;
+     		font-size: .24rem;
+     		line-height: 1rem;
+     		text-indent: .2rem;
+     		width: 50%;
+     		color: #ff8300;
    }
    .price-number {
-   		font-size: .48rem;
+   		  font-size: .48rem;
    }
    .product-show {
-   	color: #c1c1c1;
+   	    color: #c1c1c1;
    }
    .submit-order {
-   		float: right;
-   		border: 0 none;
-   		background: #ff9800;
-   		color: #fff;
-   		font-size: .36rem; 
-   		line-height: 1rem; 
-   		text-align: center;
-   		width: 50%;   		
+     		float: right;
+     		border: 0 none;
+     		background: #ff9800;
+     		color: #fff;
+     		font-size: .36rem; 
+     		line-height: 1rem; 
+     		text-align: center;
+     		width: 50%;   		
    }
    .info-title {
-   		color: #212121;
-   		font-size: .32rem;
-   		line-height: .44rem;
-   		margin-bottom: .04rem;
+     		color: #212121;
+     		font-size: .32rem;
+     		line-height: .44rem;
+     		margin-bottom: .04rem;
    }
    .info-price {
-   		height: .44rem;
-   		line-height: .44rem;
-   		color: #9e9e9e;
-   		font-size: .24rem;
+     		height: .44rem;
+     		line-height: .44rem;
+     		color: #9e9e9e;
+     		font-size: .24rem;
    }
    .layer {
         top: 0;

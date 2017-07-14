@@ -19,7 +19,6 @@ export default new Router({
     {
       path: '/',
       name: 'index',
-      alias: '/index',
       component: Index
     }, {
       path: "/list",
@@ -57,10 +56,6 @@ export default new Router({
       path:"/phonearea",
       name:"phonearea",
       component: Phonearea
-    }, {
-      path: "/city",
-      name: "city",
-      component: City
     }
   ]
 })

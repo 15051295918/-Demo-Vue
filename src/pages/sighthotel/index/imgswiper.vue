@@ -31,7 +31,6 @@ export default {
 }
 </script>
 
-
 <style scoped>
 	.img-wrapper {
 		overflow: hidden;

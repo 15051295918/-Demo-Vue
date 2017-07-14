@@ -68,7 +68,5 @@ export default {
     	padding: 0 .25rem;
     	color: #fff;
     	text-align: center;
-	}  
-    
-
+	}
 </style>

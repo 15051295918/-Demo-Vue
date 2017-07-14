@@ -34,15 +34,12 @@ export default {
         margin-top: .2rem;
         background-color: #fff; 
     }
-    
     .prddetail-group::before {
         border-color: #dadada;
     }
-    
     .prddetail-group::after {
         border-color: #dadada;
     }
-    
     .prddetail-title {
         overflow: hidden;
         position: relative;
@@ -51,7 +48,6 @@ export default {
         line-height: .9rem;
         text-indent: .38rem;
     }
-    
     .prddetail-content {
         margin-bottom: .2rem;
         padding: .1rem .2rem 0 .2rem;
@@ -59,18 +55,15 @@ export default {
         font-size: .28rem;
         line-height: .48rem;
     }
-
     .prddetail-pricesubtitle {
         overflow: hidden;
         position: relative;
         margin: .14rem 0;
         line-height: .54rem;
     }
-
     .prddetail-subtitle-name {
         color: #212121;
     }
-
     .prddetail-entercon {
         position: relative;
         margin: 0 auto;
@@ -79,7 +72,6 @@ export default {
         font-size: .28rem;
         text-align: center;
     }
-
     .prddetail-more{
         position: relative;
         margin: 0 auto;
@@ -88,11 +80,9 @@ export default {
         line-height: .9rem;
         text-align: center;
     }
-    
     .go-arrow {
         padding-left: .08rem;
         color: #9e9e9e;
         font-size: .24rem;
     }
-
 </style>

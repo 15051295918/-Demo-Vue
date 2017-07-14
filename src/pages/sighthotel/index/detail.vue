@@ -109,7 +109,6 @@ export default {
         width: 100%;
         min-height: 100%;
         background: #000;
-
 	}
 	.icon-close{
 		width: 0.6rem;
@@ -119,7 +118,6 @@ export default {
 		top: 0.88rem;
 		right: 0.66rem;
 		z-index: 50;
-
 	}
 
 

@@ -78,8 +78,5 @@ export default {
 		line-height: .9rem;
 		text-align: center;
 		background: #fff;
-
-	}
-	
-
+	}	
 </style>
