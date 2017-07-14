@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import "../../utils/iscroll.js";
+import "../../utils/iscroll-lite.js";
 
 export default {
 	updated() {

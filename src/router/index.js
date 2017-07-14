@@ -6,6 +6,7 @@ import SigthotelIndex from "@/pages/sighthotel/index/index"
 import SigthotelDetail from "@/pages/sighthotel/detail/index"
 import SigthotelOrderIndex from "@/pages/sighthotel/orders/index"
 import Phonearea from "@/pages/sighthotel/orders/phonearea"
+import onedayList from '@/pages/oneday-list/index'
 import Detail from '@/pages/CommonDetail/index'
 import WeekendIndex from '@/pages/weekendIndex/index'
 import Oneday from '@/pages/oneday/index'
@@ -36,6 +37,10 @@ export default new Router({
             name: 'index',
             component: Index
         }, {
+        path: "/oneday-list",
+        name: "onedayList",
+        component: onedayList
+    		}, {
             path: "/list",
             name: "list",
             component: List

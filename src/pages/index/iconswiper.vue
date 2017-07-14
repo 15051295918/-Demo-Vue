@@ -2,6 +2,7 @@
     <div>
         <swiper :options="swiperOption" ref="mySwiper">
             <swiper-slide v-for="(page, index) in pages" :key="index + '_icon_swiper_item'">
+
                 <div class="icon-container" >
                     <div class="icon-wrapper" v-for="item in page">
                       <router-link :to="item.link">
