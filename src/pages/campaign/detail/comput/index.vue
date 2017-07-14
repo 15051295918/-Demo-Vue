@@ -286,7 +286,7 @@
 	}
 
 	.notice-item:not(:last-of-type) .notice-num::after {
-	    content: '';
+	    content: '\0020';
 	    position: absolute;
 	    top: .38rem;
 	    bottom: -1.68rem;

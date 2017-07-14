@@ -310,7 +310,7 @@
 	}
 	
 	.cam-prddetail-title::after {
-		content: "";
+		content: "\0020";
 		position: absolute;
 		top: .31rem;
 		left: .2rem;

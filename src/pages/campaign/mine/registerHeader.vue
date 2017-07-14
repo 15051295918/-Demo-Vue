@@ -1,11 +1,9 @@
 <template>
 	<header class="header">
 		<router-link class="header-left" to="/campaign/mine">
-	  			<div class="return"></div>
+	  		<div class="return"></div>
 	  	</router-link>
-  		<div class="header-title">
-  			注册
-  		</div>
+  		<div class="header-title">注册</div>
   	</header>
 </template>
 

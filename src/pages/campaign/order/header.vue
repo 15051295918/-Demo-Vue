@@ -1,10 +1,10 @@
 <template>
-	<header class="cam-order-header border-bottom">
-  		<a class="cam-order-header-left" @click="handleBack">
-			<div class="cam-order-return"></div>
+	<header class="order-header border-bottom">
+  		<a class="order-header-left" @click="handleBack">
+			<div class="order-return"></div>
   		</a>
-  		<div class="cam-order-header-title">			
-			<h1 class="cam-order-single-line">订单填写</h1>
+  		<div class="order-header-title">			
+			<h1 class="order-single-line">订单填写</h1>
   		</div>
   	</header>
 </template>
@@ -30,7 +30,7 @@
 
 
 <style scoped>
-	.cam-order-header {
+	.order-header {
 	    position: relative;
 	    display: -webkit-box;
 	    display: -moz-box;
@@ -44,7 +44,7 @@
 		border-bottom: #1b7a8b .01rem solid;
 	}
 
-	.cam-order-header-left {
+	.order-header-left {
 	    display: inline-block;
 	    width: .4rem;
 	    line-height: .88rem;
@@ -54,7 +54,7 @@
 	    text-align: left;
 	}
 
-	.cam-order-header-title {		
+	.order-header-title {		
 		height: .88rem;
 		line-height: .88rem;
 		position: absolute;
@@ -63,13 +63,13 @@
 		transform: translate(-50%,-50%);
 	}
 	
-	.cam-order-single-line {
+	.order-single-line {
 	    font-size: .32rem;
 	    text-align: center;
 	    color: #fff;
 	}
 
-    .cam-order-return{
+    .order-return{
 		transform: rotateZ(45deg);
 		width: .2rem;
 		height: .2rem;

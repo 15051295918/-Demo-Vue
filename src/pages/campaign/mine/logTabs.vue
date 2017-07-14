@@ -130,154 +130,153 @@
 
 
 <style scoped>
-  .loginTabBox {
-    width: 100%;
-    height: .9rem;
-    background-color: #18a9b9;
-    padding: .05rem .2rem 0;
-   
-  }
-  
-  .loginTabBoxBorder {
-     border:1px solid #fff;
-     border-radius: .06rem;
-     height: .64rem;
-     width: 7.84rem;
-  }
-  
-  .loginTab {
-    width: 3.92rem;
-    height: .64rem;
-    text-align: center;
-    line-height: .64rem;
-    background-color: #18a9b9;
-    color: #fff;
-    float: left;
-    font-size: .32rem;
-  }
-  
-  .handleClick {
-    background-color: #fff;
-    color: #18a9b9;
-  }
-  
-  .formStyle {
-    border-top:.01rem solid #ccc;
-    border-bottom:.01rem solid #ccc;
-    margin-top:.2rem;
-    padding-left:.2rem;
-    background:#fff;
-    font-size:.16rem
-  }
-  
-  .formContolFrist {
-    display:-webkit-box;
-    display:-webkit-flex;
-    display:-moz-box;
-    display:-ms-flexbox;
-    display:flex;
-    -webkit-box-direction:normal;
-    -webkit-flex-direction:row;
-    -ms-flex-direction:row;
-    flex-direction:row;
-    width:100%;
-    border-bottom:.01rem solid #ddd;
-    line-height:.45rem
-  }
-  
-  .formContollast {
-    display:-webkit-box;
-    display:-webkit-flex;
-    display:-moz-box;
-    display:-ms-flexbox;
-    display:flex;
-    -webkit-box-direction:normal;
-    -webkit-flex-direction:row;
-    -ms-flex-direction:row;
-    flex-direction:row;
-    width:100%;
-    line-height:.45rem
-  }
-  
-  .contolLabel {
-    display:block;
-    width:1.8rem;
-    height: .9rem;
-    color: #19a9ba;
-    font-size: .32rem;
-    line-height: .9rem;
-  }
-  
-  .contolContainer {
-    display:-webkit-box;
-    display:-webkit-flex;
-    display:-moz-box;
-    display:-ms-flexbox;
-    display:flex;
-    -webkit-box-direction:normal;
-    -webkit-flex-direction:row;
-    -ms-flex-direction:row;
-    flex-direction:row;
-    width:100%;
-    -webkit-box-flex:1;
-    -webkit-flex:1;
-    -moz-box-flex:1;
-    -ms-flex:1;
-    flex:1;
-    position:relative;
-    border:0;
-    vertical-align:middle
-  }
-  
-  .contolText {
-    -webkit-box-flex:1;
-    -webkit-flex:1;
-    -moz-box-flex:1;
-    -ms-flex:1;flex:1;
-    display:block;
-    margin-top:.16rem;
-    width:.01rem;
-    height:.6rem;
-    border:0;
-    line-height:.3rem;
-    color:#000;
-    font-size: .32rem;
-  }
-  
-  .rightBtn {
-    display:block;
-    margin:.14rem .2rem;
-    width:2rem;
-    height:.6rem;
-    border-radius:.06rem;
-    text-align:center;
-    line-height: .6rem;
-    border:.01rem solid #ccc;
-    color: #d7dce0;
-    font-size: .28rem;
-  }
-  
-  .btn {
-    color:#fff;
-    text-align:center;
-    width: 7.88rem;
-    height: 1rem;
-    line-height:1rem;
-    display:block;
-    background:#85d1db;
-    border-radius:.06rem;
-    font-size: .36rem;
-    margin: 0 auto;
-    margin-top: .2rem;
-  }
-  
-  .changeColor {
-    color: #1ba9ba;
-    border:.01rem solid #1ba9ba;
-  }
-  
-  .changeBackground {
-    background-color:#18a9b9;
-  }
-  
+    .loginTabBox {
+        width: 100%;
+        height: .9rem;
+        background-color: #18a9b9;
+        padding: .05rem .2rem 0;
+    }
+
+    .loginTabBoxBorder {
+        border:1px solid #fff;
+        border-radius: .06rem;
+        height: .64rem;
+        width: 7.84rem;
+    }
+
+    .loginTab {
+        width: 3.92rem;
+        height: .64rem;
+        text-align: center;
+        line-height: .64rem;
+        background-color: #18a9b9;
+        color: #fff;
+        float: left;
+        font-size: .32rem;
+    }
+
+    .handleClick {
+        background-color: #fff;
+        color: #18a9b9;
+    }
+
+    .formStyle {
+        border-top:.01rem solid #ccc;
+        border-bottom:.01rem solid #ccc;
+        margin-top:.2rem;
+        padding-left:.2rem;
+        background:#fff;
+        font-size:.16rem
+    }
+
+    .formContolFrist {
+        display:-webkit-box;
+        display:-webkit-flex;
+        display:-moz-box;
+        display:-ms-flexbox;
+        display:flex;
+        -webkit-box-direction:normal;
+        -webkit-flex-direction:row;
+        -ms-flex-direction:row;
+        flex-direction:row;
+        width:100%;
+        border-bottom:.01rem solid #ddd;
+        line-height:.45rem
+    }
+
+    .formContollast {
+        display:-webkit-box;
+        display:-webkit-flex;
+        display:-moz-box;
+        display:-ms-flexbox;
+        display:flex;
+        -webkit-box-direction:normal;
+        -webkit-flex-direction:row;
+        -ms-flex-direction:row;
+        flex-direction:row;
+        width:100%;
+        line-height:.45rem
+    }
+
+    .contolLabel {
+        display:block;
+        width:1.8rem;
+        height: .9rem;
+        color: #19a9ba;
+        font-size: .32rem;
+        line-height: .9rem;
+    }
+
+    .contolContainer {
+        display:-webkit-box;
+        display:-webkit-flex;
+        display:-moz-box;
+        display:-ms-flexbox;
+        display:flex;
+        -webkit-box-direction:normal;
+        -webkit-flex-direction:row;
+        -ms-flex-direction:row;
+        flex-direction:row;
+        width:100%;
+        -webkit-box-flex:1;
+        -webkit-flex:1;
+        -moz-box-flex:1;
+        -ms-flex:1;
+        flex:1;
+        position:relative;
+        border:0;
+        vertical-align:middle
+    }
+
+    .contolText {
+        -webkit-box-flex:1;
+        -webkit-flex:1;
+        -moz-box-flex:1;
+        -ms-flex:1;flex:1;
+        display:block;
+        margin-top:.16rem;
+        width:.01rem;
+        height:.6rem;
+        border:0;
+        line-height:.3rem;
+        color:#000;
+        font-size: .32rem;
+    }
+
+    .rightBtn {
+        display:block;
+        margin:.14rem .2rem;
+        width:2rem;
+        height:.6rem;
+        border-radius:.06rem;
+        text-align:center;
+        line-height: .6rem;
+        border:.01rem solid #ccc;
+        color: #d7dce0;
+        font-size: .28rem;
+    }
+
+    .btn {
+        color:#fff;
+        text-align:center;
+        width: 7.88rem;
+        height: 1rem;
+        line-height:1rem;
+        display:block;
+        background:#85d1db;
+        border-radius:.06rem;
+        font-size: .36rem;
+        margin: 0 auto;
+        margin-top: .2rem;
+    }
+
+    .changeColor {
+        color: #1ba9ba;
+        border:.01rem solid #1ba9ba;
+    }
+
+    .changeBackground {
+        background-color:#18a9b9;
+    }
+
 </style>

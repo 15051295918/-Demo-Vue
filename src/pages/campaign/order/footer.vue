@@ -1,37 +1,37 @@
 <template>	
-    <footer class="cam-order-control-outer">
-        <div class="cam-order-booking-intro" @click="hidden = !hidden">
+    <footer class="order-control-outer">
+        <div class="order-booking-intro" @click="hidden = !hidden">
             <em>应付金额</em>
-            <strong class="cam-order-price">
-                <em class="cam-order-price-num">{{numberInfo}}</em>
-                夺宝币
+            <strong class="order-price">
+                <em class="order-price-num">{{numberInfo}}</em>
+                	夺宝币
                 <input type="hidden" id="payAmount" value="5" name="payAmount">
             </strong>
-            <span class="cam-order-iconfont "><</span>
+            <span class="order-iconfont "><</span>
         </div>
 
-        <a class="cam-order-booking-btn">提交订单</a>
+        <a class="order-booking-btn">提交订单</a>
 
-        <div class="cam-order-booking-detail-outer" v-if="hidden">
-            <div class="cam-order-booking-detail">
-                <div class="cam-order-info-main">
-                    <h2 class="cam-order-info-title">【休闲轻食】小苏州千禧福团 320g*2盒（包邮）</h2>
-                    <div class="cam-order-info-note">
-                        <em class="cam-order-price-num">{{numberInfo}}</em>夺宝币
+        <div class="order-booking-detail-outer" v-if="hidden">
+            <div class="order-booking-detail">
+                <div class="order-info-main">
+                    <h2 class="order-info-title">【休闲轻食】小苏州千禧福团 320g*2盒（包邮）</h2>
+                    <div class="order-info-note">
+                        <em class="order-price-num">{{numberInfo}}</em>夺宝币
                     </div>
                 </div>
                 <input type="hidden" name="opType" value="saveOrder">                   
-                <div class="cam-order-info-sub">
+                <div class="order-info-sub">
                     <p>实付款（在线支付）</p>
-                    <div class="cam-order-info-price">
-                        <em class="cam-order-price-num">{{numberInfo}}</em>
+                    <div class="order-info-price">
+                        <em class="order-price-num">{{numberInfo}}</em>
                         夺宝币
                     </div>
                 </div>
             </div>
         </div>
         
-		<div class="cam-order-mask" v-if="hidden" @click="handleHidden"></div>
+		<div class="order-mask" v-if="hidden" @click="handleHidden"></div>
     </footer>
 </template>
 
@@ -55,7 +55,7 @@
 
 
 <style scoped>
-	.cam-order-control-outer {
+	.order-control-outer {
 	    position: fixed;
 	    z-index: 92;
 	    right: 0;
@@ -67,7 +67,7 @@
         border-top: 1px solid #eaeaea;
 	}
 
-	.cam-order-booking-intro {
+	.order-booking-intro {
 	    float: left;
 	    font-size: .24rem;
 	    line-height: 1rem;
@@ -77,22 +77,22 @@
 	    background: #fff;
 	}
 
-	.cam-order-price {
+	.order-price {
 	    color: #ff4501;
 	}
 
-	.cam-order-price-num {
+	.order-price-num {
 	    margin-right: .08rem;
 	    font-size: .32rem;
 	}
 
-	.cam-order-booking-fold {
+	.order-booking-fold {
 	    color: #c1c1c1;
 	    font-size: .28rem;
 	    vertical-align: -.04rem;
 	}
 
-	.cam-order-booking-btn {
+	.order-booking-btn {
 	    float: right;
 	    border: 0 none;
 	    background: #ff4501;
@@ -102,7 +102,7 @@
 	    width: 50%;
 	}
 
-	.cam-order-booking-detail-outer {
+	.order-booking-detail-outer {
 	    position: absolute;
 	    right: 0;
 	    bottom: 1rem;
@@ -112,7 +112,7 @@
 	    z-index: 50;
 	}
 	
-	.cam-order-mask {
+	.order-mask {
 	    top: 0;
 	    right: 0;
 	    bottom: 0;
@@ -124,20 +124,20 @@
 	    background: rgba(0,0,0,.5);
 	}
 
-	.cam-order-booking-detail {
+	.order-booking-detail {
 	    padding: .15rem .2rem;
 	}
 
-	.cam-order-booking-detail-outer .cam-order-info-main,
-	.cam-order-booking-detail-outer .cam-order-info-sub {
+	.order-booking-detail-outer .order-info-main,
+	.order-booking-detail-outer .order-info-sub {
 	    padding-right: 1.46rem;
 	}
 
-	.cam-order-info-main {
+	.order-info-main {
 	    position: relative;
 	}
 
-	.cam-order-info-sub {
+	.order-info-sub {
 	    position: relative;
 	    margin-top: .05rem;
 	    color: #888;
@@ -145,7 +145,7 @@
 	    line-height: .46rem;
 	}
 
-	.cam-order-info-price {
+	.order-info-price {
 	    color: #ff4500;
 	    font-size: .24rem;
 	    line-height: .42rem;
@@ -154,12 +154,12 @@
 	    right: 0;
 	}
 
-	.cam-order-info-price .cam-order-price-num {
+	.order-info-price .order-price-num {
 	    font-size: .32rem;
 	    color: #fc3b54;
 	}
 	
-	.cam-order-info-note {
+	.order-info-note {
 	    color: #333;
 	    font-size: .24rem;
 	    line-height: .46rem;

@@ -62,7 +62,7 @@
 	}
 
 	.tab-item-active::after {
-		content: "";
+		content: "\0020";
 		position: absolute;
 		left: 50%;
 		bottom: 0;

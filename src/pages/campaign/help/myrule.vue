@@ -178,7 +178,7 @@
 	}
 
 	.my-rule-title::after {
-	    content: "";
+	    content: "\0020";
 	    position: absolute;
 	    right: -.18rem;
 	    width: 0;
