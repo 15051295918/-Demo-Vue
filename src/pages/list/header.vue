@@ -1,13 +1,14 @@
 <template>
 	<header class="header" @click="handleHeaderClick">
-  		<a class="header-left">
+	
+  		<div class="header-left" @click="handleReturnClick">
   			<div class="return"></div>
-  		</a>
+  		</div>
   		<div class="header-title">
   				<input type="text" v-model="value"  class="search-text"  placeholder="输入城市或景点" :value="value"/>
   				<span class="search-del" v-show="value != ''" @click="handleClick" ></span>
   		</div>
-  		<div class="header-right">
+  		<div class="header-right" @click = "handleSearchClick(value)">
   			<span class="header-city">
   				搜索
   			</span>  			
@@ -29,6 +30,13 @@ export default {
   	},
   	handleHeaderClick(){
   		this.$emit("headerClick")
+  	},
+  	handleReturnClick(){
+  		this.$router.go(-1)
+  	},
+  	handleSearchClick(value){
+
+  		this.$emit("searchClick",value)
   	}
   }
 }
@@ -36,6 +44,7 @@ export default {
 
 
 <style scoped>
+
 	.header {
 	    position: relative;
 	    z-index: 5;
@@ -49,15 +58,17 @@ export default {
 	    text-align: center;
 	    color: #fff;
 	}
+
 	.header-left {
 	    display: inline-block;
 	    width: .4rem;
 	    line-height: .88rem;
-	    padding: 0 .2rem;
+	    padding: 0 .2rem; 
 	    color: #fff;
 	    font-size: .36rem;
 	    text-align: left;
 	}
+
 	.header-title {
 		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
@@ -73,6 +84,7 @@ export default {
 		border-radius: .06rem;
 	    padding: 0 .6rem 0 .2rem;	
 	}
+
 	.search-text{
 		position: relative;
 	    display: block;
@@ -84,8 +96,8 @@ export default {
 	    font-family: "Microsoft Yahei",Arial;
 	    font-size: .28rem;
 	    border-radius: .06rem;
-
 	}
+
 	.search-del{
 		
 		position: absolute;
@@ -103,6 +115,7 @@ export default {
     	color: #fff;
     	text-align: center;
     }
+
     .header-city-option{
 		height: 0rem;
 		width: 0rem;
@@ -111,6 +124,7 @@ export default {
     	position: relative;
     	top:0.22rem;  	
 	}
+	
     .return{
 		transform: rotateZ(45deg);
 		width: .24rem;

@@ -1,7 +1,8 @@
 <template>
 <div id="wrapper-three" v-show="show">
 	<div class="threenav"  id="scroller-three">
-		<div class="three-items" v-for="item in threeInfo" @click="handlethreenavClick"  :data-playItem="item.itemtitle">
+
+		<div class="three-items" v-for="item in threeInfo" @click="handlethreenavClick"  :data-playItem="item.itemtitle" >
 			{{item.itemtitle}}
 			<span class="three-items-count">
 				{{item.visitedNum}}
@@ -13,7 +14,7 @@
 </template>
 
 <script>
-import "./iscroll.js";
+import "../../utils/iscroll.js";
 
 export default {
 	updated() {
@@ -31,6 +32,10 @@ export default {
 		handlethreenavClick(e){
 			this.$emit("threenavClick");
 			var playItem = e.target.innerText.split(" ")[1];
+<<<<<<< HEAD
+=======
+		
+>>>>>>> 4c2b2d06613a201f3da77e3e2d99c0033e1d6fac
 			try{
 				playItem = playItem=="" ? "全部分类" : playItem;
 				window.localStorage.playItem = playItem;
