@@ -93,7 +93,7 @@
 	.productcontent-money{
 		width: 20%;
 		font-size: .36rem;
-		float: right;
+		text-align: right;
 		color: orange;
 	}
 	.money-item{
