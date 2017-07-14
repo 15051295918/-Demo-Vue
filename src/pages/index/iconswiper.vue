@@ -2,10 +2,13 @@
     <div>
         <swiper :options="swiperOption" ref="mySwiper">
             <swiper-slide v-for="(page, index) in pages" :key="index + '_icon_swiper_item'">
-                <div class="icon-container">
+
+                <div class="icon-container" >
                     <div class="icon-wrapper" v-for="item in page">
+                      <router-link :to="item.link">
                         <img :src="item.imgUrl" class="icon-img">
                         <p class="icon-title">{{item.title}}</p>
+                      </router-link>
                     </div>
                 </div>
             </swiper-slide>
@@ -41,9 +44,9 @@ export default {
         pages: function() {
             var pages = [];
             for (var i = 0; i < this.icons.length; i++) {
-                var page = Math.floor(i / 8); 
-                if (!pages[page]) { 
-                    pages[page] = [] 
+                var page = Math.floor(i / 8);
+                if (!pages[page]) {
+                    pages[page] = []
                 }
                 pages[page].push(this.icons[i]);
             }
@@ -90,7 +93,7 @@ export default {
         flex: 1;
         line-height: 1rem;
         text-align: center;
-        
+
     }
     .recomment-item-link {
         color: #000;

@@ -4,15 +4,18 @@
 	  		<a  @click="handleGobackClick" class="header-return iconfont">&#xe685;</a>
 	  		<h1 class="comment-header-con">点评</h1>
   		</div>
+		
 		<div class="comment-con-info" id="box">
 			<ul class="comment-ulcon" v-for="(list, index) in lists" :key="index + '_comment_list'">
 		  		<li class="comment-list border-top" v-for="(item,liindex) in list">
+		  			
 		  			<div class="comment-list-head">
 			  			<span class="comment-star iconfont">
 			  				&#xe604;&#xe604;&#xe604;&#xe604;&#xe604;
 			  			</span>
 			  			<span v-html="item.time" class="comment-time">{{item.time}}</span>
 		  			</div>
+		  			
 		  			<div class="comment-descr">
 			  			<p :class="{isactive:showtext===index*10+liindex}" class="comment-text">
 			  				{{item.txt}}
@@ -23,6 +26,7 @@
 				  			</span>
 			  			</div>
 		  			</div>
+		  			
 		  			<div class="comment-imgbox" >
 		  				<img class="comment-img" 
 			  				v-for="(itemimg, imgindex) in item.img" 
@@ -36,13 +40,16 @@
 			  				:propsimglist="item.img">
 		  				</comment-img>
 		  			</div>
+		  			
 		  		</li>
 		  		<li>
 			  		<div v-if="count===index" class="comment-addmore"  @click="handleAddMore">查看更多</div>
 			  		<div v-if="count>index" class="comment-addmore" >没有更多了</div>
 			  	</li>
 	  		</ul>
+
 		</div>		
+
   	</div>	
 </template>
 
