@@ -1,11 +1,11 @@
 <template>
 	<div class="main">
-		<fagfilter></fagfilter>
+		<tagfilter></tagfilter>
 	</div>
 </template>
 
 <script>
-import fagFilter from './fagfilter';
+import tagFilter from './tagfilter';
 
 export default {
   data () {
@@ -14,7 +14,7 @@ export default {
     }
   },
   components:{
-  	fagfilter:fagFilter
+  	tagfilter:tagFilter
   }
 }
 </script>
