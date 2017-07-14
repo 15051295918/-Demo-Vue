@@ -149,35 +149,35 @@
             "link": ""
         }],
        "cityInfo": [{
-            
+
             "title": "天津",
             "link": ""
         },{
-            
+
             "title": "葫芦岛",
             "link": ""
         },{
-            
+
             "title": "秦皇岛",
             "link": ""
         },{
-           
+
             "title": "济南",
             "link": ""
         },{
-           
+
             "title": "成都",
             "link": ""
         },{
-           
+
             "title": "三亚",
             "link": ""
         },{
-           
+
             "title": "丽江",
             "link": ""
         },{
-           
+
             "title": "西安",
             "link": ""
         }],
@@ -257,11 +257,11 @@
     	"iconInfo": [{
     		"imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
     		"title": "故宫",
-    		"link":""
+    		"link":"weekend/index"
     	},{
     		"imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
     		"title": "故宫",
-    		"link":""
+    		"link":"onedaytour"
     	},{
     		"imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
     		"title": "故宫",

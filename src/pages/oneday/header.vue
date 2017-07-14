@@ -9,7 +9,7 @@
 	  		</div>
 	  		<div class="header-right">
 	  			<router-link :to="{path:headercity.href}">
-	  				<span class="header-city">{{$store.state.city}}<i class="header-city-option"></i></span>  	
+	  				<span class="header-city">{{$store.state.city}}<i class="header-city-option"></i></span>
 	  			</router-link>
 	  		</div>
 	  	</header>
@@ -25,35 +25,33 @@
 		        <div class="swiper-pagination"  slot="pagination"></div>
 		   </swiper>
 	  	</div>
-	  	
+
 	</div>
-	
+
 </template>
 
 <script>
-	
-	import { swiper, swiperSlide } from 'vue-awesome-swiper'
-	
-export default {
-  data () {
-    return {
-     	swiperOption: {
-     		loop: true,
-            autoplay: 3000,
-            direction : 'horizontal',
-            autoHeight: true,
-            pagination : '.swiper-pagination',
-            paginationClickable :true
-        }
+  import { swiper, swiperSlide } from 'vue-awesome-swiper'
+  export default {
+    data () {
+      return {
+        swiperOption: {
+          loop: true,
+              autoplay: 3000,
+              direction: 'horizontal',
+              autoHeight: true,
+              pagination: '.swiper-pagination',
+              paginationClickable:true
+          }
+      }
+    },
+    props: ["data","headercity"],
+    methods: {
+      handleBackFront: function() {
+         window.history.go(-1);
+      }
     }
-  },
-  props:["data","headercity"],
-  methods: {
-  	handleBackFront: function() {
-		window.history.go(-1);
-	}
   }
-}
 </script>
 
 
@@ -119,7 +117,7 @@ export default {
 		border:0.13rem solid transparent;
     	border-top: 0.13rem solid #fff;
     	position: relative;
-    	top:0.22rem;  	
+    	top:0.22rem;
 	}
     .return{
 		transform: rotateZ(45deg);

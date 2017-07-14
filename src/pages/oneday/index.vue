@@ -3,9 +3,9 @@
         <index-header :data="swiperInfo" :headercity="recommendInfo"></index-header>
         <icons-classify :classify="recommendInfo"></icons-classify>
         <index-spot :spot="recommendInfo"></index-spot>
-        <city-classify :cityclassify="cityclassify"></city-classify> 
+        <city-classify :cityclassify="cityclassify"></city-classify>
         <index-recommend :recommend="recommendInfo"></index-recommend>
-        <view-spot :viewspot="recommendInfo"></view-spot>  
+        <view-spot :viewspot="recommendInfo"></view-spot>
     </div>
 </template>
 
@@ -45,8 +45,8 @@ export default {
     },
     data () {
         return {
-            swiperInfo:[],
-            recommendInfo:[],
+            swiperInfo: [],
+            recommendInfo: [],
 		    cityclassify: [],
 			headercity: ""
         }

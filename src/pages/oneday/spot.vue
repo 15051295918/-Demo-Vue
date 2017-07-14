@@ -12,7 +12,7 @@
 		<div class="spot-concent">
 			<ul class="spot-concent-ul">
 				<li v-for="(item,index) in spot.spotInfo" class="spot-concent-li" :key="index + 'spot'" v-if="spot.city == $store.state.city">
-					<div class="spot-concent-box"> 
+					<div class="spot-concent-box">
 						<div class="spot-concent-img">
 							<router-link :to="{path:item.link,query:{title:item.title, id:item.id}}">
 								<img v-lazy="item.imgsrc" class="spot-concent-img-child"/>
@@ -22,9 +22,9 @@
 							<div class="spot-concent-title">{{item.title}}</div>
 							<div class="spot-concent-line">有<span class="spot-concent-item-line">{{item.line}}</span>条路线</div>
 						</div>
-						
+
 					</div>
-					
+
 				</li>
 			</ul>
 			<div class="spot-concent-more">
@@ -33,16 +33,15 @@
 				</router-link>
 			</div>
 		</div>
-		
+
 	</div>
 </template>
 
 <script>
-	
+
 export default {
   data () {
     return {
-    	
     }
   },
   props:["spot"]
@@ -132,7 +131,7 @@ export default {
 	    line-height: .32rem;
 	    white-space: nowrap;
 	    text-overflow: ellipsis;
-    	
+
 	}
 	.spot-concent-line{
 		text-align: center;
@@ -144,7 +143,7 @@ export default {
 	.spot-concent-item-line{
 		color: #00afc7;
 	}
-	
+
 	.spot-concent-more{
 		margin-bottom: .24rem;
     	text-align: center;

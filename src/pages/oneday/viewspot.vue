@@ -28,7 +28,7 @@
 					</div>
 					<div class="viewport-more">
 						<span class="viewport-text">{{item.address}}</span>
-					</div>				
+					</div>
 				</div>
 			</router-link>
 		</div>
@@ -45,7 +45,6 @@ export default {
 
   data () {
     return {
-
     }
   },
   props:['viewspot']
@@ -58,18 +57,18 @@ export default {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		border-bottom: 0.02rem solid #f5f5f5; 
+		border-bottom: 0.02rem solid #f5f5f5;
 		background: white;
 		margin-top: .2rem;
 	}
 	.viewport-box {
 		background: white;
 		padding-top: .2rem;
-		border-bottom: 0.02rem solid #f5f5f5; 
+		border-bottom: 0.02rem solid #f5f5f5;
 	}
 	.city-popular{
 		position: relative;
-		margin-left: .2rem; 
+		margin-left: .2rem;
 		font-size: .36rem;
 	}
 	.city-popular::before {
@@ -105,7 +104,7 @@ export default {
 	    width: 2rem;
 	    height: 2rem;
 	    margin-left: .2rem;
-	    
+
 	}
 	.view-img {
 		width: 100%;
