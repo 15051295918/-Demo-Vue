@@ -1,5 +1,5 @@
 <template>
-	<div class="swiper-box" >
+    <div class="swiper-box" >
         <div class="slide-closebutton iconfont" @click="handleCloseMaskClick" >&#xe621;</div>
         <swiper class="topimg-data" :options="swiperOption" ref="mySwiper">
             <swiper-slide class="swiper-imgbox" v-for="(item,index) in propsimglist" :key="'imgswiper' + index">
@@ -14,38 +14,39 @@
     </div>
 </template>
 
-<script>	
+<script>    
 
     import { swiper, swiperSlide } from 'vue-awesome-swiper'
 
-	export default {
-	    data () {
+    export default {
+        data () {
             return {
                 notNextTick: true,
-                direction : 'horizontal',
+                direction: 'horizontal',
                 swiperOption: {
                     autoplay: false,
                     autoHeight: true,
-                    pagination : '.swiper-pagination',
-                    paginationClickable :true,
-                    prevButton:'.swiper-button-prev',
-                    nextButton:'.swiper-button-next',
+                    initialSlide: this.imgindex,
+                    pagination: '.swiper-pagination',
+                    paginationClickable: true,
+                    prevButton: '.swiper-button-prev',
+                    nextButton: '.swiper-button-next',
                     paginationType: 'fraction'
                 }
             }
         },
-        props:["propsimglist"],
-	    methods: {
-            handleCloseMaskClick :function() {
+        props: ["propsimglist","imgindex"],
+        methods: {
+            handleCloseMaskClick: function() {
                 this.$emit("closeimgbox")
             }
         }
-	}
+    }
 
 </script>
 
 <style scoped>
-	.swiper-box {
+    .swiper-box {
         width: 100%;
         position: fixed;
         top: 0;
@@ -81,6 +82,10 @@
     }
     .swiper-img {
         width: 100%;
+    }
+    .swiper-pagination {
+        color: #eee;
+        font-size: .32rem;
     }   
     .bottom-optionbox {
         width: 100%;
@@ -97,6 +102,6 @@
         background: rgba(51,51,51,.8);
         border-radius: 50%; 
         line-height: .8rem; 
-        color:#fff;
+        color: #eee;
    }
 </style> 

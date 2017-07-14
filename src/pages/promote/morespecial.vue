@@ -22,7 +22,7 @@
                     <a href="javascript:void(0)
 " class="list-link">
                         <div class="list-img-box">
-                            <img :src="item.img"  class="list-img" v-lazy="item.img">
+                            <img class="list-img" v-lazy="item.img">
                             <div class="list-img-add">
                                 <span class="list-img-pos"></span>{{province}}    
                             </div>
@@ -164,8 +164,8 @@ export default {
         height: .22rem; 
         margin-left: -.11rem;
         z-index: 2;  
-         background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAMAAACeyVWkAAAAyVBMVEUAAAAAAAAAAAAAAAAAAAAAAAADAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACemgAREQADAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/+ABxbgD89QAGBgD48QDGwQCvqgCknwCFgQB5dgBVUwAuLQDg2gDb1QDVzwDMxgC2sQC1sACdmQCVkQB1cgBuawBZVwBLSQA2NQAyMQAcGwBsmG8pAAAAJ3RSTlMA9vzTBQHu5uGqcmdhRjH51s+1nJGJIvn38buxpKCCgVxTKhgWEwtCdh97AAAA2klEQVQY01WR15LDIAxFr2vWddO3903ATu+9/v9HRcJDSM7DRTozgBhw5Tf8CNK08vLpQePGjiCcMkVDy5Qc4/ucP1DEj6Ige+J8cFlGhTrv17kccvVNMrG5mqxySeQTqgOgVVJ7u7Jgw0cAdZYjqVlQZ+GPbzrIK3NlQ8rO1NilOuGVciwNGfVv4LsGRnafqY8hiJ6xI2rtf1h3ti+Id6BCy1bLQYcnaAINnqGv3GwsmBBAU733tBtmR6EIPBBf4o6qC8ar3co6S0Xka+ckMLSjasm2yrVEf9kFo/gyuctaCKMAAAAASUVORK5CYII=)0 0/contain no-repeat;
-         content:'\0020';
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAMAAACeyVWkAAAAyVBMVEUAAAAAAAAAAAAAAAAAAAAAAAADAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACemgAREQADAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/+ABxbgD89QAGBgD48QDGwQCvqgCknwCFgQB5dgBVUwAuLQDg2gDb1QDVzwDMxgC2sQC1sACdmQCVkQB1cgBuawBZVwBLSQA2NQAyMQAcGwBsmG8pAAAAJ3RSTlMA9vzTBQHu5uGqcmdhRjH51s+1nJGJIvn38buxpKCCgVxTKhgWEwtCdh97AAAA2klEQVQY01WR15LDIAxFr2vWddO3903ATu+9/v9HRcJDSM7DRTozgBhw5Tf8CNK08vLpQePGjiCcMkVDy5Qc4/ucP1DEj6Ige+J8cFlGhTrv17kccvVNMrG5mqxySeQTqgOgVVJ7u7Jgw0cAdZYjqVlQZ+GPbzrIK3NlQ8rO1NilOuGVciwNGfVv4LsGRnafqY8hiJ6xI2rtf1h3ti+Id6BCy1bLQYcnaAINnqGv3GwsmBBAU733tBtmR6EIPBBf4o6qC8ar3co6S0Xka+ckMLSjasm2yrVEf9kFo/gyuctaCKMAAAAASUVORK5CYII=)0 0/contain no-repeat;
+        content:'\0020';
 
     }
     .nav-box:nth-child(2)::before {
@@ -288,9 +288,9 @@ export default {
     }
     .activeHaveTop {
         position: fixed;
-        left:0;
+        left: 0;
         top: 1.2rem;
-        z-index:1000;
+        z-index: 1000;
         width: 100%
     }
     .activeNotTop {
