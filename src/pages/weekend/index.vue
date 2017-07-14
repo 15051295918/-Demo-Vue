@@ -32,7 +32,7 @@
 	  	},
 	  	methods:{
 	  		getWeekendData: function() {
-	  			this.$http.get('/static/weekend.json').then(response => {
+	  			this.$http.get('/static/weekenddata.json').then(response => {
 	  				this.getWeekendDataSucc(response)
 			  	},response => {
 			  		console.log("get data Error")
