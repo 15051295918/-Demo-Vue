@@ -3,6 +3,7 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import VueResource from 'vue-resource'
 import FastClick from 'fastclick'
 import Vuex from 'vuex';
+
 import AMap from 'vue-amap'
 import VueLazyload from 'vue-lazyload';
 import VuePaginate from 'vue-paginate'
