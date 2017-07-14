@@ -16,7 +16,7 @@ export default {
      	adsInfo:[
      		{
      			imgUrl: "http://img1.qunarzz.com/piao/fusion/1601/29/30427c0e0658b5f7.png",
-     			link: "/oneday"
+     			link: "/sales/"
      		},{
 
      			imgUrl: "http://img1.qunarzz.com/piao/fusion/1601/29/30427c0e0658b5f7.png",

@@ -14,8 +14,9 @@ new Vue({
 			if(playItem == undefined) {
 				playItem = "全部分类"
 			}
-			city = window.localStorage.city;
+			city = window.localStorage.city ? window.localStorage.city : city;
 		} catch(e) {}
+
 		this.$store.commit("changeCity", city);
 		this.$store.commit("changePlayItem", playItem);
 	},

@@ -5,6 +5,8 @@ import List from '@/pages/list/index'
 
 import onedayList from '@/pages/oneday-list/index'
 import Detail from '@/pages/CommonDetail/index'
+import WeekendIndex from '@/pages/weekendIndex/index'
+import Oneday from '@/pages/oneday/index'
 import Weekend from '@/pages/weekend/index'
 import OneDayTourDetail from '@/pages/onedaydetail/index'
 import Sales from '@/pages/sales/index'
@@ -111,6 +113,14 @@ export default new Router({
             path: "/campaign/showtext",
             name: "campaignShowText",
             component: campaignShowText
+        }, {
+            path: "/weekend/index",
+            name: "Weekend",
+            component: WeekendIndex
+        },{
+            path: '/onedaytour',
+            name: 'Oneday',
+            component: Oneday
         }
     ]    
 })
