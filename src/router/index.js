@@ -37,10 +37,6 @@ export default new Router({
       path: '/promote',
       name: 'promote',
       component: Promote
-    },{  
-        path: "/city",
-        name: "city",
-        component: City
     }
     ]
 })
