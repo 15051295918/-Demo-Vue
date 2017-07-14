@@ -30,11 +30,10 @@ export default {
 	methods: {
 		handlethreenavClick(e){
 			this.$emit("threenavClick");
-			console.log(e)
 			var playItem = e.target.innerText.split(" ")[1];
-			alert(playItem)
 			try{
-				window.localStorage.playItem = playItem
+				playItem = playItem=="" ? "全部分类" : playItem;
+				window.localStorage.playItem = playItem;
 
 			}catch(err){
 
