@@ -70,6 +70,129 @@
         }, {
             "icon": "",
             "title": "9元门票",
+            "link": "/promote"
+        }],
+        "hotRecommendInfo": [{
+            "listImg": "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_140x140_80f63803.jpg",
+            "listInfoTitle": "故宫",
+            "listInfoDes": "东方宫殿建筑代表，世界宫殿建筑典范",
+            "price": "20",
+            "text": "起"
+        },{
+            "listImg": "http://img1.qunarzz.com/sight/p0/1508/a5/4003f9dd7bebf61eccbf64046e26d487.water.jpg_140x140_b05eb1df.jpg",
+            "listInfoTitle": "北京欢乐谷",
+            "listInfoDes": "七大主题园区带你畅享北京欢乐谷",
+            "price": "90",
+            "text": "起"
+        },{
+            "listImg": "http://img1.qunarzz.com/sight/p0/1505/d2/d274c92de14c93da.water.jpg_140x140_e20be8e0.jpg",
+            "listInfoTitle": "颐和园",
+            "listInfoDes": "保存完整的一座皇家行宫御苑",
+            "price": "90",
+            "text": "起"
+        },{
+            "listImg": "http://img1.qunarzz.com/sight/p0/1604/1b/1b6778deafaf208f90.img.jpg_140x140_75f5d504.jpg",
+            "listInfoTitle": "八达岭长城",
+            "listInfoDes": "不到长城非好汉",
+            "price": "90",
+            "text": "起"
+        },{
+            "listImg": "http://img1.qunarzz.com/sight/p0/1704/d6/d62a708bc69472f5a3.img.jpg_140x140_7d085beb.jpg",
+            "listInfoTitle": "十渡聚龙湾玻璃栈道",
+            "listInfoDes": "梦寻生态山水，情归大美聚龙",
+            "price": "90",
+            "text": "起"
+	    }],
+        "weekendtripInfo":[{
+            "imgurl":"http://img1.qunarzz.com/sight/source/1505/ce/bc89bc2f0e33ea.jpg_r_640x214_3e408453.jpg",
+            "link":"",
+            "title":"学生最爱的博物馆",
+            "description":"周末干嘛？北京很多博物馆已经免费开放了"
+
+        },{
+            "imgurl":"http://img1.qunarzz.com/sight/source/1505/9e/21df651e19af5d.jpg_r_640x214_3ea5bb38.jpg",
+            "link":"",
+            "title":"寻找北京的皇城范儿",
+            "description":"数百年的宫廷庙宇，至今任然威严霸气"
+
+        },{
+            "imgurl":"http://img1.qunarzz.com/sight/source/1505/aa/7baaf8a851d221.jpg_r_640x214_1431200f.jpg",
+            "link":"",
+            "title":"北京必游TOP10",
+            "description":"来北京必去的景点非这些地方莫属"
+
+        },{
+            "imgurl":"http://img1.qunarzz.com/sight/source/1606/85/c6b6bad1b977e.jpg_r_640x214_5c638941.jpg",
+            "link":"",
+            "title":"激流勇进 露营烧烤",
+            "description":"轻松水上漂，任我乐逍遥"
+
+        },{
+            "imgurl":"http://img1.qunarzz.com/sight/source/1505/b2/fde1bfcd057a52.jpg_r_640x214_bbf3fa44.jpg",
+            "link":"",
+            "title":"儿童剧场，孩子的乐园",
+            "description":"带宝宝观看演出，近距离体验艺术的无穷魅力"
+
+        }],
+        "weekendiconInfo":[{
+            "icon":"&#xe635;"
+        }],
+        "footernavInfo":[{
+            "title":"登录",
+            "link":""
+        },{
+            "title":"我的订单",
+            "link":""
+        },{
+            "title":"最近浏览",
+            "link":""
+        },{
+            "title":"关于我们",
+            "link":""
+        }],
+        "equipmenttype":[{
+            "title":"触屏版",
+            "link":""
+        },{
+            "title":"电脑版",
+            "link":""
+        }],
+        "naviconInfo":[{
+            "icon": "&#xe635;",
+            "iconText": "机票"
+        },{
+            "icon": "&#xe612;",
+            "iconText": "酒店"
+        },{
+            "icon": "&#xe60d;",
+            "iconText": "公寓"
+        },{
+            "icon": "&#xe66a;",
+            "iconText": "团购"
+        },{
+            "icon": "&#xe62d;",
+            "iconText": "火车票"
+        },{
+            "icon": "&#xe68e;",
+            "iconText": "景点"
+        },{
+            "icon": "&#xe69c;",
+            "iconText": "接送机"
+        },{
+            "icon": "&#xe62e;",
+            "iconText": "度假"
+        },{
+            "icon": "&#xe69d;",
+            "iconText": "攻略"
+        },{
+            "icon": "&#xe830;",
+            "iconText": "旅图"
+        },{
+            "icon": "&#xe8fd;",
+            "iconText": "车车"
+        },{
+            "icon": "&#xe629;",
+            "iconText": "当地人",
             "link":"/promote"
         }]
 	}

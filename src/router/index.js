@@ -2,7 +2,11 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/pages/index/index'
 import List from '@/pages/list/index'
+
 import onedayTour from '@/pages/oneday-tour/index'
+
+import Sales from '@/pages/sales/index'
+
 import Comment from '@/pages/comment/index'
 import Promote from '@/pages/promote/index'
 import City from '@/pages/city/index'
@@ -37,6 +41,10 @@ export default new Router({
         path: "/city",
         name: "city",
         component: City
+    }, {
+        path: "/sales",
+        name: "sales",
+        component: Sales
     }]
 
 })

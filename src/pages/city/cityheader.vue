@@ -1,7 +1,9 @@
 <template>
 	<div>
 		<div class="city-header">	
-			<div class="city-key" @click="handleBackFront"></div>
+			<div class="city-back" @click="handleBackFront"> 
+				<div class="city-key"></div>
+			</div>
 			<h1 class="cityheader-title">
 				<div class="city-tab" >
 					<span class="header-city" @click="handleInternal" :class="{'header-internal':internal==true}">国内</span>
@@ -100,6 +102,10 @@
 	    background: #00afc7;
 	    color: #fff;
 	    z-index: 100;
+	}
+	.city-back{
+		width:.88rem; 
+		height: .88rem;
 	}
 	.city-key{
 		width: .24rem;
