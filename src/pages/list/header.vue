@@ -1,17 +1,17 @@
 <template>
-	<header class="header">
-  		<a class="header-left">
+	<header class="header" @click="handleHeaderClick">
+	
+  		<div class="header-left" @click="handleReturnClick">
   			<div class="return"></div>
-  		</a>
-  		<div class="header-title">
-  			<router-link to="/list">
-  				<span class="single-line">输入城市/景点/游玩主题</span>
-  			</router-link>
   		</div>
-  		<div class="header-right">
-  			<router-link to="/city">
-  				<span class="header-city">{{$store.state.city}}<i class="header-city-option"></i></span>
-  			</router-link> 			
+  		<div class="header-title">
+  				<input type="text" v-model="value"  class="search-text"  placeholder="输入城市或景点" :value="value"/>
+  				<span class="search-del" v-show="value != ''" @click="handleClick" ></span>
+  		</div>
+  		<div class="header-right" @click = "handleSearchClick(value)">
+  			<span class="header-city">
+  				搜索
+  			</span>  			
   		</div>
   	</header>
 </template>
@@ -20,16 +20,34 @@
 export default {
   data () {
     return {
-     
+    	value: "北京"
+    	// delete: true 
     }
+  },
+  methods:{
+  	handleClick(){
+  		this.value=""
+  	},
+  	handleHeaderClick(){
+  		this.$emit("headerClick")
+  	},
+  	handleReturnClick(){
+  		this.$router.go(-1)
+  	},
+  	handleSearchClick(value){
+
+  		this.$emit("searchClick",value)
+  	}
   }
 }
 </script>
 
 
 <style scoped>
+
 	.header {
 	    position: relative;
+	    z-index: 5;
 	    display: -webkit-box;
 	    display: -moz-box;
 	    display: -ms-flexbox;
@@ -40,15 +58,17 @@ export default {
 	    text-align: center;
 	    color: #fff;
 	}
+
 	.header-left {
 	    display: inline-block;
 	    width: .4rem;
 	    line-height: .88rem;
-	    padding: 0 .2rem;
+	    padding: 0 .2rem; 
 	    color: #fff;
 	    font-size: .36rem;
 	    text-align: left;
 	}
+
 	.header-title {
 		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
@@ -62,24 +82,40 @@ export default {
 		background: #fff;
 		line-height: .6rem;
 		border-radius: .06rem;
+	    padding: 0 .6rem 0 .2rem;	
 	}
-	.single-line {
-	    display: inline-block;
-	    overflow: hidden;
-	    position: absolute;
-	    left: 0;
-	    top: 0;
+
+	.search-text{
+		position: relative;
+	    display: block;
 	    width: 100%;
-	    white-space: nowrap;
-	    text-overflow: ellipsis;
-	    color: #ccc;
+	    height: .4rem;
+	    line-height: .4rem;
+	    padding: .1rem 0;
+	    border: 0;
+	    font-family: "Microsoft Yahei",Arial;
+	    font-size: .28rem;
+	    border-radius: .06rem;
 	}
+
+	.search-del{
+		
+		position: absolute;
+	    top: .04rem;
+	    right: 0;
+	    width: .58rem;
+	    height: .58rem;	
+	    background: url(//simg1.qunarzz.com/piao/images/touch/v2/sprites.png) -.48rem 0.05rem no-repeat;
+	    background-size: 3rem 3rem;
+	}
+
 	.header-city {
 		line-height: .88rem;
     	padding: 0 .25rem;
     	color: #fff;
     	text-align: center;
     }
+
     .header-city-option{
 		height: 0rem;
 		width: 0rem;
@@ -88,6 +124,7 @@ export default {
     	position: relative;
     	top:0.22rem;  	
 	}
+	
     .return{
 		transform: rotateZ(45deg);
 		width: .24rem;

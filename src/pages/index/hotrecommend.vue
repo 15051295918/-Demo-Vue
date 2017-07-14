@@ -4,7 +4,7 @@
 		<div class="hot-commend-con">
 			<ul class="hot-commend-list">
 				<li class="hot-commend-list-item border-bottom" v-for="(hotrecommendes,index) in hotsight" :key="index+'_hot_commend_info'" >
-					<router-link to="/no" :id="index">
+					<router-link :to="hotrecommendes.link" :id="index">
 						<div class="hotlist-img">
 							<img :src="hotrecommendes.listImg" />
 						</div>
