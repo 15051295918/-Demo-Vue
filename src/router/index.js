@@ -33,7 +33,7 @@ export default new Router({
         path: "/city",
         name: "city",
         component: City
-    }，{
+    },{
       path: '/promote',
       name: 'promote',
       component: Promote
