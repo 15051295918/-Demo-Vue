@@ -15,6 +15,7 @@
 	import citylist from "./citylist" 
 	import cityaside from "./cityaside" 
 
+
 	export default {
 		created: function() {
 			this.$http.get("/static/city.json").then(response => {
@@ -79,7 +80,9 @@
 		},
 		mounted() {
 			window.addEventListener('scroll', function() {//想提高性能，可以加一个定时器
-                this.windowScrollTop = document.body.scrollTop;
+				setTimeout(function(){
+					 this.windowScrollTop = document.body.scrollTop;
+				},1)
             }.bind(this), false)
 		}
 	}
