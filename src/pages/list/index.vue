@@ -27,12 +27,12 @@
 	        
 	        this.$http.get('/static/scenicSpotList.json').then(response => {
 	            var this_ = this;
-	            // if(response.body.ret) {
+	            if(response.body.ret) {
 	            	this.newCon = response.body.data.listCon;
 	            	this.listCon = response.body.data.listCon.filter(function(item){ 
 					    return item.address.split('·')[0]=='北京' && this_.cityPageList(item.scenicSpotClassification)
 					});
-	            // }
+	            }
 	        }, response => {
 	             console.log("get index data error")
 	        });	
@@ -96,13 +96,13 @@
 				alert(orderC)
 			},
 			cityPageList(value,index) {
-				var Classify=false;
+				var classify=false;
 				for(var i=0;i<value.length;i++) {
 					if(value[i]==this.listClassigy) {
-						Classify=true;
+						classify=true;
 					}
 				}
-				return Classify
+				return classify
 			},
 		} 
 	}
