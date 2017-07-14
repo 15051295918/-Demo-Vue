@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/pages/index/index'
 import List from '@/pages/list/index'
+import Weekend from '@/pages/weekend/index'
+import OneDayTourDetail from '@/pages/onedaydetail/index'
 import Sales from '@/pages/sales/index'
 import Comment from '@/pages/comment/index'
 import Promote from '@/pages/promote/index'
@@ -9,11 +11,8 @@ import City from '@/pages/city/index'
 import campaignIndex from '@/pages/campaign/index/index'
 import campaignHelp from '@/pages/campaign/help/index'
 import campaignNewAannounce from '@/pages/campaign/newannounce/index'
-
 import campaignComputDetails from '@/pages/campaign/detail/comput/index'
-
 import campaignAnnounceDetails from '@/pages/campaign/detail/announceDetails/index'
-
 import campaignMineindex from '@/pages/campaign/mine/index'
 import campaignMineRegister from '@/pages/campaign/mine/register'
 import campaignDetail from '@/pages/campaign/detail/activityDetails'
@@ -24,6 +23,7 @@ import campaignShowText from '@/pages/campaign/order/showtext'
 Vue.use(Router)
 
 export default new Router({
+
     routes: [
         {
         	path: '/',
@@ -38,6 +38,10 @@ export default new Router({
             path: "/city",
             name: "city",
             component: City
+        }, {
+            path: "/weekend/:id/:title",
+            name: "weekend",
+            component: Weekend
         }, {
             path: '/comment',
             name: 'comment',
@@ -96,4 +100,5 @@ export default new Router({
             component: campaignShowText
         }            
     ]
+    
 })
