@@ -51,6 +51,10 @@ export default new Router({
             name: 'promote',
             component: Promote
         }, {
+            path: "/oneday/detail/:pid",
+            name: "one-day-detail",
+            component: OneDayTourDetail
+        }, {
             path: "/sales",
             name: "sales",
             component: Sales
