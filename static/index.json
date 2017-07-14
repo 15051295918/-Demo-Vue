@@ -149,35 +149,35 @@
             "link": ""
         }],
        "cityInfo": [{
-            
+
             "title": "天津",
             "link": ""
         },{
-            
+
             "title": "葫芦岛",
             "link": ""
         },{
-            
+
             "title": "秦皇岛",
             "link": ""
         },{
-           
+
             "title": "济南",
             "link": ""
         },{
-           
+
             "title": "成都",
             "link": ""
         },{
-           
+
             "title": "三亚",
             "link": ""
         },{
-           
+
             "title": "丽江",
             "link": ""
         },{
-           
+
             "title": "西安",
             "link": ""
         }],
@@ -257,15 +257,15 @@
     	"iconInfo": [{
     		"imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
     		"title": "故宫",
-    		"link":""
+    		"link":"weekend/index"
     	},{
     		"imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
     		"title": "故宫",
-    		"link":""
+    		"link":"onedaytour"
     	},{
-    		"imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
-    		"title": "故宫",
-    		"link":""
+    		"imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/a9/ffc620dbda9b9c02.png",
+    		"title": "一日游",
+    		"link":"./oneday-list"
     	},{
     		"imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
     		"title": "故宫",
@@ -318,62 +318,67 @@
             "listInfoTitle": "故宫",
             "listInfoDes": "东方宫殿建筑代表，世界宫殿建筑典范",
             "price": "20",
-            "text": "起"
+            "text": "起",
+            "link": "/detail"
         },{
             "listImg": "http://img1.qunarzz.com/sight/p0/1508/a5/4003f9dd7bebf61eccbf64046e26d487.water.jpg_140x140_b05eb1df.jpg",
             "listInfoTitle": "北京欢乐谷",
             "listInfoDes": "七大主题园区带你畅享北京欢乐谷",
             "price": "90",
-            "text": "起"
+            "text": "起",
+            "link": "/detail"
         },{
             "listImg": "http://img1.qunarzz.com/sight/p0/1505/d2/d274c92de14c93da.water.jpg_140x140_e20be8e0.jpg",
             "listInfoTitle": "颐和园",
             "listInfoDes": "保存完整的一座皇家行宫御苑",
             "price": "90",
-            "text": "起"
+            "text": "起",
+            "link": "/detail"
         },{
             "listImg": "http://img1.qunarzz.com/sight/p0/1604/1b/1b6778deafaf208f90.img.jpg_140x140_75f5d504.jpg",
             "listInfoTitle": "八达岭长城",
             "listInfoDes": "不到长城非好汉",
             "price": "90",
-            "text": "起"
+            "text": "起",
+            "link": "/detail"
         },{
             "listImg": "http://img1.qunarzz.com/sight/p0/1704/d6/d62a708bc69472f5a3.img.jpg_140x140_7d085beb.jpg",
             "listInfoTitle": "十渡聚龙湾玻璃栈道",
             "listInfoDes": "梦寻生态山水，情归大美聚龙",
             "price": "90",
-            "text": "起"
+            "text": "起",
+            "link": "/detail"
 	    }],
         "weekendtripInfo":[{
             "imgurl":"http://img1.qunarzz.com/sight/source/1505/ce/bc89bc2f0e33ea.jpg_r_640x214_3e408453.jpg",
             "link":"",
             "title":"学生最爱的博物馆",
-            "description":"周末干嘛？北京很多博物馆已经免费开放了"
-
+            "description":"周末干嘛？北京很多博物馆已经免费开放了",
+            "link": "/detail"
         },{
             "imgurl":"http://img1.qunarzz.com/sight/source/1505/9e/21df651e19af5d.jpg_r_640x214_3ea5bb38.jpg",
             "link":"",
             "title":"寻找北京的皇城范儿",
-            "description":"数百年的宫廷庙宇，至今任然威严霸气"
-
+            "description":"数百年的宫廷庙宇，至今任然威严霸气",
+            "link": "/detail"
         },{
             "imgurl":"http://img1.qunarzz.com/sight/source/1505/aa/7baaf8a851d221.jpg_r_640x214_1431200f.jpg",
             "link":"",
             "title":"北京必游TOP10",
-            "description":"来北京必去的景点非这些地方莫属"
-
+            "description":"来北京必去的景点非这些地方莫属",
+            "link": "/detail"
         },{
             "imgurl":"http://img1.qunarzz.com/sight/source/1606/85/c6b6bad1b977e.jpg_r_640x214_5c638941.jpg",
             "link":"",
             "title":"激流勇进 露营烧烤",
-            "description":"轻松水上漂，任我乐逍遥"
-
+            "description":"轻松水上漂，任我乐逍遥",
+            "link": "/detail"
         },{
             "imgurl":"http://img1.qunarzz.com/sight/source/1505/b2/fde1bfcd057a52.jpg_r_640x214_bbf3fa44.jpg",
             "link":"",
             "title":"儿童剧场，孩子的乐园",
-            "description":"带宝宝观看演出，近距离体验艺术的无穷魅力"
-
+            "description":"带宝宝观看演出，近距离体验艺术的无穷魅力",
+            "link": "/detail"
         }],
         "weekendiconInfo":[{
             "icon":"&#xe635;"

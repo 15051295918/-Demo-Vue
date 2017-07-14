@@ -14,21 +14,17 @@
 <script>
 
 export default {
-
   data () {
     return {
-    	
-    	swiperOption: { 
-
-          direction : 'horizontal',
+    	swiperOption: {
+          direction: 'horizontal',
           autoHeight: true,
-          pagination : '.swiper-pagination',
-          paginationClickable :true,
+          pagination: '.swiper-pagination',
+          paginationClickable: true,
         }
     }
   },
-  props:['classify']
-
+  props: ['classify']
 }
 </script>
 
@@ -36,7 +32,7 @@ export default {
     .icons-classify{
     	background: white;
         height:2.36rem;
-      
+
     }
 	.icon-wrapper{
 		padding-top: .4rem;
@@ -46,14 +42,14 @@ export default {
 	}
 	.icon-img{
 		width: 1.1rem;
-		display:block;
+		display: block;
 		margin: 0 auto;
 	}
 	.icon-title{
 		margin-top: .15rem;
-		text-align:center;
+		text-align: center;
 		color:#212121;
-		font-size:.28rem;
+		font-size: .28rem;
 	}
 
 </style>

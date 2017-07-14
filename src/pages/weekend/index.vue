@@ -1,82 +1,106 @@
 <template>
-	<div class="weekend-main js-weekend-main" v-on:touchstart="touchStart" v-on:touchmove="loadMore">
-		<weekend-header></weekend-header>
-		<weekend-classify :classifyInfo="classifyInfo" :nearScapeInfo="nearScapeInfo" :weekendChosenInfo="weekendChosenInfo"></weekend-classify>
-		<weekend-pinterest :list="Pinterest" :isloading="isloading"></weekend-pinterest>
-	</div>
+  	<div class="main" >
+    		<weekend-header></weekend-header>
+
+    		<div class="product" >
+    	  		<div class="product-item" v-for="(list,index) in productInfo" :key="index+'product'" v-model="index"  @click="getModel(index)">
+    	  			    <div class="product-wrapper" v-on:click="show = !show">
+                      <img class="product-img"  v-lazy="list.imgUrl"  />
+        	  			</div>
+        	  			
+                  <div class="product-info">
+          	  				<h2 class="product-name">{{list.title}}</h2>
+          	  				<p class="product-detail">{{list.content}}</p>
+        	  			</div>
+             </div>
+    	  </div>
+
+        <weekend-model :models="modelInfo" v-if="show" :showInfo="show" v-on:listenToShowStatus="getShowStatus"></weekend-model>
+
+  	</div>
 </template>
 
 <script>
-	import header from "./header"
-	import classify from "./classify"
-	import pinterest from './pinterest'
-	export default {
-		created: function() {
-			this.getWeekendData()
-		},
-		data() {
-		    return {
-		    	"currentCity": "",
-		      	"classifyInfo": [],
-		       	"nearScapeInfo": [],
-		       	"weekendChosenInfo": [],
-		       	"Pinterest": [],
-		       	"preventMisuse": true,
-		       	"isloading": false
-		    }
-		},
-	  	components: {
-	  		"weekend-header": header,
-	  		"weekend-classify": classify,
-	  		"weekend-pinterest": pinterest
-	  	},
-	  	methods:{
-	  		getWeekendData: function() {
-	  			this.$http.get('/static/weekend.json').then(response => {
-	  				this.getWeekendDataSucc(response)
-			  	},response => {
-			  		console.log("get data Error")
-			  	})
-	  		},
-	  		getWeekendDataSucc: function(response) {
-				this.currentCity = this.$store.state.city;
-				this.classifyInfo = response.body.data[this.currentCity].classifyInfo;
-				this.nearScapeInfo = response.body.data[this.currentCity].nearScapeInfo;
-				this.weekendChosenInfo = response.body.data.weekendChosenInfo;
-				this.currentCity = response.body.data[this.currentCity].city;
-				for(var i=0, length=response.body.data[this.currentCity].pinterest.length; i<length; i++){
-					this.Pinterest.push(response.body.data[this.currentCity].pinterest[i])
-				}
-				this.preventMisuse = true;
-				this.isloading = false;
-	  		},
-	  		touchStart: function(e) {
-	  			this.startY=e.changedTouches[0].clientY
-	  		},
-	  		loadMore: function(e) {
-	  			var weekendMain=document.getElementsByClassName("js-weekend-main")[0]
-	  			var pageHeight = weekendMain.scrollHeight; //clientHeight
-	  			var screenHeight = document.documentElement.offsetHeight;
-	  			var scrollTop = document.body.scrollTop
-				this.currentTouchY = e.changedTouches[0].clientY
-				this.dragDistance = this.currentTouchY - this.startY //拖动距离
-	  			if(pageHeight-screenHeight-scrollTop <= 200&&this.preventMisuse&&(this.dragDistance<-100)){
-	  				this.getWeekendData();
-	  				this.preventMisuse = false;
-	  				this.isloading = true;
-	  			}
-	  		}
-	  	}
-	}
+  import header from './header'
+  import model from './model'
+export default {
+  created:function () {
+     	this.$http.get('/static/weekend.json').then(response => {
+                this.productInfo = response.body.data[this.$route.params.id];
+          }, response => {
+                console.log("get index data error");
+          });
+   },
+
+  data () {
+      return {
+         show:false,
+         index:"",
+         productInfo:[],
+         modelInfo:{}
+      }
+    },
+
+  methods: {
+        getModel (index) {
+          this.modelInfo = this.productInfo[index];
+        },
+        getShowStatus (status) {
+          this.show = status;
+        }
+    },
+
+  components: {
+    	 "weekend-header": header,
+       "weekend-model": model
+    }
+  }
+
 </script>
 
+ 
 <style scoped>
-	.weekend-main{
-		position: absolute;
-	    left: 0;
-	    top: 0;
-	    width: 100%;
-	    min-height: 100%;
-	    background: #f1f5f6;
-	}
+	.main {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        min-height: 100%;
+        background: #f5f5f5;
+  }
+
+  .product-item {
+	  	  background: #fff;
+	  	  position: relative;
+	  	  margin-bottom: .2rem;
+  }
+
+  .product-wrapper {
+  		  overflow: hidden;
+  		  height: 0;
+  		  width: 100%;
+  		  padding-bottom:43.37288%;
+  }
+
+  .product-img {
+        width:100%;
+  }
+
+  .product-info {
+      	padding:.14rem .2rem .24rem .2rem;
+      	background-color: #fff;
+  }
+
+  .product-name {
+    		color: #212121;
+    		font-size:.36rem;
+    		line-height: .54rem;
+  }
+
+  .product-detail {
+    		color: #616161;
+    		font-size: .26rem;
+    		line-height: .45rem;
+  }
+
 </style>

@@ -3,7 +3,7 @@
 	<div class="city-classify">
 		<div class="city-top">
 			<p class="city-popular"><span class="iconfont city-icon">&#xe6a4;</span>热门城市</p>
-			<router-link :to="{path:'/city'}">
+			<router-link :to= "{path:'/city'}">
 				<p class="city-total">
 					<span class="city-all">全部城市 </span>
 					<span class="city-right-arrow"></span>
@@ -21,14 +21,7 @@
 
 <script>
 	export default {
-
-		data() {
-			return {
-
-			}
-		},
 		props: ['cityclassify']
-
 	}
 </script>
 
@@ -38,14 +31,14 @@
 		height: 2.56rem;
 		background: white;
 	}
-	
+
 	.city-wrapper {
 		padding-top: .1rem;
 		overflow: hidden;
 		width: 25%;
 		float: left;
 	}
-	
+
 	.city-title {
 		display: block;
 		margin: .06rem;
@@ -57,7 +50,7 @@
 		border-radius: 2px;
 		text-align: center;
 	}
-	
+
 	.city-right-arrow {
 		float: left;
 		margin-top: .28rem;
@@ -72,14 +65,14 @@
 		right: .3rem;
 		top: .05rem;
 	}
-	
+
 	.city-icon {
 		width: .40rem;
 		height: .40rem;
 		color: #08bed5;
 		margin-right: .08rem;
 	}
-	
+
 	.city-top {
 		height: .84rem;
 		display: flex;
@@ -87,15 +80,15 @@
 		align-items: center;
 		position: relative;
 	}
-	
+
 	.city-popular {
 		margin-left: .2rem;
 	}
-	
+
 	.city-total {
 		margin-right: .36rem;
 	}
-	
+
 	.city-all {
 		height: .84rem;
 		width: 1.4rem;
