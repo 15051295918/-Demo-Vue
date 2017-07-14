@@ -1,6 +1,6 @@
 <template>
 	<div class=detail-wrap>
-		<div class="detail-header" @click="handleClick" v-for="itemOne in titleData">
+		<div class="detail-header" @click="handleClick" v-for="(itemOne,index) in titleData" :key="index + 'header'">
 			<img class="detailheader-img" :src="itemOne.picUrl" />
 			<div class="detailheader-title">
 				<span class="title">{{itemOne.name}}</span>

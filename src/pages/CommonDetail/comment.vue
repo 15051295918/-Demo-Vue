@@ -15,7 +15,7 @@
 
 				</div>
 				<div class="comment-imgs" mp-role="scrollImages">
-					<div class="comment-imgouter" v-for="item in dataImg" >
+					<div class="comment-imgouter" v-for="(item,index) in dataImg" :key="index + 'comment-imgs'">
 						<div class="comment-imginner">
 							<img class="comment-img" mp-role="lazyLoadImg" data-original-src="" data-bigimg="" :src="item.commentImglist" @click="handleClickMask"/>
 						</div>
