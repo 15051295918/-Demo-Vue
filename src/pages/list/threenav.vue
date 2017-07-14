@@ -34,8 +34,8 @@ export default {
 			this.$emit("threenavClick");
 			var playItem = e.target.innerText.replace(/(^\s*)|(\s*$)/g,"").split(" ")[0];
 			try{
-				window.localStorage.removeItem( playItem );
 				window.localStorage.playItem = playItem;
+				window.localStorage=null;
 			}catch(err){}
 		}
 	}

@@ -9,11 +9,7 @@ new Vue({
 		var playItem = "";
 		var city = '北京';
 		try {
-			if(playItem == undefined) {
-				playItem = "全部分类";
-			}else {
-				playItem = window.localStorage.playItem ;
-			}
+			playItem = window.localStorage.playItem;
 			city = window.localStorage.city;
 		} catch(e) {}
 		this.$store.commit("changeCity", city);

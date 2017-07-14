@@ -45,7 +45,7 @@
 				maskShow: false,
     			newCon: [],
 				listCon: [],
-				listClassigy: this.$store.state.playItem.replace(/(^\s*)|(\s*$)/g,"")
+				listClassigy: this.$store.state.playItem==undefined ? "全部分类" : this.$store.state.playItem.replace(/(^\s*)|(\s*$)/g,"")
 			}
 		},
 
