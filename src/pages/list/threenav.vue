@@ -1,7 +1,8 @@
 <template>
 <div id="wrapper-three" v-show="show">
 	<div class="threenav"  id="scroller-three">
-		<div class="three-items" v-for="item in threeInfo" @click="handlethreenavClick"  :data-playItem="item.itemtitle">
+
+		<div class="three-items" v-for="item in threeInfo" @click="handlethreenavClick"  :data-playItem="item.itemtitle" >
 			{{item.itemtitle}}
 			<span class="three-items-count">
 				{{item.visitedNum}}
@@ -32,7 +33,7 @@ export default {
 			this.$emit("threenavClick");
 			console.log(e)
 			var playItem = e.target.innerText.split(" ")[1];
-			alert(playItem)
+		
 			try{
 				window.localStorage.playItem = playItem
 

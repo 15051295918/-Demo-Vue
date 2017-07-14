@@ -1,8 +1,9 @@
 <template>
 	<header class="header" @click="handleHeaderClick">
-  		<a class="header-left">
+	
+  		<div class="header-left" @click="handleReturnClick">
   			<div class="return"></div>
-  		</a>
+  		</div>
   		<div class="header-title">
   				<input type="text" v-model="value"  class="search-text"  placeholder="输入城市或景点" :value="value"/>
   				<span class="search-del" v-show="value != ''" @click="handleClick" ></span>
@@ -29,6 +30,9 @@ export default {
   	},
   	handleHeaderClick(){
   		this.$emit("headerClick")
+  	},
+  	handleReturnClick(){
+  		this.$router.go(-1)
   	}
   }
 }
@@ -53,7 +57,7 @@ export default {
 	    display: inline-block;
 	    width: .4rem;
 	    line-height: .88rem;
-	    padding: 0 .2rem;
+	    padding: 0 .2rem; 
 	    color: #fff;
 	    font-size: .36rem;
 	    text-align: left;

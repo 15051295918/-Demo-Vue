@@ -52,9 +52,11 @@
 		created(){
 	        this.$http.get('/static/scenicSpotList.json').then(response => {
 	            var this_ = this;
+	            var playItem = this.$store.state.playItem;
+	            alert(playItem)
 	            if(response.body.ret) {
 	            	this.listCon = response.body.data.listCon.filter(function(item){ 
-					    return item.address.split('·')[0]=='北京' && this_.cityPageList(item.scenicSpotClassification)
+					    return item.address.split('·')[0]=='三亚' && this_.cityPageList(item.scenicSpotClassification)
 					});
 	            }
 	        }, response => {
