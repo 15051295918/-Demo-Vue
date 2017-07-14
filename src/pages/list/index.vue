@@ -4,7 +4,7 @@
 		<list-header @headerClick="headerClick" @searchClick="searchClick"></list-header>
 		<navigator :subnavInfo = "subnavInfo" :show="showNav" :showMask="maskShow" :orderShow="showOrder" @ClassClick="ClassClick" @orderClick="indexOrderClick"
 		 @subThreenav="subThreenav" @orderItemClick="orderClickEvent" @orderAClick="orderAClick" @orderBClick="orderBClick" @orderCClick="orderCClick"></navigator>
-		<list-lists :searchItem="searchItem" :orderA="orderA" :orderB="orderB" :orderC="orderC"></list-lists>
+		<list-lists :newCon="newCon" :listCon="listCon" :listClassigy="listClassigy" @cityPageList="cityPageList"></list-lists>
 		
 	</div>
 	<div class="mask" @touchstart="handleMaskClick"  v-show="maskShow">
@@ -24,6 +24,18 @@
 	        }, response => {
 	             console.log("get index data error")
 	        });	
+	        
+	        this.$http.get('/static/scenicSpotList.json').then(response => {
+	            var this_ = this;
+	            // if(response.body.ret) {
+	            	this.newCon = response.body.data.listCon;
+	            	this.listCon = response.body.data.listCon.filter(function(item){ 
+					    return item.address.split('·')[0]=='北京' && this_.cityPageList(item.scenicSpotClassification)
+					});
+	            // }
+	        }, response => {
+	             console.log("get index data error")
+	        });	
 	    },
 		data () {
 			return {
@@ -31,11 +43,9 @@
 				subnavInfo: [],
 				showOrder: false,
 				maskShow: false,
-				searchItem:"",
-				orderA:"",
-				orderB:"",
-				orderC:""
-
+    			newCon: [],
+				listCon: [],
+				listClassigy: this.$store.state.playItem.replace(/(^\s*)|(\s*$)/g,"")
 			}
 		},
 
@@ -84,7 +94,16 @@
 			orderCClick(orderC) {
 				this.orderC = orderC
 				alert(orderC)
-			}
+			},
+			cityPageList(value,index) {
+				var Classify=false;
+				for(var i=0;i<value.length;i++) {
+					if(value[i]==this.listClassigy) {
+						Classify=true;
+					}
+				}
+				return Classify
+			},
 		} 
 	}
 </script>

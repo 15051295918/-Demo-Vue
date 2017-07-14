@@ -49,19 +49,6 @@
 	import {Paginate, PaginateLinks} from 'vue-paginate'
 
 	export default {
-		created(){
-	        this.$http.get('/static/scenicSpotList.json').then(response => {
-	            var this_ = this;
-	            if(response.body.ret) {
-	            	this.newCon = response.body.data.listCon;
-	            	this.listCon = response.body.data.listCon.filter(function(item){ 
-					    return item.address.split('·')[0]=='北京' && this_.cityPageList(item.scenicSpotClassification)
-					});
-	            }
-	        }, response => {
-	             console.log("get index data error")
-	        });	
-	    },
 		methods: {
 			prevPage () {
 				if (this.$refs.paginator) {
@@ -81,13 +68,7 @@
 				}
 			},
 			cityPageList(value,index) {
-				var Classify=false;
-				for(var i=0;i<value.length;i++) {
-					if(value[i]==this.listClassigy) {
-						Classify=true;
-					}
-				}
-				return Classify
+				this.$emit("cityPageList");
 			},
 			sortList(str) {
 				switch(str) {
@@ -116,15 +97,12 @@
 				return parseInt(parseInt(this.$refs.paginator.pageItemsCount)/this.pre)+1
 			}
 		},
-		
+		props:["newCon","listCon","listClassigy"],
 		data () {
 			return {
-				listClassigy: this.$store.state.playItem.replace(/(^\s*)|(\s*$)/g,""),
 				isAction: this.pre,
 				pre: 8,
-    			paginate: ['languages'],
-    			newCon: [],
-				listCon: []
+    			paginate: ['languages']
 			}
 		}
 
