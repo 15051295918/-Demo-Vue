@@ -12,13 +12,13 @@
             <user-reviews :userReviews="headerInfo.userReviews"></user-reviews>
 
             <!--武鹤-->
-            <index-tab :isBigMapOpen="isBigMapOpen" :tabInfo="tabInfo" :scrollTop="scrollTop" @openMap="openMap(isBigMapOpen)"></index-tab>
+             <index-tab :isBigMapOpen="isBigMapOpen" :tabInfo="tabInfo" :scrollTop="scrollTop" @openMap="openMap(isBigMapOpen)"></index-tab> 
 
             <!--国辉-->
             <index-footer :footerInfo="footerInfo"></index-footer>
 
             <!--坤勇-->
-             <booking-ticket :bookTicketInfo="bookTicketInfo"></booking-ticket> 
+            <booking-ticket :bookTicketInfo="bookTicketInfo"></booking-ticket>  
         </div>
     </div>
 </template>
