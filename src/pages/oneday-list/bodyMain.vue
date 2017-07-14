@@ -1,7 +1,7 @@
 <template >
 	<div id="bodyWraper">
 		<div  class="scroller body-main " @touchstart="handleTouch" @touchmove="handleEmitEvent">
-			<router-link class="item border-bottom"  v-for="(ticket, index) in ticketLists" :key="'ticket' + index" to="oneday/detail/2">
+			<router-link class="item border-bottom"  v-for="(ticket, index) in ticketLists" :key="'ticket' + index" :to="'oneday/detail/'+index">
 				<img :src="ticket.imgUrl"/>
 				<div class="details">
 					<p>{{ticket.name}}</p>
