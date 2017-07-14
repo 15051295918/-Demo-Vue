@@ -8,7 +8,7 @@
 		</h1>
 		<span class="j-header-right" mp-role="right">
 			<a href="//touch.piao.qunar.com/touch/list.htm?isSearch=1&amp;region=%E5%8C%97%E4%BA%AC&amp;cityName=%E5%8C%97%E4%BA%AC&amp;limitCondition=sightHotel&amp;cat=from_area%3Dt_search%26dist_city%3D%25E5%258C%2597%25E4%25BA%25AC">
-				<span class="j-header-search mp-iconfont"></span>
+				<span class="j-header-search iconfont">&#xe6d1;</span>
 			</a>
 		</span>
 	</header>

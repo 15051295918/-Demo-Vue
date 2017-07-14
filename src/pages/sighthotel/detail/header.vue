@@ -21,7 +21,7 @@
                         <img class="swiper-img" :src="item.imgUrl" alt="itemimgAtl"/>
                     </swiper-slide>
                 </swiper>
-                <div class="ssss">
+                <div class="page-btn">
                     <div class="swiper-pagination"  slot="pagination"></div>
                     <div class="swiper-button-prev iconfont" slot="button-prev">&#xe657;</div>
                     <div class="swiper-button-next iconfont" slot="button-next">&#xe63a;</div>    
@@ -209,7 +209,7 @@ export default {
         width: 100%;
     }
     
-    .ssss {
+    .page-btn {
         width: 100%;
         position: fixed;
         height: .88rem;

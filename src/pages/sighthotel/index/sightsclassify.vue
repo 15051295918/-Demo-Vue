@@ -54,7 +54,7 @@ export default {
         background: #fff;
 	}
 	.icon-wrapper {
-		padding-top: .3rem;
+		padding-top: .4rem;
 		overflow: hidden;
 		width: 20%;
 		float: left;
