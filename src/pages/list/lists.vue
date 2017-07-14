@@ -55,7 +55,7 @@
 	            if(response.body.ret) {
 	            	this.newCon = response.body.data.listCon;
 	            	this.listCon = response.body.data.listCon.filter(function(item){ 
-					    return item.address.split('·')[0]=='三亚' && this_.cityPageList(item.scenicSpotClassification)
+					    return item.address.split('·')[0]=='北京' && this_.cityPageList(item.scenicSpotClassification)
 					});
 	            }
 	        }, response => {

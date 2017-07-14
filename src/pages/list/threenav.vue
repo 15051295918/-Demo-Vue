@@ -32,10 +32,6 @@ export default {
 		handlethreenavClick(e){
 			this.$emit("threenavClick");
 			var playItem = e.target.innerText.split(" ")[1];
-<<<<<<< HEAD
-=======
-		
->>>>>>> 4c2b2d06613a201f3da77e3e2d99c0033e1d6fac
 			try{
 				playItem = playItem=="" ? "全部分类" : playItem;
 				window.localStorage.playItem = playItem;
