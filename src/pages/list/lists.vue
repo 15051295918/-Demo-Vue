@@ -116,6 +116,7 @@
 				return parseInt(parseInt(this.$refs.paginator.pageItemsCount)/this.pre)+1
 			}
 		},
+		
 		data () {
 			return {
 				listClassigy: this.$store.state.playItem.replace(/(^\s*)|(\s*$)/g,""),

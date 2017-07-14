@@ -10,8 +10,10 @@ new Vue({
 		var city = '北京';
 		try {
 			playItem = window.localStorage.playItem ;
+			if(playItem == undefined) {
+				playItem = "全部分类"
+			}
 			city = window.localStorage.city;
-			console.log(playItem)
 		} catch(e) {}
 		this.$store.commit("changeCity", city);
 		this.$store.commit("changePlayItem", playItem);
