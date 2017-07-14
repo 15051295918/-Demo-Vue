@@ -8,7 +8,11 @@
 		</div>
 		<div class="address-score">
 			<span class="iconfont icon-faces">&#xe629;</span>
+<<<<<<< HEAD
 			<span class="iconfont icon-star">&#xe6e2;&#xe6e2;&#xe6e2;&#xe6e2;&#xe6e2;</span>
+=======
+			<span class="iconfont icon-stars">&#xe6e2;&#xe6e2;&#xe6e2;&#xe6e2;&#xe6e2;</span>
+>>>>>>> 9ab27c4e59d64b4e64aa155492fa3edf3b1987d7
 			<span class="scroe">4.9分</span>
 			<span class="iconfont icon-right">&#xe768;</span>
 		</div>
@@ -70,7 +74,7 @@
 		color: deepskyblue;
 		font-size: .4rem;
 	}
-	.icon-star{
+	.icon-stars{
 		color: deepskyblue;
 		font-size: .4rem;
 	}
