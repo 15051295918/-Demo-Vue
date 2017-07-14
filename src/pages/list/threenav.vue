@@ -30,6 +30,7 @@ export default {
 	
 	methods: {
 		handlethreenavClick(e){
+			this.$router.go(0);
 			this.$emit("threenavClick");
 			console.log(e)
 			var playItem = e.target.innerText.split(" ")[1];

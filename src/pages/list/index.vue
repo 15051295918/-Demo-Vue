@@ -3,8 +3,8 @@
 	<div class="main-list">
 		<list-header @headerClick="headerClick" @searchClick="searchClick"></list-header>
 		<navigator :subnavInfo = "subnavInfo" :show="showNav" :showMask="maskShow" :orderShow="showOrder" @ClassClick="ClassClick" @orderClick="indexOrderClick"
-		 @subThreenav="subThreenav" @orderItemClick="orderClickEvent"></navigator>
-		<list-lists :searchItem="searchItem"></list-lists>
+		 @subThreenav="subThreenav" @orderItemClick="orderClickEvent" @orderAClick="orderAClick" @orderBClick="orderBClick" @orderCClick="orderCClick"></navigator>
+		<list-lists :searchItem="searchItem" :orderA="orderA" :orderB="orderB" :orderC="orderC"></list-lists>
 		
 	</div>
 	<div class="mask" @touchstart="handleMaskClick"  v-show="maskShow">
@@ -31,7 +31,11 @@
 				subnavInfo: [],
 				showOrder: false,
 				maskShow: false,
-				searchItem:""
+				searchItem:"",
+				orderA:"",
+				orderB:"",
+				orderC:""
+
 			}
 		},
 
@@ -68,6 +72,18 @@
 			},
 			searchClick(value) {
 				this.searchItem=value
+			},
+			orderAClick(orderA) {
+				this.orderA = orderA
+				alert(orderA)
+			},
+			orderBClick(orderB) {
+				this.orderB = orderB
+				alert(orderB)
+			},
+			orderCClick(orderC) {
+				this.orderC = orderC
+				alert(orderC)
 			}
 		} 
 	}

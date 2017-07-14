@@ -30,9 +30,9 @@
 
 	<div id="order-wrapper" v-show="orderShow">
 		<div id="order-scroller" @click="handleOrderItemClick">
-			<div class="order border-bottom" :class='{"order-checked":orderCheck[0]}' @click="handleOrderCheckeda">推荐排序</div>
-			<div class="order border-bottom" :class='{"order-checked":orderCheck[1]}' @click="handleOrderCheckedb">离我最近</div>
-			<div class="order border-bottom" :class='{"order-checked":orderCheck[2]}' @click="handleOrderCheckedc">人气最高</div>
+			<div class="order border-bottom" :class='{"order-checked":orderCheck[0]}' @click="handleOrderCheckeda">{{orderA}}</div>
+			<div class="order border-bottom" :class='{"order-checked":orderCheck[1]}' @click="handleOrderCheckedb">{{orderB}}</div>
+			<div class="order border-bottom" :class='{"order-checked":orderCheck[2]}' @click="handleOrderCheckedc">{{orderC}}</div>
 		</div>
 	</div>
 
@@ -75,7 +75,10 @@ export default {
 			check:[true], //给每一项都要加一个不同的而不是加的都是一样的
 			orderCheck:[true],
 			primaryStyle:false,
-			subnavStyle: false
+			subnavStyle: false,
+			orderA:"推荐排序",
+			orderB:"离我最近",
+			orderC:"人气最高"
 		}
 	},
 
@@ -108,14 +111,17 @@ export default {
 	  	handleOrderCheckeda() {
 	  		this.orderCheck=[];
 	  		this.orderCheck[0]=true;
+	  		this.$emit("orderAClick",this.orderA)
 	  	},
 	  	handleOrderCheckedb() {
 	  		this.orderCheck=[];
 	  		this.orderCheck[1]=true;
+	  		this.$emit("orderBClick",this.orderB)
 	  	},
 	  	handleOrderCheckedc() {
 	  		this.orderCheck=[];
 	  		this.orderCheck[2]=true;
+	  		this.$emit("orderCClick",this.orderC)
 	  	}
 	},
 
