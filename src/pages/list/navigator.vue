@@ -72,8 +72,8 @@ export default {
 		return {
 			i : 0,
 			threeInfo:[],
-			check:[], //给每一项都要加一个不同的而不是加的都是一样的
-			orderCheck:[],
+			check:[true], //给每一项都要加一个不同的而不是加的都是一样的
+			orderCheck:[true],
 			primaryStyle:false,
 			subnavStyle: false
 		}
