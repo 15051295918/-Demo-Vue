@@ -43,6 +43,10 @@ export default new Router({
         path: "/sales",
         name: "sales",
         component: Sales
+    }, {
+        path: "/oneday/detail/:pid",
+        name: "one-day-detail",
+        component: OneDayTourDetail
     }
     ]
 })
