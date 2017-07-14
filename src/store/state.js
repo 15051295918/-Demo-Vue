@@ -1,3 +1,5 @@
 export default {
-	city:""
+	city: "",
+	code: "",
+	playItem:""
 }

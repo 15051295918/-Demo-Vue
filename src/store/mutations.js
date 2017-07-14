@@ -5,5 +5,8 @@ export default {
     changeCode (state, code) {
       state.code = code;
     },
+    changePlayItem(state, playItem){
+    	state.playItem = playItem;
+    }
 }
 
