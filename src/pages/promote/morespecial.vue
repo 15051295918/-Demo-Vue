@@ -19,31 +19,33 @@
         <div class="more-special-list" ref="scrolllist">            
             <ul class="list-big-box">
                 <li class="list-mall-box"  v-for="(item,index) in list" :key="index+'_list'">
-                    <a href="javascript:void(0)
-" class="list-link">
-                        <div class="list-img-box">
-                            <img class="list-img" v-lazy="item.img">
-                            <div class="list-img-add">
-                                <span class="list-img-pos"></span>{{province}}    
-                            </div>
-                            <div class="list-img-content">
-                                {{item.subName}}
-                            </div>                        
-                        </div>
-                        <div class="list-detail">
-                            <div class="list-price">
-                                <div class="list-old-price">
-                                    票面价&yen;<span>{{item.priceOld}}</span>
+                    <router-link to="/oneday/detail/:id">
+                        <a href="javascript:void(0)
+    " class="list-link">
+                            <div class="list-img-box">
+                                <img class="list-img" v-lazy="item.img">
+                                <div class="list-img-add">
+                                    <span class="list-img-pos"></span>{{province}}    
                                 </div>
-                                <div class="list-current-price">
-                                    &yen;<span>{{item.priceNow}}</span>
+                                <div class="list-img-content">
+                                    {{item.subName}}
+                                </div>                        
+                            </div>
+                            <div class="list-detail">
+                                <div class="list-price">
+                                    <div class="list-old-price">
+                                        票面价&yen;<span>{{item.priceOld}}</span>
+                                    </div>
+                                    <div class="list-current-price">
+                                        &yen;<span>{{item.priceNow}}</span>
+                                    </div>
+                                </div>
+                                <div class="list-button">
+                                    立即预定
                                 </div>
                             </div>
-                            <div class="list-button">
-                                立即预定
-                            </div>
-                        </div>
-                    </a>
+                        </a>
+                    </router-link>
                 </li>
             </ul>
         </div>
