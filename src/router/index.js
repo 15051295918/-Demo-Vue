@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Index from '@/pages/index/index'
 import List from '@/pages/list/index'
 import Detail from '@/pages/CommonDetail/index'
+import Sales from '@/pages/sales/index'
 import Comment from '@/pages/comment/index'
 import Promote from '@/pages/promote/index'
 import City from '@/pages/city/index'
@@ -38,6 +39,10 @@ export default new Router({
       path: '/promote',
       name: 'promote',
       component: Promote
+    },{
+        path: "/sales",
+        name: "sales",
+        component: Sales
     }]
 
 })

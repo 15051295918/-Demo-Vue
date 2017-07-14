@@ -17,13 +17,13 @@
 
 <script>
 export default {
-	created: function() {
+	/*created: function() {
 	    this.$http.get('/static/ticketRmb.json').then(response => {
 	        this.more = response.body.data.indexInfo.cityItem;
 	    }, response => {
 	        console.log("get list data error")
 	    });
-	},
+	},*/
 	data () {
 	    return {
 	     
