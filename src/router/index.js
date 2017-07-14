@@ -13,49 +13,43 @@ import City from '@/pages/city/index'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'index',
-        alias: '/index',
-      component: Index
-    }, {
-      path: "/list",
-      name: "list",
-      component: List
-    },
-    {
-        path: "/detail",
-        name: "Detail",
-        component: Detail
-    },{
-        path: "/city",
-        name: "city",
-        component: City
-    },{
-      path: '/comment',
-      name: 'comment',
-      component: Comment
-    }, {
-        path: "/weekend/:id/:title",
-        name: "weekend",
-        component: Weekend
-    },{
-        path: "/city",
-        name: "city",
-        component: City
-    }, {
-      path: '/promote',
-      name: 'promote',
-      component: Promote
-    }, {
-        path: "/sales",
-        name: "sales",
-        component: Sales
-    }, {
-        path: "/oneday/detail/:pid",
-        name: "one-day-detail",
-        component: OneDayTourDetail
-    }
+    routes: [
+        {
+            path: '/',
+            name: 'index',
+            component: Index
+        }, {
+            path: "/list",
+            name: "list",
+            component: List
+        }, {
+            path: "/detail",
+            name: "Detail",
+            component: Detail
+        }, {
+            path: "/city",
+            name: "city",
+            component: City
+        }, {
+            path: '/comment',
+            name: 'comment',
+            component: Comment
+        }, {
+            path: "/weekend/:id/:title",
+            name: "weekend",
+            component: Weekend
+        }, {
+            path: '/promote',
+            name: 'promote',
+            component: Promote
+        }, {
+            path: "/sales",
+            name: "sales",
+            component: Sales
+        }, {
+            path: "/oneday/detail/:pid",
+            name: "one-day-detail",
+            component: OneDayTourDetail
+        }
     ]
 })
