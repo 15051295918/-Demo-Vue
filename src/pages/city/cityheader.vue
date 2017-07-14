@@ -1,7 +1,9 @@
 <template>
 	<div>
 		<div class="city-header">	
-			<div class="city-key" @click="handleBackFront"></div>
+			<div class="city-back" @click="handleBackFront"> 
+				<div class="city-key"></div>
+			</div>
 			<h1 class="cityheader-title">
 				<div class="city-tab" >
 					<span class="header-city" @click="handleInternal" :class="{'header-internal':internal==true}">国内</span>
@@ -13,10 +15,8 @@
 			<input v-model="value" type="text" @focus="handleInputFocus" @blur="handleInputBlur" :placeholder="placeholder" class="city-keyword" :class="{text:textalign}">		
 		</div>
 		<ul class="key-city-ul" v-if="list">
-			<router-link to="/">
-				<li class="key-city-list border-bottom"  v-for="(item,index) in cityList" :key="index+'_cityList'">		{{item.name}}
+				<li @click="handleSearchCity" class="key-city-list border-bottom"  v-for="(item,index) in cityList" :key="index+'_cityList'">		{{item.name}}
 				</li>
-			</router-link>	
 		</ul>
 	</div>
 </template>
@@ -57,6 +57,14 @@
 			},
 			handleBackFront: function() {
 				window.history.go(-1);
+			},
+			handleSearchCity: function(e) {
+				var city = e.target.innerText;
+				try{
+					window.localStorage=city;
+				}catch(e){};
+				this.$store.commit("changeCity",city)
+				this.$router.go(-1)
 			}		
 		},
 		watch: {
@@ -65,10 +73,11 @@
 		    		this.list = true;
 		    		var msg = this.cityInfo;
 					var words = this.value.toString().toLowerCase();
-					words.toString().split("").map((word, num) => {
+					words.split("").map((word, num) => {
 						msg = msg.filter((value, index) => {
-							var str = value.pinyin.charAt(num).toLowerCase();
-							return word == str;
+							var strLetter = value.pinyin.charAt(num).toLowerCase();
+							var strName = value.name.charAt(num);
+							return (word == strLetter) || (word == strName);
 						})
 					})
 					this.cityList = msg;
@@ -93,6 +102,10 @@
 	    background: #00afc7;
 	    color: #fff;
 	    z-index: 100;
+	}
+	.city-back{
+		width:.88rem; 
+		height: .88rem;
 	}
 	.city-key{
 		width: .24rem;
@@ -120,9 +133,11 @@
 	}
 	.header-city:first-of-type {
 	    border-radius: .06rem 0 0 .06rem;
-	}
+	    border-right: none;
+	}  
 	.header-city:last-of-type {
 	    border-radius: 0 .06rem .06rem 0;
+	 	border-left: none;
 	}
 	.city-tab{
 	    display: inline-block;

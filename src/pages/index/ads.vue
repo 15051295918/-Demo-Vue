@@ -1,7 +1,9 @@
 <template>
 	<div class="ads border-topbottom">
 		<div class="ads-item border-right" v-for="(item, index) in adsInfo" :key="index + '_ads_item'">
-			<img class="ads-img" :src="item.imgUrl">
+			<router-link to="/sales/">
+				<img class="ads-img" :src="item.imgUrl">
+			</router-link>
 		</div>
 	</div>
 </template>
