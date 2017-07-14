@@ -4,8 +4,6 @@ import App from './App'
 import router from './router'
 import store from './store'
 
-
-
 new Vue({
 	beforeCreate: function() {
 		var city = '北京';
