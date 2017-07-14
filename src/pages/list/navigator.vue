@@ -45,7 +45,7 @@
 
 <script>
 import threenav from "./threenav";
-import "../../utils/iscroll.js";
+import "../../utils/iscroll-lite.js";
 
 export default {
 
