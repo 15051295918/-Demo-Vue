@@ -2,10 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/pages/index/index'
 import List from '@/pages/list/index'
-import sigthotelIndex from "@/pages/sighthotel/index/index"
-import sigthotelDetail from "@/pages/sighthotel/detail/index"
-import sigthotelOrderIndex from "@/pages/sighthotel/orders/index"
-import phonearea from "@/pages/sighthotel/orders/phonearea"
+import SigthotelIndex from "@/pages/sighthotel/index/index"
+import SigthotelDetail from "@/pages/sighthotel/detail/index"
+import SigthotelOrderIndex from "@/pages/sighthotel/orders/index"
+import Phonearea from "@/pages/sighthotel/orders/phonearea"
 import Sales from '@/pages/sales/index'
 import Comment from '@/pages/comment/index'
 import Promote from '@/pages/promote/index'
@@ -19,7 +19,7 @@ export default new Router({
     {
       path: '/',
       name: 'index',
-        alias: '/index',
+      alias: '/index',
       component: Index
     }, {
       path: "/list",
@@ -44,19 +44,19 @@ export default new Router({
     }, {
       path: "/sighthotel",
       name: "sigthotelIndex",
-      component: sigthotelIndex
+      component: SigthotelIndex
     }, {
       path: "/sighthotel/detail",
       name: "sigthotelDetail",
-      component: sigthotelDetail
+      component: SigthotelDetail
     }, {
       path: "/sighthotel/order",
       name: "sigthotelOrderIndex",
-      component: sigthotelOrderIndex
+      component: SigthotelOrderIndex
     }, {
       path:"/phonearea",
       name:"phonearea",
-      component: phonearea
+      component: Phonearea
     }, {
       path: "/city",
       name: "city",
