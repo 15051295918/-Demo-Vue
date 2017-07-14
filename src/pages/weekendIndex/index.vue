@@ -40,6 +40,9 @@
 	  		},
 	  		getWeekendDataSucc: function(response) {
 				this.currentCity = this.$store.state.city;
+        if(!response.body.data[this.currentCity]){
+          this.currentCity="北京"
+        }
 				this.classifyInfo = response.body.data[this.currentCity].classifyInfo;
 				this.nearScapeInfo = response.body.data[this.currentCity].nearScapeInfo;
 				this.weekendChosenInfo = response.body.data.weekendChosenInfo;
