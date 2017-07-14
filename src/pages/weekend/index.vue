@@ -26,7 +26,6 @@
 export default {
   created:function () {
      	this.$http.get('/static/weekend.json').then(response => {
-                console.log(response);
                 this.productInfo = response.body.data[this.$route.params.id];
           }, response => {
                 console.log("get index data error");

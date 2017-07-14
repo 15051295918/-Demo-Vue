@@ -5,6 +5,7 @@ import FastClick from 'fastclick'
 import Vuex from 'vuex';
 import AMap from 'vue-amap'
 import VueLazyload from 'vue-lazyload';
+import VuePaginate from 'vue-paginate'
 
 Vue.config.productionTip = false
 
@@ -12,6 +13,7 @@ Vue.use(VueAwesomeSwiper);
 Vue.use(VueResource);
 Vue.use(Vuex);
 Vue.use(AMap);
+Vue.use(VuePaginate)
 
 Vue.use(VueLazyload, {
   preLoad: 1.3,
