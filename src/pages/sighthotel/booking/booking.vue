@@ -1,5 +1,5 @@
 <template>
-  <transition>
+  <transition appear appear-class="custom-appear-class" appear-active-class="custom-appear-active-class">
       <div class="booking-main" v-show="show">
   		  <div class="booking-header">
           <h2 class="header-title">
@@ -114,7 +114,6 @@ export default {
       line-height: 1rem;
       text-align: center;
     }
-
     .booking-footer {
       position: absolute;
       left: 0;
@@ -126,7 +125,15 @@ export default {
       color: #fff;
       font: normal .36rem/1rem Arial,"Microsoft Yahei","Helvetica Neue",Helvetica,sans-serif;
     }
-
+    .custom-appear-class {
+      bottom: -454.4px;
+      background:red;
+      transition: all .6s ease;
+    }
+    .custom-appear-active-class {
+      background:green;
+      bottom: -454.4px;
+    }
     .v-leave-active, .v-leave-active {
       transition: all .6s ease;
     }

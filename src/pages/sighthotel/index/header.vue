@@ -1,38 +1,39 @@
-<template class="header">
-	<header class="j-header">
-		<a class="j-header-left iconfont" mp-role="left">&#xe657;</a>
-		<h1 class="j-header-title" mp-role="title">
-			<router-link to="/city">
-				<span class="j-header-title-extend">北京</span>
-			</router-link>
-		</h1>
-		<span class="j-header-right" mp-role="right">
-			<router-link to="/city">
-				<span class="j-header-search iconfont">&#xe6d1;</span>
-			</router-link>
-		</span>
-	</header>
+<template>
+	<div class="header">
+		<header class="j-header">
+			<a class="j-header-left iconfont" mp-role="left">&#xe657;</a>
+			<h1 class="j-header-title" mp-role="title">
+				<router-link to="/city">
+					<span class="j-header-title-extend">北京</span>
+				</router-link>
+			</h1>
+			<span class="j-header-right" mp-role="right">
+				<router-link to="/city">
+					<span class="j-header-search iconfont">&#xe6d1;</span>
+				</router-link>
+			</span>
+		</header>
+	</div>
 </template>
 
 <script>
 
 
 export default{
-	data(){
-		return{
+	data() {
+		return {
 			
 		}
 	}
 }
 
 
-
 </script>
-
 
 <style scoped>
 	.j-header{
-		position: relative;
+		position: fixed;
+		width:100%;
 	    height: .88rem;
 	    background: #00bcd4;
 	    z-index: 91;

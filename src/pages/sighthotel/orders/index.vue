@@ -1,6 +1,6 @@
 <template>
     <div class="main">
-  		<orders-header></orders-header>
+  		<orders-header @back="handleBack"></orders-header>
         <orders-product></orders-product>
         <orders-buyinformation></orders-buyinformation>
         <orders-information></orders-information>
@@ -16,9 +16,14 @@ import ordersinformation from "./ordersinformation"
 export default {
     
     data() {
-      return {
-      
-      }
+        return {
+          
+        }
+    },
+    methods:{
+        handleBack() {
+            history.back();
+        }
     },
     components: {
     	"orders-header":ordersheader,

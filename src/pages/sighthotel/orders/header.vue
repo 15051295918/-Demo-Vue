@@ -1,6 +1,6 @@
 <template>
    <header class="header">
-  		<a class="header-left">
+  		<a class="header-left" @click=handleBackClick>
   			<div class="return"></div>
   		</a>
   		<h1 class="order-write">订单填写</h1>
@@ -15,7 +15,17 @@
 <script>
 
 export default {
-   
+   data() {
+   		return {
+
+   		}
+   },
+
+   methods: {
+   		handleBackClick() {
+   			this.$emit("back")
+   		}
+   }
 }
 
 </script>
