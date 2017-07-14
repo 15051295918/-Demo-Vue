@@ -3,7 +3,7 @@
         <h3 class="recommend-title">看了该景点的人还看了</h3>
         <div class="recommend-list">
             <a href="" role="sightLink">
-                <div class="recommend-item" v-for="item in data">
+                <div class="recommend-item" v-for="(item,index) in data" :key="index + 'recommend-item'">
                     <img class="recommend-img" role="lazyLoadImg" data-original-src="" :src="item.recommendImg" />
                     <div class="recommend-info border-bottom">
                         <div class="recommend-sight">{{item.recommendSight}}</div>
