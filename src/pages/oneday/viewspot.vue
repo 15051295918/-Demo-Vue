@@ -32,10 +32,12 @@
 				</div>
 			</router-link>
 		</div>
-		<a class="recommend-a">
-			查看全部景点
-			<span class="recommend-a-span iconfont">&#xe615;</span>
-		</a>
+		<router-link :to="{path:'./oneday-list'}">
+			<div class="recommend-a">
+				查看全部一日游
+				<span class="recommend-a-span iconfont">&#xe615;</span>
+			</div>
+		</router-link>
 	</div>
 </template>
 

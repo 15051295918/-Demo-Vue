@@ -28,7 +28,7 @@
 				</li>
 			</ul>
 			<div class="spot-concent-more">
-				<router-link :to="{path:'/'}">
+				<router-link :to="{path:'./oneday-list'}">
 					<span class="spot-concent-more-btn">{{$store.state.city}}全部一日游</span>
 				</router-link>
 			</div>
