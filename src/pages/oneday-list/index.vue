@@ -10,7 +10,7 @@
 @import  "./common/scss/mixin";
 
 <script>
-import  "../../utils/iscroll.js";
+import  "../../utils/iscroll-lite.js";
 import header from './header.vue';
 import fillterList from './fillterList.vue';
 import bodyMain from './bodyMain.vue';

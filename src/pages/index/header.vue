@@ -67,9 +67,9 @@ export default {
 	    display: inline-block;
 	    overflow: hidden;
 	    position: absolute;
-	    left: .3rem;
+	    left: 0;
 	    top: 0;
-	    width: 3.6rem;
+	    width: 100%;
 	    white-space: nowrap;
 	    text-overflow: ellipsis;
 	    color: #ccc;
