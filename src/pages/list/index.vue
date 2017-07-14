@@ -1,10 +1,10 @@
 <template>
 <div>
 	<div class="main-list">
-		<list-header @headerClick="headerClick"></list-header>
+		<list-header @headerClick="headerClick" @searchClick="searchClick"></list-header>
 		<navigator :subnavInfo = "subnavInfo" :show="showNav" :showMask="maskShow" :orderShow="showOrder" @ClassClick="ClassClick" @orderClick="indexOrderClick"
 		 @subThreenav="subThreenav" @orderItemClick="orderClickEvent"></navigator>
-		<list-lists></list-lists>
+		<list-lists :searchItem="searchItem"></list-lists>
 		
 	</div>
 	<div class="mask" @touchstart="handleMaskClick"  v-show="maskShow">
@@ -30,7 +30,8 @@
 				showNav: false,
 				subnavInfo: [],
 				showOrder: false,
-				maskShow: false
+				maskShow: false,
+				searchItem:""
 			}
 		},
 
@@ -64,8 +65,11 @@
 			},
 			orderClickEvent() {
 				return  this.showNav =this.showOrder=this.maskShow= false
+			},
+			searchClick(value) {
+				this.searchItem=value
 			}
-		}
+		} 
 	}
 </script>
 	

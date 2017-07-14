@@ -3,11 +3,11 @@
   		<a class="header-left">
   			<div class="return"></div>
   		</a>
-  		<router-link to="/list">
   		<div class="header-title">
+  			<router-link to="/list">
   				<span class="single-line">输入城市/景点/游玩主题</span>
+  			</router-link>
   		</div>
-  		</router-link>
   		<div class="header-right">
   			<router-link to="/city">
   				<span class="header-city">{{$store.state.city}}<i class="header-city-option"></i></span>
@@ -67,9 +67,9 @@ export default {
 	    display: inline-block;
 	    overflow: hidden;
 	    position: absolute;
-	    left: .3rem;
+	    left: 0;
 	    top: 0;
-	    width: 3.6rem;
+	    width: 100%;
 	    white-space: nowrap;
 	    text-overflow: ellipsis;
 	    color: #ccc;
