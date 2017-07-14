@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Index from '@/pages/index/index'
 import List from '@/pages/list/index'
 
-import onedayTour from '@/pages/oneday-tour/index'
+import onedayList from '@/pages/oneday-list/index'
 
 import Sales from '@/pages/sales/index'
 
@@ -30,9 +30,9 @@ export default new Router({
       name: 'comment',
       component: Comment
     }, {
-        path: "/onedayTour",
-        name: "OnedayTour",
-        component: onedayTour
+        path: "/oneday-list",
+        name: "onedayList",
+        component: onedayList
     }, {
       path: '/promote',
       name: 'promote',

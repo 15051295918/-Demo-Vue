@@ -1,7 +1,7 @@
 <template >
 	<div id="bodyWraper">
 		<div  class="scroller body-main " @touchstart="handleTouch" @touchmove="handleEmitEvent">
-			<a class="item border-bottom"  v-for="(ticket, index) in ticketLists" :key="'ticket' + index"  href="#/onedayTour">
+			<router-link class="item border-bottom"  v-for="(ticket, index) in ticketLists" :key="'ticket' + index" to="oneday/detail/2">
 				<img :src="ticket.imgUrl"/>
 				<div class="details">
 					<p>{{ticket.name}}</p>
@@ -11,7 +11,7 @@
 					</div>
 					<div class="collection">已收藏: {{ticket.marketPrice}}</div>
 				</div>
-			</a>
+			</router-link>
 		</div>
 	</div>
 </template>

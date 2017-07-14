@@ -10,7 +10,7 @@
 @import  "./common/scss/mixin";
 
 <script>
-import  "./iscroll.js";
+import  "../../utils/iscroll.js";
 import header from './header.vue';
 import fillterList from './fillterList.vue';
 import bodyMain from './bodyMain.vue';
@@ -29,7 +29,7 @@ export default {
 	        "header-component": header
 	},
 	created(){
-	  	this.$http.get('@/../static/oneday-tour.json').then(response => {
+	  	this.$http.get('@/../static/oneday-list.json').then(response => {
 	  		if( response.body.ret ){
 	  			this.datas = response.body;
 	  		}

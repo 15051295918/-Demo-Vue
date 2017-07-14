@@ -2,12 +2,14 @@
     <div>
         <swiper :options="swiperOption" ref="mySwiper">
             <swiper-slide v-for="(page, index) in pages" :key="index + '_icon_swiper_item'">
-                <div class="icon-container">
-                    <div class="icon-wrapper" v-for="item in page">
-                        <img :src="item.imgUrl" class="icon-img">
-                        <p class="icon-title">{{item.title}}</p>
-                    </div>
-                </div>
+	                <div class="icon-container">
+	                    <div class="icon-wrapper" v-for="item in page">
+            				<router-link :to="item.link">
+	                       		<img :src="item.imgUrl" class="icon-img">
+	                       		<p class="icon-title">{{item.title}}</p>
+               				 </router-link>
+	                    </div>
+	                </div>
             </swiper-slide>
             <div class="swiper-pagination icon-pagination"  slot="pagination"></div>
         </swiper>
