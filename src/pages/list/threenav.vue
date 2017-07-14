@@ -34,9 +34,7 @@ export default {
 			this.$emit("threenavClick");
 			var playItem = e.target.innerText.split(" ")[1];
 			try{
-				playItem = playItem=="" ? "全部分类" : playItem;
 				window.localStorage.playItem = playItem;
-
 			}catch(err){}
 		}
 	}

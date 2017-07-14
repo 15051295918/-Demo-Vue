@@ -9,9 +9,10 @@ new Vue({
 		var playItem = "";
 		var city = '北京';
 		try {
-			playItem = window.localStorage.playItem ;
 			if(playItem == undefined) {
-				playItem = "全部分类"
+				playItem = "全部分类";
+			}else {
+				playItem = window.localStorage.playItem ;
 			}
 			city = window.localStorage.city;
 		} catch(e) {}
