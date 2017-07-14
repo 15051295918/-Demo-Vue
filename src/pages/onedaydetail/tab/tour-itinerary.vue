@@ -37,11 +37,12 @@
                 </div>
             </div>
         </router-link>
-        <div :class='{"prddetail-mapcon":true, "page-map":isBigMapOpen}' @click="handleMapClick" v-if="show">
-             <!-- <el-amap vid="amap" :zoom="tourItineraryInfo.map.zoom" :center="tourItineraryInfo.map.center" class="amap-demo">
-                <el-amap-info-window v-for="(window, index) in tourItineraryInfo.map.windows" :position="window.position" :content="window.content"
-                    :visible="window.visible" :events="map.events" :key="index + 'map'"></el-amap-info-window>
-            </el-amap>  -->
+        <div :class='{"prddetail-mapcon":true, "page-map":isBigMapOpen}' @click="handleMapClick">
+            <!-- <el-amap vid="amap" :zoom="tourItineraryInfo.map.zoom" :center="tourItineraryInfo.map.center" class="amap-demo">
+                <el-amap-info-window v-for="(mapWindow, index) in tourItineraryInfo.map.mapWindows" :position="mapWindow.position" :content="mapWindow.content"
+                    :visible="mapWindow.visible" :events="map.events" :key="index + 'map'">
+                </el-amap-info-window>
+            </el-amap> -->
         </div>
     </div>
 </template>
@@ -51,7 +52,7 @@
         data() {
 
             return {
-                "show": true,
+
                 "map": {
                     events: {
                         close() {
