@@ -11,6 +11,16 @@ import Sales from '@/pages/sales/index'
 import Comment from '@/pages/comment/index'
 import Promote from '@/pages/promote/index'
 import City from '@/pages/city/index'
+import campaignIndex from '@/pages/campaign/index/index'
+import campaignHelp from '@/pages/campaign/help/index'
+import campaignNewAannounce from '@/pages/campaign/newannounce/index'
+import campaignComputDetails from '@/pages/campaign/detail/comput/index'
+import campaignAnnounceDetails from '@/pages/campaign/detail/announceDetails/index'
+import campaignMineindex from '@/pages/campaign/mine/index'
+import campaignMineRegister from '@/pages/campaign/mine/register'
+import campaignDetail from '@/pages/campaign/detail/activityDetails'
+import campaignOrder from '@/pages/campaign/order/index'
+import campaignShowText from '@/pages/campaign/order/showtext'
 
 Vue.use(Router)
 
@@ -38,26 +48,69 @@ export default new Router({
             name: "city",
             component: City
         }, {
-            path: '/comment',
-            name: 'comment',
-            component: Comment
-        }, {
             path: "/weekend/:id/:title",
             name: "weekend",
             component: Weekend
+        }, {
+            path: '/comment',
+            name: 'comment',
+            component: Comment
         }, {
             path: '/promote',
             name: 'promote',
             component: Promote
         }, {
+            path: "/oneday/detail/:pid",
+            name: "one-day-detail",
+            component: OneDayTourDetail
+        }, {
             path: "/sales",
             name: "sales",
             component: Sales
         }, {
-            path: "/oneday/detail/:pid",
-            name: "one-day-detail",
-            component: OneDayTourDetail
+            path: "/campaign",
+            name: "campaignIndex",
+            component: campaignIndex
+        }, {
+            path: "/campaign/help",
+            name: "campaignHelp",
+            component: campaignHelp
+        }, {
+            path: "/campaign/newannounce",
+            name: "campaignNewAannounce",
+            component: campaignNewAannounce
+        },{
+            path: "/campaign/computDetails/:id",
+            name: "campaignComputDetails",
+            component: campaignComputDetails
+        },{
+            path: "/campaign/announceDetails/:id",
+            name: "campaignAnnounceDetails",
+            component: campaignAnnounceDetails
+        }, {
+            path: "/campaign/detail:id",
+            name: "campaignDetail",
+            component: campaignIndex
+        }, {
+            path: "/campaign/mine",
+            name: "campaignMineindex",
+            component: campaignMineindex
+        }, {
+            path: "/campaign/mine/register",
+            name: "campaignMineRegister",
+            component: campaignMineRegister
+        }, {
+            path: "/campaign/detail/:productId",
+            name: "campaignDetail",
+            component: campaignDetail
+        }, {       
+        	path: "/campaign/order",
+            name: "campaignOrder",
+            component: campaignOrder
+        }, {
+            path: "/campaign/showtext",
+            name: "campaignShowText",
+            component: campaignShowText
         }
-    ]
-
+    ]    
 })

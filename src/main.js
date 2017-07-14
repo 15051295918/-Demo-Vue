@@ -5,6 +5,7 @@ import router from './router'
 import store from './store'
 
 new Vue({
+
 	beforeCreate: function() {
 		var playItem = "";
 		var city = '北京';
@@ -18,10 +19,10 @@ new Vue({
 		this.$store.commit("changeCity", city);
 		this.$store.commit("changePlayItem", playItem);
 	},
+
   	el: '#app',
   	router,
   	store,
   	template: '<App/>',
   	components: { App }
 })
-
