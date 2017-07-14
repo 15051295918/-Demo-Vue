@@ -2,6 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/pages/index/index'
 import List from '@/pages/list/index'
+import Sales from '@/pages/sales/index'
+import Comment from '@/pages/comment/index'
+import Promote from '@/pages/promote/index'
 import City from '@/pages/city/index'
 import campaignIndex from '@/pages/campaign/index/index'
 import campaignHelp from '@/pages/campaign/help/index'
@@ -16,6 +19,7 @@ import campaignMineRegister from '@/pages/campaign/mine/register'
 import campaignDetail from '@/pages/campaign/detail/activityDetails'
 import campaignOrder from '@/pages/campaign/order/index'
 import campaignShowText from '@/pages/campaign/order/showtext'
+
 
 Vue.use(Router)
 
@@ -34,6 +38,18 @@ export default new Router({
             path: "/city",
             name: "city",
             component: City
+        }, {
+            path: '/comment',
+            name: 'comment',
+            component: Comment
+        }, {
+            path: '/promote',
+            name: 'promote',
+            component: Promote
+        }, {
+            path: "/sales",
+            name: "sales",
+            component: Sales
         }, {
             path: "/campaign",
             name: "campaignIndex",
@@ -80,5 +96,4 @@ export default new Router({
             component: campaignShowText
         }            
     ]
-
 })
