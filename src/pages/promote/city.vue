@@ -27,21 +27,14 @@
 <script>
 
 export default {
-    created: function() {
-        this.$http.get('/static/ticketRmb.json').then(response => {
-            this.commentcityItmes = response.body.data.indexInfo.cityItem;
-        }, response => {
-            console.log("get list data error")
-        });
-    },
     data() {
         return {
-            commentcityItmes:[],
             activeIndex:0,
             cityIndex:0,
             activeMoreImg: false
         }
     },
+    props:["commentcityItmes"],
     computed: {
         cityItmes: function() {
             var cityItmes = [];
@@ -58,11 +51,12 @@ export default {
     methods: {
         handleClick: function(index) {
             this.activeIndex = index;
+            this.activeMoreImg = false;
             try {
                 window.localStorage.index = index;
             } catch(e) {}      
         },
-        handleMoreCity: function() {
+        handleMoreCity: function(index) {
             this.$emit("moreCityShow");
             this.activeMoreImg = true;
             this.activeIndex = -1;

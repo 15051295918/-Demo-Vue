@@ -14,6 +14,7 @@
 			@provinceChange="handleProvinceChange"
 			:province="province"
 			:moreShow="province"
+			:commentcityItmes="commentcityItmes"
 			></titket-city>
 			<titket-scenic 
 			:data="nineTicket" 
@@ -48,6 +49,7 @@ export default {
 	    this.$http.get('/static/ticketRmb.json').then(response => { 
 	      	this.nineTicket  = response.body.data.indexInfo.nineTicket
 	      	this.moreProvinces = response.body.data.indexInfo.moreProvinces 
+	      	this.commentcityItmes = response.body.data.indexInfo.cityItem;
 	    }, response => {
 	        console.log(调错了)
 	    });
@@ -57,6 +59,7 @@ export default {
      		off: false,
      		nineTicket: [],
      		moreProvinces: [],
+     		commentcityItmes: [],
      		moreProvince : false,
      		moreShow: false,
      		province: province

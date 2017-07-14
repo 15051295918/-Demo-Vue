@@ -1,7 +1,7 @@
 <template>
   	<div class="more-product">
         <div class="more-ticket-play">
-            <a href="#" class="more-link">
+            <a href="##" class="more-link">
                 <strong class="boldest">&gt;</strong>
                 <span class="bolder">&gt;</span>
                 <em class="bold">&gt;</em>
