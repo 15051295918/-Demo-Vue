@@ -105,7 +105,7 @@
 		line-height: .4rem;
 	}
 	.detail-header-close{
-		z-index: 100;
+		z-index: 90;
 		position: absolute;
 		left: .1rem;
 		top: .1rem;
