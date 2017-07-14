@@ -1,19 +1,17 @@
 <template>
-	<div class="tagfilter">
-		<h3 class="tagfilter-title" v-if="show">游玩景点<span>(可多选)</span></h3>
-		<div class="tagfilter-list" :class="{'tagfilter-unfold': isClass}" id="wrapper">
-			<ul class="tagfilter-items" :style="{width: getWidth}">
-				<li class="tagfilter-item" :class="{'tagfilter-select': item.isSelect }
-				" v-for="(item,index) in changeItems" @click="handleClickCheck(item)">
-					<span class="tagfilter-name" :class="{'border': item.isSelect }" :key="index+'tag'">{{item.name}}</span>
+	<div class="fagfilter">
+		<h3 class="fagfilter-title" v-if="show">游玩景点<span>(可多选)</span></h3>
+		<div class="fagfilter-list" :class="{'tagfilter-unfold': isClass}" id="wrapper">
+			<ul class="fagfilter-items" :style="{width: getWidth}">
+				<li class="fagfilter-item" :class="{'tagfilter-select': true }" v-for="(item,index) in changeItems" @click="handleClickCheck(item)">
+					<span class="fagfilter-name" :class="{'border': true }" :key="index+'tag'">{{item}}</span>
 				</li>
-				<li class="tagfilter-item" :class="{'tagfilter-select': item.isSelect }
-				" v-for="(item,index) in items" @click="handleClickCheck(item)">
-					<span class="tagfilter-name" :class="{'border': item.isSelect }" :key="index+'tag'">{{item.name}}</span>
+				<li class="fagfilter-item" :class="{'tagfilter-select': false}" v-for="(item,index) in items" @click="handleClickCheck(item)">
+					<span class="fagfilter-name" :class="{'border': false}" :key="index+'tag'">{{item}}</span>
 				</li>
 			</ul>
 		</div>
-		<div class="tagfilter-expand iconfont" v-html="getIcon" @click="handleChangeState"></div>
+		<div class="fagfilter-expand iconfont" v-html="getIcon" @click="handleChangeState"></div>
 	</div>
 </template>
 
@@ -24,7 +22,7 @@ import '@/utils/iscroll-lite.js';
 export default {
 	data () {
 		return {
-			items: [{name:"东方明珠",isSelect:false},{name:"南京路步行街",isSelect:false},{name:"外滩",isSelect:false},{name:"上海城隍庙",isSelect:false},{name:"上海迪士尼乐园",isSelect:false},{name:"上海迪士尼《狮子王》音乐剧",isSelect:false},{name:"姑苏水上游",isSelect:false},{name:"西湖",isSelect:false},{name:"黄浦江游船",isSelect:false},{name:"寒山寺",isSelect:false},{name:"上海历史发展陈列馆",isSelect:false},{name:"南京路步行街",isSelect:false},{name:"外滩",isSelect:false},{name:"上海城隍庙",isSelect:false},{name:"上海迪士尼乐园",isSelect:false},{name:"上海迪士尼《狮子王》音乐剧",isSelect:false},{name:"南京路步行街",isSelect:false},{name:"寒山寺",isSelect:false},{name:"上海历史发展陈列馆",isSelect:false},{name:"南京路步行街",isSelect:false},{name:"外滩",isSelect:false},{name:"上海城隍庙",isSelect:false},{name:"上海迪士尼乐园",isSelect:false},{name:"上海迪士尼《狮子王》音乐剧",isSelect:false},{name:"南京路步行街",isSelect:false}],
+			items: ["东方明珠","南京路步行街","外滩","上海城隍庙","姑苏水上游","黄浦江游船","上海迪士尼乐园","寒山寺","上海迪士尼《狮子王》音乐剧","西湖","上海历史发展陈列馆","乌镇","拙政园","狮子林","上海人民广场","西塘古镇","周庄","无锡三国城","虎丘","上海中心大厦","上海博物馆","乌镇东栅","乌镇西栅","陆家嘴","黄浦江游览(十六铺码头)","七里山塘","杭州黄龙洞","豫园","鼋头渚","乌镇一日游","唐寅园","宋城千古情","无锡水浒城","灵山大佛","盘门","黄浦江观光区","上海杜莎夫人蜡像馆","四季周庄","城隍庙旅游区","西塘本地玩乐","西湖游船","西溪湿地（周家村入口）","上海历史博物馆","上海大观园","上海新天地","上海海洋水族馆","上海风采浦江游览","东方明珠公园","中国杭州丝绸博物馆","中山陵"],
 			isWidth: true,
 			width: "",
 			icon: true,
@@ -35,12 +33,12 @@ export default {
 		}
 	},
 	mounted() {
-		var oLi=document.getElementsByClassName("tagfilter-item");
+		var oLi=document.getElementsByClassName("fagfilter-item");
 		var sumWidth=0,len=oLi.length;
 		for(var i=0; i<len; i++){
-			sumWidth+=oLi[i].offsetWidth+2
+			sumWidth+=oLi[i].offsetWidth
 		}
-		this.width=sumWidth+"px";
+		this.width=sumWidth+60+"px";
 		console.log(sumWidth)
 		this.getScroll
 		document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
@@ -71,12 +69,10 @@ export default {
 			var changItemsIndex=this.changeItems.indexOf(item)
 			var itemsIndex = this.items.indexOf(item)
 			if(changItemsIndex!=-1){
-				item.isSelect=false;
 				this.changeItems.splice(changItemsIndex,1)
 				this.items.push(item)
 		
 			}else{
-				item.isSelect=true;
 				this.items.splice(itemsIndex,1);
 				this.changeItems.push(item)
 			}	
@@ -90,17 +86,18 @@ export default {
 
 
 <style scoped>
-	.tagfilter {
+	.fagfilter {
 		position: relative;
 		background: #e5e7e8;
+		z-index: 5;
 	}
-	.tagfilter-title {
+	.fagfilter-title {
 		line-height: .8rem;
 		color: #212121;
 		font-size: .28rem;
 		text-indent: .2rem;
 	}
-	.tagfilter-list {
+	.fagfilter-list {
 		width: 100%;
 		padding: .08rem .12rem;
 		margin-right: .6rem;
@@ -108,7 +105,7 @@ export default {
 		overflow: hidden;
 		background: #e5e7e8;
 	}
-	.tagfilter-items {
+	.fagfilter-items {
 		overflow: hidden;
 	}
 	.tagfilter-unfold {
@@ -116,16 +113,16 @@ export default {
 		left: 0;
 		top: .8rem;
 	}
-	.tagfilter-unfold .tagfilter-items {
+	.tagfilter-unfold .fagfilter-items {
 		width: 100%;
 	}
-	.tagfilter-item {
+	.fagfilter-item {
 		float: left;
 		position: relative;
 		box-sizing: border-box;
 		padding: .04rem .08rem;
 	}
-	.tagfilter-name {
+	.fagfilter-name {
 		display: block;
 		padding: 0 .22rem;
 		min-width: .26rem;
@@ -134,7 +131,7 @@ export default {
 		font-size: .26rem;
 		border-radius: .04rem;
 	}
-	.tagfilter-expand {
+	.fagfilter-expand {
 		position: absolute;
 		top: 0;
 		right: 0;
