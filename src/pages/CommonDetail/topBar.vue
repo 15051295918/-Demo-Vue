@@ -1,6 +1,6 @@
 <template>
 	<div class="topbar" :style="style">
-        <a class="top-back iconfont">&#xe685;</a>
+        <a class="top-back iconfont" @click="handleBackClick">&#xe685;</a>
         <h1 class="top-title">故宫</h1>
     </div>
 </template>
@@ -22,6 +22,12 @@ export default {
         sTop:0
     }
   },
+  methods: {
+  	handleBackClick:function() {
+  		window.history.back()
+  	}
+  },
+  
   computed:{
     style:function(){
       return {
