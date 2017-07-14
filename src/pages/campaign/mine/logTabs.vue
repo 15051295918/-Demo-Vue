@@ -131,27 +131,27 @@
 
 <style scoped>
     .loginTabBox {
+        box-sizing: border-box;
         width: 100%;
-        height: .9rem;
-        background-color: #18a9b9;
+        height: .9rem;        
         padding: .05rem .2rem 0;
+        background-color: #18a9b9;
     }
 
     .loginTabBoxBorder {
         border:1px solid #fff;
         border-radius: .06rem;
         height: .64rem;
-        width: 7.84rem;
     }
 
     .loginTab {
-        width: 3.92rem;
+        float: left;
+        width: 50%;
         height: .64rem;
         text-align: center;
         line-height: .64rem;
         background-color: #18a9b9;
-        color: #fff;
-        float: left;
+        color: #fff;       
         font-size: .32rem;
     }
 
@@ -234,13 +234,14 @@
         -moz-box-flex:1;
         -ms-flex:1;flex:1;
         display:block;
-        margin-top:.16rem;
+        overflow: hidden;        
         width:.01rem;
         height:.6rem;
-        border:0;
+        margin-top:.16rem;
+        font-size: .32rem;    
         line-height:.3rem;
-        color:#000;
-        font-size: .32rem;
+        border:0;
+        color:#000;        
     }
 
     .rightBtn {
