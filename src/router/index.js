@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/pages/index/index'
 import List from '@/pages/list/index'
-import Weekend from '@/pages/weekend/index'
+import WeekendIndex from '@/pages/weekendIndex/index'
 import Oneday from '@/pages/oneday/index'
 import Sales from '@/pages/sales/index'
 import Comment from '@/pages/comment/index'
@@ -30,7 +30,7 @@ export default new Router({
         }, {
             path: "/weekend/index",
             name: "Weekend",
-            component: Weekend
+            component: WeekendIndex
         }, {
         	path: '/onedaytour',
         	name: 'Oneday',
