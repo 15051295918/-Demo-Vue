@@ -32,8 +32,9 @@ export default {
 		handlethreenavClick(e){
 			this.$router.go(0);
 			this.$emit("threenavClick");
-			var playItem = e.target.innerText.split(" ")[1];
+			var playItem = e.target.innerText.replace(/(^\s*)|(\s*$)/g,"").split(" ")[0];
 			try{
+				window.localStorage.removeItem( playItem );
 				window.localStorage.playItem = playItem;
 			}catch(err){}
 		}
