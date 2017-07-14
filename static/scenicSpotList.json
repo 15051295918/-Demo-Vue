@@ -4,7 +4,7 @@
 		"listCon":[{
 			"name": "故宫(5A)",
 			"img": "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_110x110_fac6a6cd.jpg",
-			"url": "",
+			"url": "http://localhost:8080/#/oneday/detail/123123123",
 			"hot": true,
 			"today": true,
 			"star": "width:95%",
@@ -14,7 +14,7 @@
 		},{
 			"name": "恭王府(5A)",
 			"img": "http://img1.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_110x110_d957be56.jpg",
-			"url": "",
+			"url": "http://localhost:8080/#/oneday/detail/123123123",
 			"hot": false,
 			"today": true,
 			"star": "width:90%",
@@ -24,7 +24,7 @@
 		},{
 			"name": "颐和园(5A)",
 			"img": "http://img1.qunarzz.com/sight/p0/1505/d2/d274c92de14c93da.water.jpg_110x110_d9d85877.jpg",
-			"url": "",
+			"url": "http://localhost:8080/#/oneday/detail/123123123",
 			"hot": true,
 			"today": true,
 			"star": "width:90%",
@@ -34,7 +34,7 @@
 		},{
 			"name": "八达岭长城(5A)",
 			"img": "http://img1.qunarzz.com/sight/p0/1604/1b/1b6778deafaf208f90.img.jpg_110x110_1efa2758.jpg",
-			"url": "",
+			"url": "http://localhost:8080/#/oneday/detail/123123123",
 			"hot": false,
 			"today": true,
 			"star": "width:90%",
@@ -44,7 +44,7 @@
 		},{
 			"name": "圆明园(4A)",
 			"img": "http://img1.qunarzz.com/sight/p0/1505/f5/f5f45e1a83537bcb.water.jpg_110x110_4c72dbfd.jpg",
-			"url": "",
+			"url": "http://localhost:8080/#/oneday/detail/123123123",
 			"hot": false,
 			"today": true,
 			"star": "width:95%",
@@ -54,7 +54,7 @@
 		},{
 			"name": "水立方",
 			"img": "http://img1.qunarzz.com/sight/p0/1501/40/40b2b6c951b28fdd.water.jpg_110x110_2de732a1.jpg",
-			"url": "",
+			"url": "http://localhost:8080/#/oneday/detail/123123123",
 			"hot": true,
 			"today": true,
 			"star": "width:95%",
@@ -64,7 +64,7 @@
 		},{
 			"name": "健龙森俱乐部",
 			"img": "http://img1.qunarzz.com/sight/p0/1605/ea/ea00fe36c50ab04390.water.jpg_110x110_6a4e0dfb.jpg",
-			"url": "",
+			"url": "http://localhost:8080/#/oneday/detail/123123123",
 			"hot": true,
 			"today": true,
 			"star": "width:95%",
@@ -74,7 +74,7 @@
 		},{
 			"name": "北京欢乐谷(4A)",
 			"img": "http://img1.qunarzz.com/sight/p0/1508/a5/4003f9dd7bebf61eccbf64046e26d487.water.jpg_110x110_e23a9143.jpg",
-			"url": "",
+			"url": "http://localhost:8080/#/oneday/detail/123123123",
 			"hot": true,
 			"today": true,
 			"star": "width:100%",
@@ -84,7 +84,7 @@
 		},{
 			"name": "十渡拒马乐园",
 			"img": "http://img1.qunarzz.com/sight/p0/1508/5a/9a1e5c492dec4945ff05f24025323a44.water.jpg_110x110_bb05d210.jpg",
-			"url": "",
+			"url": "http://localhost:8080/#/oneday/detail/123123123",
 			"hot": false,
 			"today": false,
 			"star": "width:96%",
@@ -94,7 +94,7 @@
 		},{
 			"name": "张裕爱斐堡(4A)",
 			"img": "http://img1.qunarzz.com/sight/p0/1505/9d/9d57a1306cb903cd.water.jpg_110x110_e51d45db.jpg",
-			"url": "",
+			"url": "http://localhost:8080/#/oneday/detail/123123123",
 			"hot": true,
 			"today": true,
 			"star": "width:96%",
@@ -104,7 +104,7 @@
 		},{
 			"name": "东方普罗旺斯薰衣草庄园",
 			"img": "http://img1.qunarzz.com/sight/p0/1507/7e/ea6600a46d96a668e8ab7fa82704d302.water.jpg_110x110_0da8a7d5.jpg",
-			"url": "",
+			"url": "http://localhost:8080/#/oneday/detail/123123123",
 			"hot": true,
 			"today": false,
 			"star": "width:95%",
@@ -114,7 +114,7 @@
 		},{
 			"name": "世界花卉大观园(4A)",
 			"img": "http://img1.qunarzz.com/sight/p0/1604/1e/1e75f8e1af9fe81f90.img.jpg_110x110_caf63693.jpg",
-			"url": "",
+			"url": "http://localhost:8080/#/oneday/detail/123123123",
 			"hot": true,
 			"today": true,
 			"star": "width:96%",
@@ -124,7 +124,7 @@
 		},{
 			"name": "十渡风景区(4A)",
 			"img": "http://img1.qunarzz.com/sight/p0/1603/ad/ad84d5339c3a34f390.water.jpg_110x110_9bfa65d1.jpg",
-			"url": "",
+			"url": "http://localhost:8080/#/oneday/detail/123123123",
 			"hot": true,
 			"today": true,
 			"star": "width:100%",
@@ -134,7 +134,7 @@
 		},{
 			"name": "鱼世界水上乐园",
 			"img": "http://img1.qunarzz.com/sight/p0/1706/9f/9f5acb010d1b1177a3.img.jpg_110x110_dabfa5f6.jpg",
-			"url": "",
+			"url": "http://localhost:8080/#/oneday/detail/123123123",
 			"hot": false,
 			"today": false,
 			"star": "width:100%",
@@ -144,7 +144,7 @@
 		},{
 			"name": "蜈支洲岛(5A)",
 			"img": "http://img1.qunarzz.com/sight/p0/1411/d8/eec44461ecfd83df9c1669e7846b1c53.water.jpg_110x110_ca5dc111.jpg",
-			"url": "",
+			"url": "http://localhost:8080/#/oneday/detail/123123123",
 			"hot": true,
 			"today": true,
 			"star": "width:96%",
@@ -154,7 +154,7 @@
 		},{
 			"name": "亚龙湾海底世界",
 			"img": "http://img1.qunarzz.com/sight/p0/1603/87/876ee78aa0781f7390.water.jpg_110x110_2790458b.jpg",
-			"url": "",
+			"url": "http://localhost:8080/#/oneday/detail/123123123",
 			"hot": true,
 			"today": true,
 			"star": "width:90%",
@@ -164,7 +164,7 @@
 		},{
 			"name": "三亚亚龙湾环球城大酒店",
 			"img": "http://img1.qunarzz.com/sight/p0/1512/44/44894ad8d4a1e73590.img.jpg_110x110_a22c9007.jpg",
-			"url": "",
+			"url": "http://localhost:8080/#/oneday/detail/123123123",
 			"hot": true,
 			"today": false,
 			"star": "width:90%",
@@ -174,7 +174,7 @@
 		},{
 			"name": "天涯海角(4A)",
 			"img": "http://img1.qunarzz.com/sight/p0/1603/97/97a91e052b51aa9890.water.jpg_110x110_ad188b21.jpg",
-			"url": "",
+			"url": "http://localhost:8080/#/oneday/detail/123123123",
 			"hot": true,
 			"today": true,
 			"star": "width:96%",
@@ -184,7 +184,7 @@
 		},{
 			"name": "亚龙湾德贝潜水运动中心",
 			"img": "http://img1.qunarzz.com/sight/p0/1706/30/305ef1b446e4619ca3.img.jpg_110x110_98ae4d97.jpg",
-			"url": "",
+			"url": "http://localhost:8080/#/oneday/detail/123123123",
 			"hot": true,
 			"today": true,
 			"star": "width:92%",
@@ -194,7 +194,7 @@
 		},{
 			"name": "亚龙湾爱琴海潜水度假村",
 			"img": "http://img1.qunarzz.com/sight/p0/1411/19/c4852c73f297811f801febdd8e75da43.water.jpg_110x110_3203ce85.jpg",
-			"url": "",
+			"url": "http://localhost:8080/#/oneday/detail/123123123",
 			"hot": true,
 			"today": true,
 			"star": "width:90%",

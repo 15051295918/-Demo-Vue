@@ -1,28 +1,28 @@
 <template>
     <div class="listCon">
-		<paginate class="mp-view-list mp-page" ref="paginator" name="languages" :list="listCon" :per="pre">
-	    	<li class="mp-sight-group border-topbottom" v-for="(item, index) in paginated('languages')" :key="'li_item_' + index">
-		    	<div class="mp-item-content">
-			    	<div class="mp-sight-info">
+		<paginate class="view-list page" ref="paginator" name="languages" :list="listCon" :per="pre">
+	    	<li class="sight-group border-topbottom" v-for="(item, index) in paginated('languages')" :key="'li_item_' + index">
+		    	<div class="item-content">
+			    	<div class="sight-info">
 				    	<a :href="item.url">
-					    	<div class="mp-sight-imgcon">
-					    		<img class="mp-sight-img" v-lazy="item.img">
-					    		<span class="mp-list-bookingflag-today" v-show="item.today">
-					    			<span class="mp-list-bookingtext">可订今日</span>
+					    	<div class="sight-imgcon">
+					    		<img class="sight-img" v-lazy="item.img">
+					    		<span class="list-bookingflag-today" v-show="item.today">
+					    			<span class="list-bookingtext">可订今日</span>
 					    		</span>
 					    	</div>
-					    	<div class="mp-sight-detail">
-						    	<h3 class="mp-sight-name">{{item.name}}</h3>
-						    	<span class="mp-tag-word" v-show="item.hot">热</span>
-						    	<div class="mp-sight-comments">
+					    	<div class="sight-detail">
+						    	<h3 class="sight-name">{{item.name}}</h3>
+						    	<span class="tag-word" v-show="item.hot">热</span>
+						    	<div class="sight-comments">
 						    		<span class="mpf-starlevel">
 						    			<span class="mpg-iconfont mpf-starlevel-gain" :style="item.star">★★★★★</span>
 						    			<span class="mpg-iconfont mpf-starlevel-total">★★★★★</span>
 						    		</span>
-						    		<span class="mp-comments-totalnum">{{item.comment}}评论</span>
+						    		<span class="comments-totalnum">{{item.comment}}评论</span>
 						    	</div>
-						    	<div class="mp-sight-location">
-						    		<span class="mp-sight-address">{{item.address}}</span>
+						    	<div class="sight-location">
+						    		<span class="sight-address">{{item.address}}</span>
 						    	</div>
 					    	</div>
 				    	</a>
@@ -30,15 +30,15 @@
 		    	</div>
 	    	</li>
 		</paginate>
-	    <div class="mp-moreinfo">
-	    	<div class="mp-pagination">
+	    <div class="moreinfo">
+	    	<div class="pagination">
 				<a @click="prevPage" class="linkPage">上一页</a>
-				<span v-if="$refs.paginator" ref="pageNumber" class="mp-page-num" :val="pageNum">
+				<span v-if="$refs.paginator" ref="pageNumber" class="page-num" :val="pageNum">
 					{{pageNum}}
 				</span>
 				<a @click="textPage" class="linkPage">下一页</a>
 	    	</div>
-	    	<div class="mp-page-text">来这儿景点</div>
+	    	<div class="page-text">来这儿景点</div>
 	    </div>
     </div>
 </template>
@@ -53,8 +53,9 @@
 	        this.$http.get('/static/scenicSpotList.json').then(response => {
 	            var this_ = this;
 	            if(response.body.ret) {
+	            	this.newCon = response.body.data.listCon;
 	            	this.listCon = response.body.data.listCon.filter(function(item){ 
-					    return item.address.split('·')[0]=='三亚' && this_.cityPageList(item.scenicSpotClassification)
+					    return item.address.split('·')[0]=='北京' && this_.cityPageList(item.scenicSpotClassification)
 					});
 	            }
 	        }, response => {
@@ -66,9 +67,8 @@
 				if (this.$refs.paginator) {
 					var current = this.pageNum;
 					if(current > 1) {
-						// this.$refs.paginator.goToPage(this.pageNum-1);
+						this.$refs.paginator.goToPage(this.pageNum-1);
 					}
-					this.sortList("离我最近")
 				}
 			},
 			textPage () {
@@ -83,7 +83,7 @@
 			cityPageList(value,index) {
 				var Classify=false;
 				for(var i=0;i<value.length;i++) {
-					if(value[i]=='全部分类') {
+					if(value[i]==this.listClassigy) {
 						Classify=true;
 					}
 				}
@@ -103,6 +103,14 @@
 				}
 			}
 		},
+		watch: {
+			listClassigy() {
+				var this_ = this;
+				this.listCon = this.newCon.filter(function(item){ 
+				    return item.address.split('·')[0]==this_.listClassigy && this_.cityPageList(item.scenicSpotClassification)
+				});
+			}
+		},
 		computed: {
 			pageNum: function() {
 				return parseInt(parseInt(this.$refs.paginator.pageItemsCount)/this.pre)+1
@@ -110,9 +118,11 @@
 		},
 		data () {
 			return {
+				listClassigy: this.$store.state.playItem.replace(/(^\s*)|(\s*$)/g,""),
 				isAction: this.pre,
 				pre: 8,
     			paginate: ['languages'],
+    			newCon: [],
 				listCon: []
 			}
 		}
@@ -126,37 +136,37 @@
 	    top: .78rem;
 	    z-index: 1;
 	}
-	.mp-page {
+	.page {
 		background-color: #f5f5f5;
 		height: 100%;
 	}
-	.mp-sight-group::after {
+	.sight-group::after {
 		border-color: #c9cccd;
 	}
-	.mp-sight-group::before {
+	.sight-group::before {
 		border-color: #c9cccd;
 	}
-	.mp-sight-group {
+	.sight-group {
 		margin-bottom: .2rem;
     	background: #fff;
     	position: relative;
 	}
-	.mp-sight-info {
+	.sight-info {
 		padding: .2rem;
 	}
-	.mp-sight-imgcon {
+	.sight-imgcon {
 		float: left;
 		position: relative;
 		width: 1.6rem;
     	height: 1.6rem;
 	}
-	.mp-sight-img {
+	.sight-img {
 		opacity: 1;
 		transition: opacity 400ms;
 		width: 1.6rem;
     	height: 1.6rem;
 	}
-	.mp-list-bookingflag-today {
+	.list-bookingflag-today {
 		background: #fa8514;
 		position: absolute;
 	    left: -.04rem;
@@ -166,7 +176,7 @@
 	    color: #fff;
 	    line-height: .24rem;
 	}
-	.mp-list-bookingflag-today::after {
+	.list-bookingflag-today::after {
 		content: "";
 	    position: absolute;
 	    top: 0;
@@ -177,18 +187,18 @@
     	border-bottom: .14rem solid #fa8514;
     	border-right: .1rem solid transparent;
 	}
-	.mp-list-bookingtext {
+	.list-bookingtext {
 		display: block;
     	font-size: .24rem;
     	transform: scale(.83);
 	}
-	.mp-sight-detail {
+	.sight-detail {
 		position: relative;
 	    overflow: hidden;
 	    padding-left: .2rem;
 	    height: 1.6rem;
 	}
-	.mp-sight-name {
+	.sight-name {
 		float: left;
 		overflow: hidden;
 	    max-width: 60%;
@@ -198,7 +208,7 @@
 	    white-space: nowrap;
 	    text-overflow: ellipsis;
 	}
-	.mp-tag-word {
+	.tag-word {
 	    margin-left: .06rem;
 	    float: left;
 	    margin-top: 2px;
@@ -210,7 +220,7 @@
 	    line-height: .3rem;
 	    text-align: center;
 	}
-	.mp-sight-comments {
+	.sight-comments {
 		margin-top: .38rem;
 	    height: .64rem;
 	    line-height: .64rem;
@@ -246,24 +256,24 @@
 		color: #ddd;
 		z-index: 1;
 	}
-	.mp-comments-totalnum {
+	.comments-totalnum {
 		position: relative;
 	    top: -.04rem;
 	    margin-left: .06rem;
 	    color: #9e9e9e;
 	    font-size: .24rem;
 	}
-	.mp-sight-location {
+	.sight-location {
 		position: absolute;
 	    bottom: 0;
 	    color: #9e9e9e;
 	    font-size: 0;
 	    white-space: nowrap;
 	}
-	.mp-sight-address {
+	.sight-address {
 		font-size: .24rem;
 	}
-	.mp-moreinfo {
+	.moreinfo {
 		padding-bottom: .2rem;
 	    color: #00afc7;
 	    text-align: center;
@@ -284,12 +294,12 @@
 	    color: #fff;
 	    border: 0;
 	}
-	.mp-page-num {
+	.page-num {
 		color: #212121;
 	    line-height: .6rem;
 	    padding: 0 15px;
 	}
-	.mp-page-text {
+	.page-text {
 		padding-top: .2rem;
 	    line-height: .3rem;
 	    font-size: .3rem;
