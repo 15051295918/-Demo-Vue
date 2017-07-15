@@ -1,5 +1,5 @@
 <template>
-	 <swiper :options="swiperOption" ref="mySwiper">
+	<swiper :options="swiperOption" ref="mySwiper">
         <swiper-slide v-for="(item, index) in data" :key="index + '_imgswiper_item'">
         	<div class="img-wrapper">
         		<img class="swiper-img" :src="item.imgUrl"/>
@@ -18,18 +18,18 @@ export default {
     return {
      	swiperOption: {
      		loop: true,
-        autoplay: 3000,
-        direction : 'horizontal',
-        autoHeight: true,
-        pagination : '.swiper-pagination',
-        paginationClickable :true
-      }
+            autoplay: 3000,
+            direction : 'horizontal',
+            autoplayDisableOnInteraction: false,
+            autoHeight: true,
+            pagination : '.swiper-pagination',
+            paginationClickable :true
+        }
     }
   },
   props:["data"]
 }
 </script>
-
 
 <style scoped>
 	.img-wrapper {

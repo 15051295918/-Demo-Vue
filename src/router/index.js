@@ -2,7 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/pages/index/index'
 import List from '@/pages/list/index'
-
+import SigthotelIndex from "@/pages/sighthotel/index/index"
+import SigthotelDetail from "@/pages/sighthotel/detail/index"
+import SigthotelOrderIndex from "@/pages/sighthotel/orders/index"
+import Phonearea from "@/pages/sighthotel/orders/phonearea"
 import onedayList from '@/pages/oneday-list/index'
 import Detail from '@/pages/CommonDetail/index'
 import WeekendIndex from '@/pages/weekendIndex/index'
@@ -117,10 +120,26 @@ export default new Router({
             path: "/weekend/index",
             name: "Weekend",
             component: WeekendIndex
-        },{
+        }, {
             path: '/onedaytour',
             name: 'Oneday',
             component: Oneday
+        }, {
+            path: "/sighthotel",
+            name: "sigthotelIndex",
+            component: SigthotelIndex
+        }, {
+            path: "/sighthotel/detail",
+            name: "sigthotelDetail",
+            component: SigthotelDetail
+        }, {
+            path: "/sighthotel/order",
+            name: "sigthotelOrderIndex",
+            component: SigthotelOrderIndex
+        }, {
+            path:"/phonearea",
+            name:"phonearea",
+            component: Phonearea
         }
-    ]    
+        ]    
 })
