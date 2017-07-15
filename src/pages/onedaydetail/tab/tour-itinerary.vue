@@ -45,7 +45,7 @@
         </div>
         <div class="page-map" v-if="isBigMapOpen">
             <baidu-map class="map" :center="tourItineraryInfo.map.center" :zoom="tourItineraryInfo.map.zoom" @click="handleMapClick">
-                <bm-marker :position="tourItineraryInfo.map.center" :dragging="true" animation="BMAP_ANIMATION_BOUNCE">
+                <bm-marker :position="tourItineraryInfo.map.center" :dragging="false" animation="BMAP_ANIMATION_BOUNCE">
                 </bm-marker>
             </baidu-map>
         </div>
