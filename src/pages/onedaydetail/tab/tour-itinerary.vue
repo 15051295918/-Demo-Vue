@@ -37,32 +37,23 @@
                 </div>
             </div>
         </router-link>
-        <div :class='{"prddetail-mapcon":true, "page-map":isBigMapOpen}' @click="handleMapClick">
-            <!-- <el-amap vid="amap" :zoom="tourItineraryInfo.map.zoom" :center="tourItineraryInfo.map.center" class="amap-demo">
-                <el-amap-info-window v-for="(mapWindow, index) in tourItineraryInfo.map.mapWindows" :position="mapWindow.position" :content="mapWindow.content"
-                    :visible="mapWindow.visible" :events="map.events" :key="index + 'map'">
-                </el-amap-info-window>
-            </el-amap> -->
+        <div class='prddetail-mapcon'>
+            <baidu-map class="map" :center="tourItineraryInfo.map.center" :zoom="tourItineraryInfo.map.zoom" @click="handleMapClick">
+                <bm-marker :position="tourItineraryInfo.map.center" :dragging="false" animation="BMAP_ANIMATION_BOUNCE">
+                </bm-marker>
+            </baidu-map>
+        </div>
+        <div class="page-map" v-if="isBigMapOpen">
+            <baidu-map class="map" :center="tourItineraryInfo.map.center" :zoom="tourItineraryInfo.map.zoom" @click="handleMapClick">
+                <bm-marker :position="tourItineraryInfo.map.center" :dragging="false" animation="BMAP_ANIMATION_BOUNCE">
+                </bm-marker>
+            </baidu-map>
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        data() {
-
-            return {
-
-                "map": {
-                    events: {
-                        close() {
-                            console.log('close infowindow');
-                        }
-                    }
-                }
-            }
-
-        },
 
         props: [
             "tourItineraryInfo", "isBigMapOpen"
@@ -84,6 +75,11 @@
 
 
 <style scoped>
+    .map {
+        width: 100%;
+        height: 100%;
+    }
+
     .tour-intimerary-main {
         padding: .98rem .2rem .1rem;
         background: #fff;

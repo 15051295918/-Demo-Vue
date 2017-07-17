@@ -4,7 +4,7 @@
             <div class="booking-predetermine">
                 <booking-header :headerInfo="bookTicketInfo.header" @close="handleClose" :fff="handle"></booking-header>
                 <booking-content :contentInfo="bookTicketInfo.content" :otherDay="otherDay" @close="handlereveal" @obtain="handleObtain"></booking-content>
-                <booking-footer></booking-footer>
+                <div class="footer">立即预定</div>
                 <transition>
                     <div v-show="reveal" class="calendar-section">
                         <div class="calendar-choose">
@@ -27,7 +27,6 @@
 <script>
     import header from './booking-header';
     import content from './booking-content';
-    import footer from './booking-footer';
     import calendar from '../../../components/calendar';
 
     export default {
@@ -45,7 +44,6 @@
         components: {
             "booking-header": header,
             "booking-content": content,
-            "booking-footer": footer,
             "booking-calendar": calendar
 
         },
@@ -150,6 +148,19 @@
         width: .88rem;
         height: 1rem;
         line-height: 1rem;
+        text-align: center;
+    }
+
+    .footer {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        border: 0 none;
+        background: #ff9800;
+        color: #fff;
+        font: normal .36rem/1rem Arial, "Microsoft Yahei", "Helvetica Neue", Helvetica, sans-serif;
         text-align: center;
     }
 

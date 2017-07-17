@@ -3,9 +3,8 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import VueResource from 'vue-resource'
 import FastClick from 'fastclick'
 import Vuex from 'vuex';
-
-import AMap from 'vue-amap'
 import VueLazyload from 'vue-lazyload';
+import BaiduMap from 'vue-baidu-map';
 import VuePaginate from 'vue-paginate'
 
 Vue.config.productionTip = false
@@ -13,7 +12,6 @@ Vue.config.productionTip = false
 Vue.use(VueAwesomeSwiper);
 Vue.use(VueResource);
 Vue.use(Vuex);
-Vue.use(AMap);
 Vue.use(VuePaginate)
 
 Vue.use(VueLazyload, {
@@ -22,10 +20,10 @@ Vue.use(VueLazyload, {
   attempt: 1
 })
 
-AMap.initAMapApiLoader({
-  key: '2ff2e5535cd7ae698e7af431e6558948',
-  plugin: ['AMap.Autocomplete', 'AMap.PlaceSearch', 'AMap.Scale', 'AMap.OverView', 'AMap.ToolBar', 'AMap.MapType', 'AMap.PolyEditor', 'AMap.CircleEditor']
-});
+Vue.use(BaiduMap, {
+  // ak 是在百度地图开发者平台申请的密钥 详见 http://lbsyun.baidu.com/apiconsole/key */
+  ak: 'ItGUcMmiA6r3XESMFiE6oLM0NtdWZIqf'
+})
 
 FastClick.attach(document.body);
 

@@ -20,23 +20,12 @@
                 "tabOfset": {}
             },
             "tourItinerary": {
-                "map": {
-                    "isBigMapOpen": false,
-                    "zoom": 11,
-                    "center": [
-                        116.3958138,
-                        39.9109056
-                    ],
-                    "windows": [
-                        {
-                            "position": [
-                                116.3958138,
-                                39.9109056
-                            ],
-                            "content": "天安门",
-                            "visible": true
-                        }
-                    ]
+                "map":{
+                    "center":{
+                        "lng": 116.404, 
+                        "lat": 39.915
+                    },
+                    "zoom":15
                 },
                 "routesum": [
                     {
