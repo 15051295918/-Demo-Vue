@@ -11,7 +11,7 @@
 			</div>
 		</div>
 		<div>
-			<ul v-if="recommend.city == $store.state.city">
+			<ul>
 				<li v-for="(item,index) in recommend.recommendInfo" class="recommend-concent" :key="index + 'recommend'">
 					<router-link :to="{path:item.link,query:{title:item.title, id:item.id}}">
 						<div class="recommend-concent-imgbox">

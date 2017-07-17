@@ -19,37 +19,35 @@ import cityclassify from './cityclassify'
 import viewspot from './viewspot'
 
 export default {
-	beforeCreate: function() {
-		var currentCitys = "";
-		try{
-			if(window.localStorage.city){
-				window.localStorage.currentCity = window.localStorage.city;
-			}else{
-				window.localStorage.currentCity = "北京";
-			}
-		}catch(e){}
-	},
 	created: function(){
-        this.$http.get('/static/oneday.json').then(response => {
-        	try{
-				if(window.localStorage){
-					this.currentCity = window.localStorage.currentCity;
-				}
-			}catch(e){}
-            this.swiperInfo = response.body.data.swiperInfo;
-            this.recommendInfo = response.body.data[this.currentCity];
-		    this.cityclassify = response.body.data.cityInfo;
-        }, response => {
-            console.log("get index data error")
-        });
-    },
+        this.getWeekendData()
+   	},
     data () {
         return {
             swiperInfo: [],
             recommendInfo: [],
 		    cityclassify: [],
-			headercity: ""
+			headercity: "",
+			currentCitys:""
         }
+    },
+    methods:{
+    	getWeekendData: function() {
+	  		this.$http.get('/static/oneday.json').then(response => {
+	  			this.getWeekendDataSucc(response)
+			},response => {
+			  	console.log("get data Error")
+			 })
+	  	},
+	  	getWeekendDataSucc: function(response) {
+	  		this.currentCity = this.$store.state.city;
+	        if(!response.body.data[this.currentCity]){
+	          this.currentCity="北京";
+	        }
+	        this.swiperInfo = response.body.data.swiperInfo;
+            this.recommendInfo = response.body.data[this.currentCity];
+		    this.cityclassify = response.body.data.cityInfo;
+	  	}
     },
     components: {
         "index-header": header,

@@ -11,7 +11,7 @@
 		</div>
 		<div class="spot-concent">
 			<ul class="spot-concent-ul">
-				<li v-for="(item,index) in spot.spotInfo" class="spot-concent-li" :key="index + 'spot'" v-if="spot.city == $store.state.city">
+				<li v-for="(item,index) in spot.spotInfo" class="spot-concent-li" :key="index + 'spot'">
 					<div class="spot-concent-box">
 						<div class="spot-concent-img">
 							<router-link :to="{path:item.link,query:{title:item.title, id:item.id}}">

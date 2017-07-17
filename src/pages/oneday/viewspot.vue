@@ -3,7 +3,7 @@
 		<div class="view-top">
 			<p class="city-popular">北京热门景点门票</p>
 		</div>
-		<div class="viewport-box" v-for="(item, index) in viewspot.viewspotInfo" :key="'index'+ '_viewspot'" v-if="viewspot.city == $store.state.city">
+		<div class="viewport-box" v-for="(item, index) in viewspot.viewspotInfo" :key="'index'+ '_viewspot'">
 			<router-link :to="{path:item.link,query:{title:item.title, id:item.id}}">
 				<div class="viewport-img">
 					<img class="view-img" v-lazy="item.imgUrl">
