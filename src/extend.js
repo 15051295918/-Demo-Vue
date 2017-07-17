@@ -12,7 +12,6 @@ Vue.config.productionTip = false
 Vue.use(VueAwesomeSwiper);
 Vue.use(VueResource);
 Vue.use(Vuex);
-Vue.use(AMap);
 Vue.use(VuePaginate)
 
 Vue.use(VueLazyload, {
