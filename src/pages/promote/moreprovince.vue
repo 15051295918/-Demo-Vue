@@ -49,6 +49,12 @@ export default {
 
 
 <style scoped>
+    .more-province {
+    	position: fixed;
+    	top: 0;
+    	left: 0;
+    	background-color: rgba(0,0,0,0.4);
+    }
 	.more-province-off {
 		position: absolute;
 		top: 3.4rem;
